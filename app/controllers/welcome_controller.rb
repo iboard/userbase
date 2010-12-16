@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
   # GET /
   # GET /feed.atom
   def index
-    @postings     = Posting.readable( current_user ? current_user.roles_mask : 1).latest(NUM_POSTINGS_ON_WELCOME_PAGE)
+    @postings     = Posting.readable( current_user ? current_user.roles_mask : 1).latest(CONSTANTS['num_postings_on_welcome_page'])
     respond_to do |format| 
       format.atom  { 
         @commentables = Commentable.all_commentables

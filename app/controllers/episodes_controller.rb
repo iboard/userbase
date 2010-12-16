@@ -9,9 +9,9 @@ class EpisodesController < ApplicationController
   def index
     episodes = Episode.readable(current_user ? current_user.roles_mask : 1).order("updated_at desc")
     if session[:language_filter].blank?
-      @episodes = episodes.paginate( :page => params[:page], :per_page => PAGINATE_EPISODES_PER_PAGE)
+      @episodes = episodes.paginate( :page => params[:page], :per_page => CONSTANTS['paginate_episodes_per_page'])
     else
-      @episodes = episodes.with_locales(session[:language_filter]).paginate( :page => params[:page], :per_page => PAGINATE_EPISODES_PER_PAGE)
+      @episodes = episodes.with_locales(session[:language_filter]).paginate( :page => params[:page], :per_page => CONSTANTS['paginate_episodes_per_page'])
     end
     
     respond_to do |format|
@@ -95,7 +95,7 @@ class EpisodesController < ApplicationController
     @episodes = Episode.tagged_with(params[:tag], :on => :tags)\
       .readable(current_user ? current_user.roles_mask : 1)\
       .order('updated_at desc').uniq\
-      .paginate(:page => params[:page], :per_page => ::PAGINATE_POSTINGS_PER_PAGE)
+      .paginate(:page => params[:page], :per_page => CONSTANTS['paginate_postings_per_page'])
     render :index
   end
  

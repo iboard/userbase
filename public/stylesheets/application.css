@@ -821,7 +821,7 @@
   	color: #456;
       font-weight: bold;
   	font-size: 10px;
-  	margin-bottom: -15px;
+  	margin-bottom: -5px;
   	padding-bottom: 0px;
   	line-height: 105%;
   }
@@ -930,8 +930,8 @@
   }
   
   .episode address {
-  	margin-top: -15px;
-  	margin-bottom: -10px;
+  	margin-top: 0px;
+  	margin-bottom: 0px;
   	font-size: smaller;
   	padding: 0px;
       line-height: 105%;
@@ -1371,8 +1371,8 @@
   }
   
   .episode address {
-  	margin-top: -15px;
-  	margin-bottom: -10px;
+  	margin-top: 0px;
+  	margin-bottom: 0px;
   	font-size: smaller;
   	padding: 0px;
       line-height: 105%;

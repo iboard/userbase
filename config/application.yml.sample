@@ -1,0 +1,41 @@
+development:
+  application:
+    name:              iBoard.cc (DEVELOPMENT)
+    stylesheet_screen: application
+    stylesheet_print:  application
+    copyright:         Andreas Altendorfer
+    copyright_url:     http://altendorfer.at
+  constants:
+    max_time_to_edit_new_comments: 15    
+    rss_feed_cache_time:           1.minute
+    paginate_postings_per_page:    6
+    paginate_episodes_per_page:    6
+    num_postings_on_welcome_page:  6
+
+test:
+  application:
+    name:              iBoard.cc (TEST)
+    stylesheet_screen: application
+    stylesheet_print:  application
+    copyright:         Andreas Altendorfer
+    copyright_url:     http://altendorfer.at
+  constants:
+    max_time_to_edit_new_comments: 15    
+    rss_feed_cache_time:           1.minute
+    paginate_postings_per_page:    6
+    paginate_episodes_per_page:    6
+    num_postings_on_welcome_page:  6
+
+production:
+  application:
+    name:              iBoard.cc
+    stylesheet_screen: application
+    stylesheet_print:  application
+    copyright:         Andreas Altendorfer
+    copyright_url:     http://altendorfer.at
+  constants:
+    max_time_to_edit_new_comments: 15    
+    rss_feed_cache_time:           1.minute
+    paginate_postings_per_page:    6
+    paginate_episodes_per_page:    6
+    num_postings_on_welcome_page:  6

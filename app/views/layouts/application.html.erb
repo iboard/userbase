@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield :title %></title>
+    <title><%= content_for?(:title) ? yield(:title) : APPLICATION_CONFIG['name'] %></title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <%= stylesheet_link_tag(  ApplicationConfig.uration(:application_css), :media => :screen )%>
-    <%= stylesheet_link_tag(  ApplicationConfig.uration(:application_css), :media => :print )%>
+    <%= stylesheet_link_tag( APPLICATION_CONFIG['stylesheet_screen'], :media => :screen )%>
+    <%= stylesheet_link_tag( APPLICATION_CONFIG['stylesheet_print'], :media => :print )%>
     <%= javascript_include_tag :defaults %>
     <!-- prototype-lib will be loaded only when needed -->
     <%= yield :prototype %>
@@ -29,12 +29,12 @@
   <% end %>
   
   <body>
-      <% unless @request.nil? %>
+      <% unless Rails.env == 'test' %>
         <div id='print_title'>
-            <h1><%= ApplicationConfig.uration :application_name %></h1>
+            <h1><%= APPLICATION_CONFIG['name'] %></h1>
             <address>
                 Printed: <%= Time.now -%><br/>
-                Address: <%= [ @request.protocol, @request.host, @request.request_uri].join %>
+                Address: <%= [request.protocol, request.host, request.request_uri].join('') %>
             </address>
         </div>
       <% end %>
@@ -79,7 +79,7 @@
               
         <%= content_tag :div, :id => 'page_header' do %>
           <%= content_tag :div, :style=>'width: 400px; float: left;'  do %>
-            <h1 style='width: 400px;'><%= ApplicationConfig.uration :application_name %></h1>
+            <h1 style='width: 400px;'><%= ::APPLICATION_CONFIG[:application_name] %></h1>
             <%= html_include('public/static_pages/header.html').html_safe -%>
           <% end %>
         <% end %>
@@ -109,7 +109,7 @@
             <%= inline_button(link_to( sc(:pr,:nbsp)+t(:subscribe_rss_feed), "/feed.atom", :style => 'color: black;')) %>
             <p>&nbsp;</p>
             <%= content_tag :div, :id => 'copyright', :style => 'width: 400px;' do %>
-              © copyright <%= Date.today().year %> by <%= link_to ApplicationConfig.uration(:application_copyright), ApplicationConfig.uration(:application_copyright_url) %>
+              © copyright <%= Date.today().year %> by <%= link_to APPLICATION_CONFIG['copyright'], APPLICATION_CONFIG['copyright_url'] %>
             <% end %>
           </div>
       </footer>

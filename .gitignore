@@ -10,12 +10,10 @@ config/mailserver_setting.rb
 config/database.yml
 config/user_db.yml
 config/omniauth_settings.rb
-config/application_name.conf
-config/application_css.conf
-config/application_copyright.conf
-config/application_copyright_url.conf
+config/application.yml
 config/environments/production.rb
 config/environemnts/development.rb
+config/environments/test.rb
 public/system/*
 public/photos
 public/photos/*

@@ -19,9 +19,9 @@ class PostingsController < ApplicationController
     end
     
     unless session[:language_filter].blank?
-      @postings = postings.with_locales(session[:language_filter]).paginate(:page => params[:page], :per_page => ::PAGINATE_POSTINGS_PER_PAGE)
+      @postings = postings.with_locales(session[:language_filter]).paginate(:page => params[:page], :per_page => CONSTANTS['paginate_postings_per_page'])
     else
-      @postings = postings.paginate(:page => params[:page], :per_page => ::PAGINATE_POSTINGS_PER_PAGE)
+      @postings = postings.paginate(:page => params[:page], :per_page => CONSTANTS['paginate_postings_per_page'])
     end
     
     respond_to do |format|
@@ -108,7 +108,7 @@ class PostingsController < ApplicationController
     @postings = Posting.tagged_with(params[:tag], :on => :tags)\
       .readable(current_user ? current_user.roles_mask : 1)\
       .order('updated_at desc').uniq\
-      .paginate(:page => params[:page], :per_page => ::PAGINATE_POSTINGS_PER_PAGE)
+      .paginate(:page => params[:page], :per_page => CONSTANTS['paginate_postings_per_page'])
     @tag = params[:tag]
     render :index
   end

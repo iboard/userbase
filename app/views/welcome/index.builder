@@ -1,5 +1,5 @@
 atom_feed(:url => feed_path) do |feed|
-   feed.title(ApplicationConfig.uration(:application_name))
+   feed.title(APPLICATION_CONFIG['application_name'])
 
    feed.updated(@commentables.first ? @commentables.first.created_at : Time.now.utc )
    for item in @commentables

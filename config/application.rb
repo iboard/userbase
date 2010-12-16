@@ -43,14 +43,6 @@ module Userbase
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
-    # Userbase Application specific configuration
-    # Constants
-    ::MAX_TIME_TO_EDIT_NEW_COMMENTS = 15    
-    ::RSS_FEED_CACHE_TIME           = 1.minute
-    ::PAGINATE_POSTINGS_PER_PAGE    = 6
-    ::PAGINATE_EPISODES_PER_PAGE    = 6
-    ::NUM_POSTINGS_ON_WELCOME_PAGE  = 6
     
   end
 

@@ -3,10 +3,10 @@
     <%= comment.user.nickname %>, <%= t(:time_ago, :time => time_ago_in_words(comment.updated_at)) if comment.updated_at -%>
      <% if can?(:manage,comment) && !comment.new_record? %>
        <br />
-       <% if MAX_TIME_TO_EDIT_NEW_COMMENTS-(Time.now-comment.updated_at)/60 > 0 %>
+       <% if CONSTANTS['max_time_to_edit_new_comments']-(Time.now-comment.updated_at)/60 > 0 %>
          <%= t(:you_can_manage_this_item_for_another_n_minutes, 
                        :item => t(:comment), 
-                       :minutes => (MAX_TIME_TO_EDIT_NEW_COMMENTS-(Time.now-comment.updated_at)/60).round
+                       :minutes => (CONSTANTS['max_time_to_edit_new_comments']-(Time.now-comment.updated_at)/60).round
              ).html_safe 
          %>
        <% end %>
