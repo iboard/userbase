@@ -13,7 +13,9 @@ It defines MVCs for
 
     git clone git://github.com/iboard/userbase.git [PATH_OF_YOUR_CHOICE]
     
-## Copy sample configuration files to live files
+## Configuration
+
+Copy sample configuration files to live files
 
     cp config/mailserver_setting.rb.sample \
     config/mailserver_setting.rb
@@ -21,6 +23,7 @@ It defines MVCs for
 
 do the same thing with all *sample-files and edit this files to fit your needs
 
+Most of the configuration can be done in 'config/application.yml' for each environment.
 
 ## In order to use rake taks deploy:dump_db
 
