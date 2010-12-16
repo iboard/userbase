@@ -26,17 +26,11 @@ class ActiveSupport::TestCase
     posting.save!
     posting
   end
-  
-  
-<<<<<<< HEAD:test/test_helper.rb
-=======
+
   def create_valid_episode(user)
     episode = Episode.new(:user => user, :title => 'My Posting', :description => 'My Description')
     episode.save!
     episode
   end
-  
->>>>>>> 5519a7a30f020a37f9b43a3f30b79711b3405a1d:test/test_helper.rb
-  
-  
+    
 end

@@ -17,18 +17,10 @@ RSpec.configure do |config|
   # config.mock_with :rr
   config.mock_with :rspec
 
-<<<<<<< HEAD:spec/spec_helper.rb
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false
-=======
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
->>>>>>> 5519a7a30f020a37f9b43a3f30b79711b3405a1d:spec/spec_helper.rb
   # instead of true.
   config.use_transactional_fixtures = true
 end

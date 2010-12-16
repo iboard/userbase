@@ -30,11 +30,7 @@ class PostingTest < ActiveSupport::TestCase
     assert posting.save, "Posting saved without user" 
   end
   
-<<<<<<< HEAD:test/unit/posting_test.rb
-  
-  test "Posting should not saved when access masks are zero" do
-    
-=======
+
   test "Posting should not saved when access masks are zero" do
     user = create_valid_user_with_id(1)
     posting = Posting.new(:title => 'My Posting', :body => 'My beautyfull body', :user_id => 1,
@@ -42,7 +38,6 @@ class PostingTest < ActiveSupport::TestCase
                           :access_manage_mask => 0
                           )
     assert !posting.save, "Posting saved with 0-access_masks"
->>>>>>> 5519a7a30f020a37f9b43a3f30b79711b3405a1d:test/unit/posting_test.rb
   end
 
   # check if posting can be saved when complete

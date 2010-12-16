@@ -2,20 +2,12 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   # Replace this with your real tests.
-<<<<<<< HEAD:test/unit/user_test.rb
-  test "A just generated new user sould not save" do
-=======
   test "A just built new user sould not save" do
->>>>>>> 5519a7a30f020a37f9b43a3f30b79711b3405a1d:test/unit/user_test.rb
     user = User.new
     assert !user.save, "Saved new user without setting the object up for usage"
   end
   
-<<<<<<< HEAD:test/unit/user_test.rb
-  test "A user with email, nickname ..." do
-=======
   test "A user with email, nickname should not save without a password" do
->>>>>>> 5519a7a30f020a37f9b43a3f30b79711b3405a1d:test/unit/user_test.rb
     user = User.new(:email => 'tester@test.te', :nickname => 'Nockenfell')
     assert !user.save, "User saved without a password"
   end

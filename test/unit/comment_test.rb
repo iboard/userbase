@@ -1,25 +1,17 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-<<<<<<< HEAD:test/unit/comment_test.rb
-    
-=======
-        
->>>>>>> 5519a7a30f020a37f9b43a3f30b79711b3405a1d:test/unit/comment_test.rb
+
    def setup
      @user  = User.first || create_valid_user_with_id(1)
    end
   
-<<<<<<< HEAD:test/unit/comment_test.rb
-=======
    ### General
->>>>>>> 5519a7a30f020a37f9b43a3f30b79711b3405a1d:test/unit/comment_test.rb
    test "Comment should not save without an email" do
      comment = Comment.new
      assert !comment.save, "Comment saved without email"
    end
 
-<<<<<<< HEAD:test/unit/comment_test.rb
    test "Comment should not save without a comment" do
      
      posting = create_valid_posting(@user)
@@ -41,7 +33,6 @@ class CommentTest < ActiveSupport::TestCase
      assert comment.save, "Comment not saved #{comment.errors.to_s}"
    end
    
-=======
    ### Posting
    test "Comment (for posting) should not save without a comment" do
      posting = create_valid_posting(@user)
@@ -80,6 +71,4 @@ class CommentTest < ActiveSupport::TestCase
      assert comment.save, "Comment (for Episode) not saved #{comment.errors.to_s}"
    end
 
-   
->>>>>>> 5519a7a30f020a37f9b43a3f30b79711b3405a1d:test/unit/comment_test.rb
 end

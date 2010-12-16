@@ -6,17 +6,6 @@ one:
   user_id: 1
   email: a.valid@email.ad
   ip_address: 127.0.0.1
-<<<<<<< HEAD:test/fixtures/comments.yml
-  comment: Comment One
-
-two:
-  commentable_id: 1
-  commentable_type: Posting
-  user_id: 1
-  email: a.valid@email.ad
-  ip_address: 127.0.0.1
-  comment: Comment Two
-=======
   comment: A Comment about a Posting
 
 two:
@@ -26,5 +15,4 @@ two:
   email: a.valid@email.ad
   ip_address: 127.0.0.1
   comment: A Comment about an Episode
->>>>>>> 5519a7a30f020a37f9b43a3f30b79711b3405a1d:test/fixtures/comments.yml
 
