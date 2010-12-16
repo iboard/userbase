@@ -1,8 +1,12 @@
 class AuthenticationsController < ApplicationController
+  
+  # Show user's authentications (Twitter, Facebook, ....)
   def index
     @authentications = current_user.authentications if current_user
   end
   
+  # Create an authentication when this callback will be called from
+  # the authentication provider
   def create
     omniauth = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])

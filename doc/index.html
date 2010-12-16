@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+	<title>userbase API</title>
+
+	<link type="text/css" media="screen" href="rdoc.css" rel="stylesheet" />
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body class="indexpage">
+
+	
+	<h1>userbase API</h1>
+
+	
+	<p>This is the API documentation for 'userbase API'.</p>
+	
+
+	
+	
+	<h2>Files</h2>
+	<ul>
+		
+			<li class="file"><a href="Gemfile.html">Gemfile</a></li>
+		
+			<li class="file"><a href="Rakefile.html">Rakefile</a></li>
+		
+			<li class="file"><a href="public/javascripts/cropper/licence_txt.html">licence.txt</a></li>
+		
+			<li class="file"><a href="public/robots_txt.html">robots.txt</a></li>
+		
+	</ul>
+	
+
+	<h2 id="classes">Classes/Modules</h2>
+	<ul>
+		
+		<li class="module"><a href="Assetables.html">Assetables</a></li>
+		
+		<li class="module"><a href="Assetables/Assetable.html">Assetables::Assetable</a></li>
+		
+		<li class="module"><a href="Assetables/Assetable/ClassMethods.html">Assetables::Assetable::ClassMethods</a></li>
+		
+		<li class="module"><a href="Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
+		
+		<li class="module"><a href="Commentables.html">Commentables</a></li>
+		
+		<li class="module"><a href="Commentables/Commentable.html">Commentables::Commentable</a></li>
+		
+		<li class="module"><a href="Commentables/Commentable/ClassMethods.html">Commentables::Commentable::ClassMethods</a></li>
+		
+		<li class="module"><a href="Commentables/Commentable/InstanceMethods.html">Commentables::Commentable::InstanceMethods</a></li>
+		
+		<li class="module"><a href="IboardFormHelpers.html">IboardFormHelpers</a></li>
+		
+		<li class="module"><a href="IboardFormHelpers/ActionView.html">IboardFormHelpers::ActionView</a></li>
+		
+		<li class="module"><a href="IboardFormHelpers/ActionView/Helpers.html">IboardFormHelpers::ActionView::Helpers</a></li>
+		
+		<li class="class"><a href="IboardFormHelpers/ActionView/Helpers/FormBuilder.html">IboardFormHelpers::ActionView::Helpers::FormBuilder</a></li>
+		
+		<li class="module"><a href="ActionDispatch.html">ActionDispatch</a></li>
+		
+		<li class="module"><a href="ActionDispatch/Http.html">ActionDispatch::Http</a></li>
+		
+		<li class="class"><a href="ActionDispatch/Http/UploadedFile.html">ActionDispatch::Http::UploadedFile</a></li>
+		
+		<li class="module"><a href="StringExtensions.html">StringExtensions</a></li>
+		
+		<li class="module"><a href="StringExtensions/ClassMethods.html">StringExtensions::ClassMethods</a></li>
+		
+		<li class="module"><a href="StringExtensions/InstanceMethods.html">StringExtensions::InstanceMethods</a></li>
+		
+		<li class="module"><a href="ActiveSupport.html">ActiveSupport</a></li>
+		
+		<li class="class"><a href="ActiveSupport/TestCase.html">ActiveSupport::TestCase</a></li>
+		
+		<li class="module"><a href="LayoutHelper.html">LayoutHelper</a></li>
+		
+		<li class="module"><a href="LayoutHelper/ClassMethods.html">LayoutHelper::ClassMethods</a></li>
+		
+		<li class="module"><a href="Paperclip.html">Paperclip</a></li>
+		
+		<li class="class"><a href="Paperclip/Cropper.html">Paperclip::Cropper</a></li>
+		
+		<li class="module"><a href="Rack.html">Rack</a></li>
+		
+		<li class="module"><a href="Rack/Utils.html">Rack::Utils</a></li>
+		
+		<li class="module"><a href="Userbase.html">Userbase</a></li>
+		
+		<li class="class"><a href="Userbase/Application.html">Userbase::Application</a></li>
+		
+		<li class="class"><a href="Ability.html">Ability</a></li>
+		
+		<li class="class"><a href="ActsAsTaggableOnMigration.html">ActsAsTaggableOnMigration</a></li>
+		
+		<li class="class"><a href="AddAccessMaskToEpisodes.html">AddAccessMaskToEpisodes</a></li>
+		
+		<li class="class"><a href="AddAccessMaskToPostings.html">AddAccessMaskToPostings</a></li>
+		
+		<li class="class"><a href="AddAttachmentAvatarToUser.html">AddAttachmentAvatarToUser</a></li>
+		
+		<li class="class"><a href="AddLanguageToPostings.html">AddLanguageToPostings</a></li>
+		
+		<li class="class"><a href="AddLocaleToEpisodes.html">AddLocaleToEpisodes</a></li>
+		
+		<li class="class"><a href="AddMissingIndices.html">AddMissingIndices</a></li>
+		
+		<li class="class"><a href="AddNicknameToUser.html">AddNicknameToUser</a></li>
+		
+		<li class="class"><a href="AddTimezoneAndLanguageToUsers.html">AddTimezoneAndLanguageToUsers</a></li>
+		
+		<li class="class"><a href="ApplicationController.html">ApplicationController</a></li>
+		
+		<li class="module"><a href="ApplicationHelper.html">ApplicationHelper</a></li>
+		
+		<li class="class"><a href="Asset.html">Asset</a></li>
+		
+		<li class="class"><a href="AssetsController.html">AssetsController</a></li>
+		
+		<li class="class"><a href="Authentication.html">Authentication</a></li>
+		
+		<li class="class"><a href="AuthenticationsController.html">AuthenticationsController</a></li>
+		
+		<li class="module"><a href="AuthenticationsHelper.html">AuthenticationsHelper</a></li>
+		
+		<li class="class"><a href="BrowsingTest.html">BrowsingTest</a></li>
+		
+		<li class="class"><a href="Comment.html">Comment</a></li>
+		
+		<li class="class"><a href="CommentTest.html">CommentTest</a></li>
+		
+		<li class="class"><a href="CommentsController.html">CommentsController</a></li>
+		
+		<li class="class"><a href="CommentsControllerTest.html">CommentsControllerTest</a></li>
+		
+		<li class="module"><a href="CommentsHelper.html">CommentsHelper</a></li>
+		
+		<li class="class"><a href="CommentsHelperTest.html">CommentsHelperTest</a></li>
+		
+		<li class="class"><a href="CreateAssets.html">CreateAssets</a></li>
+		
+		<li class="class"><a href="CreateAuthentications.html">CreateAuthentications</a></li>
+		
+		<li class="class"><a href="CreateComments.html">CreateComments</a></li>
+		
+		<li class="class"><a href="CreateEpisodes.html">CreateEpisodes</a></li>
+		
+		<li class="class"><a href="CreatePostings.html">CreatePostings</a></li>
+		
+		<li class="class"><a href="CreateTranslations.html">CreateTranslations</a></li>
+		
+		<li class="class"><a href="DelayedJobs.html">DelayedJobs</a></li>
+		
+		<li class="class"><a href="DevelopmentMailInterceptor.html">DevelopmentMailInterceptor</a></li>
+		
+		<li class="class"><a href="DeviseCreateUsers.html">DeviseCreateUsers</a></li>
+		
+		<li class="class"><a href="EmailValidator.html">EmailValidator</a></li>
+		
+		<li class="class"><a href="Episode.html">Episode</a></li>
+		
+		<li class="class"><a href="EpisodeTest.html">EpisodeTest</a></li>
+		
+		<li class="class"><a href="EpisodesController.html">EpisodesController</a></li>
+		
+		<li class="class"><a href="EpisodesControllerTest.html">EpisodesControllerTest</a></li>
+		
+		<li class="module"><a href="EpisodesHelper.html">EpisodesHelper</a></li>
+		
+		<li class="class"><a href="EpisodesHelperTest.html">EpisodesHelperTest</a></li>
+		
+		<li class="module"><a href="NavigationHelpers.html">NavigationHelpers</a></li>
+		
+		<li class="class"><a href="NewPostingNotifier.html">NewPostingNotifier</a></li>
+		
+		<li class="class"><a href="NewUserNotifier.html">NewUserNotifier</a></li>
+		
+		<li class="class"><a href="Posting.html">Posting</a></li>
+		
+		<li class="class"><a href="PostingTest.html">PostingTest</a></li>
+		
+		<li class="class"><a href="PostingsController.html">PostingsController</a></li>
+		
+		<li class="class"><a href="PostingsControllerTest.html">PostingsControllerTest</a></li>
+		
+		<li class="module"><a href="PostingsHelper.html">PostingsHelper</a></li>
+		
+		<li class="class"><a href="PostingsHelperTest.html">PostingsHelperTest</a></li>
+		
+		<li class="class"><a href="RegistrationsController.html">RegistrationsController</a></li>
+		
+		<li class="class"><a href="RegistrationsControllerTest.html">RegistrationsControllerTest</a></li>
+		
+		<li class="module"><a href="RegistrationsHelper.html">RegistrationsHelper</a></li>
+		
+		<li class="class"><a href="RegistrationsHelperTest.html">RegistrationsHelperTest</a></li>
+		
+		<li class="module"><a href="SpecialCharacters.html">SpecialCharacters</a></li>
+		
+		<li class="module"><a href="TranslateableHelper.html">TranslateableHelper</a></li>
+		
+		<li class="class"><a href="Translation.html">Translation</a></li>
+		
+		<li class="class"><a href="TranslationTest.html">TranslationTest</a></li>
+		
+		<li class="class"><a href="User.html">User</a></li>
+		
+		<li class="class"><a href="UserExistsValidator.html">UserExistsValidator</a></li>
+		
+		<li class="class"><a href="UserMailer.html">UserMailer</a></li>
+		
+		<li class="class"><a href="UserTest.html">UserTest</a></li>
+		
+		<li class="class"><a href="UsersController.html">UsersController</a></li>
+		
+		<li class="class"><a href="UsersControllerTest.html">UsersControllerTest</a></li>
+		
+		<li class="module"><a href="UsersHelper.html">UsersHelper</a></li>
+		
+		<li class="class"><a href="WelcomeController.html">WelcomeController</a></li>
+		
+		<li class="class"><a href="WelcomeControllerTest.html">WelcomeControllerTest</a></li>
+		
+		<li class="module"><a href="WelcomeHelper.html">WelcomeHelper</a></li>
+		
+		<li class="class"><a href="WelcomeHelperTest.html">WelcomeHelperTest</a></li>
+		
+		<li class="module"><a href="WithinHelpers.html">WithinHelpers</a></li>
+		
+	</ul>
+
+	<h2 id="methods">Methods</h2>
+	<ul>
+		
+			<li><a href="AddTimezoneAndLanguageToUsers.html#method-c-connection">::connection &mdash; AddTimezoneAndLanguageToUsers</a></li>
+		
+			<li><a href="AddNicknameToUser.html#method-c-connection">::connection &mdash; AddNicknameToUser</a></li>
+		
+			<li><a href="AddAttachmentAvatarToUser.html#method-c-connection">::connection &mdash; AddAttachmentAvatarToUser</a></li>
+		
+			<li><a href="DeviseCreateUsers.html#method-c-connection">::connection &mdash; DeviseCreateUsers</a></li>
+		
+			<li><a href="DevelopmentMailInterceptor.html#method-c-delivering_email">::delivering_email &mdash; DevelopmentMailInterceptor</a></li>
+		
+			<li><a href="CreateEpisodes.html#method-c-down">::down &mdash; CreateEpisodes</a></li>
+		
+			<li><a href="CreateAssets.html#method-c-down">::down &mdash; CreateAssets</a></li>
+		
+			<li><a href="AddLanguageToPostings.html#method-c-down">::down &mdash; AddLanguageToPostings</a></li>
+		
+			<li><a href="CreateComments.html#method-c-down">::down &mdash; CreateComments</a></li>
+		
+			<li><a href="CreateAuthentications.html#method-c-down">::down &mdash; CreateAuthentications</a></li>
+		
+			<li><a href="AddAccessMaskToPostings.html#method-c-down">::down &mdash; AddAccessMaskToPostings</a></li>
+		
+			<li><a href="AddTimezoneAndLanguageToUsers.html#method-c-down">::down &mdash; AddTimezoneAndLanguageToUsers</a></li>
+		
+			<li><a href="ActsAsTaggableOnMigration.html#method-c-down">::down &mdash; ActsAsTaggableOnMigration</a></li>
+		
+			<li><a href="AddAttachmentAvatarToUser.html#method-c-down">::down &mdash; AddAttachmentAvatarToUser</a></li>
+		
+			<li><a href="CreateTranslations.html#method-c-down">::down &mdash; CreateTranslations</a></li>
+		
+			<li><a href="DelayedJobs.html#method-c-down">::down &mdash; DelayedJobs</a></li>
+		
+			<li><a href="AddAccessMaskToEpisodes.html#method-c-down">::down &mdash; AddAccessMaskToEpisodes</a></li>
+		
+			<li><a href="AddNicknameToUser.html#method-c-down">::down &mdash; AddNicknameToUser</a></li>
+		
+			<li><a href="AddLocaleToEpisodes.html#method-c-down">::down &mdash; AddLocaleToEpisodes</a></li>
+		
+			<li><a href="AddMissingIndices.html#method-c-down">::down &mdash; AddMissingIndices</a></li>
+		
+			<li><a href="CreatePostings.html#method-c-down">::down &mdash; CreatePostings</a></li>
+		
+			<li><a href="DeviseCreateUsers.html#method-c-down">::down &mdash; DeviseCreateUsers</a></li>
+		
+			<li><a href="Assetables/Assetable.html#method-c-included">::included &mdash; Assetables::Assetable</a></li>
+		
+			<li><a href="Commentables/Commentable.html#method-c-included">::included &mdash; Commentables::Commentable</a></li>
+		
+			<li><a href="IboardFormHelpers.html#method-c-included">::included &mdash; IboardFormHelpers</a></li>
+		
+			<li><a href="LayoutHelper.html#method-c-included">::included &mdash; LayoutHelper</a></li>
+		
+			<li><a href="Commentables.html#method-c-included">::included &mdash; Commentables</a></li>
+		
+			<li><a href="StringExtensions.html#method-c-included">::included &mdash; StringExtensions</a></li>
+		
+			<li><a href="Assetables.html#method-c-included">::included &mdash; Assetables</a></li>
+		
+			<li><a href="Ability.html#method-c-new">::new &mdash; Ability</a></li>
+		
+			<li><a href="ActsAsTaggableOnMigration.html#method-c-up">::up &mdash; ActsAsTaggableOnMigration</a></li>
+		
+			<li><a href="AddAttachmentAvatarToUser.html#method-c-up">::up &mdash; AddAttachmentAvatarToUser</a></li>
+		
+			<li><a href="CreateTranslations.html#method-c-up">::up &mdash; CreateTranslations</a></li>
+		
+			<li><a href="CreateEpisodes.html#method-c-up">::up &mdash; CreateEpisodes</a></li>
+		
+			<li><a href="AddLanguageToPostings.html#method-c-up">::up &mdash; AddLanguageToPostings</a></li>
+		
+			<li><a href="AddNicknameToUser.html#method-c-up">::up &mdash; AddNicknameToUser</a></li>
+		
+			<li><a href="DeviseCreateUsers.html#method-c-up">::up &mdash; DeviseCreateUsers</a></li>
+		
+			<li><a href="CreateComments.html#method-c-up">::up &mdash; CreateComments</a></li>
+		
+			<li><a href="AddAccessMaskToPostings.html#method-c-up">::up &mdash; AddAccessMaskToPostings</a></li>
+		
+			<li><a href="AddLocaleToEpisodes.html#method-c-up">::up &mdash; AddLocaleToEpisodes</a></li>
+		
+			<li><a href="AddAccessMaskToEpisodes.html#method-c-up">::up &mdash; AddAccessMaskToEpisodes</a></li>
+		
+			<li><a href="AddMissingIndices.html#method-c-up">::up &mdash; AddMissingIndices</a></li>
+		
+			<li><a href="CreateAuthentications.html#method-c-up">::up &mdash; CreateAuthentications</a></li>
+		
+			<li><a href="DelayedJobs.html#method-c-up">::up &mdash; DelayedJobs</a></li>
+		
+			<li><a href="CreatePostings.html#method-c-up">::up &mdash; CreatePostings</a></li>
+		
+			<li><a href="CreateAssets.html#method-c-up">::up &mdash; CreateAssets</a></li>
+		
+			<li><a href="AddTimezoneAndLanguageToUsers.html#method-c-up">::up &mdash; AddTimezoneAndLanguageToUsers</a></li>
+		
+			<li><a href="WelcomeController.html#method-i-about">#about &mdash; WelcomeController</a></li>
+		
+			<li><a href="Posting.html#method-i-access_manage_mask_flags%3D">#access_manage_mask_flags= &mdash; Posting</a></li>
+		
+			<li><a href="Episode.html#method-i-access_manage_mask_flags%3D">#access_manage_mask_flags= &mdash; Episode</a></li>
+		
+			<li><a href="Episode.html#method-i-access_read_mask_flags%3D">#access_read_mask_flags= &mdash; Episode</a></li>
+		
+			<li><a href="Posting.html#method-i-access_read_mask_flags%3D">#access_read_mask_flags= &mdash; Posting</a></li>
+		
+			<li><a href="User.html#method-i-admin%3F">#admin? &mdash; User</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-admin_menu_items">#admin_menu_items &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="Commentables.html#method-i-all_commentables">#all_commentables &mdash; Commentables</a></li>
+		
+			<li><a href="Episode.html#method-i-allow_role_to_manage%3F">#allow_role_to_manage? &mdash; Episode</a></li>
+		
+			<li><a href="Posting.html#method-i-allow_role_to_manage%3F">#allow_role_to_manage? &mdash; Posting</a></li>
+		
+			<li><a href="Posting.html#method-i-allow_role_to_read%3F">#allow_role_to_read? &mdash; Posting</a></li>
+		
+			<li><a href="Episode.html#method-i-allow_role_to_read%3F">#allow_role_to_read? &mdash; Episode</a></li>
+		
+			<li><a href="Episode.html#method-i-allow_user_to_manage%3F">#allow_user_to_manage? &mdash; Episode</a></li>
+		
+			<li><a href="Posting.html#method-i-allow_user_to_manage%3F">#allow_user_to_manage? &mdash; Posting</a></li>
+		
+			<li><a href="Episode.html#method-i-allow_user_to_read%3F">#allow_user_to_read? &mdash; Episode</a></li>
+		
+			<li><a href="Posting.html#method-i-allow_user_to_read%3F">#allow_user_to_read? &mdash; Posting</a></li>
+		
+			<li><a href="User.html#method-i-apply_omniauth">#apply_omniauth &mdash; User</a></li>
+		
+			<li><a href="User.html#method-i-apply_trusted_services">#apply_trusted_services &mdash; User</a></li>
+		
+			<li><a href="PostingsController.html#method-i-apply_user_tags">#apply_user_tags &mdash; PostingsController</a></li>
+		
+			<li><a href="User.html#method-i-async_notify_on_creation">#async_notify_on_creation &mdash; User</a></li>
+		
+			<li><a href="Posting.html#method-i-async_notify_on_creation">#async_notify_on_creation &mdash; Posting</a></li>
+		
+			<li><a href="UsersController.html#method-i-authorize_admin%21">#authorize_admin! &mdash; UsersController</a></li>
+		
+			<li><a href="UsersController.html#method-i-avatar">#avatar &mdash; UsersController</a></li>
+		
+			<li><a href="User.html#method-i-avatar_geometry">#avatar_geometry &mdash; User</a></li>
+		
+			<li><a href="Episode.html#method-i-body">#body &mdash; Episode</a></li>
+		
+			<li><a href="Comment.html#method-i-body">#body &mdash; Comment</a></li>
+		
+			<li><a href="ApplicationController.html#method-i-browser_warning">#browser_warning &mdash; ApplicationController</a></li>
+		
+			<li><a href="RegistrationsController.html#method-i-build_resource">#build_resource &mdash; RegistrationsController</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-button">#button &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="Assetables/Assetable/ClassMethods.html#method-i-can_have_assets">#can_have_assets &mdash; Assetables::Assetable::ClassMethods</a></li>
+		
+			<li><a href="AssetsController.html#method-i-cancel">#cancel &mdash; AssetsController</a></li>
+		
+			<li><a href="User.html#method-i-clear_avatar">#clear_avatar &mdash; User</a></li>
+		
+			<li><a href="User.html#method-i-clear_avatar%3D">#clear_avatar= &mdash; User</a></li>
+		
+			<li><a href="EpisodesController.html#method-i-create">#create &mdash; EpisodesController</a></li>
+		
+			<li><a href="AuthenticationsController.html#method-i-create">#create &mdash; AuthenticationsController</a></li>
+		
+			<li><a href="PostingsController.html#method-i-create">#create &mdash; PostingsController</a></li>
+		
+			<li><a href="CommentsController.html#method-i-create">#create &mdash; CommentsController</a></li>
+		
+			<li><a href="RegistrationsController.html#method-i-create">#create &mdash; RegistrationsController</a></li>
+		
+			<li><a href="ActiveSupport/TestCase.html#method-i-create_valid_episode">#create_valid_episode &mdash; ActiveSupport::TestCase</a></li>
+		
+			<li><a href="ActiveSupport/TestCase.html#method-i-create_valid_posting">#create_valid_posting &mdash; ActiveSupport::TestCase</a></li>
+		
+			<li><a href="ActiveSupport/TestCase.html#method-i-create_valid_user_with_id">#create_valid_user_with_id &mdash; ActiveSupport::TestCase</a></li>
+		
+			<li><a href="Paperclip/Cropper.html#method-i-crop_command">#crop_command &mdash; Paperclip::Cropper</a></li>
+		
+			<li><a href="User.html#method-i-cropping%3F">#cropping? &mdash; User</a></li>
+		
+			<li><a href="EpisodesController.html#method-i-destroy">#destroy &mdash; EpisodesController</a></li>
+		
+			<li><a href="CommentsController.html#method-i-destroy">#destroy &mdash; CommentsController</a></li>
+		
+			<li><a href="AuthenticationsController.html#method-i-destroy">#destroy &mdash; AuthenticationsController</a></li>
+		
+			<li><a href="PostingsController.html#method-i-destroy">#destroy &mdash; PostingsController</a></li>
+		
+			<li><a href="UsersController.html#method-i-destroy">#destroy &mdash; UsersController</a></li>
+		
+			<li><a href="LayoutHelper/ClassMethods.html#method-i-display_errors_for">#display_errors_for &mdash; LayoutHelper::ClassMethods</a></li>
+		
+			<li><a href="UsersController.html#method-i-edit">#edit &mdash; UsersController</a></li>
+		
+			<li><a href="CommentsController.html#method-i-edit">#edit &mdash; CommentsController</a></li>
+		
+			<li><a href="PostingsController.html#method-i-edit">#edit &mdash; PostingsController</a></li>
+		
+			<li><a href="EpisodesController.html#method-i-edit">#edit &mdash; EpisodesController</a></li>
+		
+			<li><a href="Rack/Utils.html#method-i-escape">#escape &mdash; Rack::Utils</a></li>
+		
+			<li><a href="Commentables.html#method-i-freeze_registered_commentables">#freeze_registered_commentables &mdash; Commentables</a></li>
+		
+			<li><a href="LayoutHelper/ClassMethods.html#method-i-html_include">#html_include &mdash; LayoutHelper::ClassMethods</a></li>
+		
+			<li><a href="AuthenticationsController.html#method-i-index">#index &mdash; AuthenticationsController</a></li>
+		
+			<li><a href="WelcomeController.html#method-i-index">#index &mdash; WelcomeController</a></li>
+		
+			<li><a href="PostingsController.html#method-i-index">#index &mdash; PostingsController</a></li>
+		
+			<li><a href="CommentsController.html#method-i-index">#index &mdash; CommentsController</a></li>
+		
+			<li><a href="EpisodesController.html#method-i-index">#index &mdash; EpisodesController</a></li>
+		
+			<li><a href="UsersController.html#method-i-index">#index &mdash; UsersController</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-inline_button">#inline_button &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="LayoutHelper/ClassMethods.html#method-i-input_field">#input_field &mdash; LayoutHelper::ClassMethods</a></li>
+		
+			<li><a href="EpisodesHelper.html#method-i-insert_episodes_tag_list">#insert_episodes_tag_list &mdash; EpisodesHelper</a></li>
+		
+			<li><a href="PostingsHelper.html#method-i-insert_tag_list">#insert_tag_list &mdash; PostingsHelper</a></li>
+		
+			<li><a href="Commentables/Commentable/ClassMethods.html#method-i-is_commentable">#is_commentable &mdash; Commentables::Commentable::ClassMethods</a></li>
+		
+			<li><a href="Episode.html#method-i-is_youtube_video%3F">#is_youtube_video? &mdash; Episode</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-language_filter">#language_filter &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="TranslateableHelper.html#method-i-language_links">#language_links &mdash; TranslateableHelper</a></li>
+		
+			<li><a href="IboardFormHelpers/ActionView/Helpers/FormBuilder.html#method-i-language_select">#language_select &mdash; IboardFormHelpers::ActionView::Helpers::FormBuilder</a></li>
+		
+			<li><a href="WelcomeController.html#method-i-legal_notice">#legal_notice &mdash; WelcomeController</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-link_to_add_fields">#link_to_add_fields &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-link_to_remove_fields">#link_to_remove_fields &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="PostingsHelper.html#method-i-link_to_user_postings">#link_to_user_postings &mdash; PostingsHelper</a></li>
+		
+			<li><a href="AssetsController.html#method-i-load_assetable">#load_assetable &mdash; AssetsController</a></li>
+		
+			<li><a href="CommentsController.html#method-i-load_commentable">#load_commentable &mdash; CommentsController</a></li>
+		
+			<li><a href="CommentsController.html#method-i-load_path">#load_path &mdash; CommentsController</a></li>
+		
+			<li><a href="ApplicationController.html#method-i-load_tags">#load_tags &mdash; ApplicationController</a></li>
+		
+			<li><a href="PostingsController.html#method-i-load_user">#load_user &mdash; PostingsController</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-main_menu_items">#main_menu_items &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="CommentsController.html#method-i-new">#new &mdash; CommentsController</a></li>
+		
+			<li><a href="PostingsController.html#method-i-new">#new &mdash; PostingsController</a></li>
+		
+			<li><a href="EpisodesController.html#method-i-new">#new &mdash; EpisodesController</a></li>
+		
+			<li><a href="AssetsController.html#method-i-new">#new &mdash; AssetsController</a></li>
+		
+			<li><a href="UserMailer.html#method-i-notify_admin_about_new_posting">#notify_admin_about_new_posting &mdash; UserMailer</a></li>
+		
+			<li><a href="UserMailer.html#method-i-notify_admin_about_new_user">#notify_admin_about_new_user &mdash; UserMailer</a></li>
+		
+			<li><a href="Comment.html#method-i-object_body">#object_body &mdash; Comment</a></li>
+		
+			<li><a href="Commentables/Commentable/InstanceMethods.html#method-i-object_body">#object_body &mdash; Commentables::Commentable::InstanceMethods</a></li>
+		
+			<li><a href="Comment.html#method-i-object_title">#object_title &mdash; Comment</a></li>
+		
+			<li><a href="Commentables/Commentable/InstanceMethods.html#method-i-object_title">#object_title &mdash; Commentables::Commentable::InstanceMethods</a></li>
+		
+			<li><a href="LayoutHelper/ClassMethods.html#method-i-page_menu">#page_menu &mdash; LayoutHelper::ClassMethods</a></li>
+		
+			<li><a href="StringExtensions/InstanceMethods.html#method-i-paragraphs">#paragraphs &mdash; StringExtensions::InstanceMethods</a></li>
+		
+			<li><a href="NavigationHelpers.html#method-i-path_to">#path_to &mdash; NavigationHelpers</a></li>
+		
+			<li><a href="NewUserNotifier.html#method-i-perform">#perform &mdash; NewUserNotifier</a></li>
+		
+			<li><a href="NewPostingNotifier.html#method-i-perform">#perform &mdash; NewPostingNotifier</a></li>
+		
+			<li><a href="Authentication.html#method-i-provider_name">#provider_name &mdash; Authentication</a></li>
+		
+			<li><a href="StringExtensions/ClassMethods.html#method-i-random_string">#random_string &mdash; StringExtensions::ClassMethods</a></li>
+		
+			<li><a href="Commentables.html#method-i-register">#register &mdash; Commentables</a></li>
+		
+			<li><a href="User.html#method-i-reprocess_avatar">#reprocess_avatar &mdash; User</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-right_button">#right_button &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="User.html#method-i-role%3F">#role? &mdash; User</a></li>
+		
+			<li><a href="User.html#method-i-roles">#roles &mdash; User</a></li>
+		
+			<li><a href="User.html#method-i-roles%3D">#roles= &mdash; User</a></li>
+		
+			<li><a href="SpecialCharacters.html#method-i-sc">#sc &mdash; SpecialCharacters</a></li>
+		
+			<li><a href="LayoutHelper/ClassMethods.html#method-i-session_box">#session_box &mdash; LayoutHelper::ClassMethods</a></li>
+		
+			<li><a href="ApplicationController.html#method-i-set_language">#set_language &mdash; ApplicationController</a></li>
+		
+			<li><a href="ApplicationController.html#method-i-set_language_filter">#set_language_filter &mdash; ApplicationController</a></li>
+		
+			<li><a href="CommentTest.html#method-i-setup">#setup &mdash; CommentTest</a></li>
+		
+			<li><a href="PostingsController.html#method-i-show">#show &mdash; PostingsController</a></li>
+		
+			<li><a href="EpisodesController.html#method-i-show">#show &mdash; EpisodesController</a></li>
+		
+			<li><a href="UsersController.html#method-i-show">#show &mdash; UsersController</a></li>
+		
+			<li><a href="CommentsController.html#method-i-show">#show &mdash; CommentsController</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-show_selected_languages">#show_selected_languages &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="ApplicationController.html#method-i-switch_language">#switch_language &mdash; ApplicationController</a></li>
+		
+			<li><a href="PostingsController.html#method-i-tag">#tag &mdash; PostingsController</a></li>
+		
+			<li><a href="EpisodesController.html#method-i-tag">#tag &mdash; EpisodesController</a></li>
+		
+			<li><a href="BrowsingTest.html#method-i-test_homepage">#test_homepage &mdash; BrowsingTest</a></li>
+		
+			<li><a href="Comment.html#method-i-title">#title &mdash; Comment</a></li>
+		
+			<li><a href="LayoutHelper/ClassMethods.html#method-i-title">#title &mdash; LayoutHelper::ClassMethods</a></li>
+		
+			<li><a href="ApplicationHelper.html#method-i-title_buttons">#title_buttons &mdash; ApplicationHelper</a></li>
+		
+			<li><a href="Paperclip/Cropper.html#method-i-transformation_command">#transformation_command &mdash; Paperclip::Cropper</a></li>
+		
+			<li><a href="CommentsController.html#method-i-update">#update &mdash; CommentsController</a></li>
+		
+			<li><a href="PostingsController.html#method-i-update">#update &mdash; PostingsController</a></li>
+		
+			<li><a href="UsersController.html#method-i-update">#update &mdash; UsersController</a></li>
+		
+			<li><a href="EpisodesController.html#method-i-update">#update &mdash; EpisodesController</a></li>
+		
+			<li><a href="RegistrationsController.html#method-i-update">#update &mdash; RegistrationsController</a></li>
+		
+			<li><a href="PostingsController.html#method-i-update_preview">#update_preview &mdash; PostingsController</a></li>
+		
+			<li><a href="User.html#method-i-update_with_password">#update_with_password &mdash; User</a></li>
+		
+			<li><a href="WelcomeController.html#method-i-user">#user &mdash; WelcomeController</a></li>
+		
+			<li><a href="UsersHelper.html#method-i-user_settings_menu">#user_settings_menu &mdash; UsersHelper</a></li>
+		
+			<li><a href="UserExistsValidator.html#method-i-validate_each">#validate_each &mdash; UserExistsValidator</a></li>
+		
+			<li><a href="EmailValidator.html#method-i-validate_each">#validate_each &mdash; EmailValidator</a></li>
+		
+			<li><a href="LayoutHelper/ClassMethods.html#method-i-w3c_url">#w3c_url &mdash; LayoutHelper::ClassMethods</a></li>
+		
+			<li><a href="WithinHelpers.html#method-i-with_scope">#with_scope &mdash; WithinHelpers</a></li>
+		
+			<li><a href="Episode.html#method-i-youtube_embed_url">#youtube_embed_url &mdash; Episode</a></li>
+		
+	</ul>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>

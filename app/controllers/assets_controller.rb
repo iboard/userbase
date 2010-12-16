@@ -1,16 +1,19 @@
 class AssetsController < ApplicationController
   
   before_filter  :load_assetable
-  
+
+  # build the asset on the assatable model  
   def new
     @asset = @assetable.assets.build
   end
   
+  
   def cancel
   end
   
-  
   private
+  
+  # parse the requested_uri for _id-params and load the assatable model
   def load_assetable
     resources = params.collect { |p| p[0] if p[0].match /(\S+)_id$/ }.reject { |r| r.nil? }
     resources.each do |r|

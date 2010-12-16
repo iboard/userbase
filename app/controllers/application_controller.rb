@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
   end
 
   
+  #
+  # Only show episodes and postings of the checked languages
+  # If all languages are switched off this function will turn all
+  # languages on again.
   def set_language_filter
     session[:language_filter] ||= []
     if params[:locale] == 'all'
@@ -32,6 +36,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  # Switch the actual locale and save it in the session
   def switch_language
     I18n.locale = params[:lang]
     session[:lang] = params[:lang]
@@ -67,6 +72,7 @@ class ApplicationController < ActionController::Base
                          }
   end
   
+  # display a warning if someone is using MSIE
   def browser_warning
     if request.env['HTTP_USER_AGENT'] =~ /MSIE/
       unless session[:browser_warning_displayed]

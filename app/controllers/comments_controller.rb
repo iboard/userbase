@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
   
   load_and_authorize_resource
 
+  # load all comments of a commentable
   def index
     begin
       load_path
@@ -27,15 +28,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  # let the commentable build a new comment
   def new
     @comment = @commentable.comments.build(:user => current_user, :email => current_user.email)
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @comment }
     end
   end
   
+  # edit a comment
+  # TODO: should not be possible after max_time_to_edit_new_comments
   def edit
     @user = User.find(params[:user_id])
     if current_user.role?(:admin)
@@ -50,6 +53,8 @@ class CommentsController < ApplicationController
     end
   end
 
+  # update a comment
+  # TODO: should not be possible after max_time_to_edit_new_comments
   def update
     @user = User.find(params[:user_id])
     if current_user.role?(:admin)
@@ -70,14 +75,19 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @commentable.comments.build(params[:comment].merge(:user => current_user, :email => current_user.email))
+    @comment = @commentable.comments.build(params[:comment].merge(
+      :user => current_user, :email => current_user.email)
+    )
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(@commentable, :notice => 'Comment was successfully created.') }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+        format.html { redirect_to(@commentable, 
+          :notice => 'Comment was successfully created.') }
+        format.xml  { render :xml => @comment, 
+          :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @comment.errors, 
+          :status => :unprocessable_entity }
       end
     end
   end
@@ -85,7 +95,9 @@ class CommentsController < ApplicationController
 
   def show
     if @commentable
-      redirect_to( :controller => @commentable.class.to_s.pluralize.underscore, :action => 'show',  :user_id => @commentable.user_id, :id => @commentable.id )
+      redirect_to( :controller => @commentable.class.to_s.pluralize.underscore, 
+        :action => 'show',  :user_id => @commentable.user_id, 
+        :id => @commentable.id )
     else
       redirect_to( root_path, :alert => t(:commentable_not_found))
     end

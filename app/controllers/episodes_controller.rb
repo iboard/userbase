@@ -91,6 +91,8 @@ class EpisodesController < ApplicationController
     end
   end
   
+  # GET /episodes/tag/:tag
+  # renders action index
   def tag
     @episodes = Episode.tagged_with(params[:tag], :on => :tags)\
       .readable(current_user ? current_user.roles_mask : 1)\
