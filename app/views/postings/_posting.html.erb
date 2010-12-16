@@ -5,7 +5,7 @@
     <!-- The Posting Header with author -->
     <!--                                -->
     <address class='posting_author'>
-      <% if can?(:manage, posting) %>
+      <% if current_user && can?(:manage, posting) %>
         <%= title_buttons(inline_button(link_to(sc(:edit,:sp)+t(:edit), edit_user_posting_path(posting.user,posting),
               :title => t(:edit_entry),
               :style => 'float: right;margin-right: 10px;')))  %>

@@ -12,6 +12,22 @@
     <%= csrf_meta_tag %>
     <%= auto_discovery_link_tag(:atom, "/feed.atom") %>
   </head>
+  
+  <% if current_user && can?( :create, Posting.new ) %>
+    <% content_for :new_button do %>
+      <%= link_to( sc(:add,:nbsp)+t(:new_posting), 
+                       new_user_posting_path(current_user),
+                       :class => 'top_right_buttons') %>
+    <% end %>
+  <% end %>
+  <% if current_user && can?( :create, Episode.new ) %>
+    <% content_for :new_button do %>
+      <hr><%= link_to( sc(:add,:nbsp)+t(:new_episode), 
+                       new_user_episode_path(current_user),
+                       :class => 'top_right_buttons') %>
+    <% end %>
+  <% end %>
+  
   <body>
       <% unless @request.nil? %>
         <div id='print_title'>

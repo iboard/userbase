@@ -1,13 +1,5 @@
 <% t = title( t(:postings) ) unless @user %>
 
-<% if can? :create, Posting.new %>
-  <% content_for :new_button do %>
-    <%= link_to( sc(:add,:nbsp)+t(:new_posting), 
-                     new_user_posting_path(current_user),
-                     :class => 'top_right_buttons') %>
-  <% end %>
-<% end %>
-
 <% content_for :language_filter do %>
   <% unless @tag %>
       <%= language_filter.html_safe %>

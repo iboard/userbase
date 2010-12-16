@@ -57,3 +57,8 @@ Feature: Episodes
      Then I should see "Render YouTube Inline"
      And I should see "Watch on YouTube"
      
+   Scenario: Authors should see the +Episode button all the time
+     Given I am logged in as user "test@test.te" with password "verysecret"
+     And I am on the home page
+     Then I should see "New Episode"
+     
