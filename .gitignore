@@ -12,6 +12,8 @@ config/user_db.yml
 config/omniauth_settings.rb
 config/application_name.conf
 config/application_css.conf
+config/application_copyright.conf
+config/application_copyright_url.conf
 config/environments/production.rb
 config/environemnts/development.rb
 public/system/*

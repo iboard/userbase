@@ -32,8 +32,10 @@ do the same thing with all *sample-files and edit this files to fit your needs
 
   - config/application_name.conf
   - config/application_css.conf
+  - config/application_copyright.conf
+  - config/application_copyright_url.conf
 
-This two files are read while server starts. Configure your Application name and Foot-menue of your application here.
+This four files are read while server starts. Configure your application name, the used css-file, and copyright-information.
 
 ## Static Pages
 create the following files in public/static_pages

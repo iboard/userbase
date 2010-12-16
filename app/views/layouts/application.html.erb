@@ -109,7 +109,7 @@
             <%= inline_button(link_to( sc(:pr,:nbsp)+t(:subscribe_rss_feed), "/feed.atom", :style => 'color: black;')) %>
             <p>&nbsp;</p>
             <%= content_tag :div, :id => 'copyright', :style => 'width: 400px;' do %>
-              © copyright <%= Date.today().year %> by <%= link_to 'WWEDU GmbH, Austria', 'http://wwedu.com' %>
+              © copyright <%= Date.today().year %> by <%= link_to ApplicationConfig.uration(:application_copyright), ApplicationConfig.uration(:application_copyright_url) %>
             <% end %>
           </div>
       </footer>
