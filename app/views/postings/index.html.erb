@@ -1,0 +1,58 @@
+<% t = title( t(:postings) ) unless @user %>
+
+<% if can? :create, Posting.new %>
+  <% content_for :new_button do %>
+    <%= link_to( sc(:add,:nbsp)+t(:new_posting), 
+                     new_user_posting_path(current_user),
+                     :class => 'top_right_buttons') %>
+  <% end %>
+<% end %>
+
+<% content_for :language_filter do %>
+  <% unless @tag %>
+      <%= language_filter.html_safe %>
+  <% else %>
+      <%= t(:postings_tagged_with, :tag => @tag ) %>
+  <% end %>
+<% end %>
+
+<%= content_for :user_postings do %>
+  <div class='user_postings_header'>
+    <% for user in User.all.reject { |r| !r.postings.any? } %>
+      <%= content_tag :div, :class => 'user_postings_link' do %>
+        <%= link_to( image_tag(user.avatar.url(:icon),
+              :title => user.nickname, 
+              :class => @user == user ? 'selected_user_postings_icon' : 'user_postings_icon')\
+              +sc(:br)+user.nickname, 
+              user_postings_path(user),
+              :class => 'user_postings_link_label') %>
+      <% end %>
+    <% end %>
+    <% if @user %>
+      <div class='user_postings_link' 
+        style='float: right; font-size: 1em;clear: left;'>
+        <%= sc(:pr,:nbsp) -%><%= link_to t(:all_postings), postings_path %>
+      </div>
+      <% title( t(:postings_of_user, :user => @user.nickname), false)%>
+    <% end %>
+  </div>
+<% end %>
+
+<div id='postings'>
+<%= content_tag :div, :class => 'user_cloud' do %>
+  <%= yield :user_postings %>
+<% end %>
+
+
+<%= will_paginate @postings %>
+
+  <% if @postings.any? %>
+    <%= render @postings %>
+  <% else %>
+    <%= content_tag :div, :class => 'notice' do %>
+        <%= t(:user_has_no_postings) %>
+    <% end %>  
+  <% end %>
+<%= will_paginate @postings %>
+</div>
+

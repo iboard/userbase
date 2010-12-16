@@ -1,0 +1,43 @@
+<%= user_settings_menu do %>
+    <%= render( :partial => 'devise/shared/links', :locals => {:resource_name => 'user'}) %>
+<% end %>
+<span style='clear: right;'><br/></span>
+
+<%= image_tag(@user.avatar.url(:thumb), :class => 'avatar_right_float',:style => 'margin-top: 10px;') if @user.avatar %>
+
+<h1><%= title t(:edit_user) -%></h1>
+
+<%= form_for(@user) do |f| %>
+
+  <%= error_messages_for @user %>
+
+  <p><%= f.label :email %>
+  <%= f.text_field :email %></p>
+  
+  <p><%= f.label :nickname %>
+  <%= f.text_field :nickname %></p>
+  
+  <% if current_user && current_user.admin? %>
+    <h2><%= t(:roles)%></h2>
+      <% for role in User::ROLES %>
+        <%= content_tag :div, :id => "role_#{role}" do %>
+          <%= f.label role, role.humanize %>
+          <%= check_box_tag( "user[roles][]", role, @user.roles.include?(role), :label => role) %>
+        <% end %>
+      <% end %>
+      <%= hidden_field_tag "user[roles][]", "" %>
+  <% end %>
+  
+  <p>
+    <%= f.submit "Update" %> 
+    <%= link_to(
+          t(:or_delete_account, :account => @user.email), 
+          user_path(@user), 
+          :method => :delete, 
+          :confirm => t(:are_you_sure, :what => t(:admin_deletes_account_for, :name => @user.email)),
+          :class => 'link_button'
+        )
+    %>
+  </p>
+  
+<% end %>

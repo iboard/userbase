@@ -1,0 +1,64 @@
+<%= form_for(@episode,:html => {:multipart => true}) do |f| %>
+  <% if @episode.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@episode.errors.count, "error") %> prohibited this episode from being saved:</h2>
+
+      <ul>
+      <% @episode.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p>
+    <%= t(:author) %>: <%= @episode.user.nickname %>
+  </p>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, :size => 80 %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :locale, t(:language) %>
+    <%= f.language_select :locale %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, :size => 80 %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 20, :cols => 80 %>
+  </div>
+  <div class="field">
+    <%= f.label :video_web_url %>
+    <%= f.text_field :video_web_url, :size => 80 %>
+  </div>
+  <div class="field">
+    <%= f.label :video_mobile_url %>
+    <%= f.text_field :video_mobile_url, :size => 80 %>
+  </div>
+
+  <%= render :partial => '/comments/commentable_access_fields', :locals => { :f => f, :commentable => @episode }%>
+  
+  <%= f.label :assets, t(:assets)   %>
+  <fieldset id='assets' style='float: none; margin-top: 10px; margin-bottom: 10px'>
+     <%= f.fields_for :assets do |builder| %>
+       <%= render '/assets/asset_fields', :f => builder %>
+     <% end %>
+     <p>
+       <%= link_to_add_fields(t(:add_asset), f, :assets)%>
+     </p>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit %>
+    <% if !@episode.new_record? && can?(:manage, @episode) %>
+      or <%= button(link_to('Destroy', user_episode_path(@episode.user,@episode), :confirm => 'Are you sure?', :method => :delete )) %>
+    <% end %>
+  </div>
+  
+<% end %>

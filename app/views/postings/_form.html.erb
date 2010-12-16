@@ -1,0 +1,83 @@
+<% content_for(:prototype) do %>
+  <%= javascript_include_tag "/javascripts/prototype/prototype.js" %>
+<% end %>
+
+<%= form_for([@user,@posting], :html => {:multipart => true} ) do |f| %>
+
+  <% if @posting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@posting.errors.count, "error") %> prohibited this posting from being saved:</h2>
+
+      <ul>
+      <% @posting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %> 
+    <%= f.hidden_field :user_id -%><%= @posting.user.email %>
+  </div>
+
+  <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, :size => 80 %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :locale, t(:language) %>
+    <%= f.language_select :locale %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, :size => 80 %>
+  </div>
+
+  <div class="field" id='posting_body'>
+    <%= f.label :body %>
+    <%= f.text_area :body, :rows => 10, :cols => 58,
+      :onkeyup => remote_function(
+        :url => update_posting_preview_path(),
+        :with => "'text=' + encodeURIComponent(value)",
+        :method => :get
+       ) %>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :preview %>
+    <div class='posting_preview'>
+      <%= content_tag :a, :onclick => "Element.toggle('preview_body'); return false;" do  t(:toggle_preview) end %>
+      <div id='preview_body' style='display:none;'>
+        <% if @posting.body %>
+          <%= sanitize(RedCloth.new( @posting.body).to_html.html_safe ) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= render :partial => '/comments/commentable_access_fields', :locals => { :f => f, :commentable => @posting }%>
+  
+  <%= f.label :assets, t(:assets)   %>
+  <fieldset id='assets' style='float: none; margin-top: 10px; margin-bottom: 10px; width: 405px'>
+     <%= f.fields_for :assets do |builder| %>
+       <%= render '/assets/asset_fields', :f => builder %>
+     <% end %>
+     <div id='new_asset'></div>
+     <p>
+       <%= link_to_add_fields(t(:add_asset), f, :assets)%>
+     </p>
+  </fieldset>
+  
+  <div class="actions">
+    <%= f.label :submit, "&nbsp;".html_safe %>
+    <%= f.submit %>
+    <% if !@posting.new_record? && can?(:manage, @posting) %>
+      or <%= button(link_to('Destroy', user_posting_path(@posting.user,@posting), :confirm => 'Are you sure?', :method => :delete )) %>
+    <% end %>
+  </div>
+
+<% end %>

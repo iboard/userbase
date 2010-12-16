@@ -1,0 +1,31 @@
+<%= user_settings_menu do %>
+<% end %>
+
+
+<h1><%= title t(:set_or_change_your_avatar) -%></h1>
+
+<%= image_tag(w3c_url(@user.avatar.url(:thumb)), :class => 'avatar_right_float',:style => 'margin-top: 10px;') if @user.avatar %>
+
+
+<%= form_for @user, :html => { :multipart => :true } do |f| %>
+
+ 
+ <p>
+     <%= f.label :avatar %>
+     <%= f.file_field :avatar %>
+ </p>
+ 
+ <p>
+     <%= f.label :clear_avatar, t(:or_clear_avatar) %>
+     <%= f.check_box :clear_avatar %>
+ </p>
+ 
+ <p>
+    <%= f.label :submit %>
+    <%= f.submit t(:submit) %> 
+ </p>
+ <p>
+    <%= f.label :settings_link, t(:or_goto_without_saving_changes, :target => t(:user_settings_link)) %>
+    <%= button(link_to((t(:user_settings_link)+sc(:nbsp)*2+t(:without_saving_changes_warning)).html_safe, user_settings_path )) %> <%=  %>
+ </p>
+<% end %>

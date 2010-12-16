@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: My first Episode
+  description: This is a test episode
+  video_web_url: somewhere.web
+  video_mobile_url: somewhere.mobile
+  user_id: 1
+
+two:
+  title: MyString
+  description: MyText
+  video_web_url: MyString
+  video_mobile_url: MyString
+  user_id: 1
+
+youtube:
+  title: A YouTube Video
+  description: Folk Club
+  video_web_url: http://www.youtube.com/watch?v=SfnpyJ3A3jY
+

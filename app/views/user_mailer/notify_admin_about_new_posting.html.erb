@@ -1,0 +1,13 @@
+<h3><%= @notify_subject %></h3>
+<pre>
+    URL         : <%= link_to( user_posting_url(@posting.user,@posting), user_posting_url(@posting.user,@posting) ) %>
+    Author      : <%= @posting.user.nickname %> &lt;<%= @posting.user.email -%>&gt;
+    Date        : <%= @posting.created_at %>
+    Attachments : <%= @posting.assets.count %>
+</pre>
+
+<h1><%= @posting.title %></h1>
+
+<%= RedCloth.new(@posting.body).to_html.html_safe %>
+
+<p></p>

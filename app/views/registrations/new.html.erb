@@ -1,0 +1,15 @@
+<%= user_settings_menu do %>
+    <%= render( :partial => 'devise/shared/links', :locals => {:resource_name => 'user'}) %>
+<% end %>
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= render :partial => 'registration_fields', :locals => {:f => f} %>
+
+  <p><%= f.submit "Sign up" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

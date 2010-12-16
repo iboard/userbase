@@ -1,0 +1,4 @@
+<%= button(link_to(t(:episode_listing), episodes_path)) %>
+<%= content_tag :div, :class => 'episode' do %>
+  <%= render :partial => 'episode', :locals => { :episode => @episode, :show_all => true } %>
+<% end %>

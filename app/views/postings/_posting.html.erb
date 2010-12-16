@@ -1,0 +1,84 @@
+<% if can?(:read, posting) || posting.access_read_mask & 1 > 0 %>
+  <%= content_tag :div, :class => 'posting' do %>
+  
+    <!--                                -->
+    <!-- The Posting Header with author -->
+    <!--                                -->
+    <address class='posting_author'>
+      <% if can?(:manage, posting) %>
+        <%= title_buttons(inline_button(link_to(sc(:edit,:sp)+t(:edit), edit_user_posting_path(posting.user,posting),
+              :title => t(:edit_entry),
+              :style => 'float: right;margin-right: 10px;')))  %>
+      <% end %>
+      <%= image_tag( w3c_url(posting.user.avatar.url(:icon)), :class => 'posting_author_icon' ) if posting.user %>
+      <b><%= link_to_user_postings(posting) %></b>, 
+      <%= t(:time_ago, :time => distance_of_time_in_words_to_now(posting.updated_at)) unless posting.new_record? %>
+      [<%= insert_tag_list posting.tag_list -%>]
+      <%= language_links(posting) -%>
+    </address>
+    
+    <!--                  -->
+    <!-- Posting's assets -->
+    <!--                  -->
+    <% if posting && posting.assets.any? %>
+      <%= content_tag :div, :class => 'float-right-asset-box' do %>
+        <%= render :partial => "/assets/asset.html.erb", :collection => posting.assets, :type => :html %>
+      <% end %>
+    <% end  %>
+    
+    <!--                                                                        -->
+    <!-- The Posting Title as header and as html-title if it's a single posting -->
+    <!--                                                                        -->  
+    <%= content_tag "h#{defined?(header_level) ? header_level : 1}" do %>
+      <% if @postings && @postings.any? %>
+        <%= link_to posting.object_title, posting %>
+      <% else %> 
+        <%= title(posting.object_title) %>
+      <% end %>
+    <% end %>
+    
+    
+    <!--                   -->
+    <!-- The Posting body  -->
+    <!--                   -->
+    <%= content_tag :div, :class => 'posting_body' do %>
+      <% if defined?(show_all) && show_all %>
+        <%= RedCloth.new((posting.body)).to_html.html_safe %>
+        <p>
+          <%= button(link_to( t(:back), "#", :onclick => "history.back(-1);return false;")) %>
+          <%= button(link_to( t(:postings_index), postings_path)) %>
+          <%= button(link_to( t(:postings_of_user, :user => posting.user.nickname ), user_postings_path(posting.user))) %>
+        </p>
+      <% else %>
+        <%=  sanitize( RedCloth.new( posting.body.paragraphs(0..5)).to_html.html_safe, 
+               :tags =>  %w(b em strong)) %>
+        <p>
+        <%=  link_to( sc(:pr,:nbsp)+t(:read_more_posting), user_posting_path(posting.user,posting)) %>
+        </p>
+      <% end %>    
+    <% end %>
+    
+
+    
+    <!--                    -->
+    <!-- Posting's comments -->
+    <!--                    -->  
+    <%= content_tag :div, :class => 'comments' do %>
+      <%= content_tag :div, :class => 'comments_count_and_links' do %>
+        {
+          <%=  t(:n_comments, :count => posting.comments.count) unless posting.comments.any? %>
+          <%=  link_to(t(:n_comments, :count => posting.comments.count),user_posting_comments_path(posting.user,posting)) if posting.comments.any? %>
+          <% unless current_page?(new_user_posting_comment_path(posting.user,posting)) || cannot?(:create, Comment.new) %>
+             | <%= link_to( t(:add_a_comment), new_user_posting_comment_path(posting.user,posting)+"#new_comment" ) %>
+          <% end %>
+        }
+      <% end %>
+      <%= render posting.comments if posting.comments.any? && !defined?(@postings)%>
+    <% end %>
+    
+  <% end %>
+  <p style='clear: left;'><br/></p>  
+<% else %>
+  <p><%= t(:posting_not_accessible) %></p>
+<% end %>
+<p style='clear: both; margin-bottom: 10px;'></p>

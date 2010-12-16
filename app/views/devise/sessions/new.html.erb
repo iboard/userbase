@@ -1,0 +1,22 @@
+<%= user_settings_menu do %>
+    <%= render( :partial => 'devise/shared/links', :locals => {:resource_name => 'user'}) %>
+<% end %>
+<%= image_tag(resource.avatar.url(:thumb), :class => 'avatar_right_float') if resource.avatar %>
+<h2>Sign in</h2>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <p><%= f.label :email %> <%= f.text_field :email %></p>
+
+  <p><%= f.label :password %> <%= f.password_field :password %></p>
+
+  <% if devise_mapping.rememberable? -%>
+    <p><%= f.label :remember_me %> <%= f.check_box :remember_me %></p>
+  <% end -%>
+
+  <p><%= f.submit "Sign in" %></p>
+<% end %>
+
+<div style='clear: both;'>
+  <%= render :partial => "devise/shared/links" %>
+</div>
+<span style='clear: both;'><br/></span>
+

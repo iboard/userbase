@@ -1,0 +1,12 @@
+<%= @notify_subject.upcase %>
+<%= "="*@notify_subject.length %>
+
+  URL         : <%= user_posting_url(@posting.user,@posting) %>
+  Author      : <%= @posting.user.nickname %> <<%= @posting.user.email -%>>
+  Date        : <%= @posting.created_at %>
+  Attachments : <%= @posting.assets.count %>
+
+
+<%= strip_links(strip_tags(@posting.title.upcase)) %>
+
+<%= strip_links(strip_tags(RedCloth.new(@posting.body).to_html)) %>

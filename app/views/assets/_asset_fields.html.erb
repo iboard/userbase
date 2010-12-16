@@ -1,0 +1,27 @@
+<div class='fields', style='margin-top: 10px;' >
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :size => 74  %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows => 2, :cols => 54 %>
+  </div>
+  <div class="field">
+    <% if f.object && f.object.asset_file_size %>
+      <%= f.label( "<b>".html_safe +
+                   link_to( f.object.asset_file_name, f.object.asset.url(:original)
+                          )+
+                   " "+
+                   (f.object.asset_file_size/1024).round.to_s+" KB, "+f.object.asset_content_type,
+                   :style => 'width: 100%;'
+                  )+"</b>".html_safe %>
+    <% else %>
+      <%= f.label :asset %>  
+    <% end %>
+    <br />
+    <%= f.file_field :asset %>  <%= link_to_remove_fields( t(:destroy_asset), f )%>
+    <p>
+    </p>
+  </div>
+</div>

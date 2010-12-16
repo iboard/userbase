@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  locale: MyString
+  translateable_id: 1
+  translateable_type: MyString
+  translated_id: 1
+
+two:
+  locale: MyString
+  translateable_id: 1
+  translateable_type: MyString
+  translated_id: 1

@@ -1,0 +1,29 @@
+<% if !I18n.available_locales.blank? %>
+  <% for item in I18n.available_locales %>
+    <%= link_to t(:locale_icon, :lang => item.to_s).html_safe, 
+        switch_language_path(item.to_s), :remote => true,
+        :class => 'language_icon' %>
+  <% end %>
+<% end %>
+<%= content_tag :div, :id => 'session_box' do %>
+  <% if user_signed_in? %>
+    <div style='float:right; margin-left: 10px; margin-right:-10px; padding-right: 0px; margin-top: 5px;'>
+        <%= image_tag w3c_url(current_user.avatar.url(:icon)), :class => 'avatar_icon_header' %><br/>
+    </div>
+    <div>
+      <%= t(:you_logged_in_as, :email => link_to(current_user.nickname,user_settings_path) ).html_safe %>
+      <br/><small>(<%= I18n.translate(:active_roles)  + ": " +
+      User::ROLES.map { |role|  
+         if current_user.role?(role) 
+           role[0].upcase
+         else
+           role[0].downcase
+         end
+       }.join("") -%>)</small>
+      <br/>
+      <%= t(:not_you?).html_safe -%><%= sc(:nbsp,:pr,:nbsp) -%><%= link_to t(:logout).html_safe, destroy_user_session_path %>
+    </div>
+  <% else %>
+    <%= link_to t(:login).html_safe, new_user_session_path %>
+  <% end %>
+<% end %>

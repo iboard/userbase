@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <%= stylesheet_link_tag(  ApplicationConfig.uration(:application_css), :media => :screen )%>
+    <%= stylesheet_link_tag(  ApplicationConfig.uration(:application_css), :media => :print )%>
+    <%= javascript_include_tag :defaults %>
+    <!-- prototype-lib will be loaded only when needed -->
+    <%= yield :prototype %>
+    <%= yield :head %>
+    <%= csrf_meta_tag %>
+    <%= auto_discovery_link_tag(:atom, "/feed.atom") %>
+  </head>
+  <body>
+      <% unless @request.nil? %>
+        <div id='print_title'>
+            <h1><%= ApplicationConfig.uration :application_name %></h1>
+            <address>
+                Printed: <%= Time.now -%><br/>
+                Address: <%= [ @request.protocol, @request.host, @request.request_uri].join %>
+            </address>
+        </div>
+      <% end %>
+      <% content_for :sidebar_right do %>
+        <%= content_tag :div,  :id => 'sidebar_right' do %>
+          <%= html_include('public/static_pages/welcome_right.html').html_safe %>
+        <% end %>
+      <% end %>
+      <div id='right_sidebar'>
+        
+        <% unless yield(:new_button).blank? %>
+          <div id='new_button'>
+              <%= yield :new_button %>
+          </div>
+        <% end %>        
+        <% unless yield(:language_filter).blank? %>
+          <div id='language_filter'>
+              <%= yield :language_filter %>
+          </div>
+        <% end %>
+        <%= content_tag :div, :id => 'tagclouds' do %>
+               <!-- TAG Clouds -->
+               <%= render( :partial => 'postings/tag_cloud' ) if @tags.any? %>  
+               <%= render( :partial => 'episodes/tag_cloud' ) if @episodes_tags.any? %>      
+        <% end %>
+        <% unless yield(:sidebar_right).blank? %>
+            <%= yield :sidebar_right %>
+        <% end %>
+      </div>
+      
+      <header>  
+        <div id='menubar'>
+          <%= content_tag :div, :style=>'width: 400px; float: right; text-align: right;' do %> 
+            <%= render :partial =>  '/layouts/session_box' %>
+          <% end %>
+          <div style='clear: right;'></div>
+          <% if admin_menu_items.any? %>
+              <%= page_menu admin_menu_items, {:id => 'admin_menu', :clear => 'right'} %>
+          <% end %>
+          <%= page_menu main_menu_items %>
+        </div>
+              
+        <%= content_tag :div, :id => 'page_header' do %>
+          <%= content_tag :div, :style=>'width: 400px; float: left;'  do %>
+            <h1 style='width: 400px;'><%= ApplicationConfig.uration :application_name %></h1>
+            <%= html_include('public/static_pages/header.html').html_safe -%>
+          <% end %>
+        <% end %>
+      </header>
+      
+      
+      <section id='page_section'>      
+        <div id='page'>
+          <% if flash.any? %>
+            <section id='flashes'>
+              <% flash.each do |f| %>
+                  <%= content_tag :div, :id => f[0].to_s+"_flash" do %>
+                    <%= f[1] %>
+                  <% end %>
+              <% end %>
+            </section>
+          <% end %>    
+          <!-- MAIN CONTENT -->
+          <%= yield %>
+          <!-- //////////// -->
+         </div>
+      </section>
+      
+      <footer id='footer_section'>
+          <div id='footer'>
+            <%= html_include('public/static_pages/footer.html').html_safe -%>
+            <%= inline_button(link_to( sc(:pr,:nbsp)+t(:subscribe_rss_feed), "/feed.atom", :style => 'color: black;')) %>
+            <p>&nbsp;</p>
+            <%= content_tag :div, :id => 'copyright', :style => 'width: 400px;' do %>
+              © copyright <%= Date.today().year %> by <%= link_to 'WWEDU GmbH, Austria', 'http://wwedu.com' %>
+            <% end %>
+          </div>
+      </footer>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<h1><%= t(:language_switched_to, :lang => I18n.locale.to_s ) %></h1>
+
+<p>You have disabled <em>JavaScript</em> in your browser-settigs!</p>
+
+<p>Sie haben <em>JavaScript</em> in ihrem Browser nicht aktiviert!</p>
+
+<p>
+  <%= link_to t(:continue), request.env['HTTP_REFERER'] %>
+</p>

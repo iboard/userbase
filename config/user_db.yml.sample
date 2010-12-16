@@ -1,0 +1,9 @@
+development:
+  use_remote_database: user_dev #create an entry user_dev in file database.yml
+                                #which will be used to store the user-model
+                                
+production:
+  use_remote_database: false    #user model will be stored in the default database
+  
+test:
+  use_remote_database: false

@@ -1,0 +1,80 @@
+<!-- VIEWS/EPISODES/_episode.html.erb -->
+<!-- This view is too f*** long       -->
+<% show_all ||= false %>
+
+<%= content_tag :div, :class => 'episode' do %>
+
+  <!--                  -->
+  <!-- Episodes's assets -->
+  <!--                  -->
+  <% if episode && episode.assets.any? %>
+    <%= content_tag :div, :class => 'float-right-asset-box' do %>
+      <%= render :partial => "/assets/asset", :collection => episode.assets %>
+    <% end %>
+  <% end  %>
+  
+  <!-- right box with Managebuttons if allowed-->
+  <% if can? :manage, episode %>
+    <%= content_tag :div, :class => 'float-right-box', :style => 'width: 200px; background: none; text-align: right; padding: 5px;' do %>
+      <%= button(link_to 'Edit', edit_episode_path(episode)) %>
+      <%= button(link_to 'Destroy', episode, :confirm => 'Are you sure?', :method => :delete) %>
+    <% end %>
+  <% end %>
+  
+  <!-- TITLE And Author-->
+  <h2><%= link_to episode.title, episode %></h2>
+  <address>
+    <%= episode.updated_at.to_s(:short) %> 
+    (<%= t(:time_ago, :time => distance_of_time_in_words(episode.updated_at,Time.now)) -%>), 
+    <%= t(:by_author) %>: <%= episode.user.nickname %>
+    [<%= insert_episodes_tag_list(episode.tag_list) %>]
+    <%= language_links(episode) -%><br/><br/>
+  </address>
+ 
+  <!-- DESCRIPTION AND VIDEO IF :show_all --> 
+  <%= content_tag :div, :class => '.episode_description' do %>
+    <% if show_all && @episode %>
+      <% unless @episode.is_youtube_video? %>
+        <!-- SHOW LONG VIEW -->
+        <div>
+          <%= render :partial => 'html5_video' %>
+        </div>
+      <% else %>
+        <div>
+            <%= render :partial => 'youtube_video' %>
+        </div>
+      <% end %>
+    <% else %>
+      <!-- SHOW TRUNCATED PREVIEW ONLY -->
+      <%= sanitize( RedCloth.new(episode.description.paragraphs(0..5)).to_html.html_safe, 
+           :tags =>  %w(b em strong) )
+      %>
+      <span style='clear: both;'><br/></span>
+      <%= inline_button(link_to t(:read_episode), episode).html_safe %>
+    <% end %>
+  <% end %>
+
+
+  <!-- SHOW COMMENTS -->
+  <% if can? :read, episode %>
+    <!-- Comemnt -->
+    <%= content_tag :div, :class => 'comments' do %>
+      <%= content_tag :div, :class => 'comments_count_and_links' do %>
+        {
+          <%=  t(:n_comments, :count => episode.comments.count) unless episode.comments.any? %>
+          <%=  link_to(t(:n_comments, :count => episode.comments.count),user_episode_comments_path(episode.user,episode)) if episode.comments.any? %>
+          <% unless current_page?(new_user_episode_comment_path(episode.user,episode)) || cannot?(:create, Comment.new) %>
+             | <%= link_to( t(:add_a_comment), new_user_episode_comment_path(episode.user,episode)+"#new_comment" ) %>
+          <% end %>
+        }
+      <% end %>
+      <%= render episode.comments if episode.comments.any? && !defined?(@episodes) -%>
+    <% end %>
+  <% else %>
+    <%= t(:episode_not_accessible) %>
+  <% end %>
+  
+
+<% end %>
+<!-- /VIEWS/EPISODES/_episode.html.erb -->
+<p style='clear: both; margin-bottom: 10px;'></p>

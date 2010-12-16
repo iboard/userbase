@@ -1,0 +1,7 @@
+<h1>Editing posting</h1>
+<div>
+  <%= button(link_to('Show', user_posting_path(@posting.user,@posting))) %>
+  <%= button(link_to('Back to postings index', postings_path))  %>
+</div>
+
+<%= render 'form' %>

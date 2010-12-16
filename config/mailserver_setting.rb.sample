@@ -1,0 +1,9 @@
+MAILSERVER_ADDRESS   = 'mailserver.domain.tls'
+MAILSERVER_PORT      = '25'
+MAILSERVER_USERNAME  = 'testuser'
+MAILSERVER_PASSWORD  = 'secret'
+MAILSERVER_DOMAIN    = 'yourdomain.tls'
+ADMIN_EMAIL_ADDRESS  = 'admin@yourdomain.tls'
+DEFAULT_URL          = '0.0.0.0:3000'
+DEFAULT_MAIL_FROM    = "noreply@yourdomain.tls"
+DEVELOPMENT_MAIL_RECIPIENT = 'developer@yourdomain.tls'

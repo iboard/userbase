@@ -1,0 +1,223 @@
+#de, datetime, distance_in_words, about_x_hours
+de:
+  locales:
+    en: 'English'
+    de: 'Deutsch'
+
+  datetime:
+    distance_in_words:
+      x_minutes:
+        zero: "jetzt"
+        one: "einer Minute"
+        other: "%{count} Minuten"   
+      less_than_x_minutes: 
+        zero: "weniger als einer Minute"
+        one: "ungefähr einer Minute"
+        other: "%{count} Minuten"
+      about_x_hours:
+        zero: 'nicht ganz einer Stunde'
+        one: 'ungefähr einer Stunde'
+        other: 'ungefähr %{count} Stunden'
+      x_days:
+        zero: "heute"
+        one: "gestern"
+        other: "%{count} Tagen"
+      x_months:
+        one: "einem Monat"
+        other: "%{count} Monaten"
+      about_x_months:
+        zero: 'dieses Monat'
+        one: 'ungefähr einem Monat'
+        other: 'ungefähr %{count} Monaten'
+      over_x_years:
+        one: "mehr als einem Jahr"
+        other: "mehr als %{count} Jahren"
+      about_x_years:
+        one: "ungefähr einem Jahr"
+        other: "ungefähr %{count} Jahren"
+  hello: "Hallo Welt"
+  you_logged_in_as: "Sie sind als <b><em>%{email}</em></b> angemeldet"
+  not_you?: 'Nicht Sie?'
+  login: 'Anmelden'
+  logout: 'Abmelden'
+  home: 'Home'
+  user_settings: 'Benutzereinstellungen'
+  edit_registration: 'Registration bearbeiten'
+  edit_user_password: 'Passwort ändern'
+  new_user_password: 'Neues Passwort'
+  roles: 'Rollen'
+  cancel_account: 'Account löschen'
+  are_you_sure: 'Sind Sie sicher, dass Sie %{what} wollen?'
+  delete_account_for: 'Account %{name} löschen'
+  admin_deletes_account_for: 'Account für %{name} löschen'
+  user_listing_user: 'Benutzer'
+  user_listing_email: 'EMail'
+  user_listing_roles_mask: 'Rollen'
+  user_listing_created_at: 'Erzeugt am'
+  user_listing_updated_at: 'Geändert am'
+  user_listing_sign_in_count: 'Anmeldungen'
+  user_listing_current_sign_in_at: 'Aktuell'
+  user_listing_failed_attempts: 'Fehlgeschlagen'
+  user_listing_confirmation_sent_at: 'Bestätigt'
+  user_listing_last_sign_in_ip: 'Letzte IP'
+  user_listing_last_sign_in_at: 'Zuletzt am'
+  user_listing_current_sign_in_ip: 'Aktuelle IP'
+  user_listing_locked_at: 'Gesperrt'
+  user_listing_confirmed_at: 'Bestätigt'
+  user_listing: 'Benutzerliste'
+  successfully_updated_user: 'Benutzerdaten geändert.'
+  edit_user: 'Benutzer bearbeiten'
+  only_admins_can_list_users: 'Nur Administratoren können Benutzer bearbeiten!'
+  or_delete_account: 'oder den Account %{account} löschen'
+  account_deleted_successfully: 'Account %{username} wurde gelöscht'
+  please_login_as_admin_or_staff_to: "Um %{what}, bitte als Administrator oder Mitarbeiter anmelden"
+  user_maintainance: 'Benutzerverwaltung.'
+  legal_notice: 'Rechtliche Hinweise'
+  about: 'Über...'
+  successfully_updated: 'Eintrag erfolgreich geändert'
+  postings: 'Beiträge'
+  anonymous: 'Annonym'
+  show_all_posting: 'Alle Beiträge anzeigen ...'
+  user_has_no_postings: 'Dieser Benutzer hat keine Beiträge'
+  postings_of_user: "Beiträge von %{user}"
+  show_all_users_postings: 'Alle Beiträge dieses Benutzers anzeigen'
+  read_more_posting: 'mehr lesen...'
+  back: 'Zurück'
+  show_all_postings: 'Alle Beiträge anzeigen...'
+  postings_index: 'Alle Beiträge'
+  time_ago: 'vor %{time}'
+  edit_entry: 'Diesen Eintrag bearbeiten'
+  edit_user_roles: 'Benutzerrollen bearbeiten'
+  set_or_change_your_avatar: 'Avatar erstellen oder ändern'
+  submit: 'Absenden'
+  or_clear_avatar: 'Oder: Avatar löschen'
+  crop_help: 'Definieren Sie das Rechteck, dass sie ausschneiden wollen, im oberen Bild. Die Vorschau sehen sie darunter.'
+  cropping: 'Ausschneiden ...'
+  no_access_to_avatar: 'Sie sind nicht berechtigt den Avatar dieses Benutzers zu ändern.'
+  edit: 'Bearbeiten'
+  new_posting: 'Neuer Beitrag'
+  episodes: 'Episoden'
+  listing_episodes: 'Episoden'
+  new_episode: 'Neue Episode'
+  author: 'Autor'
+  episode_index: 'Episoden'
+  open_video: 'Video in Ihrem Standard-player öffnen'
+  web_video_format: 'HD oder Web Auflösung'
+  mobile_video_format: 'Kleinere Auflösung für Mobile-devices'
+  by_author: 'von'
+  open_video_if_not_works_in_browser: "Wenn das Video hier nicht startet versuchen Sie es mit ihrem Standard-Player"
+  n_comments:
+    zero: 'Keine Kommentare'
+    one:  'ein Kommentar'
+    other: '%{count} Kommentare'
+  add_a_comment: 'Kommentar hinzufügen'
+  comments_of: 'Kommentare zu "%{title}"'
+  unknown_item: 'Unbekanntes Element'
+  is_not_an_email: "ist keine EMail-Adresse"
+  will_not_be_shown: 'Wird nicht öffentlich angezeigt!'
+  delete_this_comment: 'Diesen Kommentar löschen'
+  delete: 'Löschen'
+  no_comment_without_a_commentable: "Comments index can't be displayed without a commentable item."
+  no_comment_without_a_current_user: "Comments without a current user can't be displayed."
+  read_access_mask: "Folgende Rollen dürfen lesen"
+  mange_access_mask: "Folgende Rollen dürfen bearbeiten"
+  access_mask: 'Zugriffsrechte'
+  read: 'lesen'
+  manage: 'bearbeiten'
+  posting_not_accessible: 'Dieser Beitrag ist mit Ihren Benutzerrollen nicht bearbeitbar'
+  read_episode: 'Episode ansehen'
+  episode_listing: 'Episoden'
+  active_roles: 'Aktive Rollen'
+  not_locked: 'nicht gesperrt'
+  user_settings_link: 'Benutzereinstellungen'
+  or_goto_without_saving_changes: "Abbrechen und zu %{target} gehen"
+  without_saving_changes_warning: "<b style='color: #95150B;'>OHNE DIE ÄNDERUNGEN ZU SPEICHERN!</b>"
+  you_can_manage_this_item_for_another_n_minutes: 'Sie können den Eintrag %{item} noch %{minutes} bearbeiten.'
+  comment: 'Kommentar'
+  comments: 'Kommentare'
+  comment_on: 'Kommentare zu %{item}'
+  commentable_not_found: 'Element wurde nicht gefunden'
+  subscribe_rss_feed: 'RSS-Feed abonnieren'
+  assets: 'Anhänge'
+  add_asset: 'Anhang hinzufügen'
+  download: 'Download'
+  destroy_asset: 'Anhang löschen'
+  supervisor: 'Abteilungsleiter'
+  department: '%{name} - Abteilung'
+  editing_something: '%{what} bearbeiten'
+  department_txt: 'Abteilung'
+  place_txt: 'Ort'
+  item_txt: 'Item'
+  items: 'Items'
+  departments_abbr: 'Abteilungen'
+  department_abbr: 'Abt.'
+  places: 'Orte'
+  list_items: 'Alle Items'
+  my_items: 'Meine Items'
+  no_current_owner: '--- Im Lager ---'
+  on_stock_items: 'Im Lager'
+  not_on_stock_items: 'Entnommen'
+  new_place: 'Neuer Ort'
+  description: 'Beschreibung'
+  serial_number: 'Seriennummer'
+  user: 'Benutzer'
+  new_item: 'Neues Item'
+  show: 'Zeigen'
+  pick_up: 'Entnehmen'
+  put_back: 'Zurückgeben'
+  currently_has: 'hat gerade'
+  new_department: 'Neue Abteilung'
+  items_of_user: 'Items von %{user}'
+  items_at_place: 'Items am Ort %{place}'
+  all_items: 'Alle Items'
+  items_at_department: 'Items der Abteilung %{department}'
+  language: 'Sprache'
+  translations: 'Übersetzungen'
+  filter_by_language: 'Nach Sprachen filtern'
+  all: 'alle'
+  help_language_filter: 'Klicke auf eine Sprache um den Filter zu ändern. Es werden nur Inhalte dieser Sprache angezeigt.'
+  sort: 'Sortieren'
+  item_history: 'Klicke auf %{icon} um hier die letzten Einträge des Items zu sehen.'
+  select_place: 'Bitte wähle einen Platz'
+  put_back_item: '%{item} zurückgeben'
+  history: 'Aktivitäten'
+  thank_you: 'Danke!'
+  search_placeholder_txt: 'Suche nach #Id, Name, Serialnumber oder Beschreibung'
+  item_comment_bring_back: 'hat *%{user}* das Item *abgelegt* -> *%{place}*'
+  item_comment_check_in: 'hat %{user} das Item erfasst und abgelegt -> %{place}'
+  item_comment_take_out: 'hat *%{user}* das Item von _%{place}_ *entnommen*'
+  taken_by: 'Entnommen von'
+  on_stock: 'Im Lager'
+  not_on_stock: 'Entnommen'
+  item: 'Item'
+  item_not_found: 'Item nicht gefunden.'
+  close: 'Schließen'
+  no_items_found: 'Keine Items gefunden'
+  postings_tagged_with_label: 'Tags'
+  num_postings: 'Postings'
+  num_comments: 'Kommentare'
+  staff_member: 'Mitarbeiter'
+  inventory_printview: 'Inventory - Items'
+  print_view: 'Drucken'
+  print_button_label: 'Die Liste der Items pro Ort kann mit dem Drucken-Button ausgedruckt werden:'
+  continue: 'Fortsetzung'
+  page: 'Seite'
+  authentication_created_for: 'Authentifizierung über Provider %{provider} erfolgreich hinzugefügt.'
+  authentications: 'Authentifizierung(en)'
+  or_authenticate_through_service: 'Oder benutzen Sie einen der Services um sich zu authentifizieren'
+  edit_your_authentications: 'Ihre Authentifizierungen bearbeiten'
+  registration_settings: 'Benutzereinstellungen'
+  current_authentications: 'Aktuelle Identifikationen'
+  add_an_authentication: 'Identifikation hinzufügen'
+  postings_tagged_with: 'Beiträge mit Tag: "%{tag}"'
+  current_password_required: "(Zum Ändern bitte aktuelles Passwort eingeben)"
+  back_to: 'Zurück zu'
+  locale_icon: '<img src="/images/%{lang}.jpg" alt="%{lang}" />'
+  language_switched_to: 'Die Sprache wurde auf "%{lang}" geändert.'
+  all_postings: 'Alle Beiträge'
+  language_filter_help: 'Klicke auf eine Sprache um Artikel dieser Sprache ein-/auszuschalten'
+  on_youtube: 'YouTube Video'
+  open_video_on_youtube: 'Bei YouTube ansehen'
+  wrong_browser: 'Ihr Browser kann diese Seite nicht richtig darstellen. Bitte benutzen Sie Safari, Firefox oder jeden anderen Browser als den "Internet Explorer"'
+  preview: 'Vorschau'
+  toggle_preview: 'Vorschau ein-/ausblenden'

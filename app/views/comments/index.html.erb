@@ -1,0 +1,4 @@
+<h1><%= title @commentable.class.to_s.humanize +  ": " + @commentable.title -%></h1>
+
+<%= render @commentable, :locals => { :show_all => true } %>
+

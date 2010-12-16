@@ -1,0 +1,89 @@
+<h1><%= title t(:user_listing) %></h1>
+
+<table class='tiny_table' style='height: 400px'>
+    <tr>
+      <th width=270><%= t(:user_listing_user) %></th>
+      
+      <th width=50><%= t(:user_listing_roles_mask) %></th>
+      
+      <th width=50><%= t(:user_listing_created_at) %><br/>
+                   <%= t(:user_listing_updated_at) %><br/>
+                   <%= t(:user_listing_sign_in_count)+"/"+ t(:user_listing_failed_attempts) %>
+      </th>
+      
+      <th width=50><%= t(:user_listing_current_sign_in_at) %><br/>
+                   <%= t(:user_listing_confirmation_sent_at) %>
+                   <%= t(:user_listing_last_sign_in_ip) %><br/>
+                   <%= t(:user_listing_last_sign_in_at) %><br/>
+                   <%= t(:user_listing_current_sign_in_ip) %><br/>
+                   <%= t(:user_listing_locked_at) %><br/>
+                   <%= t(:user_listing_confirmed_at) %>
+      </th>
+      
+    </tr>
+    <% @users.each do |user| %>
+      <tr class=<%= cycle :odd, :even -%>>
+        <td valign='top'>
+            
+          <% if user_signed_in? && current_user == user %>
+            <b>YOU! <%= sc(:pr) %></b>
+            <%= link_to image_tag(w3c_url(user.avatar.url(:icon)),
+                :class => 'avatar_icon_left_float_selected',
+                :title => t(:set_or_change_your_avatar)), avatar_user_path(current_user) %>
+            <%= inline_button(link_to(sc(:edit), edit_user_registration_path(user),:title => t(:edit_registration))) %>    
+          <% else %>
+            <div>
+              <%= image_tag w3c_url(user.avatar.url(:icon)),:class => 'avatar_icon_left_float' %>
+            </div>
+          <% end %>
+          <div style='margin-left: 80px;'>
+            <strong><%= user.nickname %></strong>
+            <% if user.authentications.any? %>
+              <br/>
+              <%= render user.authentications %>
+              <br/>
+            <% end %>
+                        
+            <br/>
+            
+            <%= link_to sc(:mail,:nbsp)+user.email, "mailto:#{user.email}" %>
+            <% if can? :update, user %>
+              <%= sc(:br)+inline_button( 
+                            link_to( sc(:nbsp,:edit,:nbsp)+t(:edit_user_roles), edit_user_path(user),:id => 'edit_roles')
+                          ) %>
+            <% end %>
+            <div>
+              <strong><%= t(:postings_tagged_with_label) -%>:</strong>
+              <%= user.owned_tags(:postings).map { |tag| 
+                link_to tag.name.humanize, tag_postings_path(tag.name)
+               }.join(", ").html_safe %>
+               <br/>
+               <strong><%= t(:num_postings, :count => user.postings.count) %>:</strong> <%= link_to user.postings.count, user_postings_path(user) %><br/>
+               <strong><%= t(:num_comments) %>:</strong> <%= user.comments.count%><br/>
+            </div>
+          </div>
+        </td>
+        <td valign='top' id="user_roles_<%= user.id -%>">
+          <%= user.roles.map { |r| r.humanize }.join("<br/>".html_safe).gsub(/Admin/, "<b style='color:red;'>Admin</b>").html_safe %>
+        </td>
+        
+        <td valign='top'>
+           <b><%= t(:user_listing_created_at) %>           </b>: <%= user.created_at.to_date.to_s(:short) unless user.created_at.nil? %><br/>
+           <b><%= t(:user_listing_updated_at) %>           </b>: <%= user.updated_at.to_date.to_s(:short) unless user.updated_at.nil? %><br/>
+           <b><%= t(:user_listing_sign_in_count)+"/"+       
+                  t(:user_listing_failed_attempts) %>      </b>: <%= user.sign_in_count %>/<%= user.failed_attempts %>
+        </td>
+        <td align='center' valign='top'>
+            <b><%= t(:user_listing_current_sign_in_at) %>  </b>:<%= user.current_sign_in_at.to_date.to_s(:short) unless user.current_sign_in_at.nil? %><br/>
+            <b><%= t(:user_listing_confirmation_sent_at) %></b>:<%= user.confirmation_sent_at.to_date.to_s(:short) unless user.confirmation_sent_at.nil? %><br/>
+            <b><%= t(:user_listing_last_sign_in_ip) %>     </b>:<%= user.last_sign_in_ip %><br/>
+            <b><%= t(:user_listing_last_sign_in_at) %>     </b>:<%= t(:time_ago,:time => distance_of_time_in_words_to_now(user.last_sign_in_at)) unless user.last_sign_in_at.nil? %><br/>
+            <b><%= t(:user_listing_current_sign_in_ip) %>  </b>:<%= user.current_sign_in_ip %><br/>
+            <b><%= t(:user_listing_locked_at) %>           </b>:<%= user.locked_at.to_date.to_s(:short) unless user.locked_at.nil? %>
+                                                                <%= t(:not_locked) if user.locked_at.nil? -%>
+                                                           <br/>
+            <b><%= t(:user_listing_confirmed_at) %>        </b>:<%= user.confirmed_at.to_date.to_s(:short) unless user.confirmed_at.nil? %>
+        </td>
+      </tr>
+    <% end %>
+</table>

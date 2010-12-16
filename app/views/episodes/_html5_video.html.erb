@@ -1,0 +1,16 @@
+<%= RedCloth.new((@episode.description)).to_html.html_safe  %>
+<div style='paddig: 20px; background: #333; color: white; 
+            text-align: center;  width: 640px;'>
+     <video controls autoplay width="640" height="400"
+            src='<%= @episode.video_web_url -%>'
+            type='video/mp4'
+     >
+       Your browser does not support the video tag.
+     </video>
+</div>
+      
+<p><%= t(:open_video_if_not_works_in_browser) -%></p>
+<ul>
+  <li><b><%= t(:web_video_format) %></b><br/><%= button(link_to(t(:open_video),@episode.video_web_url )) %><br/><br/></li>
+  <li><b><%= t(:mobile_video_format) %></b><br/><%= button(link_to(t(:open_video),@episode.video_mobile_url )) %><br/><br/></li>
+</ul>

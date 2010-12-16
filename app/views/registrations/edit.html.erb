@@ -1,0 +1,32 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<span style='clear: right;'><br/></span>
+<%= image_tag(resource.avatar.url(:thumb), :class => 'avatar_right_float') if resource.avatar %>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
+  :html => { :method => :put}) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= render :partial => 'registration_fields', :locals => {:f => f} %>
+
+  <% if resource.authentications.empty? %>
+    <p><%= f.label :current_password %>
+    <%= f.password_field :current_password %> <i><%= t(:current_password_required) %></i>
+    </p>
+  <% end %>
+
+  
+  <p>
+    <%= f.label :submit, sc(:nbsp) %><%= f.submit "Update" %>
+  </p>
+  
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>
+    Unhappy? 
+    <%= link_to("Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :class => 'link_button') %>
+</p>
+
+
+<%= button(link_to("Back", :back)) %>

@@ -1,0 +1,10 @@
+<%= render @commentable, :locals => { :show_all => true } %>
+
+<%= content_tag :div, :class => 'comments' do %>
+  <h3><a name='new_comment'></a>New comment</h3>
+  
+  <%= render 'form' %>
+  <br />
+<% end %>
+
+<%= inline_button(link_to 'Back', @commentable) %>

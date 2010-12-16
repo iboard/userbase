@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  title: My first Posting
+  body: I'm pleased to announce my first Posting
+
+two:
+  user_id: 1
+  title: Second Posting
+  body: Here I'm again
+
+public:
+  user_id: 1
+  title: Public Posting
+  body: A public posting which enables Link to postings
+  access_read_mask: 1

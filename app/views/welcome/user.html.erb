@@ -1,0 +1,25 @@
+<%= image_tag(current_user.avatar.url(:thumb), :class => 'avatar_right_float', :style => 'margin-top: 10px;') if user_signed_in? %>
+
+<h1><%= title 'User Settings'%></h1>
+
+<h2>Actions</h2>
+<ol>
+    <% if user_signed_in? %>
+      <li><%= link_to t(:edit_registration),  edit_user_registration_path %></li>
+      <li><%= link_to t(:set_or_change_your_avatar), avatar_user_path(current_user) %>
+      <li><%= link_to t(:cancel_account), registration_path('user'), 
+                :confirm => t(:are_you_sure, :what => t(:delete_account_for, :name => current_user.email) ), 
+                :method => :delete %>.</p>
+    <% else %>
+      <li><%= link_to t(:new_user_password), new_user_password_path %></li>      
+    <% end %>
+</ol>
+
+<h2 style='clear: both;'><%= t(:or_authenticate_through_service) %></h2>
+<p>
+    <%= button(link_to(t(:edit_your_authentications), authentications_path)) %>
+</p>
+
+<%= render '/authentications/authentications'%>
+
+<p style='clear: both;'><br/></p>

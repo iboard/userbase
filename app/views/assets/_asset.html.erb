@@ -1,0 +1,15 @@
+<%= content_tag :div, :class => 'asset' do %>
+  <h3><%= asset.title %></h3>
+  <address><%= asset.description %></address>
+  <p>
+    <% if asset.asset_file_size %>
+      <% if asset.asset_content_type =~ /image/ %>
+        <%= link_to image_tag( w3c_url(asset.asset.url), :width => '200' ), 
+                    w3c_url(asset.asset.url), :target => :blank 
+        %><br/>
+      <% end %>
+      <%= link_to t(:download), w3c_url(asset.asset.url(:original)) %>
+      <%= (asset.asset_file_size/1024).round %> KB, <%= asset.asset_content_type %>
+    <% end %>
+  </p>
+<% end %>

@@ -1,0 +1,25 @@
+<%= content_tag :div, :class => 'comment' do %>
+  <%= content_tag :div, :class => 'address' do %>
+    <%= comment.user.nickname %>, <%= t(:time_ago, :time => time_ago_in_words(comment.updated_at)) if comment.updated_at -%>
+     <% if can?(:manage,comment) && !comment.new_record? %>
+       <br />
+       <% if MAX_TIME_TO_EDIT_NEW_COMMENTS-(Time.now-comment.updated_at)/60 > 0 %>
+         <%= t(:you_can_manage_this_item_for_another_n_minutes, 
+                       :item => t(:comment), 
+                       :minutes => (MAX_TIME_TO_EDIT_NEW_COMMENTS-(Time.now-comment.updated_at)/60).round
+             ).html_safe 
+         %>
+       <% end %>
+       <%= button(  link_to(t(:edit),   edit_user_comment_path(comment.user,comment) ) 
+                 )
+       %>
+       <%= button(  link_to(t(:delete), user_comment_path(comment.user,comment), 
+                      :confirm => t(:are_you_sure, :what => t(:delete_this_comment)), 
+                      :method => :delete
+                     )
+                  ) 
+       %>
+     <% end %>
+  <% end %>
+  <%= RedCloth.new(auto_link(comment.comment)).to_html.html_safe %>
+<% end %>

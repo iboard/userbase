@@ -1,0 +1,22 @@
+<% title(ApplicationConfig.uration(:application_name),false) %>
+<div class='dummy' style='margin-top: 40px;'>
+
+  <!-- Intro -->
+  <%= html_include('public/static_pages/prefix.html').html_safe %>
+  
+  <!-- LATEST POSTINGS -->
+  <% if @postings.any? %>
+    <%= render :partial => @postings, :locals => { :header_level => 2 } %>
+    <% if @postings.count < Posting.all.count %>
+      <p>
+        <%= sc(:pr,:nbsp) -%><%= link_to t(:show_all_posting), postings_path %>
+      </p>
+    <% end %>
+  <% end %>
+  
+  <!-- ACTIVITY -->
+  <% if user_signed_in? && current_user.role?(:staff) %>
+    <%= html_include('public/static_pages/welcome_activity.html').html_safe -%>
+  <% end %>
+</div>
+

@@ -1,0 +1,36 @@
+<p><%= f.label :email %>
+<%= f.text_field :email, :size => 50 %></p>
+
+<p><%= f.label :nickname %>
+<%= f.text_field :nickname %></p>
+
+<% if @user.authentications.empty? %>  
+  <p><%= f.label :password %> 
+    <%= f.password_field :password %> <i>(leave blank if you don't want to change it)</i>
+  </p>
+  <p><%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+<% else %>
+  <p>
+    <%= f.label :current_authentications %>
+    <%= render @user.authentications %>
+  </p>
+<% end %>
+<p>
+  <%= f.label("OmniAuth") %>
+  <%= inline_button(link_to(t(:edit_your_authentications), authentications_path)) %>
+</p>
+
+
+<%= user_settings_menu do %>
+    <%= render( :partial => 'devise/shared/links', :locals => {:resource_name => 'user', :title => t(:add_an_authentication)}) %>
+<% end %>
+<span style='clear: right;'><br/></span>
+
+
+<p><%= f.label :language %>
+<%= f.language_select :language %></p>
+
+<p><%= f.label :time_zone %>
+<%= f.time_zone_select :time_zone %></p>
