@@ -1,4 +1,4 @@
-Thu, 16 Dec 2010 21:11:17 +0100
+Thu, 16 Dec 2010 21:26:07 +0100
 ./app/controllers/application_controller.rb	Thu, 16 Dec 2010 21:11:13 +0100
 ./app/controllers/assets_controller.rb	Thu, 16 Dec 2010 21:11:15 +0100
 ./app/controllers/authentications_controller.rb	Thu, 16 Dec 2010 21:11:15 +0100
@@ -83,7 +83,8 @@ Thu, 16 Dec 2010 21:11:17 +0100
 ./lib/string_extensions.rb	Thu, 16 Dec 2010 14:51:32 +0100
 ./lib/validators/email_validator.rb	Thu, 16 Dec 2010 14:51:32 +0100
 ./lib/validators/user_exists_validator.rb	Thu, 16 Dec 2010 14:51:32 +0100
-./public/javascripts/cropper/licence.txt	Thu, 16 Dec 2010 15:01:59 +0100
+./licence.txt	Thu, 16 Dec 2010 21:23:28 +0100
+./public/javascripts/cropper/licence-cropper.txt	Thu, 16 Dec 2010 21:25:12 +0100
 ./public/robots.txt	Thu, 16 Dec 2010 15:02:00 +0100
 ./Rakefile	Thu, 16 Dec 2010 14:51:31 +0100
 ./script/rails	Thu, 16 Dec 2010 14:51:32 +0100
