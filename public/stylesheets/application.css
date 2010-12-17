@@ -571,49 +571,34 @@
   }
   
   .posting_author {
-  	margin-bottom: 5px;
+  	margin-bottom: 0px;
   	color: #8B8B8B;
-  	background: #eee;
   	font-size: 11px;
   	-moz-border-radius: 5px; 
     -webkit-border-radius: 5px; 
-    -moz-border-bottom-left-radius: 0px; 
-    -webkit-border-bottom-left-radius: 0px; 
-    -moz-border-bottom-right-radius: 0px; 
-    -webkit-border-bottom-right-radius: 0px; 
     border: 0px solid #eee;
-    border-bottom: 0px solid #eee;
+    border-bottom: 1px solid #ddd;
     overflow: hidden;
-    background: -webkit-gradient(
-          linear,
-          left bottom,
-          left top,
-          color-stop(1.0,  rgb(220,220,220)),
-          color-stop(0.10, rgb(255,255,255))
-      ) no-repeat;
-      background: -moz-linear-gradient(
-          center bottom,
-          rgb(220,220,220) 100%,
-          rgb(255,255,255) 10%
-      ) no-repeat;
-  
+    text-align: right;
+    width: 600px;
+    margin-left: 200px;
   }
   
   .posting H1 {
-    font-size: 24px;
+    font-size: 2em;
     margin-top: 0px;
     margin-bottom: -5px;
     padding-left: 5px;
   }
   .posting H2 {
-    font-size: 18px;
+    font-size: 1.8em;
     margin-top: 0px;
     margin-bottom: -5px;
     padding-left: 5px;
   }
   .posting H3
   {
-    font-size: 16px;
+    font-size: 1.6em;
     margin-top: 0px;
     margin-bottom: -5px;
     padding-left: 5px;
@@ -782,13 +767,9 @@
   	margin: 5px;
   	margin-bottom: 0px;
   	padding: 0px;
-      -moz-border-radius: 5px; 
-      -webkit-border-radius: 5px; 
-      -moz-border-bottom-left-radius: 0px; 
-      -webkit-border-bottom-left-radius: 0px; 
-      -moz-border-bottom-right-radius: 0px; 
-      -webkit-border-bottom-right-radius: 0px; 
-      border: 0px solid #ddd;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    border: 0px solid #ddd;
   }
   
   .top_right_buttons {
@@ -933,9 +914,13 @@
   
   
   .episode {
-    clear: left;
-    margin-top: 10px;	
+    clear: both;
+    margin-top: 60px;	
   }
+  
+  .episode h1 { margin-bottom: 0px; }
+  .episode h2 { margin-bottom: 0px; }
+  .episode h3 { margin-bottom: 0px; }
   
   .episode address {
   	margin-top: 0px;
