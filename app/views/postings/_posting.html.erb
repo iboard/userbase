@@ -5,17 +5,11 @@
     <!-- The Posting Header with author -->
     <!--                                -->
     <address class='posting_author'>
-      <% if current_user && can?(:manage, posting) %>
-        <%= title_buttons(inline_button(link_to(sc(:edit,:sp)+t(:edit), edit_user_posting_path(posting.user,posting),
-              :title => t(:edit_entry),
-              :style => 'float: right;margin-right: 10px;')))  %>
-      <% end %>
       <b><%= link_to_user_postings(posting) %></b>, 
       <%= t(:time_ago, :time => distance_of_time_in_words_to_now(posting.updated_at)) unless posting.new_record? %>
       [<%= insert_tag_list posting.tag_list -%>]
       <%= language_links(posting) -%>
       <%= image_tag( w3c_url(posting.user.avatar_url(:icon)), :class => 'posting_author_icon' ) if posting.user %>
-      
     </address>
     
     <!--                  -->
@@ -35,8 +29,17 @@
         <%= link_to posting.object_title, posting %>
       <% else %> 
         <%= title(posting.object_title) %>
-      <% end %>
+      <% end %>      
     <% end %>
+    
+    <% if current_user && can?(:manage, posting) %>
+      <div style='margin-left: 5px;'>
+      <%= title_buttons(inline_button(link_to(sc(:edit,:sp)+t(:edit), edit_user_posting_path(posting.user,posting),
+            :title => t(:edit_entry),
+            :style => 'font-size: 0.8em; margin-right: 10px;')))  %>
+     </div>
+    <% end %>
+    
     
     
     <!--                   -->
