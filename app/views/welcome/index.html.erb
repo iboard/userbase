@@ -7,7 +7,7 @@
   <!-- LATEST POSTINGS -->
   <% if @postings.any? %>
     <%= render :partial => @postings, :locals => { :header_level => 2 } %>
-    <% if @postings.count < Posting.all.count %>
+    <% if @postings.count < Posting.readable( current_user ? current_user.roles_mask : 1).count %>
       <p>
         <%= sc(:pr,:nbsp) -%><%= link_to t(:show_all_posting), postings_path %>
       </p>
