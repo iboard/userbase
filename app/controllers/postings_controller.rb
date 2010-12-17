@@ -2,8 +2,8 @@ class PostingsController < ApplicationController
 
   respond_to :html,:xml, :rss
 
-  load_resource :user
-  load_and_authorize_resource :posting
+  load_resource :user, :except => :preview
+  load_and_authorize_resource :posting, :except => :preview
   
   after_filter :apply_user_tags, :only => [:create, :update]
   
@@ -113,10 +113,8 @@ class PostingsController < ApplicationController
     render :index
   end
   
-  def update_preview
-    render :update do |page|
-      page.replace_html :preview_body, sanitize(RedCloth.new(params[:text]).to_html.html_safe)
-    end
+  def preview
+    render :layout => false
   end
   
   private

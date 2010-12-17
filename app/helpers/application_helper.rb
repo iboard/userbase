@@ -56,6 +56,10 @@ module ApplicationHelper
     link_to_function(name,"add_fields(this,\"#{association}\", \"#{escape_javascript(fields)}\")")
   end
   
+  def link_to_toggle(name,target)
+    link_to_function(name,"$(\"##{target}\").slideToggle()")
+  end
+    
   def language_filter
     
     # If no filter is defined - set all languages selected

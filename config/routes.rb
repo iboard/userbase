@@ -9,8 +9,8 @@ Userbase::Application.routes.draw do
   match 'filter_language/:locale' => 'application#set_language_filter', 
         :as => 'set_language_filter'
         
-  match 'update_posting_preview' => 'postings#update_preview', :as => 'update_posting_preview'
-  match 'update_episode_preview' => 'episodes#update_preview', :as => 'update_episode_preview'
+  match 'posting_preview' => 'postings#preview', :as => 'posting_preview'
+  match 'episode_preview' => 'episodes#preview', :as => 'episode_preview'
    
   resources  :users do
     resources :comments

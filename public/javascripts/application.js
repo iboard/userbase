@@ -16,7 +16,9 @@ function remove_fields(link) {
     $(link).up(".fields").hide();
 } */
 
-/* jQUERY */
+/* *******************************************************
+/* jQUERY 
+******************************************************* */
 function add_fields(link, association, content) {  
     var new_id = new Date().getTime();  
     var regexp = new RegExp("new_" + association, "g");  
@@ -28,9 +30,8 @@ function remove_fields(link) {
     $(link).closest(".fields").hide();  
 }  
   
-
 function initialize_hud(label,txt) {
-    $('HUDCONTAINER').innerHTML = 
+    $('#HUDCONTAINER').html( 
        "<div id='HUD'>"+
          "<div class='centered_spinner'>"+
            "<img src=/images/spinner.gif border=0><br/><br/>"+txt+
@@ -38,11 +39,16 @@ function initialize_hud(label,txt) {
        "</div>"+
        "<br/><span style='color:white; heigth: 30px; padding: 10px; font-size: 10px;'>"+
          "<a style='color: white;' href='#' onclick='Element.fade(\"HUDCONTAINER\",{duration:0.5});'>"+label+"</a>"+
-       "</span>";
-    Element.appear("HUDCONTAINER",0.25);
+       "</span>");
+    Element.fadeShow();
 }
 
 function initialize_loading(update,txt) {
-    $(update).innerHTML = "<img src='/images/spinner.gif'><br/>"+txt
+    $(update).html("<img src='/images/spinner.gif'><br/>"+txt)
 }
 
+function rerender(from_field,to) {
+ var t = $(from_field).val();
+ 
+ $(to).load('/posting_preview/?text='+escape(t));
+}

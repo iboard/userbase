@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
+
   before_filter :set_language
   before_filter :load_tags
   before_filter :browser_warning
@@ -50,6 +51,8 @@ class ApplicationController < ActionController::Base
    
   # set the I18.locale to the value stored in user-settings
   def set_language
+    return if request.fullpath.match(/^\/(\S+)preview/)
+    
     if current_user
       I18n.locale = current_user.language
     end
@@ -60,6 +63,8 @@ class ApplicationController < ActionController::Base
   # load any Taggables used in tag-clouds
   # TODO: Cache this in any way!
   def load_tags
+    return if request.fullpath.match(/^\/(\S+)preview/)
+    
     @tags ||= Posting.readable( current_user ? current_user.roles_mask : 1).\
       tag_counts_on(:tags).sort { |a,b| 
         a.name.upcase <=> b.name.upcase
@@ -74,6 +79,8 @@ class ApplicationController < ActionController::Base
   
   # display a warning if someone is using MSIE
   def browser_warning
+    return if request.fullpath.match(/^\/(\S+)preview/)
+    
     if request.env['HTTP_USER_AGENT'] =~ /MSIE/
       unless session[:browser_warning_displayed]
         flash.now[:error] = t(:wrong_browser)
