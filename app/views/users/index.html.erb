@@ -27,13 +27,13 @@
             
           <% if user_signed_in? && current_user == user %>
             <b>YOU! <%= sc(:pr) %></b>
-            <%= link_to image_tag(w3c_url(user.avatar.url(:icon)),
+            <%= link_to image_tag(w3c_url(user.avatar_url(:icon)),
                 :class => 'avatar_icon_left_float_selected',
                 :title => t(:set_or_change_your_avatar)), avatar_user_path(current_user) %>
             <%= inline_button(link_to(sc(:edit), edit_user_registration_path(user),:title => t(:edit_registration))) %>    
           <% else %>
             <div>
-              <%= image_tag w3c_url(user.avatar.url(:icon)),:class => 'avatar_icon_left_float' %>
+              <%= image_tag w3c_url(user.avatar_url(:icon)),:class => 'avatar_icon_left_float' %>
             </div>
           <% end %>
           <div style='margin-left: 80px;'>

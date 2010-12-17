@@ -191,3 +191,6 @@ en:
   wrong_browser: 'Your browser is not able to render this page correctly. Please use Safari, Firefox or any other Browser than "Internet Explorer".'
   preview: 'Preview'
   toggle_preview: 'hide/show preview'
+  or_use_your_gravatar_image: 'Or: Use your <a href="http://gravatar.com" target="_blank">Gravatar-Image</a>'
+  for_email_address: 'for your e-mail-address: '
+  clear_avatar_help: 'Check this to delete your stored image from the server'

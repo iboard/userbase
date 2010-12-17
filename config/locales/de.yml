@@ -221,3 +221,6 @@ de:
   wrong_browser: 'Ihr Browser kann diese Seite nicht richtig darstellen. Bitte benutzen Sie Safari, Firefox oder jeden anderen Browser als den "Internet Explorer"'
   preview: 'Vorschau'
   toggle_preview: 'Vorschau ein-/ausblenden'
+  for_email_address: 'Für die eMail-Adresse: '
+  clear_avatar_help: 'Diese checkbox auswählen um das aktuelle Bild vom Server zu löschen.'
+  or_use_your_gravatar_image: 'Oder: <a href="http://gravatar.com" target="_blank">Gravatar-Image</a> benutzen'

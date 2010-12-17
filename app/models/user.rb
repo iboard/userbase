@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, 
     :remember_me, :roles, :authentication_token, :confirmation_token,
     :nickname, :avatar, :clear_avatar, :crop_x, :crop_y, :crop_w, :crop_h,
-    :time_zone, :language
+    :time_zone, :language, :use_gravatar
   
   # Roles
   ROLES = %w(guest staff admin moderator author)
@@ -94,10 +94,22 @@ class User < ActiveRecord::Base
     end 
     super
   end
+  
+  def avatar_url(mode)
+    if self.use_gravatar
+      "http://gravatar.com/avatar/#{gravatar_id}.png"
+    else
+      avatar.url(mode)
+    end
+  end
 
   private
   def reprocess_avatar
     avatar.reprocess!
+  end
+  
+  def gravatar_id
+    Digest::MD5.hexdigest(self.email.downcase)
   end
   
   def apply_trusted_services(omniauth)

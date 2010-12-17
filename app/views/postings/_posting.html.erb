@@ -10,7 +10,7 @@
               :title => t(:edit_entry),
               :style => 'float: right;margin-right: 10px;')))  %>
       <% end %>
-      <%= image_tag( w3c_url(posting.user.avatar.url(:icon)), :class => 'posting_author_icon' ) if posting.user %>
+      <%= image_tag( w3c_url(posting.user.avatar_url(:icon)), :class => 'posting_author_icon' ) if posting.user %>
       <b><%= link_to_user_postings(posting) %></b>, 
       <%= t(:time_ago, :time => distance_of_time_in_words_to_now(posting.updated_at)) unless posting.new_record? %>
       [<%= insert_tag_list posting.tag_list -%>]

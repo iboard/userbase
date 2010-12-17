@@ -4,7 +4,7 @@
 
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 <br clear='right'/>
-<%= image_tag(resource.avatar.url(:thumb), :class => 'avatar_right_float') if resource.avatar %>
+<%= image_tag(resource.avatar_url(:thumb), :class => 'avatar_right_float')  %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
   :html => { :method => :put}) do |f| %>

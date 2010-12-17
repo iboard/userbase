@@ -1,7 +1,7 @@
 <%= user_settings_menu do %>
     <%= render( :partial => 'devise/shared/links', :locals => {:resource_name => 'user'}) %>
 <% end %>
-<%= image_tag(resource.avatar.url(:thumb), :class => 'avatar_right_float') if resource.avatar %>
+<%= image_tag(resource.avatar_url(:thumb), :class => 'avatar_right_float') %>
 <h2>Sign in</h2>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <p><%= f.label :email %> <%= f.text_field :email %></p>

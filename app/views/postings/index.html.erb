@@ -12,7 +12,7 @@
   <div class='user_postings_header'>
     <% for user in User.all.reject { |r| !r.postings.any? } %>
       <%= content_tag :div, :class => 'user_postings_link' do %>
-        <%= link_to( image_tag(user.avatar.url(:icon),
+        <%= link_to( image_tag(user.avatar_url(:icon),
               :title => user.nickname, 
               :class => @user == user ? 'selected_user_postings_icon' : 'user_postings_icon')\
               +sc(:br)+user.nickname, 

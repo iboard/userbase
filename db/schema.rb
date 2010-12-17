@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "avatar_updated_at"
     t.string   "time_zone",                           :default => "UTC"
     t.string   "language",                            :default => "en"
+    t.boolean  "use_gravatar",                        :default => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
