@@ -1192,6 +1192,14 @@
     display: none;
   }
   
+  .locale_img_translated {
+    opacity: 1.0;
+  }
+  
+  .locale_img_not_translated {
+    opacity: 0.5;
+  }
+  
 } /* end media screen */  
 
 
@@ -1397,5 +1405,6 @@
   .user_cloud {
 	display: none;
   }
+  
 }
 

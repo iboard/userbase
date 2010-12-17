@@ -57,9 +57,6 @@ module Commentables
   # (Call register('modelname') during application starting. When done call freeze_registered_commentables)
   def freeze_registered_commentables
     $registered_commentables ||= $stage_commentables
-    puts(
-       "[%s] INFO  Registered commentables are frozen at #{$registered_commentables.inspect}" % Time.now.strftime("%Y-%m-%d %H:%M:%S")
-    ) if Rails.env != 'production'
   end
   
   
