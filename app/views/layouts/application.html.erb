@@ -5,7 +5,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <%= stylesheet_link_tag( APPLICATION_CONFIG['stylesheet_screen'], :media => :screen )%>
     <%= stylesheet_link_tag( APPLICATION_CONFIG['stylesheet_print'], :media => :print )%>
-    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag :defaults, 'textile' %>
     <!-- prototype-lib will be loaded only when needed -->
     <%= yield :prototype %>
     <%= yield :head %>
@@ -14,15 +14,13 @@
   </head>
   
   <body>
-      <% unless Rails.env == 'test' %>
         <div id='print_title'>
             <h1><%= APPLICATION_CONFIG['name'] %></h1>
             <address>
                 Printed: <%= Time.now -%><br/>
-                Address: <%= [request.protocol, request.host, request.request_uri].join('') %>
+                Address: <%= [request.protocol, request.host, request.fullpath].join('') %>
             </address>
         </div>
-      <% end %>
       <!-- PREPARE CONTENT_FOR PARTIALS -->
       <% render :partial => '/layouts/admin_buttons' %>
       <% content_for :sidebar_right do %>

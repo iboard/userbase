@@ -50,5 +50,9 @@ function initialize_loading(update,txt) {
 function rerender(from_field,to) {
  var t = $(from_field).val();
  
- $(to).load('/posting_preview/?text='+escape(t));
+ /* convert on client-side with textile.js */
+ $(to).html( convert(t));
+ 
+ /* or convert on server-side with ajax */
+ /* $(to).load('/posting_preview/?text='+escape(t)); */
 }
