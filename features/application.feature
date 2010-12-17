@@ -9,3 +9,11 @@ Feature: Application
     And I should see "Log in"
     And I should not see "Error"
     And I should be on the home page
+
+  @focus
+  Scenario: Get latest commentables as RSS-Feed
+    Given I am on the rss feed
+    Then I should see "TEST WITH RSS FEED"
+    And I should see "tag:www.example.com"
+
+    
