@@ -1,6 +1,9 @@
 <!-- VIEWS/EPISODES/_episode.html.erb -->
 <!-- This view is too f*** long       -->
 <% show_all ||= false %>
+<% content_for :meta_description do %>
+  <%= "Video-Episode: #{episode.title}, Author: #{episode.user.nickname}, Tags: #{episode.tag_list}" -%>
+<% end %>
 
 <%= content_tag :div, :class => 'episode' do %>
 

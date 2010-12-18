@@ -1,4 +1,10 @@
 <% if can?(:read, posting) || posting.access_read_mask & 1 > 0 %>
+
+  <% content_for :meta_description do %>
+    <%= "Posting: #{posting.title}, Author: #{posting.user.nickname}, Tags: #{posting.tag_list}" -%>
+  <% end %>
+
+
   <%= content_tag :div, :class => 'posting' do %>
   
     <!--                                -->
