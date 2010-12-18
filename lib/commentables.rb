@@ -15,7 +15,7 @@ module Commentables
   # The list will be build from scratch if it's older than ::RSS_FEED_CACHE_TIME seconds.
   # Otherwise a cached version of the list will be returned. 
   def all_commentables 
-    return @commentables if defined?(@commentables) && ((Time.now-@last_fetched) < CONSTANTS['rss_feed_cache_time'])
+    return @commentables if defined?(@commentables) && ((Time.now-@last_fetched).to_i < CONSTANTS['rss_feed_cache_time'].to_i)
     Rails.logger.info("**** Rebuilding rss-items for #{$registered_commentables.inspect} and comments")
     @last_fetched = Time.now
     resources = []
