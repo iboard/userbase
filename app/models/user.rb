@@ -97,7 +97,7 @@ class User < ActiveRecord::Base
   
   def avatar_url(mode)
     if self.use_gravatar
-      "http://gravatar.com/avatar/#{gravatar_id}.png"
+      "http://gravatar.com/avatar/#{gravatar_id}.png?cache=#{Time.now().strftime('%Y%m%d%H')}"
     else
       avatar.url(mode)
     end
