@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_language
   before_filter :load_tags
+  before_filter :load_archive_links
   before_filter :browser_warning
   
   # Display a flash if CanCan doesn't allow access    
@@ -75,6 +76,23 @@ class ApplicationController < ActionController::Base
                          tag_counts_on(:tags).sort { |a,b| 
                             a.name.upcase <=> b.name.upcase
                          }
+  end
+  
+  # load all commentables, grouped by year/month
+  def load_archive_links
+    return if request.fullpath.match(/^\/(\S+)preview/)
+    rc = {}
+    Commentables::group_by_month.each do |c|
+       c.each do |cc|
+         if rc[cc[0]]
+           rc[cc[0]] += cc[1].count
+         else
+           rc[cc[0]] = cc[1].count
+         end
+       end
+    end
+    logger.info( rc.inspect )
+    @archive_links ||= rc
   end
   
   # display a warning if someone is using MSIE

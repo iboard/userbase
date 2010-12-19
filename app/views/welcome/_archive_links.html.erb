@@ -1,0 +1,12 @@
+<% if @archive_links.any? %>
+  <% content_for :archive_links do %>
+    <%= content_tag :div, :id => 'archive_links' do %>
+      <h3><%= t(:archive) -%></h3>
+      <% @archive_links.each do |a| %>
+         <%= link_to "<b>#{a[0].gsub(/_/,'/')}</b>: #{t(:entries, :count => a[1].to_i)}<br/>".html_safe,
+              archive_path(a[0])
+         -%>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

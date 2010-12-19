@@ -11,6 +11,8 @@ Userbase::Application.routes.draw do
         
   match 'posting_preview' => 'postings#preview', :as => 'posting_preview'
   match 'episode_preview' => 'episodes#preview', :as => 'episode_preview'
+  
+  match 'archive/:month'  => 'welcome#archive',  :as => 'archive'
    
   resources  :users do
     resources :comments

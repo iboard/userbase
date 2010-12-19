@@ -1,0 +1,12 @@
+<h1><%= title t(:archive_for, :month => params[:month].gsub("_","/")) -%></h1>
+
+<% if !@archive.blank? %>
+  <ul>
+    <% for item in @archive %>
+       <li><%= item.created_at.to_s(:long) %> <b><%= link_to item.title, item %></b>
+           (<%= t(:entry_by, :type => item.class.to_s.humanize, :name => item.user.nickname) %>)</li>
+    <% end %>
+  </ul>
+<% else %>
+  <%= t(:no_items_found_in, :year => params[:month].split("_")[0], :month => params[:month].split("_")[1]) %>
+<% end %>

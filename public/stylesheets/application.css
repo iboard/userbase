@@ -980,6 +980,7 @@
     font-size: 1.4em; 
   }
   
+  #archive_links,
   #tag_cloud,
   .user_cloud,
   #tag_cloud_postings,
@@ -994,6 +995,7 @@
     margin-bottom: 5px;
   }
   
+  #archive_links h3,
   #tag_cloud h3 {
   	margin:0px;
   	font-size: 1em;

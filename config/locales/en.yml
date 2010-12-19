@@ -194,3 +194,11 @@ en:
   or_use_your_gravatar_image: 'Or: Use your <a href="http://gravatar.com" target="_blank">Gravatar-Image</a>'
   for_email_address: 'for your e-mail-address: '
   clear_avatar_help: 'Check this to delete your stored image from the server'
+  entries:
+    zero: 'No entries'
+    one: '1 entry'
+    other: '%{count} entries'
+  archive: 'Archive'
+  no_items_found_in: "Sorry, in %{year}/%{month} no items was published."
+  archive_for: "Archive %{month}"
+  entry_by: "%{type}, by %{name}"

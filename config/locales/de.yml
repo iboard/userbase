@@ -224,3 +224,11 @@ de:
   for_email_address: 'Für die eMail-Adresse: '
   clear_avatar_help: 'Diese checkbox auswählen um das aktuelle Bild vom Server zu löschen.'
   or_use_your_gravatar_image: 'Oder: <a href="http://gravatar.com" target="_blank">Gravatar-Image</a> benutzen'
+  entries:
+    zero: 'Keine Einträge'
+    one: '1 Eintrag'
+    other: '%{count} Einträge'
+  archive: 'Archiv'
+  no_items_found_in: "Im Monat %{year}/%{month} wurden keine Einträge veröffentlicht"
+  archive_for: "Archiv %{month}"
+  entry_by: "%{type}, von %{name}"

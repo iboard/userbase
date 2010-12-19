@@ -17,6 +17,8 @@ module NavigationHelpers
       '/users'
     when /the rss feed/
       '/feed.atom?'+Time.now.to_i.to_s
+    when /the archive for "([^"]*)"/
+      '/archive/'+$1
     when /edit user page for "([^"]*)"/
       begin
         username = $1

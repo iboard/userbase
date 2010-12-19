@@ -37,6 +37,19 @@ module Commentables
     @commentables
   end
   
+  def group_by_month
+    return @archive_links if defined?(@archive_links) && ((Time.now-@last_fetched_archive).to_i < CONSTANTS['rss_feed_cache_time'].to_i)
+    @last_fetched_archive = Time.now
+    resources = []
+    $registered_commentables.each do |commentable_name|
+      eval( cmd="resources << \
+      #{commentable_name.humanize}.all(\
+         :select => 'id,created_at').group_by {|c| [c.created_at.year,c.created_at.month].join('_') }\
+       ")
+    end
+    @archive_links = resources.flatten
+  end
+  
   # Register a Model to be a 'Commentable'
   def register(arg)
     return if defined? $registered_commentables
@@ -82,6 +95,12 @@ module Commentables
               :conditions => ["access_read_mask & ? > 0", roles_mask] 
             }
           }
+        EOV
+      end
+      
+      def group_by_month
+        class_eval <<-EOV
+          
         EOV
       end
     end

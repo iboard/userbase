@@ -51,6 +51,11 @@
                <%= render( :partial => 'postings/tag_cloud' ) if @tags.any? %>  
                <%= render( :partial => 'episodes/tag_cloud' ) if @episodes_tags.any? %>      
         <% end %>
+        
+        <% render :partial => "/welcome/archive_links" %>
+        <% if content_for?(:archive_links) %>
+           <%= yield :archive_links %>
+        <% end %>
         <% if content_for?(:sidebar_right) %>
             <%= yield :sidebar_right %>
         <% end %>
