@@ -8,4 +8,15 @@ module UsersHelper
        }
      end
    end
+   
+   def user_avatar(user)
+     if user && user.gravatar_profile
+       link_to(
+                 image_tag( w3c_url(user.avatar_url(:icon)), :class => 'posting_author_icon' ),
+                 user.gravatar_profile
+               )
+     else
+       image_tag( w3c_url(user.avatar_url(:icon)), :class => 'posting_author_icon' ) if user
+     end
+   end
 end

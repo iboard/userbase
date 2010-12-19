@@ -102,6 +102,12 @@ class User < ActiveRecord::Base
       avatar.url(mode)
     end
   end
+  
+  def gravatar_profile
+    if self.use_gravatar
+      "http://gravatar.com/#{gravatar_id}"
+    end
+  end
 
   private
   def reprocess_avatar

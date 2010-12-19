@@ -44,10 +44,7 @@ namespace :deploy do
     when 'mysql'
       `mysqldump -u #{cfg['username']} -p#{cfg['password']} #{cfg['database']} > #{output_file}`
     when 'sqlite3'
-      `sqlite3  #{Rails.root}/#{cfg['database']} .dump | \
-         grep -v "BEGIN TRANSACTION;" | \
-         grep -v "COMMIT;" | \
-         sed 's/INSERT INTO \"(.*)\" VALUES/INSERT INTO \1 VALUES/g' > #{output_file}` 
+      `sqlite3  #{Rails.root}/#{cfg['database']} .dump  > #{output_file}` 
     else
       puts "** ERROR *** unknown adapter in #{cfg.inspect}"
     end
