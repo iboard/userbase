@@ -17,6 +17,7 @@
         yield(:meta_description).strip.gsub(/\n/," | ").gsub(/\"/,'\'')
       end
     -%>" />
+    <%= html_include('public/static_pages/google_analytics.html').html_safe if File::exist?("#{Rails.root}/public/static_pages/google_analytics.html") %>
   </head>
   
   <body>
