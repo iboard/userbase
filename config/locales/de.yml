@@ -232,3 +232,4 @@ de:
   no_items_found_in: "Im Monat %{year}/%{month} wurden keine Einträge veröffentlicht"
   archive_for: "Archiv %{month}"
   entry_by: "%{type}, von %{name}"
+  your_entry_was_commented: 'Ihr Beitrag auf %{appname} wurde kommentiert'

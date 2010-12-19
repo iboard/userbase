@@ -202,3 +202,4 @@ en:
   no_items_found_in: "Sorry, in %{year}/%{month} no items was published."
   archive_for: "Archive %{month}"
   entry_by: "%{type}, by %{name}"
+  your_entry_was_commented: "There's a new comment on your entry at %{appname}"

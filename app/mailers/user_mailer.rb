@@ -15,4 +15,13 @@ class UserMailer < ActionMailer::Base
     @notify_subject = subject
     mail( :to => "Administrator <#{email}>", :subject => subject)
   end
+  
+  def notify_owner_about_comment(comment_id)
+    @comment = Comment.find(comment_id, :include => [:commentable,:user])
+    mail( :to => "#{@comment.commentable.user.nickname} <#{@comment.commentable.user.email}>", 
+          :from => "#{@comment.user.nickname} <#{@comment.user.email}>",
+          :subject => t(:your_entry_was_commented, :appname => APPLICATION_CONFIG['name'])
+        )
+  end
+
 end
