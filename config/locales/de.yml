@@ -233,3 +233,13 @@ de:
   archive_for: "Archiv %{month}"
   entry_by: "%{type}, von %{name}"
   your_entry_was_commented: 'Ihr Beitrag auf %{appname} wurde kommentiert'
+  count_ratings:
+    zero: 'Hat noch keine Beurteilungen.'
+    one: 'Eine Beruteilung: %{rating}'
+    other: '%{count} Beurteilungen ø %{rating}'
+  please_log_in_to_rate: 'Bitte einloggen um eine Bewertung abzugeben'
+  your_rating: 'Ihre Beurteilung: %{rating}'
+  rate_now: 'Jetzt beurteilen'
+  you_rated: 'Ihre Beurteilung'
+  click_to_rate: 'Klicken um zu werten'
+  you: 'Du'

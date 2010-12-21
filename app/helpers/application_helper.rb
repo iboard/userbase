@@ -85,6 +85,34 @@ module ApplicationHelper
     return rc.html_safe
   end
   
+  
+  def rating_links( item, user)
+    item_ratings_avg = item.ratings.average(:rating) || 0
+    item_ratings_count=item.ratings.count || 0
+    my_rating         = user.ratings.where(:rateable_id => item.id, :rateable_type => item.class.to_s).first  if user
+      
+    content_tag :div, :id => "rating_#{item.id}", :style => 'display: inline;' do
+      rc = ""
+      for i in eval(CONSTANTS['rating_range'])
+        # always link to rate if user
+        img_url = item_ratings_avg >= i ? "rating_1" : "rating_0"
+        label_text = user.nil? ? t(:please_log_in_to_rate) : t(:click_to_rate)
+        if user
+          rc += link_to( image_tag( "/images/#{img_url}.png", :title => label_text  ),
+                        rate_path(user,item,item.class.to_s,i),
+                        :remote => true
+                       )
+        else
+          rc += image_tag( "/images/#{img_url}.png", 
+                           :title => label_text )
+        end
+      end
+      rc += sc(:nbsp)*2+t(:count_ratings, :count => item_ratings_count, :rating => item_ratings_avg)
+      rc += sc(:nbsp)*2+t(:you) + sc(:nbsp,:pr,:nbsp) + my_rating.rating.to_s if user && my_rating
+      rc.html_safe
+    end
+  end
+  
   private
   def show_selected_languages
     session[:language_filter].blank? ? t(:all) : "#{session[:language_filter].join(',') unless session[:language_filter].blank?}"

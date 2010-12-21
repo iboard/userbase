@@ -19,6 +19,7 @@
   <!-- TITLE And Author-->
   <h2><%= link_to episode.title, episode %></h2>
   <address>
+    <%= render :partial => '/welcome/ratings', :locals => { :object => episode } %><br/>
     <%= episode.updated_at.to_s(:short) %> 
     (<%= t(:time_ago, :time => distance_of_time_in_words(episode.updated_at,Time.now)) -%>), 
     <%= t(:by_author) %>: <%= episode.user.nickname %>

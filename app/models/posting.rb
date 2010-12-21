@@ -5,6 +5,8 @@ class Posting < ActiveRecord::Base
   acts_as_taggable_on :tags
     
   belongs_to :user
+  has_many   :ratings, :as => :rateable
+  
   
   validates :title,   :presence => true
   validates :body,    :presence => true

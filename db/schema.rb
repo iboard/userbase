@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "locale",             :default => "en"
     t.integer  "access_read_mask",   :default => 4
     t.integer  "access_manage_mask", :default => 4
+    t.string   "locale",             :default => "en"
   end
 
   add_index "episodes", ["title"], :name => "index_episodes_on_title"
@@ -88,6 +88,15 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
 
   add_index "postings", ["title"], :name => "index_postings_on_title"
   add_index "postings", ["user_id"], :name => "index_postings_on_user_id"
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

@@ -203,3 +203,13 @@ en:
   archive_for: "Archive %{month}"
   entry_by: "%{type}, by %{name}"
   your_entry_was_commented: "There's a new comment on your entry at %{appname}"
+  count_ratings:
+    zero: 'Not rated yet.'
+    one: 'One rating: %{rating}'
+    other: '%{count} ratings ø: %{rating}'
+  please_log_in_to_rate: 'Please log in to rate'
+  your_rating: 'Your rating: %{rating}'
+  rate_now: 'Rate now'
+  you_rated: 'You rated'
+  click_to_rate: 'Click to rate'
+  you: 'You'

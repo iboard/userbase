@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :episodes, :dependent => :destroy
   has_many :authentications, :dependent => :destroy
+  has_many :ratings,  :dependent => :destroy
   
   #validations
   validates :nickname, :presence => true, :uniqueness => true

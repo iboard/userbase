@@ -29,6 +29,19 @@ class WelcomeController < ApplicationController
     @archive = (postings.all + episodes.all).sort { |a,b| a.created_at <=> b.created_at }
   end
 
+  def rate
+     @rateable = eval("#{params[:rateable_type]}.find(#{params[:rateable_id]})")
+     @user     = User.find(params[:user_id])
+     @my_rating = @user.ratings.where(
+                    :rateable_id => params[:rateable_id].to_i, 
+                    :rateable_type => params[:rateable_type]).first ||
+                  @user.ratings.create(
+                    :rateable_id => params[:rateable_id].to_i, 
+                    :rateable_type => params[:rateable_type])
+    @my_rating.rating = params[:rating].to_i
+    @my_rating.save
+  end
+
   # Render User Settings page (devise)
   def user
   end
