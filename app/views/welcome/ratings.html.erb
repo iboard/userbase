@@ -9,6 +9,9 @@
          <small>
            <%= t(:entry_by, :type => item.class.to_s.humanize, :name => item.user.nickname) %>
            <%= item.created_at.to_s(:long) %> 
+           <% unless item.tag_list.empty? %>
+             [<%= item.class == Episode ? insert_episodes_tag_list(item.tag_list) : insert_tag_list(item.tag_list)%>]
+           <% end %>
          </small>
          <%= rating_links( item, current_user) %>
       <% end %>

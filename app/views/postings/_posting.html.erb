@@ -38,7 +38,7 @@
       <% end %>      
     <% end %>
     
-    <%= render :partial => '/welcome/ratings', :locals => { :object => posting } %>
+    <%= render :partial => '/ratings/ratings', :locals => { :object => posting } %>
     
     <% if current_user && can?(:manage, posting) %>
       <div style='margin-left: 5px;'>
@@ -87,8 +87,14 @@
       <% end %>
       <%= render posting.comments if posting.comments.any? && !defined?(@postings)%>
     <% end %>
-    
+  
+  
+    <!-- SHOW RATINGS -->
+    <% if defined?(show_all) && show_all %>
+      <%= render :partial => '/ratings/item_ratings', :locals => { :rateable => posting }%>
+    <% end %>
   <% end %>
+  
   <p style='clear: left;'><br/></p>  
 <% else %>
   <p><%= t(:posting_not_accessible) %></p>

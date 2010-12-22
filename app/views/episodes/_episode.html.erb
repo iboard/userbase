@@ -18,7 +18,7 @@
     
   <!-- TITLE And Author, Rating-->
   <h2><%= link_to episode.title, episode %></h2>
-  <%= render :partial => '/welcome/ratings', :locals => { :object => episode } %><br/>
+  <%= render :partial => '/ratings/ratings', :locals => { :object => episode } %><br/>
   <address>
     <%= episode.updated_at.to_s(:short) %> 
     (<%= t(:time_ago, :time => distance_of_time_in_words(episode.updated_at,Time.now)) -%>), 
@@ -78,7 +78,10 @@
     <%= t(:episode_not_accessible) %>
   <% end %>
   
-
+  <!-- SHOW RATINGS -->
+  <% if show_all && @episode %>
+    <%= render :partial => '/ratings/item_ratings', :locals =>  {:rateable => episode} %>
+  <% end %>
 <% end %>
 <!-- /VIEWS/EPISODES/_episode.html.erb -->
 <p style='clear: both; margin-bottom: 10px;'></p>

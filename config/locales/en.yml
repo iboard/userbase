@@ -215,5 +215,9 @@ en:
   you: 'You'
   ratings: 'Ratings'
   no_rated_items_found: 'No rated item found'
-  list_by_ratings: 'Show ratings'
+  list_by_ratings: 'Show items ordered by rating'
   ratings_average: 'ø'
+  user_rating:
+    zero: "%{date} ago, %{username} gave <b>no star</b>"
+    one:  '%{date} ago, %{username} voted with <b>one star</b>'
+    other: '%{date} ago, %{username} voted <b>%{count} stars</b>'

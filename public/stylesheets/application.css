@@ -1178,6 +1178,10 @@
     margin-top: 5px;
   }
 
+  #item_ratings {
+    font-size: 0.8em;
+    line-height: 110%;
+  }
 
   #print_title {
     display: none;

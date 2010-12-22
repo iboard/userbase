@@ -245,5 +245,9 @@ de:
   you: 'Du'
   ratings: 'Bewertungen'
   no_rated_items_found: 'Keine Bewertungen gefunden'
-  list_by_ratings: 'Bewertungen anzeigen'
+  list_by_ratings: 'Nach Bewertungen anzeigen'
   ratings_average: 'ø'
+  user_rating:
+    zero: 'Vor %{date} hat %{username} <b>keinen Stern</b> vergeben'
+    one:  'Vor %{date} hat %{username} <b>einen Stern</b> vergeben'
+    other: 'Vor %{date} hat %{username} <b>%{count} Sterne</b> vergeben'
