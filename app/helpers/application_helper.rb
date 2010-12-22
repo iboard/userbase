@@ -87,8 +87,8 @@ module ApplicationHelper
   
   
   def rating_links( item, user)
-    item_ratings_avg = item.ratings.average(:rating) || 0
-    item_ratings_count=item.ratings.count || 0
+    item_ratings_avg = item.ratings_average || 0
+    item_ratings_count=item.ratings_count || 0
     my_rating         = user.ratings.where(:rateable_id => item.id, :rateable_type => item.class.to_s).first  if user
       
     content_tag :div, :id => "rating_#{item.id}", :class=>'rating' do
@@ -108,6 +108,7 @@ module ApplicationHelper
         end
       end
       rc += sc(:nbsp)*2+t(:count_ratings, :count => item_ratings_count, :rating => item_ratings_avg)
+      rc += sc(:nbsp)*2+t(:ratings_average, :count => item_ratings_avg, :rating => item_ratings_avg)
       rc += sc(:nbsp)*2+t(:you) + sc(:nbsp,:pr,:nbsp) + my_rating.rating.to_s if user && my_rating
       rc.html_safe
     end

@@ -48,6 +48,7 @@ class WelcomeController < ApplicationController
                     :rateable_type => params[:rateable_type])
     @my_rating.rating = params[:rating].to_i
     @my_rating.save
+    @rateable.reload
   end
 
   # Render User Settings page (devise)
