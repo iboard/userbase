@@ -51,6 +51,11 @@ namespace :deploy do
     `test -f #{output_file} && chmod 600 #{output_file}`
   end 
   
+  desc "Update RDocs"
+  task :rdoc => :environment do
+    `bundle exec rdoc -W "http://github.com/iboard/userbase/blob/master/%s" -t "userbase - iboard.cc"`
+  end
+  
   desc "Sync database and assets from Production Server to development.sqlite3"
   task :sync_production_db => :environment do
      `rsync -avze ssh alta@r3.iboard.cc:/home/alta/altendorfer/db/production.sqlite3 db/development.sqlite3`

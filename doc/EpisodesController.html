@@ -1,707 +1,700 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-	<title>Class: EpisodesController</title>
+  <title>Class: EpisodesController</title>
 
-	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
-	<script src="./js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+  <script src="./js/jquery.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript"
+    charset="utf-8"></script>
 
 </head>
 <body class="class">
 
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
         <h3 class="section-header">
           <a href="./index.html">Home</a>
           <a href="./index.html#classes">Classes</a>
           <a href="./index.html#methods">Methods</a>
         </h3>
-			</div>
-		</div>
+      </div>
+    </div>
 
-		<div id="file-metadata">
-			<div id="file-list-section" class="section">
-				<h3 class="section-header">In Files</h3>
-				<div class="section-body">
-					<ul>
-					
-						<li><a href="./app/controllers/episodes_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/controllers/episodes_controller.rb">app/controllers/episodes_controller.rb</a></li>
-					
-					</ul>
-				</div>
-			</div>
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./app/controllers/episodes_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="app/controllers/episodes_controller.rb">app/controllers/episodes_controller.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
 
-			
-		</div>
+      
+    </div>
 
-		<div id="class-metadata">
+    <div id="class-metadata">
 
-			<!-- Parent Class -->
-			
-			<div id="parent-class-section" class="section">
-				<h3 class="section-header">Parent</h3>
-				
-				<p class="link"><a href="ApplicationController.html">ApplicationController</a></p>
-				
-			</div>
-			
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="ApplicationController.html">ApplicationController</a></p>
+        
+      </div>
+      
 
-			<!-- Namespace Contents -->
-			
+      <!-- Namespace Contents -->
+      
 
-			<!-- Method Quickref -->
-			
-			<div id="method-list-section" class="section">
-				<h3 class="section-header">Methods</h3>
-				<ul class="link-list">
-					
-					<li><a href="#method-i-create">#create</a></li>
-					
-					<li><a href="#method-i-destroy">#destroy</a></li>
-					
-					<li><a href="#method-i-edit">#edit</a></li>
-					
-					<li><a href="#method-i-index">#index</a></li>
-					
-					<li><a href="#method-i-new">#new</a></li>
-					
-					<li><a href="#method-i-show">#show</a></li>
-					
-					<li><a href="#method-i-tag">#tag</a></li>
-					
-					<li><a href="#method-i-update">#update</a></li>
-					
-				</ul>
-			</div>
-			
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-create">#create</a></li>
+          
+          <li><a href="#method-i-destroy">#destroy</a></li>
+          
+          <li><a href="#method-i-edit">#edit</a></li>
+          
+          <li><a href="#method-i-index">#index</a></li>
+          
+          <li><a href="#method-i-new">#new</a></li>
+          
+          <li><a href="#method-i-show">#show</a></li>
+          
+          <li><a href="#method-i-tag">#tag</a></li>
+          
+          <li><a href="#method-i-update">#update</a></li>
+          
+        </ul>
+      </div>
+      
 
-			<!-- Included Modules -->
-			
-		</div>
+      <!-- Included Modules -->
+      
+    </div>
 
-		<div id="project-metadata">
-			
-			
-			<div id="fileindex-section" class="section project-section">
-				<h3 class="section-header">Files</h3>
-				<ul>
-				
-					<li class="file"><a href="./Gemfile.html">Gemfile</a></li>
-				
-					<li class="file"><a href="./Rakefile.html">Rakefile</a></li>
-				
-					<li class="file"><a href="./licence_txt.html">licence.txt</a></li>
-				
-					<li class="file"><a href="./public/javascripts/cropper/licence-cropper_txt.html">licence-cropper.txt</a></li>
-				
-					<li class="file"><a href="./public/robots_txt.html">robots.txt</a></li>
-				
-				</ul>
-			</div>
-			
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./Gemfile.html">Gemfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="./licence_txt.html">licence.txt</a></li>
+        
+          <li class="file"><a href="./public/javascripts/cropper/licence-cropper_txt.html">licence-cropper.txt</a></li>
+        
+          <li class="file"><a href="./public/robots_txt.html">robots.txt</a></li>
+        
+        </ul>
+      </div>
+      
 
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="./images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
 
-				<ul class="link-list">
-				
-					<li><a href="./Assetables.html">Assetables</a></li>
-				
-					<li><a href="./Assetables/Assetable.html">Assetables::Assetable</a></li>
-				
-					<li><a href="./Assetables/Assetable/ClassMethods.html">Assetables::Assetable::ClassMethods</a></li>
-				
-					<li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
-				
-					<li><a href="./Commentables.html">Commentables</a></li>
-				
-					<li><a href="./Commentables/Commentable.html">Commentables::Commentable</a></li>
-				
-					<li><a href="./Commentables/Commentable/ClassMethods.html">Commentables::Commentable::ClassMethods</a></li>
-				
-					<li><a href="./Commentables/Commentable/InstanceMethods.html">Commentables::Commentable::InstanceMethods</a></li>
-				
-					<li><a href="./IboardFormHelpers.html">IboardFormHelpers</a></li>
-				
-					<li><a href="./IboardFormHelpers/ActionView.html">IboardFormHelpers::ActionView</a></li>
-				
-					<li><a href="./IboardFormHelpers/ActionView/Helpers.html">IboardFormHelpers::ActionView::Helpers</a></li>
-				
-					<li><a href="./IboardFormHelpers/ActionView/Helpers/FormBuilder.html">IboardFormHelpers::ActionView::Helpers::FormBuilder</a></li>
-				
-					<li><a href="./ActionDispatch.html">ActionDispatch</a></li>
-				
-					<li><a href="./ActionDispatch/Http.html">ActionDispatch::Http</a></li>
-				
-					<li><a href="./ActionDispatch/Http/UploadedFile.html">ActionDispatch::Http::UploadedFile</a></li>
-				
-					<li><a href="./StringExtensions.html">StringExtensions</a></li>
-				
-					<li><a href="./StringExtensions/ClassMethods.html">StringExtensions::ClassMethods</a></li>
-				
-					<li><a href="./StringExtensions/InstanceMethods.html">StringExtensions::InstanceMethods</a></li>
-				
-					<li><a href="./ActiveSupport.html">ActiveSupport</a></li>
-				
-					<li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a></li>
-				
-					<li><a href="./LayoutHelper.html">LayoutHelper</a></li>
-				
-					<li><a href="./LayoutHelper/ClassMethods.html">LayoutHelper::ClassMethods</a></li>
-				
-					<li><a href="./Paperclip.html">Paperclip</a></li>
-				
-					<li><a href="./Paperclip/Cropper.html">Paperclip::Cropper</a></li>
-				
-					<li><a href="./Rack.html">Rack</a></li>
-				
-					<li><a href="./Rack/Utils.html">Rack::Utils</a></li>
-				
-					<li><a href="./Userbase.html">Userbase</a></li>
-				
-					<li><a href="./Userbase/Application.html">Userbase::Application</a></li>
-				
-					<li><a href="./Ability.html">Ability</a></li>
-				
-					<li><a href="./ActsAsTaggableOnMigration.html">ActsAsTaggableOnMigration</a></li>
-				
-					<li><a href="./AddAccessMaskToEpisodes.html">AddAccessMaskToEpisodes</a></li>
-				
-					<li><a href="./AddAccessMaskToPostings.html">AddAccessMaskToPostings</a></li>
-				
-					<li><a href="./AddAttachmentAvatarToUser.html">AddAttachmentAvatarToUser</a></li>
-				
-					<li><a href="./AddLanguageToPostings.html">AddLanguageToPostings</a></li>
-				
-					<li><a href="./AddLocaleToEpisodes.html">AddLocaleToEpisodes</a></li>
-				
-					<li><a href="./AddMissingIndices.html">AddMissingIndices</a></li>
-				
-					<li><a href="./AddNicknameToUser.html">AddNicknameToUser</a></li>
-				
-					<li><a href="./AddTimezoneAndLanguageToUsers.html">AddTimezoneAndLanguageToUsers</a></li>
-				
-					<li><a href="./ApplicationController.html">ApplicationController</a></li>
-				
-					<li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
-				
-					<li><a href="./Asset.html">Asset</a></li>
-				
-					<li><a href="./AssetsController.html">AssetsController</a></li>
-				
-					<li><a href="./Authentication.html">Authentication</a></li>
-				
-					<li><a href="./AuthenticationsController.html">AuthenticationsController</a></li>
-				
-					<li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
-				
-					<li><a href="./BrowsingTest.html">BrowsingTest</a></li>
-				
-					<li><a href="./Comment.html">Comment</a></li>
-				
-					<li><a href="./CommentTest.html">CommentTest</a></li>
-				
-					<li><a href="./CommentsController.html">CommentsController</a></li>
-				
-					<li><a href="./CommentsControllerTest.html">CommentsControllerTest</a></li>
-				
-					<li><a href="./CommentsHelper.html">CommentsHelper</a></li>
-				
-					<li><a href="./CommentsHelperTest.html">CommentsHelperTest</a></li>
-				
-					<li><a href="./CreateAssets.html">CreateAssets</a></li>
-				
-					<li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
-				
-					<li><a href="./CreateComments.html">CreateComments</a></li>
-				
-					<li><a href="./CreateEpisodes.html">CreateEpisodes</a></li>
-				
-					<li><a href="./CreatePostings.html">CreatePostings</a></li>
-				
-					<li><a href="./CreateTranslations.html">CreateTranslations</a></li>
-				
-					<li><a href="./DelayedJobs.html">DelayedJobs</a></li>
-				
-					<li><a href="./DevelopmentMailInterceptor.html">DevelopmentMailInterceptor</a></li>
-				
-					<li><a href="./DeviseCreateUsers.html">DeviseCreateUsers</a></li>
-				
-					<li><a href="./EmailValidator.html">EmailValidator</a></li>
-				
-					<li><a href="./Episode.html">Episode</a></li>
-				
-					<li><a href="./EpisodeTest.html">EpisodeTest</a></li>
-				
-					<li><a href="./EpisodesController.html">EpisodesController</a></li>
-				
-					<li><a href="./EpisodesControllerTest.html">EpisodesControllerTest</a></li>
-				
-					<li><a href="./EpisodesHelper.html">EpisodesHelper</a></li>
-				
-					<li><a href="./EpisodesHelperTest.html">EpisodesHelperTest</a></li>
-				
-					<li><a href="./NavigationHelpers.html">NavigationHelpers</a></li>
-				
-					<li><a href="./NewPostingNotifier.html">NewPostingNotifier</a></li>
-				
-					<li><a href="./NewUserNotifier.html">NewUserNotifier</a></li>
-				
-					<li><a href="./Posting.html">Posting</a></li>
-				
-					<li><a href="./PostingTest.html">PostingTest</a></li>
-				
-					<li><a href="./PostingsController.html">PostingsController</a></li>
-				
-					<li><a href="./PostingsControllerTest.html">PostingsControllerTest</a></li>
-				
-					<li><a href="./PostingsHelper.html">PostingsHelper</a></li>
-				
-					<li><a href="./PostingsHelperTest.html">PostingsHelperTest</a></li>
-				
-					<li><a href="./RegistrationsController.html">RegistrationsController</a></li>
-				
-					<li><a href="./RegistrationsControllerTest.html">RegistrationsControllerTest</a></li>
-				
-					<li><a href="./RegistrationsHelper.html">RegistrationsHelper</a></li>
-				
-					<li><a href="./RegistrationsHelperTest.html">RegistrationsHelperTest</a></li>
-				
-					<li><a href="./SpecialCharacters.html">SpecialCharacters</a></li>
-				
-					<li><a href="./TranslateableHelper.html">TranslateableHelper</a></li>
-				
-					<li><a href="./Translation.html">Translation</a></li>
-				
-					<li><a href="./TranslationTest.html">TranslationTest</a></li>
-				
-					<li><a href="./User.html">User</a></li>
-				
-					<li><a href="./UserExistsValidator.html">UserExistsValidator</a></li>
-				
-					<li><a href="./UserMailer.html">UserMailer</a></li>
-				
-					<li><a href="./UserTest.html">UserTest</a></li>
-				
-					<li><a href="./UsersController.html">UsersController</a></li>
-				
-					<li><a href="./UsersControllerTest.html">UsersControllerTest</a></li>
-				
-					<li><a href="./UsersHelper.html">UsersHelper</a></li>
-				
-					<li><a href="./WelcomeController.html">WelcomeController</a></li>
-				
-					<li><a href="./WelcomeControllerTest.html">WelcomeControllerTest</a></li>
-				
-					<li><a href="./WelcomeHelper.html">WelcomeHelper</a></li>
-				
-					<li><a href="./WelcomeHelperTest.html">WelcomeHelperTest</a></li>
-				
-					<li><a href="./WithinHelpers.html">WithinHelpers</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
+        <ul class="link-list">
+        
+          <li><a href="./Assetables.html">Assetables</a></li>
+        
+          <li><a href="./Assetables/Assetable.html">Assetables::Assetable</a></li>
+        
+          <li><a href="./Assetables/Assetable/ClassMethods.html">Assetables::Assetable::ClassMethods</a></li>
+        
+          <li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
+        
+          <li><a href="./Commentables.html">Commentables</a></li>
+        
+          <li><a href="./Commentables/Commentable.html">Commentables::Commentable</a></li>
+        
+          <li><a href="./Commentables/Commentable/ClassMethods.html">Commentables::Commentable::ClassMethods</a></li>
+        
+          <li><a href="./Commentables/Commentable/InstanceMethods.html">Commentables::Commentable::InstanceMethods</a></li>
+        
+          <li><a href="./IboardFormHelpers.html">IboardFormHelpers</a></li>
+        
+          <li><a href="./IboardFormHelpers/ActionView.html">IboardFormHelpers::ActionView</a></li>
+        
+          <li><a href="./IboardFormHelpers/ActionView/Helpers.html">IboardFormHelpers::ActionView::Helpers</a></li>
+        
+          <li><a href="./IboardFormHelpers/ActionView/Helpers/FormBuilder.html">IboardFormHelpers::ActionView::Helpers::FormBuilder</a></li>
+        
+          <li><a href="./ActionDispatch.html">ActionDispatch</a></li>
+        
+          <li><a href="./ActionDispatch/Http.html">ActionDispatch::Http</a></li>
+        
+          <li><a href="./ActionDispatch/Http/UploadedFile.html">ActionDispatch::Http::UploadedFile</a></li>
+        
+          <li><a href="./StringExtensions.html">StringExtensions</a></li>
+        
+          <li><a href="./StringExtensions/ClassMethods.html">StringExtensions::ClassMethods</a></li>
+        
+          <li><a href="./StringExtensions/InstanceMethods.html">StringExtensions::InstanceMethods</a></li>
+        
+          <li><a href="./ActiveSupport.html">ActiveSupport</a></li>
+        
+          <li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a></li>
+        
+          <li><a href="./LayoutHelper.html">LayoutHelper</a></li>
+        
+          <li><a href="./LayoutHelper/ClassMethods.html">LayoutHelper::ClassMethods</a></li>
+        
+          <li><a href="./Paperclip.html">Paperclip</a></li>
+        
+          <li><a href="./Paperclip/Cropper.html">Paperclip::Cropper</a></li>
+        
+          <li><a href="./Rack.html">Rack</a></li>
+        
+          <li><a href="./Rack/Utils.html">Rack::Utils</a></li>
+        
+          <li><a href="./Userbase.html">Userbase</a></li>
+        
+          <li><a href="./Userbase/Application.html">Userbase::Application</a></li>
+        
+          <li><a href="./Ability.html">Ability</a></li>
+        
+          <li><a href="./ActsAsTaggableOnMigration.html">ActsAsTaggableOnMigration</a></li>
+        
+          <li><a href="./AddAccessMaskToEpisodes.html">AddAccessMaskToEpisodes</a></li>
+        
+          <li><a href="./AddAccessMaskToPostings.html">AddAccessMaskToPostings</a></li>
+        
+          <li><a href="./AddAttachmentAvatarToUser.html">AddAttachmentAvatarToUser</a></li>
+        
+          <li><a href="./AddLanguageToPostings.html">AddLanguageToPostings</a></li>
+        
+          <li><a href="./AddLocaleToEpisodes.html">AddLocaleToEpisodes</a></li>
+        
+          <li><a href="./AddMissingIndices.html">AddMissingIndices</a></li>
+        
+          <li><a href="./AddNicknameToUser.html">AddNicknameToUser</a></li>
+        
+          <li><a href="./AddRatingCacheFieldToEpisodes.html">AddRatingCacheFieldToEpisodes</a></li>
+        
+          <li><a href="./AddRatingCacheFieldToPosting.html">AddRatingCacheFieldToPosting</a></li>
+        
+          <li><a href="./AddTimezoneAndLanguageToUsers.html">AddTimezoneAndLanguageToUsers</a></li>
+        
+          <li><a href="./AddUseGravatarToUsers.html">AddUseGravatarToUsers</a></li>
+        
+          <li><a href="./ApplicationController.html">ApplicationController</a></li>
+        
+          <li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
+        
+          <li><a href="./Asset.html">Asset</a></li>
+        
+          <li><a href="./AssetsController.html">AssetsController</a></li>
+        
+          <li><a href="./Authentication.html">Authentication</a></li>
+        
+          <li><a href="./AuthenticationsController.html">AuthenticationsController</a></li>
+        
+          <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
+        
+          <li><a href="./BrowsingTest.html">BrowsingTest</a></li>
+        
+          <li><a href="./Comment.html">Comment</a></li>
+        
+          <li><a href="./CommentTest.html">CommentTest</a></li>
+        
+          <li><a href="./CommentsController.html">CommentsController</a></li>
+        
+          <li><a href="./CommentsControllerTest.html">CommentsControllerTest</a></li>
+        
+          <li><a href="./CommentsHelper.html">CommentsHelper</a></li>
+        
+          <li><a href="./CommentsHelperTest.html">CommentsHelperTest</a></li>
+        
+          <li><a href="./CreateAssets.html">CreateAssets</a></li>
+        
+          <li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="./CreateComments.html">CreateComments</a></li>
+        
+          <li><a href="./CreateEpisodes.html">CreateEpisodes</a></li>
+        
+          <li><a href="./CreatePostings.html">CreatePostings</a></li>
+        
+          <li><a href="./CreateRatings.html">CreateRatings</a></li>
+        
+          <li><a href="./CreateTranslations.html">CreateTranslations</a></li>
+        
+          <li><a href="./DelayedJobs.html">DelayedJobs</a></li>
+        
+          <li><a href="./DevelopmentMailInterceptor.html">DevelopmentMailInterceptor</a></li>
+        
+          <li><a href="./DeviseCreateUsers.html">DeviseCreateUsers</a></li>
+        
+          <li><a href="./EmailValidator.html">EmailValidator</a></li>
+        
+          <li><a href="./Episode.html">Episode</a></li>
+        
+          <li><a href="./EpisodeTest.html">EpisodeTest</a></li>
+        
+          <li><a href="./EpisodesController.html">EpisodesController</a></li>
+        
+          <li><a href="./EpisodesControllerTest.html">EpisodesControllerTest</a></li>
+        
+          <li><a href="./EpisodesHelper.html">EpisodesHelper</a></li>
+        
+          <li><a href="./EpisodesHelperTest.html">EpisodesHelperTest</a></li>
+        
+          <li><a href="./NavigationHelpers.html">NavigationHelpers</a></li>
+        
+          <li><a href="./NewCommentNotifier.html">NewCommentNotifier</a></li>
+        
+          <li><a href="./NewPostingNotifier.html">NewPostingNotifier</a></li>
+        
+          <li><a href="./NewUserNotifier.html">NewUserNotifier</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Posting.html">Posting</a></li>
+        
+          <li><a href="./PostingTest.html">PostingTest</a></li>
+        
+          <li><a href="./PostingsController.html">PostingsController</a></li>
+        
+          <li><a href="./PostingsControllerTest.html">PostingsControllerTest</a></li>
+        
+          <li><a href="./PostingsHelper.html">PostingsHelper</a></li>
+        
+          <li><a href="./PostingsHelperTest.html">PostingsHelperTest</a></li>
+        
+          <li><a href="./Rating.html">Rating</a></li>
+        
+          <li><a href="./RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="./RegistrationsController.html">RegistrationsController</a></li>
+        
+          <li><a href="./RegistrationsControllerTest.html">RegistrationsControllerTest</a></li>
+        
+          <li><a href="./RegistrationsHelper.html">RegistrationsHelper</a></li>
+        
+          <li><a href="./RegistrationsHelperTest.html">RegistrationsHelperTest</a></li>
+        
+          <li><a href="./SpecialCharacters.html">SpecialCharacters</a></li>
+        
+          <li><a href="./TranslateableHelper.html">TranslateableHelper</a></li>
+        
+          <li><a href="./Translation.html">Translation</a></li>
+        
+          <li><a href="./TranslationTest.html">TranslationTest</a></li>
+        
+          <li><a href="./User.html">User</a></li>
+        
+          <li><a href="./UserExistsValidator.html">UserExistsValidator</a></li>
+        
+          <li><a href="./UserMailer.html">UserMailer</a></li>
+        
+          <li><a href="./UserTest.html">UserTest</a></li>
+        
+          <li><a href="./UsersController.html">UsersController</a></li>
+        
+          <li><a href="./UsersControllerTest.html">UsersControllerTest</a></li>
+        
+          <li><a href="./UsersHelper.html">UsersHelper</a></li>
+        
+          <li><a href="./WelcomeController.html">WelcomeController</a></li>
+        
+          <li><a href="./WelcomeControllerTest.html">WelcomeControllerTest</a></li>
+        
+          <li><a href="./WelcomeHelper.html">WelcomeHelper</a></li>
+        
+          <li><a href="./WelcomeHelperTest.html">WelcomeHelperTest</a></li>
+        
+          <li><a href="./WithinHelpers.html">WithinHelpers</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
 
-			
-		</div>
-	</div>
+      
+    </div>
+  </div>
 
-	<div id="documentation">
-		<h1 class="class">EpisodesController</h1>
+  <div id="documentation">
+    <h1 class="class">EpisodesController</h1>
 
-		<div id="description">
-			
-		</div>
+    <div id="description">
+      
+    </div>
 
-		<!-- Constants -->
-		
+    <!-- Constants -->
+    
 
-		<!-- Attributes -->
-		
+    <!-- Attributes -->
+    
 
-		<!-- Methods -->
-		
-		<div id="public-instance-method-details" class="method-section section">
-			<h3 class="section-header">Public Instance Methods</h3>
+    <!-- Methods -->
+    
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
 
-		
-			<div id="create-method" class="method-detail ">
-				<a name="method-i-create"></a>
+    
+      <div id="create-method" class="method-detail ">
+        <a name="method-i-create"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">create</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					<p>
-POST /episodes POST /episodes.xml
-</p>
-					
+        <div class="method-description">
+          
+          <p>POST /episodes POST /episodes.xml</p>
+          
 
-					
-					<div class="method-source-code"
-						id="create-source">
+          
+          <div class="method-source-code"
+            id="create-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/episodes_controller.rb, line 52</span>
-52:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
-53:     <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:episode</span>])
-54:     <span class="ruby-ivar">@episode</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">current_user</span>
-55:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-56:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@episode</span>.<span class="ruby-identifier">save</span>
-57:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-ivar">@episode</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Episode was successfully created.'</span>) }
-58:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@episode</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:created</span>, <span class="ruby-value">:location</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@episode</span> }
-59:       <span class="ruby-keyword kw">else</span>
-60:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;new&quot;</span> }
-61:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@episode</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unprocessable_entity</span> }
-62:       <span class="ruby-keyword kw">end</span>
-63:     <span class="ruby-keyword kw">end</span>
-64:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/controllers/episodes_controller.rb, line 52</span>
+def create
+  <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.new(params[:episode])
+  <span class="ruby-ivar">@episode</span>.user = current_user
+  respond_to do |format|
+    if <span class="ruby-ivar">@episode</span>.save
+      format.html { redirect_to(<span class="ruby-ivar">@episode</span>, :notice =&gt; <span class="ruby-string">'Episode was successfully created.'</span>) }
+      format.xml  { render :xml =&gt; <span class="ruby-ivar">@episode</span>, :status =&gt; :created, :location =&gt; <span class="ruby-ivar">@episode</span> }
+    else
+      format.html { render :action =&gt; <span class="ruby-string">&quot;new&quot;</span> }
+      format.xml  { render :xml =&gt; <span class="ruby-ivar">@episode</span>.errors, :status =&gt; :unprocessable_entity }
+    end
+  end
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="destroy-method" class="method-detail ">
-				<a name="method-i-destroy"></a>
+    
+      <div id="destroy-method" class="method-detail ">
+        <a name="method-i-destroy"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">destroy</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					<p>
-DELETE /episodes/1 DELETE /episodes/1.xml
-</p>
-					
+        <div class="method-description">
+          
+          <p>DELETE /episodes/1 DELETE /episodes/1.xml</p>
+          
 
-					
-					<div class="method-source-code"
-						id="destroy-source">
+          
+          <div class="method-source-code"
+            id="destroy-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/episodes_controller.rb, line 84</span>
-84:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy</span>
-85:     <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-86:     <span class="ruby-ivar">@episode</span>.<span class="ruby-identifier">destroy</span>
-87: 
-88:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-89:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">episodes_url</span>) }
-90:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-value">:ok</span> }
-91:     <span class="ruby-keyword kw">end</span>
-92:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/controllers/episodes_controller.rb, line 84</span>
+def destroy
+  <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.find(params[:id])
+  <span class="ruby-ivar">@episode</span>.destroy
 
-				
+  respond_to do |format|
+    format.html { redirect_to(episodes_url) }
+    format.xml  { head :ok }
+  end
+end</pre>
+          </div>
+          
+        </div>
 
-				
-			</div>
+        
 
-		
-			<div id="edit-method" class="method-detail ">
-				<a name="method-i-edit"></a>
+        
+      </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">edit</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+    
+      <div id="edit-method" class="method-detail ">
+        <a name="method-i-edit"></a>
 
-				<div class="method-description">
-					
-					<p>
-GET /episodes/1/edit
-</p>
-					
+        <div class="method-heading">
+        
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-					
-					<div class="method-source-code"
-						id="edit-source">
+        <div class="method-description">
+          
+          <p>GET /episodes/1/edit</p>
+          
+
+          
+          <div class="method-source-code"
+            id="edit-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/episodes_controller.rb, line 46</span>
-46:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edit</span>
-47:     <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-48:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/controllers/episodes_controller.rb, line 46</span>
+def edit
+  <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.find(params[:id])
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="index-method" class="method-detail ">
-				<a name="method-i-index"></a>
+    
+      <div id="index-method" class="method-detail ">
+        <a name="method-i-index"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">index</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					<p>
-GET /episodes GET /episodes.xml
-</p>
-					
+        <div class="method-description">
+          
+          <p>GET /episodes GET /episodes.xml</p>
+          
 
-					
-					<div class="method-source-code"
-						id="index-source">
+          
+          <div class="method-source-code"
+            id="index-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/episodes_controller.rb, line 9</span>
- 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
-10:     <span class="ruby-identifier">episodes</span> = <span class="ruby-constant">Episode</span>.<span class="ruby-identifier">readable</span>(<span class="ruby-identifier">current_user</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">roles_mask</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value str">&quot;updated_at desc&quot;</span>)
-11:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:language_filter</span>].<span class="ruby-identifier">blank?</span>
-12:       <span class="ruby-ivar">@episodes</span> = <span class="ruby-identifier">episodes</span>.<span class="ruby-identifier">paginate</span>( <span class="ruby-value">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-value">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-value str">'paginate_episodes_per_page'</span>])
-13:     <span class="ruby-keyword kw">else</span>
-14:       <span class="ruby-ivar">@episodes</span> = <span class="ruby-identifier">episodes</span>.<span class="ruby-identifier">with_locales</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:language_filter</span>]).<span class="ruby-identifier">paginate</span>( <span class="ruby-value">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-value">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-value str">'paginate_episodes_per_page'</span>])
-15:     <span class="ruby-keyword kw">end</span>
-16:     
-17:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-18:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># index.html.erb</span>
-19:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@episodes</span> }
-20:     <span class="ruby-keyword kw">end</span>
-21:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/controllers/episodes_controller.rb, line 9</span>
+def index
+  episodes = <span class="ruby-constant">Episode</span>.readable(current_user ? current_user.roles_mask : 1).order(<span class="ruby-string">&quot;updated_at desc&quot;</span>)
+  if session[:language_filter].blank?
+    <span class="ruby-ivar">@episodes</span> = episodes.paginate( :page =&gt; params[:page], :per_page =&gt; <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-string">'paginate_episodes_per_page'</span>])
+  else
+    <span class="ruby-ivar">@episodes</span> = episodes.with_locales(session[:language_filter]).paginate( :page =&gt; params[:page], :per_page =&gt; <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-string">'paginate_episodes_per_page'</span>])
+  end
+  
+  respond_to do |format|
+    format.html <span class="ruby-comment"># index.html.erb</span>
+    format.xml  { render :xml =&gt; <span class="ruby-ivar">@episodes</span> }
+  end
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="new-method" class="method-detail ">
-				<a name="method-i-new"></a>
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-i-new"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">new</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					<p>
-GET /episodes/new GET /episodes/new.xml
-</p>
-					
+        <div class="method-description">
+          
+          <p>GET /episodes/new GET /episodes/new.xml</p>
+          
 
-					
-					<div class="method-source-code"
-						id="new-source">
+          
+          <div class="method-source-code"
+            id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/episodes_controller.rb, line 36</span>
-36:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>
-37:     <span class="ruby-ivar">@episode</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">episodes</span>.<span class="ruby-identifier">build</span>
-38: 
-39:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-40:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># new.html.erb</span>
-41:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@episode</span> }
-42:     <span class="ruby-keyword kw">end</span>
-43:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/controllers/episodes_controller.rb, line 36</span>
+def new
+  <span class="ruby-ivar">@episode</span> = current_user.episodes.build
 
-				
+  respond_to do |format|
+    format.html <span class="ruby-comment"># new.html.erb</span>
+    format.xml  { render :xml =&gt; <span class="ruby-ivar">@episode</span> }
+  end
+end</pre>
+          </div>
+          
+        </div>
 
-				
-			</div>
+        
 
-		
-			<div id="show-method" class="method-detail ">
-				<a name="method-i-show"></a>
+        
+      </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">show</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+    
+      <div id="show-method" class="method-detail ">
+        <a name="method-i-show"></a>
 
-				<div class="method-description">
-					
-					<p>
-GET /episodes/1 GET /episodes/1.xml
-</p>
-					
+        <div class="method-heading">
+        
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-					
-					<div class="method-source-code"
-						id="show-source">
+        <div class="method-description">
+          
+          <p>GET /episodes/1 GET /episodes/1.xml</p>
+          
+
+          
+          <div class="method-source-code"
+            id="show-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/episodes_controller.rb, line 25</span>
-25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>
-26:     <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-27: 
-28:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-29:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># show.html.erb</span>
-30:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@episode</span> }
-31:     <span class="ruby-keyword kw">end</span>
-32:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/controllers/episodes_controller.rb, line 25</span>
+def show
+  <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.find(params[:id])
 
-				
+  respond_to do |format|
+    format.html <span class="ruby-comment"># show.html.erb</span>
+    format.xml  { render :xml =&gt; <span class="ruby-ivar">@episode</span> }
+  end
+end</pre>
+          </div>
+          
+        </div>
 
-				
-			</div>
+        
 
-		
-			<div id="tag-method" class="method-detail ">
-				<a name="method-i-tag"></a>
+        
+      </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">tag</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+    
+      <div id="tag-method" class="method-detail ">
+        <a name="method-i-tag"></a>
 
-				<div class="method-description">
-					
-					<p>
-GET /episodes/tag/:tag renders action index
-</p>
-					
+        <div class="method-heading">
+        
+          <span class="method-name">tag</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-					
-					<div class="method-source-code"
-						id="tag-source">
+        <div class="method-description">
+          
+          <p>GET /episodes/tag/:tag renders action index</p>
+          
+
+          
+          <div class="method-source-code"
+            id="tag-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/episodes_controller.rb, line 96</span>
-96:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tag</span>
-97:     <span class="ruby-ivar">@episodes</span> = <span class="ruby-constant">Episode</span>.<span class="ruby-identifier">tagged_with</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:tag</span>], <span class="ruby-value">:on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:tags</span>)       .<span class="ruby-identifier">readable</span>(<span class="ruby-identifier">current_user</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">roles_mask</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>)       .<span class="ruby-identifier">order</span>(<span class="ruby-value str">'updated_at desc'</span>).<span class="ruby-identifier">uniq</span>       .<span class="ruby-identifier">paginate</span>(<span class="ruby-value">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-value">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-value str">'paginate_postings_per_page'</span>])
-98:     <span class="ruby-identifier">render</span> <span class="ruby-value">:index</span>
-99:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/controllers/episodes_controller.rb, line 96</span>
+def tag
+  <span class="ruby-ivar">@episodes</span> = <span class="ruby-constant">Episode</span>.tagged_with(params[:tag], :on =&gt; :tags)       .readable(current_user ? current_user.roles_mask : 1)       .order(<span class="ruby-string">'updated_at desc'</span>).uniq       .paginate(:page =&gt; params[:page], :per_page =&gt; <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-string">'paginate_postings_per_page'</span>])
+  render :index
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="update-method" class="method-detail ">
-				<a name="method-i-update"></a>
+    
+      <div id="update-method" class="method-detail ">
+        <a name="method-i-update"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">update</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					<p>
-PUT /episodes/1 PUT /episodes/1.xml
-</p>
-					
+        <div class="method-description">
+          
+          <p>PUT /episodes/1 PUT /episodes/1.xml</p>
+          
 
-					
-					<div class="method-source-code"
-						id="update-source">
+          
+          <div class="method-source-code"
+            id="update-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/controllers/episodes_controller.rb, line 68</span>
-68:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
-69:     <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-70: 
-71:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-72:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@episode</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:episode</span>])
-73:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-ivar">@episode</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Episode was successfully updated.'</span>) }
-74:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">head</span> <span class="ruby-value">:ok</span> }
-75:       <span class="ruby-keyword kw">else</span>
-76:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;edit&quot;</span> }
-77:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@episode</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unprocessable_entity</span> }
-78:       <span class="ruby-keyword kw">end</span>
-79:     <span class="ruby-keyword kw">end</span>
-80:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/controllers/episodes_controller.rb, line 68</span>
+def update
+  <span class="ruby-ivar">@episode</span> = <span class="ruby-constant">Episode</span>.find(params[:id])
 
-				
+  respond_to do |format|
+    if <span class="ruby-ivar">@episode</span>.update_attributes(params[:episode])
+      format.html { redirect_to(<span class="ruby-ivar">@episode</span>, :notice =&gt; <span class="ruby-string">'Episode was successfully updated.'</span>) }
+      format.xml  { head :ok }
+    else
+      format.html { render :action =&gt; <span class="ruby-string">&quot;edit&quot;</span> }
+      format.xml  { render :xml =&gt; <span class="ruby-ivar">@episode</span>.errors, :status =&gt; :unprocessable_entity }
+    end
+  end
+end</pre>
+          </div>
+          
+        </div>
 
-				
-			</div>
+        
 
-		
-		</div>
-	
+        
+      </div>
 
-	</div>
+    
+    </div>
+  
 
+  </div>
 
-	<div id="rdoc-debugging-section-dump" class="debugging-section">
-	
-		<p>Disabled; run with --debug to generate this.</p>
-	
-	</div>
-
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
 
 </body>
 </html>

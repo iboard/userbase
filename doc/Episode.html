@@ -1,686 +1,691 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-	<title>Class: Episode</title>
+  <title>Class: Episode</title>
 
-	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
-	<script src="./js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+  <script src="./js/jquery.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript"
+    charset="utf-8"></script>
 
 </head>
 <body class="class">
 
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
         <h3 class="section-header">
           <a href="./index.html">Home</a>
           <a href="./index.html#classes">Classes</a>
           <a href="./index.html#methods">Methods</a>
         </h3>
-			</div>
-		</div>
+      </div>
+    </div>
 
-		<div id="file-metadata">
-			<div id="file-list-section" class="section">
-				<h3 class="section-header">In Files</h3>
-				<div class="section-body">
-					<ul>
-					
-						<li><a href="./app/models/episode_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="app/models/episode.rb">app/models/episode.rb</a></li>
-					
-					</ul>
-				</div>
-			</div>
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./app/models/episode_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="app/models/episode.rb">app/models/episode.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
 
-			
-		</div>
+      
+    </div>
 
-		<div id="class-metadata">
+    <div id="class-metadata">
 
-			<!-- Parent Class -->
-			
-			<div id="parent-class-section" class="section">
-				<h3 class="section-header">Parent</h3>
-				
-				<p class="link">ActiveRecord::Base</p>
-				
-			</div>
-			
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">ActiveRecord::Base</p>
+        
+      </div>
+      
 
-			<!-- Namespace Contents -->
-			
+      <!-- Namespace Contents -->
+      
 
-			<!-- Method Quickref -->
-			
-			<div id="method-list-section" class="section">
-				<h3 class="section-header">Methods</h3>
-				<ul class="link-list">
-					
-					<li><a href="#method-i-access_manage_mask_flags%3D">#access_manage_mask_flags=</a></li>
-					
-					<li><a href="#method-i-access_read_mask_flags%3D">#access_read_mask_flags=</a></li>
-					
-					<li><a href="#method-i-allow_role_to_manage%3F">#allow_role_to_manage?</a></li>
-					
-					<li><a href="#method-i-allow_role_to_read%3F">#allow_role_to_read?</a></li>
-					
-					<li><a href="#method-i-allow_user_to_manage%3F">#allow_user_to_manage?</a></li>
-					
-					<li><a href="#method-i-allow_user_to_read%3F">#allow_user_to_read?</a></li>
-					
-					<li><a href="#method-i-body">#body</a></li>
-					
-					<li><a href="#method-i-is_youtube_video%3F">#is_youtube_video?</a></li>
-					
-					<li><a href="#method-i-youtube_embed_url">#youtube_embed_url</a></li>
-					
-				</ul>
-			</div>
-			
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-access_manage_mask_flags-3D">#access_manage_mask_flags=</a></li>
+          
+          <li><a href="#method-i-access_read_mask_flags-3D">#access_read_mask_flags=</a></li>
+          
+          <li><a href="#method-i-allow_role_to_manage-3F">#allow_role_to_manage?</a></li>
+          
+          <li><a href="#method-i-allow_role_to_read-3F">#allow_role_to_read?</a></li>
+          
+          <li><a href="#method-i-allow_user_to_manage-3F">#allow_user_to_manage?</a></li>
+          
+          <li><a href="#method-i-allow_user_to_read-3F">#allow_user_to_read?</a></li>
+          
+          <li><a href="#method-i-body">#body</a></li>
+          
+          <li><a href="#method-i-is_youtube_video-3F">#is_youtube_video?</a></li>
+          
+          <li><a href="#method-i-youtube_embed_url">#youtube_embed_url</a></li>
+          
+        </ul>
+      </div>
+      
 
-			<!-- Included Modules -->
-			
-		</div>
+      <!-- Included Modules -->
+      
+    </div>
 
-		<div id="project-metadata">
-			
-			
-			<div id="fileindex-section" class="section project-section">
-				<h3 class="section-header">Files</h3>
-				<ul>
-				
-					<li class="file"><a href="./Gemfile.html">Gemfile</a></li>
-				
-					<li class="file"><a href="./Rakefile.html">Rakefile</a></li>
-				
-					<li class="file"><a href="./licence_txt.html">licence.txt</a></li>
-				
-					<li class="file"><a href="./public/javascripts/cropper/licence-cropper_txt.html">licence-cropper.txt</a></li>
-				
-					<li class="file"><a href="./public/robots_txt.html">robots.txt</a></li>
-				
-				</ul>
-			</div>
-			
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./Gemfile.html">Gemfile</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="./licence_txt.html">licence.txt</a></li>
+        
+          <li class="file"><a href="./public/javascripts/cropper/licence-cropper_txt.html">licence-cropper.txt</a></li>
+        
+          <li class="file"><a href="./public/robots_txt.html">robots.txt</a></li>
+        
+        </ul>
+      </div>
+      
 
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="./images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
 
-				<ul class="link-list">
-				
-					<li><a href="./Assetables.html">Assetables</a></li>
-				
-					<li><a href="./Assetables/Assetable.html">Assetables::Assetable</a></li>
-				
-					<li><a href="./Assetables/Assetable/ClassMethods.html">Assetables::Assetable::ClassMethods</a></li>
-				
-					<li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
-				
-					<li><a href="./Commentables.html">Commentables</a></li>
-				
-					<li><a href="./Commentables/Commentable.html">Commentables::Commentable</a></li>
-				
-					<li><a href="./Commentables/Commentable/ClassMethods.html">Commentables::Commentable::ClassMethods</a></li>
-				
-					<li><a href="./Commentables/Commentable/InstanceMethods.html">Commentables::Commentable::InstanceMethods</a></li>
-				
-					<li><a href="./IboardFormHelpers.html">IboardFormHelpers</a></li>
-				
-					<li><a href="./IboardFormHelpers/ActionView.html">IboardFormHelpers::ActionView</a></li>
-				
-					<li><a href="./IboardFormHelpers/ActionView/Helpers.html">IboardFormHelpers::ActionView::Helpers</a></li>
-				
-					<li><a href="./IboardFormHelpers/ActionView/Helpers/FormBuilder.html">IboardFormHelpers::ActionView::Helpers::FormBuilder</a></li>
-				
-					<li><a href="./ActionDispatch.html">ActionDispatch</a></li>
-				
-					<li><a href="./ActionDispatch/Http.html">ActionDispatch::Http</a></li>
-				
-					<li><a href="./ActionDispatch/Http/UploadedFile.html">ActionDispatch::Http::UploadedFile</a></li>
-				
-					<li><a href="./StringExtensions.html">StringExtensions</a></li>
-				
-					<li><a href="./StringExtensions/ClassMethods.html">StringExtensions::ClassMethods</a></li>
-				
-					<li><a href="./StringExtensions/InstanceMethods.html">StringExtensions::InstanceMethods</a></li>
-				
-					<li><a href="./ActiveSupport.html">ActiveSupport</a></li>
-				
-					<li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a></li>
-				
-					<li><a href="./LayoutHelper.html">LayoutHelper</a></li>
-				
-					<li><a href="./LayoutHelper/ClassMethods.html">LayoutHelper::ClassMethods</a></li>
-				
-					<li><a href="./Paperclip.html">Paperclip</a></li>
-				
-					<li><a href="./Paperclip/Cropper.html">Paperclip::Cropper</a></li>
-				
-					<li><a href="./Rack.html">Rack</a></li>
-				
-					<li><a href="./Rack/Utils.html">Rack::Utils</a></li>
-				
-					<li><a href="./Userbase.html">Userbase</a></li>
-				
-					<li><a href="./Userbase/Application.html">Userbase::Application</a></li>
-				
-					<li><a href="./Ability.html">Ability</a></li>
-				
-					<li><a href="./ActsAsTaggableOnMigration.html">ActsAsTaggableOnMigration</a></li>
-				
-					<li><a href="./AddAccessMaskToEpisodes.html">AddAccessMaskToEpisodes</a></li>
-				
-					<li><a href="./AddAccessMaskToPostings.html">AddAccessMaskToPostings</a></li>
-				
-					<li><a href="./AddAttachmentAvatarToUser.html">AddAttachmentAvatarToUser</a></li>
-				
-					<li><a href="./AddLanguageToPostings.html">AddLanguageToPostings</a></li>
-				
-					<li><a href="./AddLocaleToEpisodes.html">AddLocaleToEpisodes</a></li>
-				
-					<li><a href="./AddMissingIndices.html">AddMissingIndices</a></li>
-				
-					<li><a href="./AddNicknameToUser.html">AddNicknameToUser</a></li>
-				
-					<li><a href="./AddTimezoneAndLanguageToUsers.html">AddTimezoneAndLanguageToUsers</a></li>
-				
-					<li><a href="./ApplicationController.html">ApplicationController</a></li>
-				
-					<li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
-				
-					<li><a href="./Asset.html">Asset</a></li>
-				
-					<li><a href="./AssetsController.html">AssetsController</a></li>
-				
-					<li><a href="./Authentication.html">Authentication</a></li>
-				
-					<li><a href="./AuthenticationsController.html">AuthenticationsController</a></li>
-				
-					<li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
-				
-					<li><a href="./BrowsingTest.html">BrowsingTest</a></li>
-				
-					<li><a href="./Comment.html">Comment</a></li>
-				
-					<li><a href="./CommentTest.html">CommentTest</a></li>
-				
-					<li><a href="./CommentsController.html">CommentsController</a></li>
-				
-					<li><a href="./CommentsControllerTest.html">CommentsControllerTest</a></li>
-				
-					<li><a href="./CommentsHelper.html">CommentsHelper</a></li>
-				
-					<li><a href="./CommentsHelperTest.html">CommentsHelperTest</a></li>
-				
-					<li><a href="./CreateAssets.html">CreateAssets</a></li>
-				
-					<li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
-				
-					<li><a href="./CreateComments.html">CreateComments</a></li>
-				
-					<li><a href="./CreateEpisodes.html">CreateEpisodes</a></li>
-				
-					<li><a href="./CreatePostings.html">CreatePostings</a></li>
-				
-					<li><a href="./CreateTranslations.html">CreateTranslations</a></li>
-				
-					<li><a href="./DelayedJobs.html">DelayedJobs</a></li>
-				
-					<li><a href="./DevelopmentMailInterceptor.html">DevelopmentMailInterceptor</a></li>
-				
-					<li><a href="./DeviseCreateUsers.html">DeviseCreateUsers</a></li>
-				
-					<li><a href="./EmailValidator.html">EmailValidator</a></li>
-				
-					<li><a href="./Episode.html">Episode</a></li>
-				
-					<li><a href="./EpisodeTest.html">EpisodeTest</a></li>
-				
-					<li><a href="./EpisodesController.html">EpisodesController</a></li>
-				
-					<li><a href="./EpisodesControllerTest.html">EpisodesControllerTest</a></li>
-				
-					<li><a href="./EpisodesHelper.html">EpisodesHelper</a></li>
-				
-					<li><a href="./EpisodesHelperTest.html">EpisodesHelperTest</a></li>
-				
-					<li><a href="./NavigationHelpers.html">NavigationHelpers</a></li>
-				
-					<li><a href="./NewPostingNotifier.html">NewPostingNotifier</a></li>
-				
-					<li><a href="./NewUserNotifier.html">NewUserNotifier</a></li>
-				
-					<li><a href="./Posting.html">Posting</a></li>
-				
-					<li><a href="./PostingTest.html">PostingTest</a></li>
-				
-					<li><a href="./PostingsController.html">PostingsController</a></li>
-				
-					<li><a href="./PostingsControllerTest.html">PostingsControllerTest</a></li>
-				
-					<li><a href="./PostingsHelper.html">PostingsHelper</a></li>
-				
-					<li><a href="./PostingsHelperTest.html">PostingsHelperTest</a></li>
-				
-					<li><a href="./RegistrationsController.html">RegistrationsController</a></li>
-				
-					<li><a href="./RegistrationsControllerTest.html">RegistrationsControllerTest</a></li>
-				
-					<li><a href="./RegistrationsHelper.html">RegistrationsHelper</a></li>
-				
-					<li><a href="./RegistrationsHelperTest.html">RegistrationsHelperTest</a></li>
-				
-					<li><a href="./SpecialCharacters.html">SpecialCharacters</a></li>
-				
-					<li><a href="./TranslateableHelper.html">TranslateableHelper</a></li>
-				
-					<li><a href="./Translation.html">Translation</a></li>
-				
-					<li><a href="./TranslationTest.html">TranslationTest</a></li>
-				
-					<li><a href="./User.html">User</a></li>
-				
-					<li><a href="./UserExistsValidator.html">UserExistsValidator</a></li>
-				
-					<li><a href="./UserMailer.html">UserMailer</a></li>
-				
-					<li><a href="./UserTest.html">UserTest</a></li>
-				
-					<li><a href="./UsersController.html">UsersController</a></li>
-				
-					<li><a href="./UsersControllerTest.html">UsersControllerTest</a></li>
-				
-					<li><a href="./UsersHelper.html">UsersHelper</a></li>
-				
-					<li><a href="./WelcomeController.html">WelcomeController</a></li>
-				
-					<li><a href="./WelcomeControllerTest.html">WelcomeControllerTest</a></li>
-				
-					<li><a href="./WelcomeHelper.html">WelcomeHelper</a></li>
-				
-					<li><a href="./WelcomeHelperTest.html">WelcomeHelperTest</a></li>
-				
-					<li><a href="./WithinHelpers.html">WithinHelpers</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
+        <ul class="link-list">
+        
+          <li><a href="./Assetables.html">Assetables</a></li>
+        
+          <li><a href="./Assetables/Assetable.html">Assetables::Assetable</a></li>
+        
+          <li><a href="./Assetables/Assetable/ClassMethods.html">Assetables::Assetable::ClassMethods</a></li>
+        
+          <li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
+        
+          <li><a href="./Commentables.html">Commentables</a></li>
+        
+          <li><a href="./Commentables/Commentable.html">Commentables::Commentable</a></li>
+        
+          <li><a href="./Commentables/Commentable/ClassMethods.html">Commentables::Commentable::ClassMethods</a></li>
+        
+          <li><a href="./Commentables/Commentable/InstanceMethods.html">Commentables::Commentable::InstanceMethods</a></li>
+        
+          <li><a href="./IboardFormHelpers.html">IboardFormHelpers</a></li>
+        
+          <li><a href="./IboardFormHelpers/ActionView.html">IboardFormHelpers::ActionView</a></li>
+        
+          <li><a href="./IboardFormHelpers/ActionView/Helpers.html">IboardFormHelpers::ActionView::Helpers</a></li>
+        
+          <li><a href="./IboardFormHelpers/ActionView/Helpers/FormBuilder.html">IboardFormHelpers::ActionView::Helpers::FormBuilder</a></li>
+        
+          <li><a href="./ActionDispatch.html">ActionDispatch</a></li>
+        
+          <li><a href="./ActionDispatch/Http.html">ActionDispatch::Http</a></li>
+        
+          <li><a href="./ActionDispatch/Http/UploadedFile.html">ActionDispatch::Http::UploadedFile</a></li>
+        
+          <li><a href="./StringExtensions.html">StringExtensions</a></li>
+        
+          <li><a href="./StringExtensions/ClassMethods.html">StringExtensions::ClassMethods</a></li>
+        
+          <li><a href="./StringExtensions/InstanceMethods.html">StringExtensions::InstanceMethods</a></li>
+        
+          <li><a href="./ActiveSupport.html">ActiveSupport</a></li>
+        
+          <li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a></li>
+        
+          <li><a href="./LayoutHelper.html">LayoutHelper</a></li>
+        
+          <li><a href="./LayoutHelper/ClassMethods.html">LayoutHelper::ClassMethods</a></li>
+        
+          <li><a href="./Paperclip.html">Paperclip</a></li>
+        
+          <li><a href="./Paperclip/Cropper.html">Paperclip::Cropper</a></li>
+        
+          <li><a href="./Rack.html">Rack</a></li>
+        
+          <li><a href="./Rack/Utils.html">Rack::Utils</a></li>
+        
+          <li><a href="./Userbase.html">Userbase</a></li>
+        
+          <li><a href="./Userbase/Application.html">Userbase::Application</a></li>
+        
+          <li><a href="./Ability.html">Ability</a></li>
+        
+          <li><a href="./ActsAsTaggableOnMigration.html">ActsAsTaggableOnMigration</a></li>
+        
+          <li><a href="./AddAccessMaskToEpisodes.html">AddAccessMaskToEpisodes</a></li>
+        
+          <li><a href="./AddAccessMaskToPostings.html">AddAccessMaskToPostings</a></li>
+        
+          <li><a href="./AddAttachmentAvatarToUser.html">AddAttachmentAvatarToUser</a></li>
+        
+          <li><a href="./AddLanguageToPostings.html">AddLanguageToPostings</a></li>
+        
+          <li><a href="./AddLocaleToEpisodes.html">AddLocaleToEpisodes</a></li>
+        
+          <li><a href="./AddMissingIndices.html">AddMissingIndices</a></li>
+        
+          <li><a href="./AddNicknameToUser.html">AddNicknameToUser</a></li>
+        
+          <li><a href="./AddRatingCacheFieldToEpisodes.html">AddRatingCacheFieldToEpisodes</a></li>
+        
+          <li><a href="./AddRatingCacheFieldToPosting.html">AddRatingCacheFieldToPosting</a></li>
+        
+          <li><a href="./AddTimezoneAndLanguageToUsers.html">AddTimezoneAndLanguageToUsers</a></li>
+        
+          <li><a href="./AddUseGravatarToUsers.html">AddUseGravatarToUsers</a></li>
+        
+          <li><a href="./ApplicationController.html">ApplicationController</a></li>
+        
+          <li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
+        
+          <li><a href="./Asset.html">Asset</a></li>
+        
+          <li><a href="./AssetsController.html">AssetsController</a></li>
+        
+          <li><a href="./Authentication.html">Authentication</a></li>
+        
+          <li><a href="./AuthenticationsController.html">AuthenticationsController</a></li>
+        
+          <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
+        
+          <li><a href="./BrowsingTest.html">BrowsingTest</a></li>
+        
+          <li><a href="./Comment.html">Comment</a></li>
+        
+          <li><a href="./CommentTest.html">CommentTest</a></li>
+        
+          <li><a href="./CommentsController.html">CommentsController</a></li>
+        
+          <li><a href="./CommentsControllerTest.html">CommentsControllerTest</a></li>
+        
+          <li><a href="./CommentsHelper.html">CommentsHelper</a></li>
+        
+          <li><a href="./CommentsHelperTest.html">CommentsHelperTest</a></li>
+        
+          <li><a href="./CreateAssets.html">CreateAssets</a></li>
+        
+          <li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="./CreateComments.html">CreateComments</a></li>
+        
+          <li><a href="./CreateEpisodes.html">CreateEpisodes</a></li>
+        
+          <li><a href="./CreatePostings.html">CreatePostings</a></li>
+        
+          <li><a href="./CreateRatings.html">CreateRatings</a></li>
+        
+          <li><a href="./CreateTranslations.html">CreateTranslations</a></li>
+        
+          <li><a href="./DelayedJobs.html">DelayedJobs</a></li>
+        
+          <li><a href="./DevelopmentMailInterceptor.html">DevelopmentMailInterceptor</a></li>
+        
+          <li><a href="./DeviseCreateUsers.html">DeviseCreateUsers</a></li>
+        
+          <li><a href="./EmailValidator.html">EmailValidator</a></li>
+        
+          <li><a href="./Episode.html">Episode</a></li>
+        
+          <li><a href="./EpisodeTest.html">EpisodeTest</a></li>
+        
+          <li><a href="./EpisodesController.html">EpisodesController</a></li>
+        
+          <li><a href="./EpisodesControllerTest.html">EpisodesControllerTest</a></li>
+        
+          <li><a href="./EpisodesHelper.html">EpisodesHelper</a></li>
+        
+          <li><a href="./EpisodesHelperTest.html">EpisodesHelperTest</a></li>
+        
+          <li><a href="./NavigationHelpers.html">NavigationHelpers</a></li>
+        
+          <li><a href="./NewCommentNotifier.html">NewCommentNotifier</a></li>
+        
+          <li><a href="./NewPostingNotifier.html">NewPostingNotifier</a></li>
+        
+          <li><a href="./NewUserNotifier.html">NewUserNotifier</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Posting.html">Posting</a></li>
+        
+          <li><a href="./PostingTest.html">PostingTest</a></li>
+        
+          <li><a href="./PostingsController.html">PostingsController</a></li>
+        
+          <li><a href="./PostingsControllerTest.html">PostingsControllerTest</a></li>
+        
+          <li><a href="./PostingsHelper.html">PostingsHelper</a></li>
+        
+          <li><a href="./PostingsHelperTest.html">PostingsHelperTest</a></li>
+        
+          <li><a href="./Rating.html">Rating</a></li>
+        
+          <li><a href="./RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="./RegistrationsController.html">RegistrationsController</a></li>
+        
+          <li><a href="./RegistrationsControllerTest.html">RegistrationsControllerTest</a></li>
+        
+          <li><a href="./RegistrationsHelper.html">RegistrationsHelper</a></li>
+        
+          <li><a href="./RegistrationsHelperTest.html">RegistrationsHelperTest</a></li>
+        
+          <li><a href="./SpecialCharacters.html">SpecialCharacters</a></li>
+        
+          <li><a href="./TranslateableHelper.html">TranslateableHelper</a></li>
+        
+          <li><a href="./Translation.html">Translation</a></li>
+        
+          <li><a href="./TranslationTest.html">TranslationTest</a></li>
+        
+          <li><a href="./User.html">User</a></li>
+        
+          <li><a href="./UserExistsValidator.html">UserExistsValidator</a></li>
+        
+          <li><a href="./UserMailer.html">UserMailer</a></li>
+        
+          <li><a href="./UserTest.html">UserTest</a></li>
+        
+          <li><a href="./UsersController.html">UsersController</a></li>
+        
+          <li><a href="./UsersControllerTest.html">UsersControllerTest</a></li>
+        
+          <li><a href="./UsersHelper.html">UsersHelper</a></li>
+        
+          <li><a href="./WelcomeController.html">WelcomeController</a></li>
+        
+          <li><a href="./WelcomeControllerTest.html">WelcomeControllerTest</a></li>
+        
+          <li><a href="./WelcomeHelper.html">WelcomeHelper</a></li>
+        
+          <li><a href="./WelcomeHelperTest.html">WelcomeHelperTest</a></li>
+        
+          <li><a href="./WithinHelpers.html">WithinHelpers</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
 
-			
-		</div>
-	</div>
+      
+    </div>
+  </div>
 
-	<div id="documentation">
-		<h1 class="class">Episode</h1>
+  <div id="documentation">
+    <h1 class="class">Episode</h1>
 
-		<div id="description">
-			
-		</div>
+    <div id="description">
+      
+    </div>
 
-		<!-- Constants -->
-		
+    <!-- Constants -->
+    
 
-		<!-- Attributes -->
-		
+    <!-- Attributes -->
+    
 
-		<!-- Methods -->
-		
-		<div id="public-instance-method-details" class="method-section section">
-			<h3 class="section-header">Public Instance Methods</h3>
+    <!-- Methods -->
+    
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
 
-		
-			<div id="access-manage-mask-flags--method" class="method-detail ">
-				<a name="method-i-access_manage_mask_flags%3D"></a>
+    
+      <div id="access_manage_mask_flags-3D-method" class="method-detail ">
+        <a name="method-i-access_manage_mask_flags-3D"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">access_manage_mask_flags=</span><span
-						class="method-args">(flags)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">access_manage_mask_flags=</span><span
+            class="method-args">(flags)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					
-					
+        <div class="method-description">
+          
+          
+          
 
-					
-					<div class="method-source-code"
-						id="access-manage-mask-flags--source">
+          
+          <div class="method-source-code"
+            id="access_manage_mask_flags-3D-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/episode.rb, line 31</span>
-31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">access_manage_mask_flags=</span>(<span class="ruby-identifier">flags</span>)
-32:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">access_manage_mask</span>=(<span class="ruby-identifier">flags</span> &amp; <span class="ruby-constant">User</span><span class="ruby-operator">::</span><span class="ruby-constant">ROLES</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-constant">User</span><span class="ruby-operator">::</span><span class="ruby-constant">ROLES</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">r</span>) }.<span class="ruby-identifier">sum</span>
-33:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/models/episode.rb, line 32</span>
+def access_manage_mask_flags=(flags)
+  self.access_manage_mask=(flags &amp; <span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>).map { |r| 2**<span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>.index(r) }.sum
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="access-read-mask-flags--method" class="method-detail ">
-				<a name="method-i-access_read_mask_flags%3D"></a>
+    
+      <div id="access_read_mask_flags-3D-method" class="method-detail ">
+        <a name="method-i-access_read_mask_flags-3D"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">access_read_mask_flags=</span><span
-						class="method-args">(flags)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">access_read_mask_flags=</span><span
+            class="method-args">(flags)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					<p>
-Virtual Attributes
-</p>
-					
+        <div class="method-description">
+          
+          <p>Virtual Attributes</p>
+          
 
-					
-					<div class="method-source-code"
-						id="access-read-mask-flags--source">
+          
+          <div class="method-source-code"
+            id="access_read_mask_flags-3D-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/episode.rb, line 27</span>
-27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">access_read_mask_flags=</span>(<span class="ruby-identifier">flags</span>)
-28:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">access_read_mask</span>=(<span class="ruby-identifier">flags</span> &amp; <span class="ruby-constant">User</span><span class="ruby-operator">::</span><span class="ruby-constant">ROLES</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-constant">User</span><span class="ruby-operator">::</span><span class="ruby-constant">ROLES</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">r</span>) }.<span class="ruby-identifier">sum</span>
-29:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/models/episode.rb, line 28</span>
+def access_read_mask_flags=(flags)
+  self.access_read_mask=(flags &amp; <span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>).map { |r| 2**<span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>.index(r) }.sum
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="allow-role-to-manage--method" class="method-detail ">
-				<a name="method-i-allow_role_to_manage%3F"></a>
+    
+      <div id="allow_role_to_manage-3F-method" class="method-detail ">
+        <a name="method-i-allow_role_to_manage-3F"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">allow_role_to_manage?</span><span
-						class="method-args">(role)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">allow_role_to_manage?</span><span
+            class="method-args">(role)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					
-					
+        <div class="method-description">
+          
+          
+          
 
-					
-					<div class="method-source-code"
-						id="allow-role-to-manage--source">
+          
+          <div class="method-source-code"
+            id="allow_role_to_manage-3F-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/episode.rb, line 40</span>
-40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">allow_role_to_manage?</span>(<span class="ruby-identifier">role</span>)
-41:     <span class="ruby-operator">!</span> (<span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-constant">User</span><span class="ruby-operator">::</span><span class="ruby-constant">ROLES</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">role</span>) &amp; <span class="ruby-identifier">access_manage_mask</span>).<span class="ruby-identifier">zero?</span>
-42:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/models/episode.rb, line 41</span>
+def allow_role_to_manage?(role)
+  ! (2**<span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>.index(role) &amp; access_manage_mask).zero?
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="allow-role-to-read--method" class="method-detail ">
-				<a name="method-i-allow_role_to_read%3F"></a>
+    
+      <div id="allow_role_to_read-3F-method" class="method-detail ">
+        <a name="method-i-allow_role_to_read-3F"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">allow_role_to_read?</span><span
-						class="method-args">(role)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">allow_role_to_read?</span><span
+            class="method-args">(role)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					
-					
+        <div class="method-description">
+          
+          
+          
 
-					
-					<div class="method-source-code"
-						id="allow-role-to-read--source">
+          
+          <div class="method-source-code"
+            id="allow_role_to_read-3F-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/episode.rb, line 36</span>
-36:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">allow_role_to_read?</span>(<span class="ruby-identifier">role</span>)
-37:     <span class="ruby-operator">!</span> (<span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-constant">User</span><span class="ruby-operator">::</span><span class="ruby-constant">ROLES</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">role</span>) &amp; <span class="ruby-identifier">access_read_mask</span>).<span class="ruby-identifier">zero?</span>
-38:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/models/episode.rb, line 37</span>
+def allow_role_to_read?(role)
+  ! (2**<span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>.index(role) &amp; access_read_mask).zero?
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="allow-user-to-manage--method" class="method-detail ">
-				<a name="method-i-allow_user_to_manage%3F"></a>
+    
+      <div id="allow_user_to_manage-3F-method" class="method-detail ">
+        <a name="method-i-allow_user_to_manage-3F"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">allow_user_to_manage?</span><span
-						class="method-args">(user)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">allow_user_to_manage?</span><span
+            class="method-args">(user)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					
-					
+        <div class="method-description">
+          
+          
+          
 
-					
-					<div class="method-source-code"
-						id="allow-user-to-manage--source">
+          
+          <div class="method-source-code"
+            id="allow_user_to_manage-3F-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/episode.rb, line 48</span>
-48:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">allow_user_to_manage?</span>(<span class="ruby-identifier">user</span>)
-49:     <span class="ruby-operator">!</span> (<span class="ruby-identifier">user</span>.<span class="ruby-identifier">roles_mask</span> &amp; <span class="ruby-identifier">access_manage_mask</span>).<span class="ruby-identifier">zero?</span>
-50:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/models/episode.rb, line 49</span>
+def allow_user_to_manage?(user)
+  ! (user.roles_mask &amp; access_manage_mask).zero?
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="allow-user-to-read--method" class="method-detail ">
-				<a name="method-i-allow_user_to_read%3F"></a>
+    
+      <div id="allow_user_to_read-3F-method" class="method-detail ">
+        <a name="method-i-allow_user_to_read-3F"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">allow_user_to_read?</span><span
-						class="method-args">(user)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">allow_user_to_read?</span><span
+            class="method-args">(user)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					
-					
+        <div class="method-description">
+          
+          
+          
 
-					
-					<div class="method-source-code"
-						id="allow-user-to-read--source">
+          
+          <div class="method-source-code"
+            id="allow_user_to_read-3F-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/episode.rb, line 44</span>
-44:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">allow_user_to_read?</span>(<span class="ruby-identifier">user</span>)
-45:     <span class="ruby-operator">!</span> (<span class="ruby-identifier">user</span>.<span class="ruby-identifier">roles_mask</span> &amp; <span class="ruby-identifier">access_read_mask</span>).<span class="ruby-identifier">zero?</span>
-46:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/models/episode.rb, line 45</span>
+def allow_user_to_read?(user)
+  ! (user.roles_mask &amp; access_read_mask).zero?
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="body-method" class="method-detail ">
-				<a name="method-i-body"></a>
+    
+      <div id="body-method" class="method-detail ">
+        <a name="method-i-body"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">body</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">body</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					<p>
-Return the description as body for rss-feed (Commentable)
-</p>
-					
+        <div class="method-description">
+          
+          <p>Return the description as body for rss-feed (Commentable)</p>
+          
 
-					
-					<div class="method-source-code"
-						id="body-source">
+          
+          <div class="method-source-code"
+            id="body-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/episode.rb, line 22</span>
-22:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">body</span>
-23:     <span class="ruby-identifier">description</span>
-24:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/models/episode.rb, line 23</span>
+def body
+  description
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="is-youtube-video--method" class="method-detail ">
-				<a name="method-i-is_youtube_video%3F"></a>
+    
+      <div id="is_youtube_video-3F-method" class="method-detail ">
+        <a name="method-i-is_youtube_video-3F"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">is_youtube_video?</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">is_youtube_video?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					
-					
+        <div class="method-description">
+          
+          
+          
 
-					
-					<div class="method-source-code"
-						id="is-youtube-video--source">
+          
+          <div class="method-source-code"
+            id="is_youtube_video-3F-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/episode.rb, line 52</span>
-52:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_youtube_video?</span>
-53:     <span class="ruby-identifier">video_web_url</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'http://www.youtube.com/'</span>)
-54:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/models/episode.rb, line 53</span>
+def is_youtube_video?
+  video_web_url.downcase.include?(<span class="ruby-string">'http://www.youtube.com/'</span>)
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="youtube-embed-url-method" class="method-detail ">
-				<a name="method-i-youtube_embed_url"></a>
+    
+      <div id="youtube_embed_url-method" class="method-detail ">
+        <a name="method-i-youtube_embed_url"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">youtube_embed_url</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">youtube_embed_url</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					
-					
+        <div class="method-description">
+          
+          
+          
 
-					
-					<div class="method-source-code"
-						id="youtube-embed-url-source">
+          
+          <div class="method-source-code"
+            id="youtube_embed_url-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/episode.rb, line 56</span>
-56:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">youtube_embed_url</span>
-57:     <span class="ruby-identifier">video_web_url</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">&quot;http://www.youtube.com/watch?v=&quot;</span>,
-58:       <span class="ruby-value str">&quot;http://www.youtube.com/v/&quot;</span>
-59:     )
-60:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File app/models/episode.rb, line 57</span>
+def youtube_embed_url
+  video_web_url.gsub(<span class="ruby-string">&quot;http://www.youtube.com/watch?v=&quot;</span>,
+    <span class="ruby-string">&quot;http://www.youtube.com/v/&quot;</span>
+  )
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-		</div>
-	
+    
+    </div>
+  
 
-	</div>
+  </div>
 
-
-	<div id="rdoc-debugging-section-dump" class="debugging-section">
-	
-		<p>Disabled; run with --debug to generate this.</p>
-	
-	</div>
-
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
 
 </body>
 </html>
