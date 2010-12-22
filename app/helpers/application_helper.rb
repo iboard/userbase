@@ -91,7 +91,7 @@ module ApplicationHelper
     item_ratings_count=item.ratings.count || 0
     my_rating         = user.ratings.where(:rateable_id => item.id, :rateable_type => item.class.to_s).first  if user
       
-    content_tag :div, :id => "rating_#{item.id}", :style => 'display: inline;' do
+    content_tag :div, :id => "rating_#{item.id}", :class=>'rating' do
       rc = ""
       for i in eval(CONSTANTS['rating_range'])
         # always link to rate if user

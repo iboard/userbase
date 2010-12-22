@@ -38,7 +38,7 @@
       <% end %>      
     <% end %>
     
-    <%= render :partial => '/welcome/ratings', :locals => { :object => posting } %><br/>
+    <%= render :partial => '/welcome/ratings', :locals => { :object => posting } %>
     
     <% if current_user && can?(:manage, posting) %>
       <div style='margin-left: 5px;'>

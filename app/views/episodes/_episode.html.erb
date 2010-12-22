@@ -16,16 +16,17 @@
     <% end %>
   <% end  %>
     
-  <!-- TITLE And Author-->
+  <!-- TITLE And Author, Rating-->
   <h2><%= link_to episode.title, episode %></h2>
+  <%= render :partial => '/welcome/ratings', :locals => { :object => episode } %><br/>
   <address>
-    <%= render :partial => '/welcome/ratings', :locals => { :object => episode } %><br/>
     <%= episode.updated_at.to_s(:short) %> 
     (<%= t(:time_ago, :time => distance_of_time_in_words(episode.updated_at,Time.now)) -%>), 
     <%= t(:by_author) %>: <%= episode.user.nickname %>
     [<%= insert_episodes_tag_list(episode.tag_list) %>]
     <%= language_links(episode) -%><br/><br/>
   </address>
+  
   <!-- right box with Managebuttons if allowed-->
   <% if can? :manage, episode %>
     <%= content_tag :div, :style=>'margin: 0px;' do %>

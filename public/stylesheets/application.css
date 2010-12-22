@@ -416,7 +416,7 @@
   .float-right-box h2,
   .float-right-box h3,
   .float-right-box h4 {
-     margin: -5px;
+     margin: 0px;
      margin-top: -36px;
      margin-right: -10px;
      padding: 5px;
@@ -579,16 +579,21 @@
   .posting H2 {
     font-size: 1.8em;
     margin-top: 0px;
-    margin-bottom: -5px;
+    margin-bottom: 0px;
     padding-left: 5px;
   }
   .posting H3
   {
     font-size: 1.6em;
     margin-top: 0px;
-    margin-bottom: -5px;
+    margin-bottom: 0px;
     padding-left: 5px;
   }
+  
+  .rating {
+     padding-top: 5px;
+   }
+  
   
   .float-right-buttom {
     float: right;
@@ -1171,6 +1176,7 @@
     display: none;
   }
   
+ 
 } /* end media screen */  
 
 
