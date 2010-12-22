@@ -6,7 +6,7 @@ class Rating < ActiveRecord::Base
   
   private
   def update_average
-    self.rateable.ratings_average = self.rateable.ratings.average(:rating) || 0
+    self.rateable.ratings_average = self.rateable.ratings.where('rating > ?', 0.0 ).average(:rating) || 0
     self.rateable.class.record_timestamps = false
     self.rateable.save!
     self.rateable.class.record_timestamps = true
