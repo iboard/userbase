@@ -97,6 +97,7 @@ module Commentables
           }
         EOV
       end
+      alias_method :is_commentable?, :is_commentable
       
       def group_by_month
         class_eval <<-EOV
