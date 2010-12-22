@@ -1,4 +1,4 @@
 class Rating < ActiveRecord::Base
   belongs_to :user
-  belongs_to :rateable, :poymorphic => true
+  belongs_to :rateable, :polymorphic => true
 end
