@@ -42,11 +42,14 @@
               <%= yield :new_button %>
           </div>
         <% end %>        
-        <% if content_for?(:language_filter) %>
-          <div id='language_filter'>
+
+        <div id='language_filter'>
+          <% if content_for?(:language_filter) %>
               <%= yield :language_filter %>
-          </div>
-        <% end %>
+          <% end %>
+          <p><%= link_to t(:list_by_ratings), ratings_path %></p>    
+        </div>
+        
         <%= content_tag :div, :id => 'tagclouds' do %>
                <!-- TAG Clouds -->
                <%= render( :partial => 'postings/tag_cloud' ) if @tags.any? %>  

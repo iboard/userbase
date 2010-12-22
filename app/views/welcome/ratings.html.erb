@@ -1,0 +1,21 @@
+<h1><%= title t(:ratings) -%></h1>
+
+<center><p><%= will_paginate @ratings %></p></center>
+
+<%= content_tag :div, :id => 'ratings_list' do %>
+  <% if !@ratings.blank? %>
+      <% for item in @ratings %>
+         <h4><%= link_to item.title, item %></h4>
+         <small>
+           <%= t(:entry_by, :type => item.class.to_s.humanize, :name => item.user.nickname) %>
+           <%= item.created_at.to_s(:long) %> 
+         </small>
+         <%= rating_links( item, current_user) %>
+      <% end %>
+    </ul>
+  <% else %>
+    <%= t(:no_rated_items_found) %>
+  <% end %>
+<% end %>
+
+<center><p><%= will_paginate @ratings %></p></center>

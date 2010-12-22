@@ -1172,9 +1172,17 @@
   	line-height: 180%;
   }
 
+
+  #ratings_list h4 {
+    margin: 0px;
+    margin-top: 5px;
+  }
+
+
   #print_title {
     display: none;
   }
+  
   
  
 } /* end media screen */  
@@ -1423,6 +1431,12 @@
     -webkit-border-radius: 5px; 
     border: 0px solid #ddd;
   }
+
+  #ratings_list h4 {
+    margin: 0px;
+    margin-top: 5px;
+  }
+
   
 }
 

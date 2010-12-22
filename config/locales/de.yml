@@ -243,3 +243,6 @@ de:
   you_rated: 'Ihre Beurteilung'
   click_to_rate: 'Klicken um zu werten'
   you: 'Du'
+  ratings: 'Bewertungen'
+  no_rated_items_found: 'Keine Bewertungen gefunden'
+  list_by_ratings: 'Bewertungen anzeigen'

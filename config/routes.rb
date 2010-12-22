@@ -14,6 +14,7 @@ Userbase::Application.routes.draw do
   
   match 'archive/:month'  => 'welcome#archive',  :as => 'archive'
   match 'rate/:user_id/:rateable_id/:rateable_type/:rating' => 'welcome#rate', :as => 'rate'
+  match 'ratings/' => 'welcome#ratings', :as => 'ratings'
    
   resources  :users do
     resources :comments

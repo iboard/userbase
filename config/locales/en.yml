@@ -213,3 +213,6 @@ en:
   you_rated: 'You rated'
   click_to_rate: 'Click to rate'
   you: 'You'
+  ratings: 'Ratings'
+  no_rated_items_found: 'No rated item found'
+  list_by_ratings: 'Show ratings'

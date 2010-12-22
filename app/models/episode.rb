@@ -5,7 +5,7 @@ class Episode < ActiveRecord::Base
   acts_as_taggable_on :tags
   
   belongs_to :user
-  has_many   :ratings, :as => :rateable
+  has_many   :ratings, :as => :rateable, :dependent => :destroy
 
   validates :title,       :presence => true
   validates :description, :presence => true

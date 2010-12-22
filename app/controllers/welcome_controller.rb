@@ -28,6 +28,14 @@ class WelcomeController < ApplicationController
       from_date, to_date])
     @archive = (postings.all + episodes.all).sort { |a,b| a.created_at <=> b.created_at }
   end
+  
+  # GET /ratings
+  def ratings
+    postings = Posting.readable( current_user ? current_user.roles_mask : 1)
+    episodes = Episode.readable( current_user ? current_user.roles_mask : 1)
+    ratings = (postings.all + episodes.all).sort { |b,a| (a.ratings_average||0) <=> (b.ratings_average||0) }
+    @ratings = ratings.paginate(:page => params[:page], :per_page => CONSTANTS['paginate_ratings_per_page'])
+  end
 
   def rate
      @rateable = eval("#{params[:rateable_type]}.find(#{params[:rateable_id]})")

@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.integer  "access_read_mask",   :default => 4
     t.integer  "access_manage_mask", :default => 4
     t.string   "locale",             :default => "en"
+    t.integer  "ratings_count",      :default => 0
+    t.float    "ratings_average",    :default => 0.0
   end
 
   add_index "episodes", ["title"], :name => "index_episodes_on_title"
@@ -84,6 +86,8 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.integer  "access_read_mask",   :default => 4
     t.integer  "access_manage_mask", :default => 4
     t.string   "locale",             :default => "en"
+    t.integer  "ratings_count",      :default => 0
+    t.float    "ratings_average",    :default => 0.0
   end
 
   add_index "postings", ["title"], :name => "index_postings_on_title"
