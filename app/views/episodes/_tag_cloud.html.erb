@@ -1,6 +1,0 @@
-<%= content_tag :div, :id => 'tag_cloud_episodes' do %>
-  <p style='margin:0px; padding:0px; font-weight: bold;'><%= link_to 'Episodes', episodes_path %> tagged ...</p>
-  <% tag_cloud( @episodes_tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-    <%= link_to tag.name, tag_episodes_path(tag.name), :class => (params[:tag] == tag.name ? "selected_tag_#{css_class}" : css_class) %>
-  <% end %>
-<% end %>

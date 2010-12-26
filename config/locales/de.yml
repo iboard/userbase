@@ -3,6 +3,19 @@ de:
   locales:
     en: 'English'
     de: 'Deutsch'
+    
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'Bitte geben Sie eine Adresse an.'
+              invalid: 'Die angegebene Adresse ist ungültig.'
+              taken: 'wird bereits benutzt.'
+            nickname:
+              blank: 'Bitte einen Nickname wählen'
+              taken: 'ist schon vergeben.'
 
   datetime:
     distance_in_words:
@@ -70,12 +83,13 @@ de:
   only_admins_can_list_users: 'Nur Administratoren können Benutzer bearbeiten!'
   or_delete_account: 'oder den Account %{account} löschen'
   account_deleted_successfully: 'Account %{username} wurde gelöscht'
-  please_login_as_admin_or_staff_to: "Um %{what}, bitte als Administrator oder Mitarbeiter anmelden"
+  please_login_as_admin_or_staff_to: "Um '%{what}' auszuführen, bitte als Administrator oder Mitarbeiter anmelden"
   user_maintainance: 'Benutzerverwaltung.'
   legal_notice: 'Rechtliche Hinweise'
   about: 'Über...'
   successfully_updated: 'Eintrag erfolgreich geändert'
   postings: 'Beiträge'
+  posting: 'Beitrag'
   anonymous: 'Annonym'
   show_all_posting: 'Alle Beiträge anzeigen ...'
   user_has_no_postings: 'Dieser Benutzer hat keine Beiträge'
@@ -97,6 +111,7 @@ de:
   edit: 'Bearbeiten'
   new_posting: 'Neuer Beitrag'
   episodes: 'Episoden'
+  episode: 'Episode'
   listing_episodes: 'Episoden'
   new_episode: 'Neue Episode'
   author: 'Autor'
@@ -245,9 +260,22 @@ de:
   you: 'Du'
   ratings: 'Bewertungen'
   no_rated_items_found: 'Keine Bewertungen gefunden'
-  list_by_ratings: 'Nach Bewertungen anzeigen'
+  list_by_ratings: 'Bewertungen'
   ratings_average: 'ø'
   user_rating:
     zero: 'Vor %{date} hat %{username} <b>keinen Stern</b> vergeben'
     one:  'Vor %{date} hat %{username} <b>einen Stern</b> vergeben'
     other: 'Vor %{date} hat %{username} <b>%{count} Sterne</b> vergeben'
+  blog_entry_by: '%{type} von %{user}, am %{date}'
+  created_at: 'Erstellt am'
+  updated_at: 'Geändert am'
+  rating: 'Bewertung'
+  title: 'Titel'
+  anonymous: 'Anonym'
+  ratings_count: 'Anzahl Bewertungen'
+  blog: 'Blog'
+  list_by: 'Anzeigen nach'
+  list_by_author: 'Autor'
+  list_by_date: 'Datum'
+  no_entries_found: 'Keine anzeigbare Elemente gefunden'
+  no_image_preview: '-- kein Bild --'

@@ -28,7 +28,7 @@ Feature: User Roles
     And I am logged in as user "guest@iboard.cc" with password "thisisnotsecret"
     And I am on users page
     And I should be on the home page
-    And I should see "You are not authorized to access this page"
+    And I should see "Please login as admin or staff to User maintainance"
    
   Scenario: Non-admins should not see the edit user page
     Given I sign out

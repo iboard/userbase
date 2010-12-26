@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "updated_at"
   end
 
+  create_table "blog_entries", :force => true do |t|
+    t.integer  "blog_entry_id"
+    t.string   "blog_entry_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
     t.string   "commentable_type"
@@ -68,11 +75,11 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "access_read_mask",   :default => 4
-    t.integer  "access_manage_mask", :default => 4
     t.string   "locale",             :default => "en"
     t.integer  "ratings_count",      :default => 0
     t.float    "ratings_average",    :default => 0.0
+    t.integer  "access_read_mask",   :default => 4
+    t.integer  "access_manage_mask", :default => 4
   end
 
   add_index "episodes", ["title"], :name => "index_episodes_on_title"

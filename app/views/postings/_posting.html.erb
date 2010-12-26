@@ -13,7 +13,7 @@
     <address class='posting_author'>
       <b><%= link_to_user_postings(posting) %></b>, 
       <%= t(:time_ago, :time => distance_of_time_in_words_to_now(posting.updated_at)) unless posting.new_record? %>
-      [<%= insert_tag_list posting.tag_list -%>]
+      [<%= tag_list posting.tag_list -%>]
       <%= language_links(posting) -%>
       <%= user_avatar(posting.user) %>
     </address>

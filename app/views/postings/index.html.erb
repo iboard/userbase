@@ -1,13 +1,5 @@
 <% t = title( t(:postings) ) unless @user %>
 
-<% content_for :language_filter do %>
-  <% unless @tag %>
-      <%= language_filter.html_safe %>
-  <% else %>
-      <%= t(:postings_tagged_with, :tag => @tag ) %>
-  <% end %>
-<% end %>
-
 <%= content_for :user_postings do %>
   <div class='user_postings_header'>
     <% for user in User.all.reject { |r| !r.postings.any? } %>

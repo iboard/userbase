@@ -3,7 +3,9 @@ class RatingsController < ApplicationController
   def ratings
     postings = Posting.readable( current_user ? current_user.roles_mask : 1)
     episodes = Episode.readable( current_user ? current_user.roles_mask : 1)
-    ratings = (postings.all + episodes.all).flatten.sort { |b,a| (a.ratings_average||0) <=> (b.ratings_average||0) }
+    ratings = (postings.all + episodes.all).flatten.sort { |b,a| 
+      (a.ratings_average||0)*a.ratings_count <=> (b.ratings_average||0)*b.ratings_count
+    }
     @ratings = ratings.paginate(:page => params[:page], :per_page => CONSTANTS['paginate_ratings_per_page'])
   end
   

@@ -7,6 +7,7 @@
 #
 module Commentables
   
+  # Load Library when included (see initializers/iboard_modules.rb)
   def self.included(base)
     ActiveRecord::Base.class_eval { include Commentables::Commentable }
   end
@@ -14,39 +15,39 @@ module Commentables
   # Return all records of all registered Commentable-Models and their comments
   # The list will be build from scratch if it's older than ::RSS_FEED_CACHE_TIME seconds.
   # Otherwise a cached version of the list will be returned. 
-  def all_commentables 
+  def all_commentables(user=nil) 
     return @commentables if defined?(@commentables) && ((Time.now-@last_fetched).to_i < CONSTANTS['rss_feed_cache_time'].to_i)
     Rails.logger.info("**** Rebuilding rss-items for #{$registered_commentables.inspect} and comments")
-    @last_fetched = Time.now
-    resources = []
-    $registered_commentables.each do |commentable_name|
-      eval( cmd="resources << #{commentable_name.humanize}.readable(1).all"  )
-    end
-    rc = resources.flatten
-    resources.flatten.each do |resource|
+    resources = $registered_commentables.map { |commentable_model|
+      commentable_model.readable( user ? user.roles_mask : 1).all
+    }.flatten
+    comments = []
+    resources.each do |resource|
       if resource.respond_to?('comments')
         resource.comments.each do |comment|
-          rc << comment
+          comments << comment
         end
       end
     end
-    @commentables = rc.flatten.reject {|r| r.nil? || (r.is_a?(Array) && r.empty?)  }.sort { |a,b|
+    
+    @commentables = (resources+comments).reject {|r| r.nil? || (r.is_a?(Array) && r.empty?)  }.sort { |a,b|
       a.updated_at <=> b.updated_at 
     }
-    Rails.logger.info( "**** Returning %d commentables" % @commentables.count)
+    @last_fetched = Time.now
     @commentables
   end
   
   def group_by_month
     return @archive_links if defined?(@archive_links) && ((Time.now-@last_fetched_archive).to_i < CONSTANTS['rss_feed_cache_time'].to_i)
-    @last_fetched_archive = Time.now
     resources = []
-    $registered_commentables.each do |commentable_name|
-      eval( cmd="resources << \
-      #{commentable_name.humanize}.all(\
-         :select => 'id,created_at').group_by {|c| [c.created_at.year,c.created_at.month].join('_') }\
-       ")
+    $registered_commentables.each do |resource|
+      resources << resource.all(
+         :select => 'id,created_at'
+      ).group_by { |c| 
+           [c.created_at.year,c.created_at.month].join('_') 
+      }
     end
+    @last_fetched_archive = Time.now
     @archive_links = resources.flatten
   end
   
@@ -71,7 +72,8 @@ module Commentables
   def freeze_registered_commentables
     $registered_commentables ||= $stage_commentables
     puts(
-       "[%s] INFO  Registered commentables are frozen at #{$registered_commentables.inspect}" % Time.now.strftime("%Y-%m-%d %H:%M:%S")
+       ("[%s] INFO  Registered commentables are frozen at "+
+       "#{$registered_commentables.map {|m| m.to_s}.join(', ')}") % Time.now.strftime("%Y-%m-%d %H:%M:%S")
     ) if Rails.env != 'production'
   end
   
@@ -123,6 +125,9 @@ module Commentables
         end
       end
 
+      def author
+        user.nickname || t(:anonymous)
+      end
     end
   end
 end

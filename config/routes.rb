@@ -3,7 +3,6 @@ Userbase::Application.routes.draw do
   resources :authentications
   match '/auth/:provider/callback' => 'authentications#create'
   match '/switch_language/:lang'   => 'application#switch_language', :as => 'switch_language'
-  # User and Postings
   devise_for :users, :controllers => {:registrations => 'registrations'}
 
   match 'filter_language/:locale' => 'application#set_language_filter', 
@@ -11,11 +10,17 @@ Userbase::Application.routes.draw do
         
   match 'posting_preview' => 'postings#preview', :as => 'posting_preview'
   match 'episode_preview' => 'episodes#preview', :as => 'episode_preview'
-  
-  match 'archive/:month'  => 'welcome#archive',  :as => 'archive'
+
+  # Blogables  
+  match 'archive/:month'  => 'blog#archive',  :as => 'archive'
   match 'rate/:user_id/:rateable_id/:rateable_type/:rating' => 'ratings#rate', :as => 'rate'
   match 'ratings/' => 'ratings#ratings', :as => 'ratings'
-   
+  match 'blog/' => "blog#index"
+  match 'tag/'  => "blog#index"
+  match 'blog/:blog_order/:blog_dir'      => "blog#index",   :as => 'blog'
+  match 'tag/:tag/:blog_order/:blog_dir' => "blog#tag", :as => 'blog_tag'
+  match 'tag/:tag' => "blog#tag",                       :as => 'tag'
+ 
   resources  :users do
     resources :comments
     resources :episodes do
@@ -32,7 +37,7 @@ Userbase::Application.routes.draw do
       get :avatar
     end
   end
-  
+
   # Posting and Comments
   resources :postings do
     resources :comments
@@ -41,20 +46,14 @@ Userbase::Application.routes.draw do
       member do
         get :cancel
       end
-    end
-    collection do
-      match '/tag/:tag' => 'postings#tag', :as => 'tag'
-    end    
+    end 
   end
 
   # Episodes
   resources :episodes do
     resources :comments
-    collection do
-      match '/tag/:tag' => 'episodes#tag', :as => 'tag'
-    end
   end
-  
+    
   resources :comments
 
   
@@ -114,8 +113,7 @@ Userbase::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "welcome#index"
-
+  root :to => 'blog#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

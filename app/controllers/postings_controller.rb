@@ -104,15 +104,6 @@ class PostingsController < ApplicationController
     end
   end
   
-  def tag
-    @postings = Posting.tagged_with(params[:tag], :on => :tags)\
-      .readable(current_user ? current_user.roles_mask : 1)\
-      .order('updated_at desc').uniq\
-      .paginate(:page => params[:page], :per_page => CONSTANTS['paginate_postings_per_page'])
-    @tag = params[:tag]
-    render :index
-  end
-  
   def preview
     render :layout => false
   end

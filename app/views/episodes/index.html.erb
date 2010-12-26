@@ -1,11 +1,3 @@
-<% content_for :language_filter do %>
-  <% unless @tag %>
-      <%= language_filter.html_safe %>
-  <% else %>
-      <%= t(:episodes_tagged_with, :tag => @tag ) %>
-  <% end %>
-<% end %>
-
 <div id='episodes'>
   <% title t(:listing_episodes), false %>
   <%= will_paginate @episodes %>

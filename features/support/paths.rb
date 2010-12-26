@@ -15,6 +15,10 @@ module NavigationHelpers
       '/users/1/episodes/1'
     when /users page/
       '/users'
+    when /blog page for tag "([^"]*)"/
+      '/tag/'+$1
+    when /blog page/
+      '/blog'
     when /the rss feed/
       '/feed.atom?'+Time.now.to_i.to_s
     when /the archive for "([^"]*)"/

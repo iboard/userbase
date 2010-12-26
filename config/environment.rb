@@ -8,7 +8,3 @@ require File.join(File.dirname(__FILE__),'..','lib','special_characters.rb')
 
 # Initialize the rails application
 Userbase::Application.initialize!
-
-# Register commentables (should be moved to module Commentables on init)
-Commentable::register(["Posting","Episode"])
-Commentable::freeze_registered_commentables

@@ -5,6 +5,7 @@
 #
 
 class ApplicationController < ActionController::Base
+  
   protect_from_forgery
   layout 'application'
   
@@ -53,29 +54,21 @@ class ApplicationController < ActionController::Base
   # set the I18.locale to the value stored in user-settings
   def set_language
     return if request.fullpath.match(/^\/(\S+)preview/)
-    
-    if current_user
+    unless current_user.nil?
       I18n.locale = current_user.language
     end
     I18n.locale = session[:lang] if session[:lang]
-    
   end  
   
   # load any Taggables used in tag-clouds
   # TODO: Cache this in any way!
   def load_tags
     return if request.fullpath.match(/^\/(\S+)preview/)
-    
-    @tags ||= Posting.readable( current_user ? current_user.roles_mask : 1).\
-      tag_counts_on(:tags).sort { |a,b| 
-        a.name.upcase <=> b.name.upcase
-      }
-    
-    @episodes_tags ||= Episode.readable(
-                         current_user ? current_user.roles_mask : 1).\
-                         tag_counts_on(:tags).sort { |a,b| 
-                            a.name.upcase <=> b.name.upcase
-                         }
+    @tags ||= blog_models.map { |resource|
+      resource.tag_counts_on(:tags).all
+    }.flatten.uniq.sort { |a,b| 
+      a.name.upcase <=> b.name.upcase
+    }
   end
   
   # load all commentables, grouped by year/month

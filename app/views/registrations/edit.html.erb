@@ -1,6 +1,7 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 <span style='clear: right;'><br/></span>
-<%= image_tag(resource.avatar_url(:thumb), :class => 'avatar_right_float') %>
+<%= link_to(image_tag(resource.avatar_url(:thumb), 
+     :class => 'avatar_right_float'),avatar_user_path(resource)) %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
   :html => { :method => :put}) do |f| %>

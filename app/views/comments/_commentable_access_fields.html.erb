@@ -1,5 +1,5 @@
 <%= f.label :access_mask, t(:access_mask)   %>
-<% if can? :mange, commentable %>
+<% if can?( :mange, commentable ) || commentable.new_record?%>
   <fieldset id="access_mask">  
     <div class="field">
         <strong><%= t(:read) %></strong><br />

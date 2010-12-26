@@ -62,4 +62,26 @@ namespace :deploy do
      `rsync -avze ssh alta@r3.iboard.cc:/home/alta/altendorfer/public ./`
   end
   
+  
+  desc "Fix rating cache"
+  task :fix_ratings_cache => :environment do
+    Posting.all.each do |p|
+      p.ratings_count = p.ratings.count
+      p.ratings_average = p.ratings.average(:rating) || 0.0
+      puts "UPDATED CACHE VALUES #{p.id}: #{p.ratings_count}, #{p.ratings_average}"
+      p.save!
+    end
+  end
+  
+  desc "Fix blog_entries index"
+  task :fix_blog_entries => :environment do
+    BlogEntry.delete_all
+    Posting.all.each do |p|
+      BlogEntry.create(:blog_entry_id => p.id, :blog_entry_type => 'Posting')
+    end
+    Episode.all.each do |e|
+      BlogEntry.create(:blog_entry_id => e.id, :blog_entry_type => 'Episode')
+    end
+  end
+  
 end

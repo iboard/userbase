@@ -6,7 +6,7 @@ Feature: Episodes
   Background:
     Given the following user records
       | id | email            | nickname  | roles_mask | password   | password_confirmation | confirmation_token | confirmed_at |
-      | 1  | test@test.te     | tester    | -1         | verysecret | verysecret            | 1234               | 2001-01-01   |
+      | 1  | test@test.te     | tester    | 31         | verysecret | verysecret            | 1234               | 2001-01-01   |
   
   Scenario: Show latest Episodes on the episode page for a logged in user
     Given the following episode records

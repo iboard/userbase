@@ -3,7 +3,8 @@ module ApplicationHelper
   include SpecialCharacters
   
   def main_menu_items
-    menu_items =  [ {:label => t(:home), :url => root_path } ]
+    menu_items =  [ {:label => t(:blog), :url => root_path } ]
+#    menu_items << { :label => t(:blog), :url => blog_path('updated_at', 'desc') }
     menu_items << { :label => t(:postings), :url => postings_path }  if can?( :read, Posting ) 
     menu_items << { :label => 'Videos', :url => episodes_path }  if can?( :read, Episode )
     menu_items += [
@@ -15,7 +16,7 @@ module ApplicationHelper
   
   def admin_menu_items
       menu_items = []
-      menu_items  << { :label => t(:user_listing), :url => users_path } if current_user && can?( :read, User )
+      menu_items  << { :label => t(:user_listing), :url => users_path } if current_user && can?( :read, User.new )
       menu_items  << { :label => t(:user), :url => user_settings_path(current_user) } if current_user && can?(:avatar, current_user)
       menu_items
   end
@@ -107,7 +108,7 @@ module ApplicationHelper
                            :title => label_text )
         end
       end
-      rc += sc(:nbsp)*2+t(:count_ratings, :count => item_ratings_count, :rating => item_ratings_avg)
+      rc += sc(:br)+t(:count_ratings, :count => item_ratings_count, :rating => item_ratings_avg)
       rc += sc(:nbsp)*2+t(:ratings_average, :count => item_ratings_avg, :rating => item_ratings_avg)
       rc += sc(:nbsp)*2+t(:you) + sc(:nbsp,:pr,:nbsp) + my_rating.rating.to_s if user && my_rating
       rc.html_safe

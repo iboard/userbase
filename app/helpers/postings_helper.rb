@@ -10,11 +10,5 @@ module PostingsHelper
       : t(:anonymous)
   end
 
-  # link to all postings with this tag
-  def insert_tag_list(list)
-    list.map { |tag| 
-      link_to( tag, tag_postings_path(tag) )
-    }.join(", ").html_safe
-  end
   
 end

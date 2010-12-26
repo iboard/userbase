@@ -1,13 +1,7 @@
 class Posting < ActiveRecord::Base
 
-  is_commentable
-  can_have_assets
-  acts_as_taggable_on :tags
-    
-  belongs_to :user
-  has_many   :ratings, :as => :rateable, :dependent => :destroy
-  
-  
+  is_blogable
+      
   validates :title,   :presence => true
   validates :body,    :presence => true
   validates :user_id, :presence => true, :user_exists => true
