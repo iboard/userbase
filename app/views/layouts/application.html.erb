@@ -10,7 +10,7 @@
     <%= yield :prototype %>
     <%= yield :head %>
     <%= csrf_meta_tag %>
-    <%= auto_discovery_link_tag(:atom, "/feed.atom") %>
+    <%= auto_discovery_link_tag(:atom, "/feed.atom?#{Time.now.to_i}") %>
     <META NAME="Description" CONTENT="SITE: (<%= APPLICATION_CONFIG['meta_description'] -%>)<%= 
       if content_for?(:meta_description) 
         " | CONTENT: " +
