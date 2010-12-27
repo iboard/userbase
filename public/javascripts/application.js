@@ -73,12 +73,17 @@ function image_popup(img_url) {
   set_page_opacity(0.2,1500);
   var regexp = new RegExp("popup", "g");  
   
-  $('#overlay').html( "<div class='close_icon'>"+
-       "<a href='#' onclick='close_popup();return false;'>"+
-          "<img src='/images/close.gif?"+new_id+"'></a></div>"+
-       "<div id='overlay_content'><a href='#' onclick='close_popup();return false;'>"+
-          "<img src='"+img_url+"'></a>"+
-          "<br/><a href='"+img_url.replace(regexp,'original')+"'>Download</a>"+
-       "</div>");
-  $('#overlay').fadeIn('slow');
+  $('#overlay').html( 
+    "<div class='overlay_handle'>"+
+       "<div class='close_icon'>"+
+         "<a href='#' onclick='close_popup();return false;'>"+
+           "<img src='/images/close.gif?"+new_id+"'>"+
+         "</a>"+
+       "</div>"+
+     "</div>"+
+     "<div id='overlay_content'><a href='#' onclick='close_popup();return false;'>"+
+        "<img src='"+img_url+"'></a>"+
+        "<br/><a href='"+img_url.replace(regexp,'original')+"'>Download</a>"+
+     "</div>");
+  $('#overlay').slideDown('slow');
 }

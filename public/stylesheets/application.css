@@ -1280,18 +1280,18 @@
   #overlay {
     position: fixed;
     _position: absolute; /* hack for internet explorer 6*/  
-    width: 820px;
-    height: 650px;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
     vertical-align: middle;
-    margin-left: 20px;
-    margin-top: 20px;
     text-align: center;
     z-index: 2;
     display: none;
-    border: 10px solid #444;
+    border: 5px solid #ddd;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    background: #fefefe;
+    background: #1A1C21;
   }
   
   .asset_preview {
@@ -1302,13 +1302,17 @@
   #overlay .close_icon img {
     border: none;
     float: right;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 10px;
+    margin-right: 10px;
     width: 20px;
     height: 20px;
   }
   
   #overlay_content {
-    clear: right;
-    margin-top: 25px;
+    padding: 20px;
+    margin-top: 0px;
     z-index: 5;
     opacity: 1.0;
   }
