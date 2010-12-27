@@ -1320,7 +1320,20 @@
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
   }
+  
+  .site_title {
+    font-size: 1.3em;
+    margin-left: 15px;
+    margin-top: 30px;
+    float: left;
+  }
     
+  .blog_entry_preview {
+    float: left;
+    width: 100px;
+    padding: 5px;
+    margin-right: 20px;
+  }
   #print_title {
     display: none;
   }

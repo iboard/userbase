@@ -6,19 +6,29 @@
     <%= link_to t(:read), blog_entry %>
   </div>
   
-  <% if img_url = blog_entry.image_asset_url(:thumb) %>
-    <%= link_to_function(image_tag( img_url, :class => 'blog_image_preview' ), 
-           "image_popup('#{blog_entry.image_asset_url(:popup)}');return false;") %>
-  <% else %>
-    <%= content_tag :div, :class => 'blog_image_missing' do %>
-      <% if blog_entry.user %>
-        <%= link_to(image_tag(blog_entry.user.avatar_url(:thumb), :title => t(:icon_missing) ), blog_entry)  %>
+  <%= content_tag :div, :class => 'blog_entry_preview' do%>
+    <% if img_url = blog_entry.image_asset_url(:thumb) %>
+      <%= link_to_function(image_tag( img_url, :class => 'blog_image_preview' ), 
+             "image_popup('#{blog_entry.image_asset_url(:popup)}');return false;") %>
+    <% else %>
+      <%= content_tag :div, :class => 'blog_image_missing' do %>
+        <% if blog_entry.user %>
+          <%= link_to(image_tag(blog_entry.user.avatar_url(:thumb), :title => t(:icon_missing) ), blog_entry)  %>
+        <% else %>
+          <%= link_to(t(:no_image_preview),blog_entry)  %>
+        <% end %>
+       <% end %>
+    <% end %>
+    <% if blog_entry.respond_to?('video_web_url') %>
+      <br/><small>
+      <% if blog_entry.video_web_url =~ /youtube/ %>
+         <%= link_to_function(t(:play_youtube_video), "youtube_popup('#{blog_entry.youtube_embed_url}')") %>
       <% else %>
-        <%= link_to(t(:no_image_preview),blog_entry)  %>
-      <% end %>
+        <%= link_to_function(t(:play_video), "video_popup('#{blog_entry.video_web_url}')") %>
      <% end %>
+     </small>
+    <% end %>  
   <% end %>
-  
   <em><small><%= t(:blog_entry_by, 
           :type => t(blog_entry.class.to_s.downcase.to_sym), 
           :user => blog_entry.user ? blog_entry.user.nickname : t(:anonymous), 

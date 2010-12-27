@@ -65,6 +65,7 @@ function set_page_opacity(v,d) {
 
 function close_popup() {
   $('#overlay').fadeOut('slow');
+  $('#overlay').html("<!--hidden-->");
   set_page_opacity(1.0,1000);
 }
 
@@ -86,5 +87,53 @@ function image_popup(img_url) {
           "</a><br/><a href='"+img_url.replace(regexp,'original')+"'>Download</a>"+
       "</div>"
       );
+  $('#overlay').fadeTo(500,1.0);  
+}
+
+function video_popup(img_url) {
+  var new_id = new Date().getTime(); 
+  var regexp = new RegExp("popup", "g");  
+  
+  set_page_opacity(0.2,1500);
+  
+  $('#overlay').html( 
+       "<div class='close_icon'>"+
+         "<a href='#' onclick='close_popup();return false;'>"+
+          "<img src='/images/close.gif?"+new_id+"'>"+
+         "</a>"+
+       "</div>" +
+       "<div style='margin-top: 80px; vertical-align: baseline;'>"+
+         "<video controls autoplay width=\"640\" height=\"400\" "+
+                 " src=\""+img_url+"\""+
+                 " type='video/mp4'"+
+            ">" +
+              "Your browser does not support the video tag."+
+            "</video>"+"</div>"+
+      "</div>"
+      );
+  $('#overlay').fadeTo(500,1.0);  
+}
+
+function youtube_popup(img_url) {
+  var new_id = new Date().getTime(); 
+  var regexp = new RegExp("popup", "g");  
+  
+  set_page_opacity(0.2,1500);
+  
+  $('#overlay').html( 
+       "<div class='close_icon'>"+
+         "<a href='#' onclick='close_popup();return false;'>"+
+          "<img src='/images/close.gif?"+new_id+"'>"+
+         "</a>"+
+       "</div>" +
+       "<div style='margin-top: 80px; vertical-align: baseline;'>"+
+         "<object width='640' height='480'><param name='movie' value='"+img_url+
+         "?fs=1&amp;hl=en_US&amp;rel=0&amp;color1=0x2b405b&amp;color2=0x6b8ab6'>"+
+         "</param><param name='allowFullScreen' value='true'></param>"+
+         "<param name='allowscriptaccess' value='always'></param><embed src='"+img_url+
+         "?fs=1&amp;hl=en_US&amp;rel=0&amp;color1=0x2b405b&amp;color2=0x6b8ab6' "+
+         "type='application/x-shockwave-flash' allowscriptaccess='always' "+
+         "allowfullscreen='true' width='640' height='480'></embed></object>"+
+       "</div>"      );
   $('#overlay').fadeTo(500,1.0);  
 }

@@ -81,11 +81,17 @@
           <%= content_tag :div, :style=>'width: 400px; float: right; text-align: right;' do %> 
             <%= render :partial =>  '/layouts/session_box' %>
           <% end %>
+          <% if params[:tag] %>
+            <h1 class='site_title'><%= params[:tag] -%></h1>
+          <% else %>
+            <h1 class='site_title'><%= yield(:title) -%></h1>
+          <% end %>
           <div style='clear: right;'></div>
           <% if admin_menu_items.any? %>
               <%= page_menu admin_menu_items, {:id => 'admin_menu', :clear => 'right'} %>
           <% end %>
           <%= page_menu main_menu_items %>
+          
         </div>
               
         <%= content_tag :div, :id => 'page_header' do %>
