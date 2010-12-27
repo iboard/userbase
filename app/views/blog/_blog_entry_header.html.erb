@@ -22,9 +22,11 @@
     <% if blog_entry.respond_to?('video_web_url') %>
       <br/><small>
       <% if blog_entry.video_web_url =~ /youtube/ %>
-         <%= link_to_function(t(:play_youtube_video), "youtube_popup('#{blog_entry.youtube_embed_url}')") %>
+         <%= link_to_function(t(:play_youtube_video), 
+           "youtube_popup('#{blog_entry.youtube_embed_url}')") %>
       <% else %>
-        <%= link_to_function(t(:play_video), "video_popup('#{blog_entry.video_web_url}')") %>
+        <%= link_to_function(t(:play_video), 
+          "video_popup('#{blog_entry.video_web_url}','#{blog_entry.video_mobile_url}')") %>
      <% end %>
      </small>
     <% end %>  

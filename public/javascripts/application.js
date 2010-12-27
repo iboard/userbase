@@ -90,7 +90,7 @@ function image_popup(img_url) {
   $('#overlay').fadeTo(500,1.0);  
 }
 
-function video_popup(img_url) {
+function video_popup(img_url,mobile_url) {
   var new_id = new Date().getTime(); 
   var regexp = new RegExp("popup", "g");  
   
@@ -109,8 +109,12 @@ function video_popup(img_url) {
             ">" +
               "Your browser does not support the video tag."+
             "</video>"+"</div>"+
-      "</div>"
-      );
+      "</div>"+       
+      "<center>"+
+        "<a href='"+img_url+"'>"+img_url+"</a>"+"<br/>"+
+        "<a href='"+mobile_url+"'>"+mobile_url+"</a>"+
+      "</center>" 
+    );
   $('#overlay').fadeTo(500,1.0);  
 }
 
@@ -134,6 +138,8 @@ function youtube_popup(img_url) {
          "?fs=1&amp;hl=en_US&amp;rel=0&amp;color1=0x2b405b&amp;color2=0x6b8ab6' "+
          "type='application/x-shockwave-flash' allowscriptaccess='always' "+
          "allowfullscreen='true' width='640' height='480'></embed></object>"+
-       "</div>"      );
+       "</div>"+
+       "<center><a href='"+img_url+"'>YouTube: "+img_url+"</a></center>" 
+       );
   $('#overlay').fadeTo(500,1.0);  
 }
