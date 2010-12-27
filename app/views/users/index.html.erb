@@ -55,7 +55,7 @@
             <div>
               <strong><%= t(:postings_tagged_with_label) -%>:</strong>
               <%= user.owned_tags(:postings).map { |tag| 
-                link_to tag.name.humanize, tag_postings_path(tag.name)
+                link_to tag.name.humanize, tag_path(tag.name)
                }.join(", ").html_safe %>
                <br/>
                <strong><%= t(:num_postings, :count => user.postings.count) %>:</strong> <%= link_to user.postings.count, user_postings_path(user) %><br/>
