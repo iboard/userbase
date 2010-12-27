@@ -56,3 +56,21 @@ function rerender(from_field,to) {
  /* or convert on server-side with ajax */
  /* $(to).load('/posting_preview/?text='+escape(t)); */
 }
+
+function set_page_opacity(v) {
+  $('#page_section').css('opacity', v);
+  $('header').css('opacity', v);
+  $('#right_sidebar').css('opacity', v);
+}
+
+function close_popup() {
+  $('#overlay').fadeOut('fast');
+  set_page_opacity(1.0);
+}
+
+function image_popup(img_url) {
+  set_page_opacity(0.5);
+  $('#overlay').html( "<div class='close_icon'><a href='#' onclick='close_popup();return false;'><img src='/images/close.gif'></a></div>"+
+        "<div id='overlay_content'><a href='#' onclick='close_popup();return false;'><img src='"+img_url+"'></a></div>");
+  $('#overlay').fadeIn('fast');
+}

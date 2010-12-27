@@ -68,10 +68,10 @@ module Blogables
           end
           after_create :create_blog_entry
           
-          def image_asset_url
+          def image_asset_url(mode=:preview)
             if self.assets.any?
               first_image = self.assets.where( "asset_content_type like ?", "%image%" ).first
-              first_image.asset.url if first_image
+              first_image.asset.url(mode) if first_image
             end
           end
           

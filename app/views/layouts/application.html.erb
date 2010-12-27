@@ -21,13 +21,15 @@
   </head>
   
   <body>
-        <div id='print_title'>
-            <h1><%= APPLICATION_CONFIG['name'] %></h1>
-            <address>
-                Printed: <%= Time.now -%><br/>
-                Address: <%= [request.protocol, request.host, request.fullpath].join('') %>
-            </address>
-        </div>
+      <div id='overlay'>OVERLAY</div>
+      
+      <div id='print_title'>
+          <h1><%= APPLICATION_CONFIG['name'] %></h1>
+          <address>
+              Printed: <%= Time.now -%><br/>
+              Address: <%= [request.protocol, request.host, request.fullpath].join('') %>
+          </address>
+      </div>
       <!-- PREPARE CONTENT_FOR PARTIALS -->
       <% render :partial => '/layouts/admin_buttons' %>
       <% content_for :sidebar_right do %>
@@ -35,6 +37,7 @@
           <%= html_include('public/static_pages/welcome_right.html').html_safe %>
         <% end %>
       <% end %>
+      
       
       <div id='right_sidebar'>
         <% if content_for?(:new_button) %>
@@ -121,5 +124,5 @@
             <% end %>
           </div>
       </footer>
-  </body>
+   </body>
 </html>

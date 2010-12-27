@@ -6,14 +6,15 @@
     <%= link_to t(:read), blog_entry %>
   </div>
   
-  <% if img_url = blog_entry.image_asset_url %>
-    <%= image_tag img_url, :class => 'blog_image_preview' %>
+  <% if img_url = blog_entry.image_asset_url(:thumb) %>
+    <%= link_to_function(image_tag( img_url, :class => 'blog_image_preview' ), 
+           "image_popup('#{blog_entry.image_asset_url(:popup)}');return false;") %>
   <% else %>
     <%= content_tag :div, :class => 'blog_image_missing' do %>
       <% if blog_entry.user %>
-        <%= image_tag(blog_entry.user.avatar_url(:preview) )  %>
+        <%= link_to(image_tag(blog_entry.user.avatar_url(:thumb), :title => t(:icon_missing) ), blog_entry)  %>
       <% else %>
-        <%= t(:no_image_preview)  %>
+        <%= link_to(t(:no_image_preview),blog_entry)  %>
       <% end %>
      <% end %>
   <% end %>
