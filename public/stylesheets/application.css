@@ -1273,7 +1273,7 @@
     -webkit-border-radius: 5px;
   }
   .blog_body_preview {
-    margin-left: 110px;
+    margin-left: 120px;
     width: 450px;
   }
   
@@ -1612,8 +1612,9 @@
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
   }
+  
   .blog_body_preview {
-    margin-left: 110px;
+    margin-left: 150px;
     width: 450px;
   }
   
