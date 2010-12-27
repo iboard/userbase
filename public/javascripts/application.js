@@ -57,21 +57,28 @@ function rerender(from_field,to) {
  /* $(to).load('/posting_preview/?text='+escape(t)); */
 }
 
-function set_page_opacity(v) {
-  $('#page_section').css('opacity', v);
-  $('header').css('opacity', v);
-  $('#right_sidebar').css('opacity', v);
+function set_page_opacity(v,d) {
+  $('header').animate( {opacity: v },d );
+  $('#page_section').animate( {opacity: v },d );
+  $('#right_sidebar').animate( {opacity: v },d );
 }
 
 function close_popup() {
-  $('#overlay').fadeOut('fast');
-  set_page_opacity(1.0);
+  $('#overlay').fadeOut('slow');
+  set_page_opacity(1.0,1000);
 }
 
 function image_popup(img_url) {
   var new_id = new Date().getTime(); 
-  set_page_opacity(0.2);
-  $('#overlay').html( "<div class='close_icon'><a href='#' onclick='close_popup();return false;'><img src='/images/close.gif?"+new_id+"'></a></div>"+
-        "<div id='overlay_content'><a href='#' onclick='close_popup();return false;'><img src='"+img_url+"'></a></div>");
-  $('#overlay').fadeIn('fast');
+  set_page_opacity(0.2,1500);
+  var regexp = new RegExp("popup", "g");  
+  
+  $('#overlay').html( "<div class='close_icon'>"+
+       "<a href='#' onclick='close_popup();return false;'>"+
+          "<img src='/images/close.gif?"+new_id+"'></a></div>"+
+       "<div id='overlay_content'><a href='#' onclick='close_popup();return false;'>"+
+          "<img src='"+img_url+"'></a>"+
+          "<br/><a href='"+img_url.replace(regexp,'original')+"'>Download</a>"+
+       "</div>");
+  $('#overlay').fadeIn('slow');
 }

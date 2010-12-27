@@ -71,7 +71,9 @@ module Blogables
           def image_asset_url(mode=:preview)
             if self.assets.any?
               first_image = self.assets.where( "asset_content_type like ?", "%image%" ).first
-              first_image.asset.url(mode) if first_image
+              if first_image
+                first_image.asset.url(mode) 
+              end
             end
           end
           
