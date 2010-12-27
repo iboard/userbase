@@ -1,4 +1,5 @@
-<% title t(:blog_index), false %>
+<% title(t(:blog_index), false) unless @archive %>
+<% title(t(:archive_for, :month => params[:month]).split("_").join('/'), false) if @archive %>
 <% if @blog_entries.any? %>
   <center>
     <%= will_paginate @blog_entries %>

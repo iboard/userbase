@@ -28,18 +28,22 @@ module BlogHelper
   
   private
   def reverse_path
-    unless request.path.split('/')[1] == 'tag'
-      blog_path(params[:blog_order], params[:blog_dir] == 'asc' ? 'desc' : 'asc')
-    else
+    if request.path.split('/')[1] == 'tag'
       blog_tag_path(params[:tag], params[:blog_order], params[:blog_dir] == 'asc' ? 'desc' : 'asc')
+    elsif request.path.split('/')[1] == 'archive'
+      archive_path(params[:month], :blog_order => params[:blog_order], :blog_dir => params[:blog_dir] == 'asc' ? 'desc' : 'asc')
+    else
+      blog_path(params[:blog_order], params[:blog_dir] == 'asc' ? 'desc' : 'asc')
     end
   end
   
   def forward_path(c,d)
-    unless request.path.split('/')[1] == 'tag'
-      blog_path(c,d)
-    else
+    if request.path.split('/')[1] == 'tag'
       blog_tag_path(params[:tag], c, d)
+    elsif request.path.split('/')[1] == 'archive'
+      archive_path(params[:month], :blog_order => c, :blog_dir => d)
+    else
+      blog_path(c,d)
     end
   end
   

@@ -21,6 +21,8 @@ class BlogController < ApplicationController
     @archive  = BlogEntry.filtered_by(current_user,blog_order,blog_dir) {|r|
       !( r.created_at >= from_date && r.created_at <= to_date )
     }
+    @blog_entries = @archive.paginate(:page => params[:page], :per_page => CONSTANTS['paginate_blog_entries_per_page'])
+    render :index
   end
   
   

@@ -244,6 +244,7 @@ de:
     one: '1 Eintrag'
     other: '%{count} Einträge'
   archive: 'Archiv'
+  archive_for: 'Archiv %{month}'
   no_items_found_in: "Im Monat %{year}/%{month} wurden keine Einträge veröffentlicht"
   archive_for: "Archiv %{month}"
   entry_by: "%{type}, von %{name}"
