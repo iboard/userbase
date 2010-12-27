@@ -1288,10 +1288,10 @@
     text-align: center;
     z-index: 2;
     display: none;
-    background: #444;
     border: 10px solid #444;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
+    background: #fefefe;
   }
   
   .asset_preview {
@@ -1310,11 +1310,11 @@
     clear: right;
     margin-top: 25px;
     z-index: 5;
+    opacity: 1.0;
   }
   #overlay #overlay_content img {
-    border: 5px solid #ddd;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
   }
     
   #print_title {

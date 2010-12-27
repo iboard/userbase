@@ -84,4 +84,17 @@ namespace :deploy do
     end
   end
   
+  desc "Reprocess assets"
+  task :reprocess_assets => :environment do
+    BlogEntry.all.each do |entry|
+      puts "Processing #{entry.blog_entry_type} - #{entry.blog_entry.title}"
+      entry.blog_entry.assets.each do |asset|
+        if asset.asset_content_type =~ /image/ 
+          puts "  - Reprocessing #{asset.asset_content_type} #{asset.asset_file_name}"
+          asset.asset.reprocess!
+        end
+      end
+    end
+  end
+  
 end

@@ -69,8 +69,9 @@ function close_popup() {
 }
 
 function image_popup(img_url) {
-  set_page_opacity(0.5);
-  $('#overlay').html( "<div class='close_icon'><a href='#' onclick='close_popup();return false;'><img src='/images/close.gif'></a></div>"+
+  var new_id = new Date().getTime(); 
+  set_page_opacity(0.2);
+  $('#overlay').html( "<div class='close_icon'><a href='#' onclick='close_popup();return false;'><img src='/images/close.gif?"+new_id+"'></a></div>"+
         "<div id='overlay_content'><a href='#' onclick='close_popup();return false;'><img src='"+img_url+"'></a></div>");
   $('#overlay').fadeIn('fast');
 }
