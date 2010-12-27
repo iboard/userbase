@@ -58,9 +58,9 @@ function rerender(from_field,to) {
 }
 
 function set_page_opacity(v,d) {
-  $('header').animate( {opacity: v },d );
-  $('#page_section').animate( {opacity: v },d );
-  $('#right_sidebar').animate( {opacity: v },d );
+  $('header').fadeTo( d, v );
+  $('#page_section').fadeTo( d, v );
+  $('#right_sidebar').fadeTo( d, v );
 }
 
 function close_popup() {
@@ -70,20 +70,21 @@ function close_popup() {
 
 function image_popup(img_url) {
   var new_id = new Date().getTime(); 
-  set_page_opacity(0.2,1500);
   var regexp = new RegExp("popup", "g");  
   
+  set_page_opacity(0.2,1500);
+  
   $('#overlay').html( 
-    "<div class='overlay_handle'>"+
        "<div class='close_icon'>"+
          "<a href='#' onclick='close_popup();return false;'>"+
            "<img src='/images/close.gif?"+new_id+"'>"+
          "</a>"+
        "</div>"+
-     "</div>"+
-     "<div id='overlay_content'><a href='#' onclick='close_popup();return false;'>"+
-        "<img src='"+img_url+"'></a>"+
-        "<br/><a href='"+img_url.replace(regexp,'original')+"'>Download</a>"+
-     "</div>");
-  $('#overlay').slideDown('slow');
+       "<div id='overlay_content' class='overlay_content'>"+
+          "<a href='#' onclick='close_popup();return false;'>"+
+          "<img src='"+img_url+"'>"+
+          "</a><br/><a href='"+img_url.replace(regexp,'original')+"'>Download</a>"+
+      "</div>"
+      );
+  $('#overlay').fadeTo(500,1.0);  
 }

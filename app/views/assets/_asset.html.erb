@@ -4,7 +4,7 @@
   <p>
     <% if asset.asset_file_size %>
       <% if asset.asset_content_type =~ /image/ %>
-          <%= link_to_function(image_tag( asset.asset.url(:preview), :class => 'asset_preview' ), 
+          <%= link_to_function( image_tag( w3c_url(asset.asset.url(:preview)), :class => 'asset_preview' ), 
                  "image_popup('#{asset.asset.url(:popup)}')") %>
           <br/>
       <% end %>

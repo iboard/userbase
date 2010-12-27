@@ -1283,7 +1283,7 @@
     top: 20px;
     left: 20px;
     right: 20px;
-    bottom: 20px;
+    bottom: 20px; 
     vertical-align: middle;
     text-align: center;
     z-index: 2;
@@ -1301,11 +1301,11 @@
   
   #overlay .close_icon img {
     border: none;
-    float: right;
+    float: left;
     margin: 0px;
     padding: 0px;
     margin-top: 10px;
-    margin-right: 10px;
+    margin-left: 10px;
     width: 20px;
     height: 20px;
   }
