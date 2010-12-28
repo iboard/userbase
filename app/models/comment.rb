@@ -21,6 +21,8 @@ class Comment < ActiveRecord::Base
   alias_method :object_title, :title
 
   def inform_owner
-    Delayed::Job.enqueue NewCommentNotifier.new(self.id)
+    Delayed::Job.enqueue( NewCommentNotifier.new(self.id), 
+      { :run_at =>   Time.now()+(CONSTANTS['delay_new_posting_notifications'].to_i).seconds }
+    )
   end    
 end
