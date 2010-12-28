@@ -14,6 +14,8 @@ development:
     paginate_postings_per_page:    6
     paginate_episodes_per_page:    6
     num_postings_on_welcome_page:  6
+    paginate_blog_entries_per_page: 20
+    
 
 test:
   application:
@@ -31,6 +33,8 @@ test:
     paginate_postings_per_page:    6
     paginate_episodes_per_page:    6
     num_postings_on_welcome_page:  6
+    paginate_blog_entries_per_page: 20
+    
 
 production:
   application:
@@ -48,3 +52,4 @@ production:
     paginate_postings_per_page:    6
     paginate_episodes_per_page:    6
     num_postings_on_welcome_page:  6
+    paginate_blog_entries_per_page: 20
