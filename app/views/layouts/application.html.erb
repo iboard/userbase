@@ -47,13 +47,7 @@
         <% end %>        
 
         <div id='language_filter'>
-          <% content_for :language_filter do %>
-            <% unless @tag %>
-                <%= language_filter.html_safe %>
-            <% else %>
-                <%= t(:postings_tagged_with, :tag => @tag ) %>
-            <% end %>
-          <% end %>
+          <p><%= language_filter.html_safe %></p>
           <p style='margin-top: 10px;'><b><%= t(:list_by) -%></b></p>
           <ul>
               <li><%= link_to t(:list_by_author), blog_path('author', 'asc') %></li>

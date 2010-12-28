@@ -10,11 +10,6 @@ class Posting < ActiveRecord::Base
   
   scope :latest, lambda { |num_postings| {:limit => num_postings, :order => 'updated_at desc'} }
   
-  # make it translateable TODO: Move to a module
-  has_many :translations, :as => :translateable
-  scope :with_locale, lambda { |loc| where(:locale => loc.locale) }
-  scope :with_locales, lambda { |loc| where( "locale in (?)", loc) }
-
   #Notifiers
   after_create :async_notify_on_creation
 

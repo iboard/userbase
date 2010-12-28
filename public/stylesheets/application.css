@@ -1341,8 +1341,16 @@
     display: none;
   }
   
+  .locale_img_translated {
+    opacity: 1.0;
+    filter:alpha(opacity=100); /* Internet Explorer */
+  }
   
- 
+  .locale_img_not_translated {
+    opacity: 0.5;
+    filter:alpha(opacity=50); /* Internet Explorer */
+  }
+  
 } /* end media screen */  
 
 
@@ -1562,6 +1570,10 @@
 	  display: none;
   }
   
+<<<<<<< HEAD
+=======
+
+>>>>>>> translations
   .posting {
     width: 100%;
     margin-top: 30px;
@@ -1621,8 +1633,6 @@
     margin-left: 150px;
     width: 450px;
   }
-  
-
   
 }
 

@@ -20,6 +20,8 @@ Userbase::Application.routes.draw do
   match 'blog/:blog_order/:blog_dir'      => "blog#index",   :as => 'blog'
   match 'tag/:tag/:blog_order/:blog_dir' => "blog#tag", :as => 'blog_tag'
   match 'tag/:tag' => "blog#tag",                       :as => 'tag'
+  match 'create_translation/:resource/:id/:locale' => "blog#translation", :as => 'create_translation'
+
  
   resources  :users do
     resources :comments

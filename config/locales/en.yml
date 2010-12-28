@@ -242,3 +242,6 @@ en:
   icon_missing: 'No picture'
   play_video: 'View video'
   play_youtube_video: 'YouTube Video'
+  translation_created: 'Translation created successfully'
+  create_a_translation: 'Create a translation'
+
