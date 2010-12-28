@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  blog_entry_id: 1
+  blog_entry_type: Posting
+
+two:
+  blog_entry_id: 1
+  blog_entry_type: Episode

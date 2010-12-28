@@ -1,0 +1,14 @@
+<%= content_tag :div, :id => 'item_ratings' do %>
+  <h4><%= t(:ratings )%></h4>
+  <% if !rateable.ratings.blank? %>
+    <ul>
+    <% for item in rateable.ratings(:order => 'updated_at desc', :include => :user).all %>
+      <li><%= t(:user_rating, :username => item.user.nickname, 
+        :count => item.rating, :date => distance_of_time_in_words_to_now(item.updated_at)).html_safe%></li>
+    <% end %>
+    </ul>
+    <p style='margin-left: 25px;'><%= t(:count_ratings, :count => rateable.ratings_count, :rating => rateable.ratings_average)%></p>
+  <% else %>
+    <%= t(:not_rated_yet)%>
+  <% end %>
+<% end %>

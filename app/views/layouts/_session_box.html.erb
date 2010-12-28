@@ -8,7 +8,7 @@
 <%= content_tag :div, :id => 'session_box' do %>
   <% if user_signed_in? %>
     <div style='float:right; margin-left: 10px; margin-right:-10px; padding-right: 0px; margin-top: 5px;'>
-        <%= image_tag w3c_url(current_user.avatar.url(:icon)), :class => 'avatar_icon_header' %><br/>
+        <%= image_tag w3c_url(current_user.avatar_url(:icon)), :class => 'avatar_icon_header' %><br/>
     </div>
     <div>
       <%= t(:you_logged_in_as, :email => link_to(current_user.nickname,user_settings_path) ).html_safe %>

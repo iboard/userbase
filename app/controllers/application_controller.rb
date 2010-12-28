@@ -5,11 +5,14 @@
 #
 
 class ApplicationController < ActionController::Base
+  
   protect_from_forgery
   layout 'application'
   
+
   before_filter :set_language
   before_filter :load_tags
+  before_filter :load_archive_links
   before_filter :browser_warning
   
   # Display a flash if CanCan doesn't allow access    
@@ -50,30 +53,45 @@ class ApplicationController < ActionController::Base
    
   # set the I18.locale to the value stored in user-settings
   def set_language
-    if current_user
+    return if request.fullpath.match(/^\/(\S+)preview/)
+    unless current_user.nil?
       I18n.locale = current_user.language
     end
     I18n.locale = session[:lang] if session[:lang]
-    
   end  
   
   # load any Taggables used in tag-clouds
   # TODO: Cache this in any way!
   def load_tags
-    @tags ||= Posting.readable( current_user ? current_user.roles_mask : 1).\
-      tag_counts_on(:tags).sort { |a,b| 
-        a.name.upcase <=> b.name.upcase
-      }
-    
-    @episodes_tags ||= Episode.readable(
-                         current_user ? current_user.roles_mask : 1).\
-                         tag_counts_on(:tags).sort { |a,b| 
-                            a.name.upcase <=> b.name.upcase
-                         }
+    return if request.fullpath.match(/^\/(\S+)preview/)
+    @tags ||= blog_models.map { |resource|
+      resource.tag_counts_on(:tags).all
+    }.flatten.uniq.sort { |a,b| 
+      a.name.upcase <=> b.name.upcase
+    }
+  end
+  
+  # load all commentables, grouped by year/month
+  def load_archive_links
+    return if request.fullpath.match(/^\/(\S+)preview/)
+    rc = {}
+    Commentables::group_by_month.each do |c|
+       c.each do |cc|
+         if rc[cc[0]]
+           rc[cc[0]] += cc[1].count
+         else
+           rc[cc[0]] = cc[1].count
+         end
+       end
+    end
+    logger.info( rc.inspect )
+    @archive_links ||= rc
   end
   
   # display a warning if someone is using MSIE
   def browser_warning
+    return if request.fullpath.match(/^\/(\S+)preview/)
+    
     if request.env['HTTP_USER_AGENT'] =~ /MSIE/
       unless session[:browser_warning_displayed]
         flash.now[:error] = t(:wrong_browser)

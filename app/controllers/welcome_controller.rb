@@ -15,6 +15,7 @@ class WelcomeController < ApplicationController
       format.xml  { render :xml => @postings }
     end
   end
+  
 
   # Render User Settings page (devise)
   def user

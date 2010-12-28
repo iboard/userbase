@@ -3,7 +3,7 @@
 <% end %>
 <span style='clear: right;'><br/></span>
 
-<%= image_tag(@user.avatar.url(:thumb), :class => 'avatar_right_float',:style => 'margin-top: 10px;') if @user.avatar %>
+<%= image_tag(@user.avatar_url(:thumb), :class => 'avatar_right_float',:style => 'margin-top: 10px;') %>
 
 <h1><%= title t(:edit_user) -%></h1>
 

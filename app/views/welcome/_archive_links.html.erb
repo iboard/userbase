@@ -1,0 +1,18 @@
+<% if @archive_links.any? %>
+  <% content_for :archive_links do %>
+    <%= content_tag :div, :id => 'archive_links' do %>
+      <h3><%= t(:archive) -%></h3>
+      <% @archive_links.sort {|b,a| 
+          ay = a[0].split(/_/)[0].to_i
+          am = a[0].split(/_/)[1].to_i
+          by = b[0].split(/_/)[0].to_i
+          bm = b[0].split(/_/)[1].to_i
+          ("%04d%02d" % [ay, am]) <=> ("%04d%02d" % [by, bm])
+         }.each do |a| %>
+         <%= link_to "<b>#{a[0].gsub(/_/,'/')}</b>: #{t(:entries, :count => a[1].to_i)}<br/>".html_safe,
+              archive_path(a[0])
+         -%>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

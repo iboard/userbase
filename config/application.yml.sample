@@ -1,41 +1,55 @@
 development:
   application:
     name:              iBoard.cc (DEVELOPMENT)
+    rss_title:         iBoard.cc (DEVELOPMENT)
+    title_prefix:      'iBoard.cc (dev): '
     stylesheet_screen: application
     stylesheet_print:  application
     copyright:         Andreas Altendorfer
     copyright_url:     http://altendorfer.at
+    meta_description:  'Author: Andreas Altendorfer, iboard.cc, IT-Veteran, Developer, Musik Benzin und Kuchen'
   constants:
-    max_time_to_edit_new_comments: 15    
+    max_time_to_edit_new_comments: 2
     rss_feed_cache_time:           1.minute
     paginate_postings_per_page:    6
     paginate_episodes_per_page:    6
     num_postings_on_welcome_page:  6
+    paginate_blog_entries_per_page: 20
+    
 
 test:
   application:
-    name:              iBoard.cc (TEST)
+    name:              iBoard.cc (TEST WITH RSS FEED)
+    rss_title:         iBoard.cc (TEST WITH RSS FEED)
+    title_prefix:      'iBoard.cc (test): '    
     stylesheet_screen: application
     stylesheet_print:  application
     copyright:         Andreas Altendorfer
     copyright_url:     http://altendorfer.at
+    meta_description:  'Author: Andreas Altendorfer, iboard.cc, IT-Veteran, Developer, Musik Benzin und Kuchen'
   constants:
-    max_time_to_edit_new_comments: 15    
-    rss_feed_cache_time:           1.minute
+    max_time_to_edit_new_comments: 0    
+    rss_feed_cache_time:           0
     paginate_postings_per_page:    6
     paginate_episodes_per_page:    6
     num_postings_on_welcome_page:  6
+    paginate_blog_entries_per_page: 20
+    
 
 production:
   application:
     name:              iBoard.cc
+    rss_title:         'iBoard.cc - Musik, Benzin und Kuchen'
+    title_prefix:      'iBoard.cc: '
     stylesheet_screen: application
     stylesheet_print:  application
     copyright:         Andreas Altendorfer
     copyright_url:     http://altendorfer.at
+    meta_description:  'Author: Andreas Altendorfer, iboard.cc, IT-Veteran, Developer, Musik Benzin und Kuchen'
   constants:
     max_time_to_edit_new_comments: 15    
-    rss_feed_cache_time:           1.minute
+    rss_feed_cache_time:           10.minutes
     paginate_postings_per_page:    6
     paginate_episodes_per_page:    6
     num_postings_on_welcome_page:  6
+    paginate_blog_entries_per_page: 20

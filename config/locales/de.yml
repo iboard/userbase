@@ -3,6 +3,19 @@ de:
   locales:
     en: 'English'
     de: 'Deutsch'
+    
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'Bitte geben Sie eine Adresse an.'
+              invalid: 'Die angegebene Adresse ist ungültig.'
+              taken: 'wird bereits benutzt.'
+            nickname:
+              blank: 'Bitte einen Nickname wählen'
+              taken: 'ist schon vergeben.'
 
   datetime:
     distance_in_words:
@@ -70,12 +83,13 @@ de:
   only_admins_can_list_users: 'Nur Administratoren können Benutzer bearbeiten!'
   or_delete_account: 'oder den Account %{account} löschen'
   account_deleted_successfully: 'Account %{username} wurde gelöscht'
-  please_login_as_admin_or_staff_to: "Um %{what}, bitte als Administrator oder Mitarbeiter anmelden"
+  please_login_as_admin_or_staff_to: "Um '%{what}' auszuführen, bitte als Administrator oder Mitarbeiter anmelden"
   user_maintainance: 'Benutzerverwaltung.'
   legal_notice: 'Rechtliche Hinweise'
   about: 'Über...'
   successfully_updated: 'Eintrag erfolgreich geändert'
   postings: 'Beiträge'
+  posting: 'Beitrag'
   anonymous: 'Annonym'
   show_all_posting: 'Alle Beiträge anzeigen ...'
   user_has_no_postings: 'Dieser Benutzer hat keine Beiträge'
@@ -97,6 +111,7 @@ de:
   edit: 'Bearbeiten'
   new_posting: 'Neuer Beitrag'
   episodes: 'Episoden'
+  episode: 'Episode'
   listing_episodes: 'Episoden'
   new_episode: 'Neue Episode'
   author: 'Autor'
@@ -125,7 +140,7 @@ de:
   read: 'lesen'
   manage: 'bearbeiten'
   posting_not_accessible: 'Dieser Beitrag ist mit Ihren Benutzerrollen nicht bearbeitbar'
-  read_episode: 'Episode ansehen'
+  read_episode: 'Episode lesen'
   episode_listing: 'Episoden'
   active_roles: 'Aktive Rollen'
   not_locked: 'nicht gesperrt'
@@ -221,3 +236,52 @@ de:
   wrong_browser: 'Ihr Browser kann diese Seite nicht richtig darstellen. Bitte benutzen Sie Safari, Firefox oder jeden anderen Browser als den "Internet Explorer"'
   preview: 'Vorschau'
   toggle_preview: 'Vorschau ein-/ausblenden'
+  for_email_address: 'Für die eMail-Adresse: '
+  clear_avatar_help: 'Diese checkbox auswählen um das aktuelle Bild vom Server zu löschen.'
+  or_use_your_gravatar_image: 'Oder: <a href="http://gravatar.com" target="_blank">Gravatar-Image</a> benutzen'
+  entries:
+    zero: 'Keine Einträge'
+    one: '1 Eintrag'
+    other: '%{count} Einträge'
+  archive: 'Archiv'
+  archive_for: 'Archiv %{month}'
+  no_items_found_in: "Im Monat %{year}/%{month} wurden keine Einträge veröffentlicht"
+  archive_for: "Archiv %{month}"
+  entry_by: "%{type}, von %{name}"
+  your_entry_was_commented: 'Ihr Beitrag auf %{appname} wurde kommentiert'
+  count_ratings:
+    zero: 'Hat noch keine Beurteilungen.'
+    one: 'Eine Beruteilung: %{rating}'
+    other: '%{count} Beurteilungen ø %{rating}'
+  please_log_in_to_rate: 'Bitte einloggen um eine Bewertung abzugeben'
+  your_rating: 'Ihre Beurteilung: %{rating}'
+  rate_now: 'Jetzt beurteilen'
+  you_rated: 'Ihre Beurteilung'
+  click_to_rate: 'Klicken um zu werten'
+  you: 'Du'
+  ratings: 'Bewertungen'
+  no_rated_items_found: 'Keine Bewertungen gefunden'
+  list_by_ratings: 'Bewertungen'
+  ratings_average: 'ø'
+  user_rating:
+    zero: 'Vor %{date} hat %{username} <b>keinen Stern</b> vergeben'
+    one:  'Vor %{date} hat %{username} <b>einen Stern</b> vergeben'
+    other: 'Vor %{date} hat %{username} <b>%{count} Sterne</b> vergeben'
+  blog_entry_by: '%{type} von %{user}, am %{date}'
+  created_at: 'Erstellt am'
+  updated_at: 'Geändert am'
+  rating: 'Bewertung'
+  title: 'Titel'
+  anonymous: 'Anonym'
+  ratings_count: 'Anzahl Bewertungen'
+  blog: 'Blog'
+  list_by: 'Anzeigen nach'
+  list_by_author: 'Autor'
+  list_by_date: 'Datum'
+  no_entries_found: 'Keine anzeigbare Elemente gefunden'
+  no_image_preview: '-- kein Bild --'
+  blog_index: 'Blog Inhalt'
+  not_rated_yet: 'Noch keine Beurteilung'
+  icon_missing: 'Kein Bild'
+  play_video: 'Video öffnen'
+  play_youtube_video: 'YouTube Video'

@@ -1,0 +1,13 @@
+<%= @comment.commentable.title %>
+<%= "="*@comment.commentable.title.length %>
+<%= t(:your_entry_was_commented, :appname => APPLICATION_CONFIG['name']) %>
+
+User: <%= @comment.user.nickname %>, <%= @comment.user.email %>
+
+<%= strip_tags( strip_links( RedCloth.new(@comment.comment).to_html.html_safe)) %>
+
+URL: <%= root_url + 
+         @comment.commentable.class.to_s.pluralize.downcase + 
+         "/#{@comment.commentable.id}"
+     %>
+

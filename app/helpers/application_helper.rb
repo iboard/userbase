@@ -3,7 +3,8 @@ module ApplicationHelper
   include SpecialCharacters
   
   def main_menu_items
-    menu_items =  [ {:label => t(:home), :url => root_path } ]
+    menu_items =  [ {:label => t(:blog), :url => root_path } ]
+#    menu_items << { :label => t(:blog), :url => blog_path('updated_at', 'desc') }
     menu_items << { :label => t(:postings), :url => postings_path }  if can?( :read, Posting ) 
     menu_items << { :label => 'Videos', :url => episodes_path }  if can?( :read, Episode )
     menu_items += [
@@ -15,7 +16,7 @@ module ApplicationHelper
   
   def admin_menu_items
       menu_items = []
-      menu_items  << { :label => t(:user_listing), :url => users_path } if current_user && can?( :read, User )
+      menu_items  << { :label => t(:user_listing), :url => users_path } if current_user && can?( :read, User.new )
       menu_items  << { :label => t(:user), :url => user_settings_path(current_user) } if current_user && can?(:avatar, current_user)
       menu_items
   end
@@ -56,6 +57,10 @@ module ApplicationHelper
     link_to_function(name,"add_fields(this,\"#{association}\", \"#{escape_javascript(fields)}\")")
   end
   
+  def link_to_toggle(name,target)
+    link_to_function(name,"$(\"##{target}\").slideToggle()")
+  end
+    
   def language_filter
     
     # If no filter is defined - set all languages selected
@@ -79,6 +84,35 @@ module ApplicationHelper
     }.join(", ") +
     "<p class='language_filter_help'>#{t(:language_filter_help)}</p>"
     return rc.html_safe
+  end
+  
+  
+  def rating_links( item, user)
+    item_ratings_avg = item.ratings_average || 0
+    item_ratings_count=item.ratings_count || 0
+    my_rating         = user.ratings.where(:rateable_id => item.id, :rateable_type => item.class.to_s).first  if user
+      
+    content_tag :div, :id => "rating_#{item.id}", :class=>'rating' do
+      rc = ""
+      for i in eval(CONSTANTS['rating_range'])
+        # always link to rate if user
+        img_url = item_ratings_avg >= i ? "rating_1" : "rating_0"
+        label_text = user.nil? ? t(:please_log_in_to_rate) : t(:click_to_rate)
+        if user
+          rc += link_to( image_tag( "/images/#{img_url}.png", :title => label_text  ),
+                        rate_path(user,item,item.class.to_s,i),
+                        :remote => true
+                       )
+        else
+          rc += image_tag( "/images/#{img_url}.png", 
+                           :title => label_text )
+        end
+      end
+      rc += sc(:br)+t(:count_ratings, :count => item_ratings_count, :rating => item_ratings_avg)
+      rc += sc(:nbsp)*2+t(:ratings_average, :count => item_ratings_avg, :rating => item_ratings_avg)
+      rc += sc(:nbsp)*2+t(:you) + sc(:nbsp,:pr,:nbsp) + my_rating.rating.to_s if user && my_rating
+      rc.html_safe
+    end
   end
   
   private

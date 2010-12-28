@@ -1,6 +1,9 @@
 <!-- VIEWS/EPISODES/_episode.html.erb -->
 <!-- This view is too f*** long       -->
 <% show_all ||= false %>
+<% content_for :meta_description do %>
+  <%= "Video-Episode: #{episode.title}, Author: #{episode.user.nickname}, Tags: #{episode.tag_list}" -%>
+<% end %>
 
 <%= content_tag :div, :class => 'episode' do %>
 
@@ -12,24 +15,25 @@
       <%= render :partial => "/assets/asset", :collection => episode.assets %>
     <% end %>
   <% end  %>
-  
-  <!-- right box with Managebuttons if allowed-->
-  <% if can? :manage, episode %>
-    <%= content_tag :div, :class => 'float-right-box', :style => 'width: 200px; background: none; text-align: right; padding: 5px;' do %>
-      <%= button(link_to 'Edit', edit_episode_path(episode)) %>
-      <%= button(link_to 'Destroy', episode, :confirm => 'Are you sure?', :method => :delete) %>
-    <% end %>
-  <% end %>
-  
-  <!-- TITLE And Author-->
+    
+  <!-- TITLE And Author, Rating-->
   <h2><%= link_to episode.title, episode %></h2>
+  <%= render :partial => '/ratings/ratings', :locals => { :object => episode } %><br/>
   <address>
     <%= episode.updated_at.to_s(:short) %> 
     (<%= t(:time_ago, :time => distance_of_time_in_words(episode.updated_at,Time.now)) -%>), 
     <%= t(:by_author) %>: <%= episode.user.nickname %>
-    <%= insert_episodes_tag_list(episode.tag_list).html_safe %>
+    [<%= tag_list(episode.tag_list) %>]
     <%= language_links(episode) -%><br/><br/>
   </address>
+  
+  <!-- right box with Managebuttons if allowed-->
+  <% if can? :manage, episode %>
+    <%= content_tag :div, :style=>'margin: 0px;' do %>
+      <%= button(link_to 'Edit', edit_episode_path(episode)) %>
+      <%= button(link_to 'Destroy', episode, :confirm => 'Are you sure?', :method => :delete) %>
+    <% end %>
+  <% end %>
  
   <!-- DESCRIPTION AND VIDEO IF :show_all --> 
   <%= content_tag :div, :class => '.episode_description' do %>
@@ -50,7 +54,16 @@
            :tags =>  %w(b em strong) )
       %>
       <span style='clear: both;'><br/></span>
-      <%= inline_button(link_to t(:read_episode), episode).html_safe %>
+      <br/><small>
+        <% if episode.video_web_url =~ /youtube/ %>
+           <%= inline_button(link_to_function(t(:play_youtube_video), 
+             "youtube_popup('#{episode.youtube_embed_url}')") )%>
+        <% else %>
+          <%= inline_button(link_to_function(t(:play_video), 
+            "video_popup('#{episode.video_web_url}','#{episode.video_mobile_url}')").html_safe)%>
+        <% end %>
+        <%= inline_button(link_to t(:read_episode), episode).html_safe %>
+      </small>
     <% end %>
   <% end %>
 
@@ -74,7 +87,10 @@
     <%= t(:episode_not_accessible) %>
   <% end %>
   
-
+  <!-- SHOW RATINGS -->
+  <% if show_all && @episode %>
+    <%= render :partial => '/ratings/item_ratings', :locals =>  {:rateable => episode} %>
+  <% end %>
 <% end %>
 <!-- /VIEWS/EPISODES/_episode.html.erb -->
 <p style='clear: both; margin-bottom: 10px;'></p>

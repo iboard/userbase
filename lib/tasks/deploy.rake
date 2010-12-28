@@ -44,17 +44,57 @@ namespace :deploy do
     when 'mysql'
       `mysqldump -u #{cfg['username']} -p#{cfg['password']} #{cfg['database']} > #{output_file}`
     when 'sqlite3'
-      `echo ".dump" | sqlite3  #{Rails.root}/#{cfg['database']} > #{output_file}` 
+      `sqlite3  #{Rails.root}/#{cfg['database']} .dump  > #{output_file}` 
     else
       puts "** ERROR *** unknown adapter in #{cfg.inspect}"
     end
     `test -f #{output_file} && chmod 600 #{output_file}`
   end 
   
+  desc "Update RDocs"
+  task :rdoc => :environment do
+    `bundle exec rdoc -W "http://github.com/iboard/userbase/blob/master/%s" -t "userbase - iboard.cc"`
+  end
+  
   desc "Sync database and assets from Production Server to development.sqlite3"
   task :sync_production_db => :environment do
      `rsync -avze ssh alta@r3.iboard.cc:/home/alta/altendorfer/db/production.sqlite3 db/development.sqlite3`
      `rsync -avze ssh alta@r3.iboard.cc:/home/alta/altendorfer/public ./`
+  end
+  
+  
+  desc "Fix rating cache"
+  task :fix_ratings_cache => :environment do
+    Posting.all.each do |p|
+      p.ratings_count = p.ratings.count
+      p.ratings_average = p.ratings.average(:rating) || 0.0
+      puts "UPDATED CACHE VALUES #{p.id}: #{p.ratings_count}, #{p.ratings_average}"
+      p.save!
+    end
+  end
+  
+  desc "Fix blog_entries index"
+  task :fix_blog_entries => :environment do
+    BlogEntry.delete_all
+    Posting.all.each do |p|
+      BlogEntry.create(:blog_entry_id => p.id, :blog_entry_type => 'Posting')
+    end
+    Episode.all.each do |e|
+      BlogEntry.create(:blog_entry_id => e.id, :blog_entry_type => 'Episode')
+    end
+  end
+  
+  desc "Reprocess assets"
+  task :reprocess_assets => :environment do
+    BlogEntry.all.each do |entry|
+      puts "Processing #{entry.blog_entry_type} - #{entry.blog_entry.title}"
+      entry.blog_entry.assets.each do |asset|
+        if asset.asset_content_type =~ /image/ 
+          puts "  - Reprocessing #{asset.asset_content_type} #{asset.asset_file_name}"
+          asset.asset.reprocess!
+        end
+      end
+    end
   end
   
 end

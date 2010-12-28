@@ -2,8 +2,8 @@ class PostingsController < ApplicationController
 
   respond_to :html,:xml, :rss
 
-  load_resource :user
-  load_and_authorize_resource :posting
+  load_resource :user, :except => :preview
+  load_and_authorize_resource :posting, :except => :preview
   
   after_filter :apply_user_tags, :only => [:create, :update]
   
@@ -104,19 +104,8 @@ class PostingsController < ApplicationController
     end
   end
   
-  def tag
-    @postings = Posting.tagged_with(params[:tag], :on => :tags)\
-      .readable(current_user ? current_user.roles_mask : 1)\
-      .order('updated_at desc').uniq\
-      .paginate(:page => params[:page], :per_page => CONSTANTS['paginate_postings_per_page'])
-    @tag = params[:tag]
-    render :index
-  end
-  
-  def update_preview
-    render :update do |page|
-      page.replace_html :preview_body, sanitize(RedCloth.new(params[:text]).to_html.html_safe)
-    end
+  def preview
+    render :layout => false
   end
   
   private

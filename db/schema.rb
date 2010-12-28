@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "updated_at"
   end
 
+  create_table "blog_entries", :force => true do |t|
+    t.integer  "blog_entry_id"
+    t.string   "blog_entry_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
     t.string   "commentable_type"
@@ -69,6 +76,8 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "locale",             :default => "en"
+    t.integer  "ratings_count",      :default => 0
+    t.float    "ratings_average",    :default => 0.0
     t.integer  "access_read_mask",   :default => 4
     t.integer  "access_manage_mask", :default => 4
   end
@@ -84,10 +93,21 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.integer  "access_read_mask",   :default => 4
     t.integer  "access_manage_mask", :default => 4
     t.string   "locale",             :default => "en"
+    t.integer  "ratings_count",      :default => 0
+    t.float    "ratings_average",    :default => 0.0
   end
 
   add_index "postings", ["title"], :name => "index_postings_on_title"
   add_index "postings", ["user_id"], :name => "index_postings_on_user_id"
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -144,6 +164,7 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "avatar_updated_at"
     t.string   "time_zone",                           :default => "UTC"
     t.string   "language",                            :default => "en"
+    t.boolean  "use_gravatar",                        :default => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

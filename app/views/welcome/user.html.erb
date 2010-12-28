@@ -1,4 +1,4 @@
-<%= image_tag(current_user.avatar.url(:thumb), :class => 'avatar_right_float', :style => 'margin-top: 10px;') if user_signed_in? %>
+<%= image_tag(current_user.avatar_url(:thumb), :class => 'avatar_right_float', :style => 'margin-top: 10px;') if user_signed_in? %>
 
 <h1><%= title 'User Settings'%></h1>
 

@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : APPLICATION_CONFIG['name'] %></title>
+    <title><%= APPLICATION_CONFIG['title_prefix'] -%><%= yield(:title) -%></title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <%= stylesheet_link_tag( APPLICATION_CONFIG['stylesheet_screen'], :media => :screen )%>
     <%= stylesheet_link_tag( APPLICATION_CONFIG['stylesheet_print'], :media => :print )%>
-    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag :defaults, 'textile' %>
     <!-- prototype-lib will be loaded only when needed -->
     <%= yield :prototype %>
     <%= yield :head %>
     <%= csrf_meta_tag %>
-    <%= auto_discovery_link_tag(:atom, "/feed.atom") %>
+    <%= auto_discovery_link_tag(:atom, "/feed.atom?#{Time.now.to_i}") %>
+    <META NAME="Description" CONTENT="SITE: (<%= APPLICATION_CONFIG['meta_description'] -%>)<%= 
+      if content_for?(:meta_description) 
+        " | CONTENT: " +
+        yield(:meta_description).strip.gsub(/\n/," | ").gsub(/\"/,'\'')
+      end
+    -%>" />
+    <%= html_include('public/static_pages/google_analytics.html').html_safe if File::exist?("#{Rails.root}/public/static_pages/google_analytics.html") %>
   </head>
   
   <body>
-      <% unless Rails.env == 'test' %>
-        <div id='print_title'>
-            <h1><%= APPLICATION_CONFIG['name'] %></h1>
-            <address>
-                Printed: <%= Time.now -%><br/>
-                Address: <%= [request.protocol, request.host, request.request_uri].join('') %>
-            </address>
-        </div>
-      <% end %>
+      <div id='overlay' class="ui-widget-content"></div>
+      
+      <div id='print_title'>
+          <h1><%= APPLICATION_CONFIG['name'] %></h1>
+          <address>
+              Printed: <%= Time.now -%><br/>
+              Address: <%= [request.protocol, request.host, request.fullpath].join('') %>
+          </address>
+      </div>
       <!-- PREPARE CONTENT_FOR PARTIALS -->
       <% render :partial => '/layouts/admin_buttons' %>
       <% content_for :sidebar_right do %>
@@ -31,21 +38,38 @@
         <% end %>
       <% end %>
       
+      
       <div id='right_sidebar'>
         <% if content_for?(:new_button) %>
           <div id='new_button'>
               <%= yield :new_button %>
           </div>
         <% end %>        
-        <% if content_for?(:language_filter) %>
-          <div id='language_filter'>
-              <%= yield :language_filter %>
-          </div>
-        <% end %>
+
+        <div id='language_filter'>
+          <% content_for :language_filter do %>
+            <% unless @tag %>
+                <%= language_filter.html_safe %>
+            <% else %>
+                <%= t(:postings_tagged_with, :tag => @tag ) %>
+            <% end %>
+          <% end %>
+          <p style='margin-top: 10px;'><b><%= t(:list_by) -%></b></p>
+          <ul>
+              <li><%= link_to t(:list_by_author), blog_path('author', 'asc') %></li>
+              <li><%= link_to t(:list_by_date), blog_path('updated_at', 'desc') %></li>
+              <li><%= link_to t(:list_by_ratings), blog_path('ratings_average', 'desc') %></li>
+          </ul>
+        </div>
+        
         <%= content_tag :div, :id => 'tagclouds' do %>
-               <!-- TAG Clouds -->
-               <%= render( :partial => 'postings/tag_cloud' ) if @tags.any? %>  
-               <%= render( :partial => 'episodes/tag_cloud' ) if @episodes_tags.any? %>      
+          <!-- TAG Clouds -->
+          <%= render( :partial => '/blog/tag_cloud' ) if @tags.any? %>  
+        <% end %>
+        
+        <% render :partial => "/welcome/archive_links" %>
+        <% if content_for?(:archive_links) %>
+           <%= yield :archive_links %>
         <% end %>
         <% if content_for?(:sidebar_right) %>
             <%= yield :sidebar_right %>
@@ -57,11 +81,17 @@
           <%= content_tag :div, :style=>'width: 400px; float: right; text-align: right;' do %> 
             <%= render :partial =>  '/layouts/session_box' %>
           <% end %>
+          <% if params[:tag] %>
+            <h1 class='site_title'><%= params[:tag] -%></h1>
+          <% else %>
+            <h1 class='site_title'><%= yield(:title) -%></h1>
+          <% end %>
           <div style='clear: right;'></div>
           <% if admin_menu_items.any? %>
               <%= page_menu admin_menu_items, {:id => 'admin_menu', :clear => 'right'} %>
           <% end %>
           <%= page_menu main_menu_items %>
+          
         </div>
               
         <%= content_tag :div, :id => 'page_header' do %>
@@ -100,5 +130,5 @@
             <% end %>
           </div>
       </footer>
-  </body>
+   </body>
 </html>

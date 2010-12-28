@@ -1,0 +1,5 @@
+<%= content_tag :div, :id => 'tag_cloud_postings' do %>
+  <% tag_cloud( @tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), :class => (params[:tag] == tag.name ? "selected_tag_#{css_class}" : css_class) %>
+  <% end %>
+<% end %>

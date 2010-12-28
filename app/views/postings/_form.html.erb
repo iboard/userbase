@@ -1,7 +1,3 @@
-<% content_for(:prototype) do %>
-  <%= javascript_include_tag "/javascripts/prototype/prototype.js" %>
-<% end %>
-
 <%= form_for([@user,@posting], :html => {:multipart => true} ) do |f| %>
 
   <% if @posting.errors.any? %>
@@ -37,20 +33,16 @@
     <%= f.text_field :tag_list, :size => 80 %>
   </div>
 
-  <div class="field" id='posting_body'>
+  <div class="field">
     <%= f.label :body %>
-    <%= f.text_area :body, :rows => 10, :cols => 58,
-      :onkeyup => remote_function(
-        :url => update_posting_preview_path(),
-        :with => "'text=' + encodeURIComponent(value)",
-        :method => :get
-       ) %>
+    <%= f.text_area :body, :rows => 10, :cols => 58, 
+       :onkeyup => "rerender( '#posting_body', '#preview_body' )" %>
   </div>
   
   <div class='field'>
     <%= f.label :preview %>
     <div class='posting_preview'>
-      <%= content_tag :a, :onclick => "Element.toggle('preview_body'); return false;" do  t(:toggle_preview) end %>
+      <%= link_to_toggle(t(:toggle_preview),'preview_body') %>
       <div id='preview_body' style='display:none;'>
         <% if @posting.body %>
           <%= sanitize(RedCloth.new( @posting.body).to_html.html_safe ) %>

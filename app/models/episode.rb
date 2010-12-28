@@ -1,11 +1,7 @@
 class Episode < ActiveRecord::Base
 
-  is_commentable
-  can_have_assets
-  acts_as_taggable_on :tags
-
-  belongs_to :user
-
+  is_blogable
+  
   validates :title,       :presence => true
   validates :description, :presence => true
   validates :user_id,     :presence => true, :user_exists => true

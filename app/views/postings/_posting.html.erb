@@ -1,20 +1,21 @@
 <% if can?(:read, posting) || posting.access_read_mask & 1 > 0 %>
+
+  <% content_for :meta_description do %>
+    <%= "Posting: #{posting.title}, Author: #{posting.user.nickname}, Tags: #{posting.tag_list}" -%>
+  <% end %>
+
+
   <%= content_tag :div, :class => 'posting' do %>
   
     <!--                                -->
     <!-- The Posting Header with author -->
     <!--                                -->
     <address class='posting_author'>
-      <% if current_user && can?(:manage, posting) %>
-        <%= title_buttons(inline_button(link_to(sc(:edit,:sp)+t(:edit), edit_user_posting_path(posting.user,posting),
-              :title => t(:edit_entry),
-              :style => 'float: right;margin-right: 10px;')))  %>
-      <% end %>
-      <%= image_tag( w3c_url(posting.user.avatar.url(:icon)), :class => 'posting_author_icon' ) if posting.user %>
       <b><%= link_to_user_postings(posting) %></b>, 
       <%= t(:time_ago, :time => distance_of_time_in_words_to_now(posting.updated_at)) unless posting.new_record? %>
-      <%= insert_tag_list(posting.tag_list).html_safe -%>
+      [<%= tag_list posting.tag_list -%>]
       <%= language_links(posting) -%>
+      <%= user_avatar(posting.user) %>
     </address>
     
     <!--                  -->
@@ -34,8 +35,19 @@
         <%= link_to posting.object_title, posting %>
       <% else %> 
         <%= title(posting.object_title) %>
-      <% end %>
+      <% end %>      
     <% end %>
+    
+    <%= render :partial => '/ratings/ratings', :locals => { :object => posting } %>
+    
+    <% if current_user && can?(:manage, posting) %>
+      <div style='margin-left: 5px;'>
+      <%= title_buttons(inline_button(link_to(sc(:edit,:sp)+t(:edit), edit_user_posting_path(posting.user,posting),
+            :title => t(:edit_entry),
+            :style => 'font-size: 0.8em; margin-right: 10px;')))  %>
+     </div>
+    <% end %>
+    
     
     
     <!--                   -->
@@ -75,8 +87,14 @@
       <% end %>
       <%= render posting.comments if posting.comments.any? && !defined?(@postings)%>
     <% end %>
-    
+  
+  
+    <!-- SHOW RATINGS -->
+    <% if defined?(show_all) && show_all %>
+      <%= render :partial => '/ratings/item_ratings', :locals => { :rateable => posting }%>
+    <% end %>
   <% end %>
+  
   <p style='clear: left;'><br/></p>  
 <% else %>
   <p><%= t(:posting_not_accessible) %></p>

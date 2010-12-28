@@ -2,6 +2,7 @@
 .bundle
 db/*.sqlite3
 db/dump/*
+doc/*
 log/*.log
 tmp/**/*
 tmp/restart.txt

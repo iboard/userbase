@@ -1,6 +1,6 @@
 require 'openid/store/filesystem'
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :open_id, OpenID::Store::Filesystem.new('/tmp/developer.wwedu.com')
+  provider :open_id, OpenID::Store::Filesystem.new(Rails.root+'/tmp/openid.store')
   provider :twitter, OMNIAUTH_TWITTER_KEY, OMNIAUTH_TWITTER_SECRET
   provider :facebook, OMNIAUTH_FACEBOOK_KEY, OMNIAUTH_FACEBOOK_SECRET
   provider :linked_in, OMNIAUTH_LINKED_IN_KEY, OMNIAUTH_LINKED_IN_SECRET

@@ -1,10 +1,8 @@
-<%= user_settings_menu do %>
-<% end %>
-
+<%= user_settings_menu %>
 
 <h1><%= title t(:set_or_change_your_avatar) -%></h1>
 
-<%= image_tag(w3c_url(@user.avatar.url(:thumb)), :class => 'avatar_right_float',:style => 'margin-top: 10px;') if @user.avatar %>
+<%= image_tag(w3c_url(@user.avatar_url(:thumb)), :class => 'avatar_right_float',:style => 'margin-top: 10px;') %>
 
 
 <%= form_for @user, :html => { :multipart => :true } do |f| %>
@@ -17,7 +15,12 @@
  
  <p>
      <%= f.label :clear_avatar, t(:or_clear_avatar) %>
-     <%= f.check_box :clear_avatar %>
+     <%= f.check_box :clear_avatar %> <%= t(:clear_avatar_help) %>
+ </p>
+
+ <p>
+     <%= f.label :use_gravatar, t(:or_use_your_gravatar_image).html_safe %>
+     <%= f.check_box :use_gravatar %> <%= t(:for_email_address) %> <%= @user.email.downcase %>
  </p>
  
  <p>

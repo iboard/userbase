@@ -6,14 +6,21 @@ class Comment < ActiveRecord::Base
   validates :email,   :presence => true, :email => true
   validates :comment, :presence => true, :length => {:minimum => 10}
   
+  after_create  :inform_owner
+  
   def body
     comment
   end
+  
   alias_method :object_body, :body
   
   def title
     I18n.translate(:comment_on, :item => commentable.object_title )
   end
+  
   alias_method :object_title, :title
-    
+
+  def inform_owner
+    Delayed::Job.enqueue NewCommentNotifier.new(self.id)
+  end    
 end

@@ -4,9 +4,9 @@
   <p>
     <% if asset.asset_file_size %>
       <% if asset.asset_content_type =~ /image/ %>
-        <%= link_to image_tag( w3c_url(asset.asset.url), :width => '200' ), 
-                    w3c_url(asset.asset.url), :target => :blank 
-        %><br/>
+          <%= link_to_function( image_tag( w3c_url(asset.asset.url(:preview)), :class => 'asset_preview' ), 
+                 "image_popup('#{asset.asset.url(:popup)}')") %>
+          <br/>
       <% end %>
       <%= link_to t(:download), w3c_url(asset.asset.url(:original)) %>
       <%= (asset.asset_file_size/1024).round %> KB, <%= asset.asset_content_type %>

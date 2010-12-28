@@ -1,11 +1,7 @@
 class Posting < ActiveRecord::Base
 
-  is_commentable
-  can_have_assets
-  acts_as_taggable_on :tags
-    
-  belongs_to :user
-  
+  is_blogable
+      
   validates :title,   :presence => true
   validates :body,    :presence => true
   validates :user_id, :presence => true, :user_exists => true
@@ -23,15 +19,15 @@ class Posting < ActiveRecord::Base
   after_create :async_notify_on_creation
 
 
-  # Virtual Attributes
+  # Virtual Attribute
   def access_read_mask_flags=(flags)
     self.access_read_mask=(flags & User::ROLES).map { |r| 2**User::ROLES.index(r) }.sum
   end
   
+  # Virtual Attribute
   def access_manage_mask_flags=(flags)
     self.access_manage_mask=(flags & User::ROLES).map { |r| 2**User::ROLES.index(r) }.sum
   end
-
 
   def allow_role_to_read?(role)
     ! (2**User::ROLES.index(role) & access_read_mask).zero?
@@ -50,6 +46,7 @@ class Posting < ActiveRecord::Base
   end 
 
   private
+  # Send an email to the owner/author of this posting
   def async_notify_on_creation
     Delayed::Job.enqueue NewPostingNotifier.new(self.id,"New Posting by #{self.user.nickname}: #{self.title}", ADMIN_EMAIL_ADDRESS)
   end  

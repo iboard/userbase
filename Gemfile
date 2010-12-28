@@ -44,6 +44,7 @@ gem "cancan"
 group :development do
   gem "rails-erd"
   gem "nifty-generators"
+  gem 'rdoc'
 end
 
 group :test do

@@ -1,7 +1,7 @@
 <%= user_settings_menu do %>
     <%= render( :partial => 'devise/shared/links', :locals => {:resource_name => 'user'}) %>
 <% end %>
-<%= image_tag(resource.avatar.url(:thumb), :class => 'avatar_right_float') if resource.avatar %>
+<%= image_tag(resource.avatar_url(:thumb), :class => 'avatar_right_float') if resource.avatar %>
 
 <h2>Change your password</h2>
 
