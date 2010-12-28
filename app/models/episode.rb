@@ -7,13 +7,7 @@ class Episode < ActiveRecord::Base
   validates :user_id,     :presence => true, :user_exists => true
   validates :access_read_mask, :numericality   => { :greater_than => 0 }
   validates :access_manage_mask, :numericality => { :greater_than => 0 }
-  
-  # make it translateable TODO: Move to a module
-  has_many :translations, :as => :translateable
-  scope :with_locale, lambda { |loc| where(:locale => loc.locale) }
-  scope :with_locales, lambda { |loc| where( "locale in (?)", loc) }
-  
-  
+    
   # Return the description as body for rss-feed (Commentable)
   def body
     description

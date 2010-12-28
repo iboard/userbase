@@ -19,9 +19,13 @@ module Blogables
     $registered_commentables
   end
   
-  def blog_entries(user,blog_order,blog_dir)
+  def blog_entries(user,blog_order,blog_dir,language_filter=nil)
     entries_by_model = $registered_commentables.map { |resource|
-      resource.readable( user ? user.roles_mask : 1).all
+      if language_filter
+        resource.with_locales(language_filter).readable( user ? user.roles_mask : 1).all
+      else
+        resource.readable( user ? user.roles_mask : 1).all
+      end
     }.flatten.reject {|r| r.nil? }.sort { |a,b| 
       compare_blog_entries(a,b,blog_order) 
     }
@@ -29,8 +33,8 @@ module Blogables
     entries_by_model
   end
   
-  def filtered_by(user,blog_order,blog_dir,&block)
-    entries_by_filter = blog_entries(user,blog_order,blog_dir).reject { |r|
+  def filtered_by(user,blog_order,blog_dir,language_filter,&block)
+    entries_by_filter = blog_entries(user,blog_order,blog_dir,language_filter).reject { |r|
       yield(r)
     }
     entries_by_filter
@@ -76,6 +80,12 @@ module Blogables
               end
             end
           end
+          
+          # Translations
+          has_many :translations, :as => :translateable, :dependent => :destroy
+          scope :with_locale, lambda { |loc| where(:locale => loc.locale) }
+          scope :with_locales, lambda { |loc| where( "locale in (?)", loc) }
+          
           
           private
           def create_blog_entry
