@@ -164,6 +164,7 @@
     left: auto;
     right: auto;
     width: 800px;
+    height: 800px;
     min-height: 800px;
     margin-left: 30px;
     margin-right: auto;
@@ -487,7 +488,9 @@
     border: 0px solid #000;	
     border-left: 1px solid #888;
     border-right: 1px solid #666;
+    clear: both;
   }
+  
   
   #copyright {
     text-align: center;
