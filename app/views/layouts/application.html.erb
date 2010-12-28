@@ -57,14 +57,14 @@
         </div>
         
         <%= content_tag :div, :id => 'tagclouds' do %>
-          <!-- TAG Clouds -->
           <%= render( :partial => '/blog/tag_cloud' ) if @tags.any? %>  
         <% end %>
         
-        <% render :partial => "/welcome/archive_links" %>
+        <% render :partial => "/welcome/archive_links" %>        
         <% if content_for?(:archive_links) %>
            <%= yield :archive_links %>
         <% end %>
+        
         <% if content_for?(:sidebar_right) %>
             <%= yield :sidebar_right %>
         <% end %>
@@ -109,6 +109,7 @@
           <% end %>    
           <!-- MAIN CONTENT -->
           <%= yield %>
+          <div style='clear: both;'></div>
           <!-- //////////// -->
          </div>
       </section>
