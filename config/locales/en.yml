@@ -224,7 +224,7 @@ en:
     zero: "%{date} ago, %{username} gave <b>no star</b>"
     one:  '%{date} ago, %{username} voted with <b>one star</b>'
     other: '%{date} ago, %{username} voted <b>%{count} stars</b>'
-  blog_entry_by: '%{type} by %{user}, %{date}'
+  blog_entry_by: '%{type} by %{user}, %{date} ago'
   created_at: 'Created at'
   updated_at: 'Updated at'
   rating: 'Rating'

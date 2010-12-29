@@ -2,6 +2,12 @@ Feature: Application
   In order to see the website
   As a guest
   I want to test if there is no error and there is a copyright message
+ 
+  Background:
+    Given the following user records
+      | id | email            | nickname  | roles_mask | password   | password_confirmation | confirmation_token | confirmed_at |
+      | 1  | test@test.te     | tester    | -1         | verysecret | verysecret            | 1234               | 2001-01-01   |
+ 
   
   Scenario: Display a copyright message on the startpage
     Given I am on the home page

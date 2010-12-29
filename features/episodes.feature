@@ -16,6 +16,7 @@ Feature: Episodes
     And I am on the episodes page
     Then I should see "This is just a test episode 31o864"
     
+    
   Scenario: Logged in user should create new episode
     Given I am logged in as user "test@test.te" with password "verysecret"
     And I visit the new episode page for user "1"

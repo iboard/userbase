@@ -14,10 +14,7 @@ Feature: Postings
     Then I should not see class "postings"
     
   Scenario: Show latest Postings on the start page
-    Given the following user records
-      | id | email            | nickname  | 
-      | 1  | test@test.te     | tester    |
-    And the following posting records
+    Given the following posting records
       | title       | user_id | body                               | access_read_mask |
       | TestPosting | 1       | This is just a test posting 31o864 |       1          |
     And I am on the home page

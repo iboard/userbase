@@ -35,7 +35,7 @@
   <em><small><%= t(:blog_entry_by, 
           :type => t(blog_entry.class.to_s.downcase.to_sym), 
           :user => blog_entry.user ? blog_entry.user.nickname : t(:anonymous), 
-          :date => blog_entry.updated_at.to_s(:long)
+          :date => distance_of_time_in_words_to_now(blog_entry.updated_at)
         )
   -%></em></small><br/><h3><%= link_to blog_entry.object_title, blog_entry %></h3> 
   
