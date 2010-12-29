@@ -1,10 +1,10 @@
 <% title(t(:blog_index), false) unless @archive %>
 <% title(t(:archive_for, :month => params[:month]).split("_").join('/'), false) if @archive %>
 <% if @blog_entries.any? %>
-  <p style='text-align: center;'>
+  <div style='text-align: center;'>
     <%= will_paginate @blog_entries %>
     <%= order_links %>
-  </p>
+  </div>
   <hr>
   
   <div id='blog_index'>
