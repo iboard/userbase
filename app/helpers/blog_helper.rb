@@ -57,6 +57,22 @@ module BlogHelper
     @keywords
   end
     
+  def ajax_path
+    if params[:tag]
+      tag_path(params[:tag], :page => (params[:page] ? (params[:page].to_i+1) : 2), 
+                            :blog_order => params[:blog_order], 
+                            :blog_dir => params[:blog_dir] )
+    elsif params[:month]
+      archive_path(params[:month], :page => (params[:page] ? (params[:page].to_i+1) : 2), 
+                              :blog_order => params[:blog_order], 
+                              :blog_dir => params[:blog_dir] )
+    else
+      blog_path(:page => (params[:page] ? (params[:page].to_i+1) : 2), 
+                            :blog_order => params[:blog_order], 
+                            :blog_dir => params[:blog_dir] )
+    end                         
+  end
+
   private
   def reverse_path
     if request.path.split('/')[1] == 'tag'

@@ -15,12 +15,9 @@
      
   <p class='load_more'>
       <% if @blog_entries.total_pages > @blog_entries.current_page %>
-        <%= link_to_function( t(:load_more),
+        <%= link_to_function( t(:load_more)+" "+[params[:tag], (params[:month]||"").gsub(/_/,'/')].reject{|r| r.nil? ||r.blank? }.join(", "),
                       "insert_load_button( 'load_more_link','#{t(:loading)}',"+
-                      "'#{blog_path(:page => (params[:page] ? (params[:page].to_i+1) : 2), 
-                                  :blog_order => params[:blog_order], 
-                                  :blog_dir => params[:blog_dir]
-                                 )}'"+
+                      "'#{ajax_path}'"+
                        ");return false;",
                        :id => 'load_more_link'
                     ) %>

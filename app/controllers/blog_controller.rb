@@ -12,7 +12,11 @@ class BlogController < ApplicationController
     @blog_entries =  Blogables::filtered_by(current_user,blog_order,blog_dir,session[:language_filter]) { |resource|
        !resource.tag_list.include?(params[:tag])
     }.paginate(:page => params[:page], :per_page => CONSTANTS['paginate_blog_entries_per_page'])
-    render :index
+    logger.info("*** RENDER INDEX NOW ****")
+    respond_to do |format|
+       format.js { render :index }
+       format.html { render :index }
+    end
   end
   
   
@@ -26,7 +30,11 @@ class BlogController < ApplicationController
       !( r.created_at >= from_date && r.created_at <= to_date )
     }
     @blog_entries = @archive.paginate(:page => params[:page], :per_page => CONSTANTS['paginate_blog_entries_per_page'])
-    render :index
+    logger.info("*** RENDER INDEX NOW ****")
+    respond_to do |format|
+       format.js { render :index }
+       format.html { render :index }
+    end
   end
   
   # GET 'create_translation/:resource/:id/:locale'
