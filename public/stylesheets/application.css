@@ -1342,10 +1342,6 @@
     padding: 5px;
     margin-right: 20px;
   }
-  #print_title {
-    display: none;
-  }
-  
   .locale_img_translated {
     opacity: 1.0;
     filter:alpha(opacity=100); /* Internet Explorer */
@@ -1355,6 +1351,21 @@
     opacity: 0.5;
     filter:alpha(opacity=50); /* Internet Explorer */
   }
+  
+  .load_more {
+   padding: 5px;
+   background: #A2ADC5;
+   border: 1px solid #444;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   text-align: center;
+   text-decoration: none;
+  }
+  
+  #print_title {
+    display: none;
+  }
+  
   
 } /* end media screen */  
 

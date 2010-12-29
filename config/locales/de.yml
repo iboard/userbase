@@ -287,4 +287,6 @@ de:
   play_youtube_video: 'YouTube Video'
   translation_created: 'Übersetzung wurde erfolgreich erzeugt.'
   create_a_translation: 'Eine Übersetzung erzeugen'
-
+  load_more: 'Mehr laden ...'
+  end_of_list: 'Ende der Liste'
+  loading: 'Laden...'

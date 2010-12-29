@@ -2,6 +2,10 @@ class BlogController < ApplicationController
   
   def index
     @blog_entries =  Blogables::blog_entries(current_user,blog_order,blog_dir,session[:language_filter]).paginate(:page => params[:page], :per_page => CONSTANTS['paginate_blog_entries_per_page'])
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
   
   def tag

@@ -1,0 +1,12 @@
+$('.load_more').before( '<%= escape_javascript(render(:partial => @blog_entries)) -%>');
+<% if @blog_entries.total_pages && (@blog_entries.current_page < @blog_entries.total_pages) %>
+  $('#load_more_link').html( '<%=  escape_javascript(link_to_function(t(:load_more),"insert_load_button( 'load_more_link','#{t(:loading)}',"+
+                    "'#{blog_path(:page => (params[:page] ? (params[:page].to_i+1) : 2), 
+                                :blog_order => params[:blog_order], 
+                                :blog_dir => params[:blog_dir]
+                               )}')" )) -%>');
+  $('.load_more').show();
+<% else %>
+  $('#load_more_link').before('<%= escape_javascript(t(:end_of_list)) -%>');
+  $('#load_more_link').hide();
+<% end %>
