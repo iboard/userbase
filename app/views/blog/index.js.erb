@@ -3,7 +3,7 @@ $('.load_more').before( '<p class="page_seperator"><%= @blog_entries.current_pag
 <% if @blog_entries.total_pages && (@blog_entries.current_page < @blog_entries.total_pages) %>
   <% if params[:tag] %>
     $('#load_more').html( '<%=  escape_javascript(link_to_function(t(:load_more)+" "+
-    params[:tag],"insert_load_button( 'load_more_link','#{t(:loading)}',"+
+    params[:tag],"insert_load_button( 'load_more','#{t(:loading)}',"+
                     "'#{tag_path(params[:tag], :page => (params[:page] ? (params[:page].to_i+1) : 2), 
                                 :blog_order => params[:blog_order], 
                                 :blog_dir => params[:blog_dir]
@@ -11,13 +11,13 @@ $('.load_more').before( '<p class="page_seperator"><%= @blog_entries.current_pag
   
   <% elsif params[:month] %>
     $('#load_more').html( '<%=  escape_javascript(link_to_function(t(:load_more)+" "+
-    (params[:month]||"").gsub(/_/,"/"),"insert_load_button( 'load_more_link','#{t(:loading)}',"+
+    (params[:month]||"").gsub(/_/,"/"),"insert_load_button( 'load_more','#{t(:loading)}',"+
                   "'#{archive_path(params[:month], :page => (params[:page] ? (params[:page].to_i+1) : 2), 
                               :blog_order => params[:blog_order], 
                               :blog_dir => params[:blog_dir]
                              )}')" )) -%>');
   <% else %>
-    $('#load_more').html( '<%=  escape_javascript(link_to_function(t(:load_more),"insert_load_button( 'load_more_link','#{t(:loading)}',"+
+    $('#load_more').html( '<%=  escape_javascript(link_to_function(t(:load_more),"insert_load_button( 'load_more','#{t(:loading)}',"+
                     "'#{blog_path(:page => (params[:page] ? (params[:page].to_i+1) : 2), 
                                 :blog_order => params[:blog_order], 
                                 :blog_dir => params[:blog_dir]
