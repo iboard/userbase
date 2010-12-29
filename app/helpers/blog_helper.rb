@@ -26,6 +26,37 @@ module BlogHelper
     }.join(", ").html_safe
   end
   
+  def site_keywords
+    
+    return @keywords if defined?(@keywords)
+    
+    @keywords = []
+    if @blog_entry
+      @keywords << @blog_entry.tag_list
+      @keywords << @blog_entry.author
+    end
+    if @blog_entries
+      @keywords << @blog_entries.map(&:tag_list).flatten.uniq.sort
+      @keywords << @blog_entries.map(&:author).flatten.uniq.sort
+    end
+    
+    Blogables::blog_models.each do |resource|
+      single_resource = eval("@#{resource.name.singularize.underscore}")
+      list_resource = eval("@#{resource.name.pluralize.underscore}")
+      if single_resource
+        @keywords << single_resource.try('tag_list')
+        @keywords << single_resource.try('author')
+      end
+      if list_resource
+        @keywords << list_resource.map(&:tag_list).flatten.uniq.sort
+        @keywords << list_resource.map(&:author).flatten.uniq.sort
+      end
+    end
+    @keywords = @keywords.flatten.sort.uniq
+    Rails.logger.info("**KEYWORDS #{@keywords.inspect}")
+    @keywords
+  end
+    
   private
   def reverse_path
     if request.path.split('/')[1] == 'tag'

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='<%= I18n.locale.to_s -%>'>
   <head>
     <title><%= APPLICATION_CONFIG['title_prefix'] -%><%= yield(:title) -%></title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -17,6 +17,7 @@
         yield(:meta_description).strip.gsub(/\n/," | ").gsub(/\"/,'\'')
       end
     -%>" />
+    <META NAME="Keywords" CONTENT="<%= site_keywords.join(', ') -%>" />
     <%= html_include('public/static_pages/google_analytics.html').html_safe if File::exist?("#{Rails.root}/public/static_pages/google_analytics.html") %>
   </head>
   
