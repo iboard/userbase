@@ -1362,6 +1362,12 @@
    text-decoration: none;
   }
   
+  .page_seperator {
+    border-top: 1px solid #ddd;
+    font-size: 0.8em;
+    text-align: center;
+  }
+  
   #print_title {
     display: none;
   }

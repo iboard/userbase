@@ -144,14 +144,9 @@ function youtube_popup(img_url) {
   $('#overlay').fadeTo(500,1.0);  
 }
 
-function display_spinner(where) {
-  var where = $("#"+where);
-  where.html("<img src='/images/spinner.gif' title='Loading...' /> LOADING...");
-  alert("Display spinner");
-}
 
 function insert_load_button(where,txt,path) {
   var target = $("#"+where);
-  target.html("<img src='/images/spinner.gif' title='Loading...' /> LOADING...");
-  $.ajax({ url: path, context: null});
+  target.html("<img src='/images/spinner.gif' title='Loading...' /> "+txt);
+  $.ajax({ url: path, context: where});
 }
