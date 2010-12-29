@@ -22,14 +22,14 @@
 
   <!-- right box with Managebuttons if allowed-->
   <% if can? :manage, episode %>
-    <%= content_tag :div, :style=>'margin: 0px;' do %>
+    <%= content_tag :div, :class => 'episode_manage_buttons' do %>
       <%= button(link_to 'Edit', edit_episode_path(episode)) %>
       <%= button(link_to 'Destroy', episode, :confirm => 'Are you sure?', :method => :delete) %>
     <% end %>
   <% end %>
  
   <!-- DESCRIPTION AND VIDEO IF :show_all --> 
-  <%= content_tag :div, :class => '.episode_description' do %>
+  <%= content_tag :div, :class => 'episode_description' do %>
     <% if show_all && @episode %>
       <% unless @episode.is_youtube_video? %>
         <!-- SHOW LONG VIEW -->
@@ -42,8 +42,8 @@
         </div>
       <% end %>
     <% else %>
-      <span style='clear: both;'><br/></span>
-      <br/><small>
+      <span style='clear: both;'></span>
+      <small>
         <% if episode.video_web_url =~ /youtube/ %>
            <%= inline_button(link_to_function(t(:play_youtube_video), 
              "youtube_popup('#{episode.youtube_embed_url}')") )%>

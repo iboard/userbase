@@ -1,4 +1,4 @@
-<%= content_tag :div, :id => "blog_id='#{blog_entry.id}'", :class => 'blog_entry' do %>
+<%= content_tag :div, :id => "blog_id_#{blog_entry.id}", :class => 'blog_entry' do %>
   <div class='blog_ratings' >
     <%= rating_links( blog_entry, current_user ) %>
     <br/>

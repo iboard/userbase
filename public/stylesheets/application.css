@@ -819,12 +819,14 @@
   
   .comments_count_and_links {
     margin-bottom: 10px;	
+    margin-left: 115px;
   }
   .comment {
   	color: #4A4A4A;
   	font-size: 12px;
   	margin-bottom: 10px;
   	border-top: 1px solid #ddd;
+    margin-left: 115px;
   }
   
   .comments .comment .address {
@@ -921,7 +923,17 @@
   
   .episode {
     clear: both;
-    margin-top: 60px;	
+  }
+  
+  .episode_manage_buttons {
+    margin-left: 125px;
+  }
+  
+  .episode_description {
+    margin: 5px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-left: 125px;
   }
   
   .episode h1 { margin-bottom: 0px; }
@@ -936,10 +948,7 @@
       line-height: 105%;
   }
   
-  .episode_description {
-  	padding-left: 10px;
-  }
-  
+ 
   #current_roles {
   	float: right;
   	margin: 0px;
@@ -1213,6 +1222,7 @@
   #item_ratings {
     font-size: 0.8em;
     line-height: 110%;
+    margin-left: 130px;
   }
 
   #users_menu {
@@ -1221,7 +1231,7 @@
   .blog_entry {
     margin-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd;*/
   }
 
   .blog_ratings {
