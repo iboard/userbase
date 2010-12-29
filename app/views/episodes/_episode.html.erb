@@ -10,15 +10,16 @@
   <!--                  -->
   <!-- Episodes's assets -->
   <!--                  -->
-  <% if episode && episode.assets.any? %>
+
+  <!-- TITLE And Author, Rating-->
+  <%= render :partial => '/blog/blog_entry_header', :locals => { :blog_entry => episode } %>
+
+  <% if show_all && episode && episode.assets.any? %>
     <%= content_tag :div, :class => 'float-right-asset-box' do %>
       <%= render :partial => "/assets/asset", :collection => episode.assets %>
     <% end %>
   <% end  %>
-    
-  <!-- TITLE And Author, Rating-->
-  <%= render :partial => '/blog/blog_entry_header', :locals => { :blog_entry => episode } %>
-  
+
   <!-- right box with Managebuttons if allowed-->
   <% if can? :manage, episode %>
     <%= content_tag :div, :style=>'margin: 0px;' do %>
@@ -41,10 +42,6 @@
         </div>
       <% end %>
     <% else %>
-      <!-- SHOW TRUNCATED PREVIEW ONLY -->
-      <%= sanitize( RedCloth.new(episode.description.paragraphs(0..5)).to_html.html_safe, 
-           :tags =>  %w(b em strong) )
-      %>
       <span style='clear: both;'><br/></span>
       <br/><small>
         <% if episode.video_web_url =~ /youtube/ %>

@@ -1,4 +1,4 @@
-<%= RedCloth.new((@episode.description)).to_html.html_safe  %>
+<%= sanitize(RedCloth.new((@episode.description)).to_html.html_safe)  %>
 <div style='paddig: 20px; background: #333; color: white; 
             text-align: center;  width: 640px;'>
      <video controls autoplay width="640" height="400"
