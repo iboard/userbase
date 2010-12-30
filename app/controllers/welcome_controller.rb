@@ -5,10 +5,10 @@ class WelcomeController < ApplicationController
   # GET /
   # GET /feed.atom
   def index
-    @postings     = Posting.readable( current_user ? current_user.roles_mask : 1).latest(CONSTANTS['num_postings_on_welcome_page']).order('updated_at asc')
+    @postings     = Posting.readable( current_user ? current_user.roles_mask : 1).latest(CONSTANTS['num_postings_on_welcome_page'].to_i).order('updated_at desc')
     respond_to do |format| 
       format.atom  { 
-        @commentables = Commentable.all_commentables.sort {|a,b| a.updated_at <=> b.updated_at}
+        @commentables = Commentable.all_commentables {|c| c.order('updated_at asc')}
         render :builder => @commentables 
       }
       format.html    

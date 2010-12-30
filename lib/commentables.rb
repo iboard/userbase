@@ -15,11 +15,15 @@ module Commentables
   # Return all records of all registered Commentable-Models and their comments
   # The list will be build from scratch if it's older than ::RSS_FEED_CACHE_TIME seconds.
   # Otherwise a cached version of the list will be returned. 
-  def all_commentables(user=nil) 
+  def all_commentables(user=nil,&block) 
     return @commentables if defined?(@commentables) && ((Time.now-@last_fetched).to_i < CONSTANTS['rss_feed_cache_time'].to_i)
     Rails.logger.info("**** Rebuilding rss-items for #{$registered_commentables.inspect} and comments")
     resources = $registered_commentables.map { |commentable_model|
-      commentable_model.readable( user ? user.roles_mask : 1).all
+      unless block_given?
+        commentable_model.readable( user ? user.roles_mask : 1).all
+      else
+        yield(commentable_model).readable( user ? user.roles_mask : 1).all
+      end
     }.flatten
     comments = []
     resources.each do |resource|
