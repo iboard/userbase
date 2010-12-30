@@ -145,6 +145,14 @@
         
           <li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
         
+          <li><a href="./Blogables.html">Blogables</a></li>
+        
+          <li><a href="./Blogables/Blogable.html">Blogables::Blogable</a></li>
+        
+          <li><a href="./Blogables/Blogable/ClassMethods.html">Blogables::Blogable::ClassMethods</a></li>
+        
+          <li><a href="./Blogables/Blogable/InstanceMethods.html">Blogables::Blogable::InstanceMethods</a></li>
+        
           <li><a href="./Commentables.html">Commentables</a></li>
         
           <li><a href="./Commentables/Commentable.html">Commentables::Commentable</a></li>
@@ -233,6 +241,18 @@
         
           <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
         
+          <li><a href="./BlogController.html">BlogController</a></li>
+        
+          <li><a href="./BlogControllerTest.html">BlogControllerTest</a></li>
+        
+          <li><a href="./BlogEntry.html">BlogEntry</a></li>
+        
+          <li><a href="./BlogEntryTest.html">BlogEntryTest</a></li>
+        
+          <li><a href="./BlogHelper.html">BlogHelper</a></li>
+        
+          <li><a href="./BlogHelperTest.html">BlogHelperTest</a></li>
+        
           <li><a href="./BrowsingTest.html">BrowsingTest</a></li>
         
           <li><a href="./Comment.html">Comment</a></li>
@@ -250,6 +270,8 @@
           <li><a href="./CreateAssets.html">CreateAssets</a></li>
         
           <li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="./CreateBlogEntries.html">CreateBlogEntries</a></li>
         
           <li><a href="./CreateComments.html">CreateComments</a></li>
         
@@ -306,6 +328,8 @@
           <li><a href="./Rating.html">Rating</a></li>
         
           <li><a href="./RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="./RatingsController.html">RatingsController</a></li>
         
           <li><a href="./RegistrationsController.html">RegistrationsController</a></li>
         
@@ -587,7 +611,7 @@ end</pre>
 <span class="ruby-comment"># File app/models/user.rb, line 99</span>
 def avatar_url(mode)
   if self.use_gravatar
-    &quot;http://gravatar.com/avatar/#{gravatar_id}.png?cache=#{Time.now().strftime('%Y%m%d%H')}&quot;
+    &quot;http://gravatar.com/avatar/#{gravatar_id}.png?cache=#{self.updated_at.strftime('%Y%m%d%H%M%S')}&quot;
   else
     avatar.url(mode)
   end

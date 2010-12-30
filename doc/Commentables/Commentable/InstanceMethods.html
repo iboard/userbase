@@ -62,6 +62,8 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
+          <li><a href="#method-i-author">#author</a></li>
+          
           <li><a href="#method-i-object_body">#object_body</a></li>
           
           <li><a href="#method-i-object_title">#object_title</a></li>
@@ -117,6 +119,14 @@
           <li><a href="../../Assetables/Assetable/ClassMethods.html">Assetables::Assetable::ClassMethods</a></li>
         
           <li><a href="../../Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
+        
+          <li><a href="../../Blogables.html">Blogables</a></li>
+        
+          <li><a href="../../Blogables/Blogable.html">Blogables::Blogable</a></li>
+        
+          <li><a href="../../Blogables/Blogable/ClassMethods.html">Blogables::Blogable::ClassMethods</a></li>
+        
+          <li><a href="../../Blogables/Blogable/InstanceMethods.html">Blogables::Blogable::InstanceMethods</a></li>
         
           <li><a href="../../Commentables.html">Commentables</a></li>
         
@@ -206,6 +216,18 @@
         
           <li><a href="../../AuthenticationsHelper.html">AuthenticationsHelper</a></li>
         
+          <li><a href="../../BlogController.html">BlogController</a></li>
+        
+          <li><a href="../../BlogControllerTest.html">BlogControllerTest</a></li>
+        
+          <li><a href="../../BlogEntry.html">BlogEntry</a></li>
+        
+          <li><a href="../../BlogEntryTest.html">BlogEntryTest</a></li>
+        
+          <li><a href="../../BlogHelper.html">BlogHelper</a></li>
+        
+          <li><a href="../../BlogHelperTest.html">BlogHelperTest</a></li>
+        
           <li><a href="../../BrowsingTest.html">BrowsingTest</a></li>
         
           <li><a href="../../Comment.html">Comment</a></li>
@@ -223,6 +245,8 @@
           <li><a href="../../CreateAssets.html">CreateAssets</a></li>
         
           <li><a href="../../CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="../../CreateBlogEntries.html">CreateBlogEntries</a></li>
         
           <li><a href="../../CreateComments.html">CreateComments</a></li>
         
@@ -279,6 +303,8 @@
           <li><a href="../../Rating.html">Rating</a></li>
         
           <li><a href="../../RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="../../RatingsController.html">RatingsController</a></li>
         
           <li><a href="../../RegistrationsController.html">RegistrationsController</a></li>
         
@@ -347,6 +373,40 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
+      <div id="author-method" class="method-detail ">
+        <a name="method-i-author"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">author</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="author-source">
+<pre>
+<span class="ruby-comment"># File lib/commentables.rb, line 132</span>
+def author
+  user.nickname || t(:anonymous)
+end</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="object_body-method" class="method-detail ">
         <a name="method-i-object_body"></a>
 
@@ -367,7 +427,7 @@
           <div class="method-source-code"
             id="object_body-source">
 <pre>
-<span class="ruby-comment"># File lib/commentables.rb, line 117</span>
+<span class="ruby-comment"># File lib/commentables.rb, line 124</span>
 def object_body
   if defined?(body)
     body
@@ -405,7 +465,7 @@ end</pre>
           <div class="method-source-code"
             id="object_title-source">
 <pre>
-<span class="ruby-comment"># File lib/commentables.rb, line 109</span>
+<span class="ruby-comment"># File lib/commentables.rb, line 116</span>
 def object_title
   if defined?(title)
     title

@@ -66,6 +66,8 @@
           
           <li><a href="#method-i-is_commentable">#is_commentable</a></li>
           
+          <li><a href="#method-i-is_commentable-3F">#is_commentable?</a></li>
+          
         </ul>
       </div>
       
@@ -117,6 +119,14 @@
           <li><a href="../../Assetables/Assetable/ClassMethods.html">Assetables::Assetable::ClassMethods</a></li>
         
           <li><a href="../../Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
+        
+          <li><a href="../../Blogables.html">Blogables</a></li>
+        
+          <li><a href="../../Blogables/Blogable.html">Blogables::Blogable</a></li>
+        
+          <li><a href="../../Blogables/Blogable/ClassMethods.html">Blogables::Blogable::ClassMethods</a></li>
+        
+          <li><a href="../../Blogables/Blogable/InstanceMethods.html">Blogables::Blogable::InstanceMethods</a></li>
         
           <li><a href="../../Commentables.html">Commentables</a></li>
         
@@ -206,6 +216,18 @@
         
           <li><a href="../../AuthenticationsHelper.html">AuthenticationsHelper</a></li>
         
+          <li><a href="../../BlogController.html">BlogController</a></li>
+        
+          <li><a href="../../BlogControllerTest.html">BlogControllerTest</a></li>
+        
+          <li><a href="../../BlogEntry.html">BlogEntry</a></li>
+        
+          <li><a href="../../BlogEntryTest.html">BlogEntryTest</a></li>
+        
+          <li><a href="../../BlogHelper.html">BlogHelper</a></li>
+        
+          <li><a href="../../BlogHelperTest.html">BlogHelperTest</a></li>
+        
           <li><a href="../../BrowsingTest.html">BrowsingTest</a></li>
         
           <li><a href="../../Comment.html">Comment</a></li>
@@ -223,6 +245,8 @@
           <li><a href="../../CreateAssets.html">CreateAssets</a></li>
         
           <li><a href="../../CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="../../CreateBlogEntries.html">CreateBlogEntries</a></li>
         
           <li><a href="../../CreateComments.html">CreateComments</a></li>
         
@@ -279,6 +303,8 @@
           <li><a href="../../Rating.html">Rating</a></li>
         
           <li><a href="../../RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="../../RatingsController.html">RatingsController</a></li>
         
           <li><a href="../../RegistrationsController.html">RegistrationsController</a></li>
         
@@ -367,7 +393,7 @@
           <div class="method-source-code"
             id="group_by_month-source">
 <pre>
-<span class="ruby-comment"># File lib/commentables.rb, line 101</span>
+<span class="ruby-comment"># File lib/commentables.rb, line 108</span>
 def group_by_month
   class_eval <span class="ruby-string">          </span>
 end</pre>
@@ -401,7 +427,7 @@ end</pre>
           <div class="method-source-code"
             id="is_commentable-source">
 <pre>
-<span class="ruby-comment"># File lib/commentables.rb, line 89</span>
+<span class="ruby-comment"># File lib/commentables.rb, line 95</span>
 def is_commentable
   class_eval <span class="ruby-string">          include Commentables::Commentable::InstanceMethods          has_many   :comments, :as =&gt; :commentable, :dependent =&gt; :destroy          scope :readable, lambda { |roles_mask|             {              :conditions =&gt; [&quot;access_read_mask &amp; ? &gt; 0&quot;, roles_mask]             }          }</span>
 end</pre>
@@ -410,7 +436,40 @@ end</pre>
         </div>
 
         
+        <div class="aliases">
+          Also aliased as: <a href="ClassMethods.html#method-i-is_commentable-3F">is_commentable?</a>
+        </div>
+        
 
+        
+      </div>
+
+    
+      <div id="is_commentable-3F-method" class="method-detail method-alias">
+        <a name="method-i-is_commentable-3F"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">is_commentable?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="ClassMethods.html#method-i-is_commentable">is_commentable</a>
+        </div>
         
       </div>
 

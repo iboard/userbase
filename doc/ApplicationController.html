@@ -125,6 +125,14 @@
         
           <li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
         
+          <li><a href="./Blogables.html">Blogables</a></li>
+        
+          <li><a href="./Blogables/Blogable.html">Blogables::Blogable</a></li>
+        
+          <li><a href="./Blogables/Blogable/ClassMethods.html">Blogables::Blogable::ClassMethods</a></li>
+        
+          <li><a href="./Blogables/Blogable/InstanceMethods.html">Blogables::Blogable::InstanceMethods</a></li>
+        
           <li><a href="./Commentables.html">Commentables</a></li>
         
           <li><a href="./Commentables/Commentable.html">Commentables::Commentable</a></li>
@@ -213,6 +221,18 @@
         
           <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
         
+          <li><a href="./BlogController.html">BlogController</a></li>
+        
+          <li><a href="./BlogControllerTest.html">BlogControllerTest</a></li>
+        
+          <li><a href="./BlogEntry.html">BlogEntry</a></li>
+        
+          <li><a href="./BlogEntryTest.html">BlogEntryTest</a></li>
+        
+          <li><a href="./BlogHelper.html">BlogHelper</a></li>
+        
+          <li><a href="./BlogHelperTest.html">BlogHelperTest</a></li>
+        
           <li><a href="./BrowsingTest.html">BrowsingTest</a></li>
         
           <li><a href="./Comment.html">Comment</a></li>
@@ -230,6 +250,8 @@
           <li><a href="./CreateAssets.html">CreateAssets</a></li>
         
           <li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="./CreateBlogEntries.html">CreateBlogEntries</a></li>
         
           <li><a href="./CreateComments.html">CreateComments</a></li>
         
@@ -286,6 +308,8 @@
           <li><a href="./Rating.html">Rating</a></li>
         
           <li><a href="./RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="./RatingsController.html">RatingsController</a></li>
         
           <li><a href="./RegistrationsController.html">RegistrationsController</a></li>
         
@@ -378,7 +402,7 @@ are switched off this function will turn all languages on again.</p>
           <div class="method-source-code"
             id="set_language_filter-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/application_controller.rb, line 28</span>
+<span class="ruby-comment"># File app/controllers/application_controller.rb, line 29</span>
 def set_language_filter
   session[:language_filter] ||= []
   if params[:locale] == <span class="ruby-string">'all'</span>
@@ -421,7 +445,7 @@ end</pre>
           <div class="method-source-code"
             id="switch_language-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/application_controller.rb, line 42</span>
+<span class="ruby-comment"># File app/controllers/application_controller.rb, line 43</span>
 def switch_language
   <span class="ruby-constant">I18n</span>.locale = params[:lang]
   session[:lang] = params[:lang]

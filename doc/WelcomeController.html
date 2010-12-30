@@ -71,15 +71,9 @@
           
           <li><a href="#method-i-about">#about</a></li>
           
-          <li><a href="#method-i-archive">#archive</a></li>
-          
           <li><a href="#method-i-index">#index</a></li>
           
           <li><a href="#method-i-legal_notice">#legal_notice</a></li>
-          
-          <li><a href="#method-i-rate">#rate</a></li>
-          
-          <li><a href="#method-i-ratings">#ratings</a></li>
           
           <li><a href="#method-i-user">#user</a></li>
           
@@ -134,6 +128,14 @@
           <li><a href="./Assetables/Assetable/ClassMethods.html">Assetables::Assetable::ClassMethods</a></li>
         
           <li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
+        
+          <li><a href="./Blogables.html">Blogables</a></li>
+        
+          <li><a href="./Blogables/Blogable.html">Blogables::Blogable</a></li>
+        
+          <li><a href="./Blogables/Blogable/ClassMethods.html">Blogables::Blogable::ClassMethods</a></li>
+        
+          <li><a href="./Blogables/Blogable/InstanceMethods.html">Blogables::Blogable::InstanceMethods</a></li>
         
           <li><a href="./Commentables.html">Commentables</a></li>
         
@@ -223,6 +225,18 @@
         
           <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
         
+          <li><a href="./BlogController.html">BlogController</a></li>
+        
+          <li><a href="./BlogControllerTest.html">BlogControllerTest</a></li>
+        
+          <li><a href="./BlogEntry.html">BlogEntry</a></li>
+        
+          <li><a href="./BlogEntryTest.html">BlogEntryTest</a></li>
+        
+          <li><a href="./BlogHelper.html">BlogHelper</a></li>
+        
+          <li><a href="./BlogHelperTest.html">BlogHelperTest</a></li>
+        
           <li><a href="./BrowsingTest.html">BrowsingTest</a></li>
         
           <li><a href="./Comment.html">Comment</a></li>
@@ -240,6 +254,8 @@
           <li><a href="./CreateAssets.html">CreateAssets</a></li>
         
           <li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="./CreateBlogEntries.html">CreateBlogEntries</a></li>
         
           <li><a href="./CreateComments.html">CreateComments</a></li>
         
@@ -296,6 +312,8 @@
           <li><a href="./Rating.html">Rating</a></li>
         
           <li><a href="./RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="./RatingsController.html">RatingsController</a></li>
         
           <li><a href="./RegistrationsController.html">RegistrationsController</a></li>
         
@@ -384,50 +402,8 @@
           <div class="method-source-code"
             id="about-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 63</span>
+<span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 29</span>
 def about
-end</pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="archive-method" class="method-detail ">
-        <a name="method-i-archive"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">archive</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>GET /archive/:month</p>
-          
-
-          
-          <div class="method-source-code"
-            id="archive-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 20</span>
-def archive
-  from_year  = params[:month].split(<span class="ruby-string">&quot;_&quot;</span>)[0]
-  from_month = params[:month].split(<span class="ruby-string">&quot;_&quot;</span>)[1]
-  from_date = <span class="ruby-constant">Time</span>.parse( &quot;#{from_year}-#{from_month}-01 00:00:00&quot;)
-  to_date   = from_date+1.month
-  postings = <span class="ruby-constant">Posting</span>.readable( current_user ? current_user.roles_mask : 1).where( [<span class="ruby-string">'created_at between ? and ?'</span>,
-    from_date, to_date])
-  episodes = <span class="ruby-constant">Episode</span>.readable( current_user ? current_user.roles_mask : 1).where( [<span class="ruby-string">'created_at between ? and ?'</span>,
-    from_date, to_date])
-  <span class="ruby-ivar">@archive</span> = (postings.all + episodes.all).sort { |a,b| a.created_at &lt;=&gt; b.created_at }
 end</pre>
           </div>
           
@@ -461,10 +437,10 @@ end</pre>
 <pre>
 <span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 7</span>
 def index
-  <span class="ruby-ivar">@postings</span>     = <span class="ruby-constant">Posting</span>.readable( current_user ? current_user.roles_mask : 1).latest(<span class="ruby-constant">CONSTANTS</span>[<span class="ruby-string">'num_postings_on_welcome_page'</span>])
+  <span class="ruby-ivar">@postings</span>     = <span class="ruby-constant">Posting</span>.readable( current_user ? current_user.roles_mask : 1).latest(<span class="ruby-constant">CONSTANTS</span>[<span class="ruby-string">'num_postings_on_welcome_page'</span>].to_i).order(<span class="ruby-string">'updated_at desc'</span>)
   respond_to do |format| 
     format.atom  { 
-      <span class="ruby-ivar">@commentables</span> = <span class="ruby-constant">Commentable</span>.all_commentables
+      <span class="ruby-ivar">@commentables</span> = <span class="ruby-constant">Commentable</span>.all_commentables {|c| c.order(<span class="ruby-string">'updated_at asc'</span>)}
       render :builder =&gt; <span class="ruby-ivar">@commentables</span> 
     }
     format.html    
@@ -501,89 +477,8 @@ end</pre>
           <div class="method-source-code"
             id="legal_notice-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 59</span>
+<span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 25</span>
 def legal_notice
-end</pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="rate-method" class="method-detail ">
-        <a name="method-i-rate"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">rate</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="rate-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 40</span>
-def rate
-   <span class="ruby-ivar">@rateable</span> = eval(&quot;#{params[:rateable_type]}.find(#{params[:rateable_id]})&quot;)
-   <span class="ruby-ivar">@user</span>     = <span class="ruby-constant">User</span>.find(params[:user_id])
-   <span class="ruby-ivar">@my_rating</span> = <span class="ruby-ivar">@user</span>.ratings.where(
-                  :rateable_id =&gt; params[:rateable_id].to_i, 
-                  :rateable_type =&gt; params[:rateable_type]).first ||
-                <span class="ruby-ivar">@user</span>.ratings.create(
-                  :rateable_id =&gt; params[:rateable_id].to_i, 
-                  :rateable_type =&gt; params[:rateable_type])
-  <span class="ruby-ivar">@my_rating</span>.rating = params[:rating].to_i
-  <span class="ruby-ivar">@my_rating</span>.save
-  <span class="ruby-ivar">@rateable</span>.reload
-end</pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="ratings-method" class="method-detail ">
-        <a name="method-i-ratings"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">ratings</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>GET /ratings</p>
-          
-
-          
-          <div class="method-source-code"
-            id="ratings-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 33</span>
-def ratings
-  postings = <span class="ruby-constant">Posting</span>.readable( current_user ? current_user.roles_mask : 1)
-  episodes = <span class="ruby-constant">Episode</span>.readable( current_user ? current_user.roles_mask : 1)
-  ratings = (postings.all + episodes.all).flatten.sort { |b,a| (a.ratings_average||0) &lt;=&gt; (b.ratings_average||0) }
-  <span class="ruby-ivar">@ratings</span> = ratings.paginate(:page =&gt; params[:page], :per_page =&gt; <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-string">'paginate_ratings_per_page'</span>])
 end</pre>
           </div>
           
@@ -615,7 +510,7 @@ end</pre>
           <div class="method-source-code"
             id="user-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 55</span>
+<span class="ruby-comment"># File app/controllers/welcome_controller.rb, line 21</span>
 def user
 end</pre>
           </div>

@@ -139,6 +139,14 @@
         
           <li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
         
+          <li><a href="./Blogables.html">Blogables</a></li>
+        
+          <li><a href="./Blogables/Blogable.html">Blogables::Blogable</a></li>
+        
+          <li><a href="./Blogables/Blogable/ClassMethods.html">Blogables::Blogable::ClassMethods</a></li>
+        
+          <li><a href="./Blogables/Blogable/InstanceMethods.html">Blogables::Blogable::InstanceMethods</a></li>
+        
           <li><a href="./Commentables.html">Commentables</a></li>
         
           <li><a href="./Commentables/Commentable.html">Commentables::Commentable</a></li>
@@ -227,6 +235,18 @@
         
           <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
         
+          <li><a href="./BlogController.html">BlogController</a></li>
+        
+          <li><a href="./BlogControllerTest.html">BlogControllerTest</a></li>
+        
+          <li><a href="./BlogEntry.html">BlogEntry</a></li>
+        
+          <li><a href="./BlogEntryTest.html">BlogEntryTest</a></li>
+        
+          <li><a href="./BlogHelper.html">BlogHelper</a></li>
+        
+          <li><a href="./BlogHelperTest.html">BlogHelperTest</a></li>
+        
           <li><a href="./BrowsingTest.html">BrowsingTest</a></li>
         
           <li><a href="./Comment.html">Comment</a></li>
@@ -244,6 +264,8 @@
           <li><a href="./CreateAssets.html">CreateAssets</a></li>
         
           <li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="./CreateBlogEntries.html">CreateBlogEntries</a></li>
         
           <li><a href="./CreateComments.html">CreateComments</a></li>
         
@@ -300,6 +322,8 @@
           <li><a href="./Rating.html">Rating</a></li>
         
           <li><a href="./RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="./RatingsController.html">RatingsController</a></li>
         
           <li><a href="./RegistrationsController.html">RegistrationsController</a></li>
         
@@ -388,7 +412,7 @@
           <div class="method-source-code"
             id="access_manage_mask_flags-3D-source">
 <pre>
-<span class="ruby-comment"># File app/models/episode.rb, line 32</span>
+<span class="ruby-comment"># File app/models/episode.rb, line 21</span>
 def access_manage_mask_flags=(flags)
   self.access_manage_mask=(flags &amp; <span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>).map { |r| 2**<span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>.index(r) }.sum
 end</pre>
@@ -422,7 +446,7 @@ end</pre>
           <div class="method-source-code"
             id="access_read_mask_flags-3D-source">
 <pre>
-<span class="ruby-comment"># File app/models/episode.rb, line 28</span>
+<span class="ruby-comment"># File app/models/episode.rb, line 17</span>
 def access_read_mask_flags=(flags)
   self.access_read_mask=(flags &amp; <span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>).map { |r| 2**<span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>.index(r) }.sum
 end</pre>
@@ -456,7 +480,7 @@ end</pre>
           <div class="method-source-code"
             id="allow_role_to_manage-3F-source">
 <pre>
-<span class="ruby-comment"># File app/models/episode.rb, line 41</span>
+<span class="ruby-comment"># File app/models/episode.rb, line 30</span>
 def allow_role_to_manage?(role)
   ! (2**<span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>.index(role) &amp; access_manage_mask).zero?
 end</pre>
@@ -490,7 +514,7 @@ end</pre>
           <div class="method-source-code"
             id="allow_role_to_read-3F-source">
 <pre>
-<span class="ruby-comment"># File app/models/episode.rb, line 37</span>
+<span class="ruby-comment"># File app/models/episode.rb, line 26</span>
 def allow_role_to_read?(role)
   ! (2**<span class="ruby-constant">User</span>::<span class="ruby-constant">ROLES</span>.index(role) &amp; access_read_mask).zero?
 end</pre>
@@ -524,7 +548,7 @@ end</pre>
           <div class="method-source-code"
             id="allow_user_to_manage-3F-source">
 <pre>
-<span class="ruby-comment"># File app/models/episode.rb, line 49</span>
+<span class="ruby-comment"># File app/models/episode.rb, line 38</span>
 def allow_user_to_manage?(user)
   ! (user.roles_mask &amp; access_manage_mask).zero?
 end</pre>
@@ -558,7 +582,7 @@ end</pre>
           <div class="method-source-code"
             id="allow_user_to_read-3F-source">
 <pre>
-<span class="ruby-comment"># File app/models/episode.rb, line 45</span>
+<span class="ruby-comment"># File app/models/episode.rb, line 34</span>
 def allow_user_to_read?(user)
   ! (user.roles_mask &amp; access_read_mask).zero?
 end</pre>
@@ -592,7 +616,7 @@ end</pre>
           <div class="method-source-code"
             id="body-source">
 <pre>
-<span class="ruby-comment"># File app/models/episode.rb, line 23</span>
+<span class="ruby-comment"># File app/models/episode.rb, line 12</span>
 def body
   description
 end</pre>
@@ -626,7 +650,7 @@ end</pre>
           <div class="method-source-code"
             id="is_youtube_video-3F-source">
 <pre>
-<span class="ruby-comment"># File app/models/episode.rb, line 53</span>
+<span class="ruby-comment"># File app/models/episode.rb, line 42</span>
 def is_youtube_video?
   video_web_url.downcase.include?(<span class="ruby-string">'http://www.youtube.com/'</span>)
 end</pre>
@@ -660,7 +684,7 @@ end</pre>
           <div class="method-source-code"
             id="youtube_embed_url-source">
 <pre>
-<span class="ruby-comment"># File app/models/episode.rb, line 57</span>
+<span class="ruby-comment"># File app/models/episode.rb, line 46</span>
 def youtube_embed_url
   video_web_url.gsub(<span class="ruby-string">&quot;http://www.youtube.com/watch?v=&quot;</span>,
     <span class="ruby-string">&quot;http://www.youtube.com/v/&quot;</span>

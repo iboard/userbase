@@ -81,8 +81,6 @@
           
           <li><a href="#method-i-show">#show</a></li>
           
-          <li><a href="#method-i-tag">#tag</a></li>
-          
           <li><a href="#method-i-update">#update</a></li>
           
         </ul>
@@ -136,6 +134,14 @@
           <li><a href="./Assetables/Assetable/ClassMethods.html">Assetables::Assetable::ClassMethods</a></li>
         
           <li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
+        
+          <li><a href="./Blogables.html">Blogables</a></li>
+        
+          <li><a href="./Blogables/Blogable.html">Blogables::Blogable</a></li>
+        
+          <li><a href="./Blogables/Blogable/ClassMethods.html">Blogables::Blogable::ClassMethods</a></li>
+        
+          <li><a href="./Blogables/Blogable/InstanceMethods.html">Blogables::Blogable::InstanceMethods</a></li>
         
           <li><a href="./Commentables.html">Commentables</a></li>
         
@@ -225,6 +231,18 @@
         
           <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
         
+          <li><a href="./BlogController.html">BlogController</a></li>
+        
+          <li><a href="./BlogControllerTest.html">BlogControllerTest</a></li>
+        
+          <li><a href="./BlogEntry.html">BlogEntry</a></li>
+        
+          <li><a href="./BlogEntryTest.html">BlogEntryTest</a></li>
+        
+          <li><a href="./BlogHelper.html">BlogHelper</a></li>
+        
+          <li><a href="./BlogHelperTest.html">BlogHelperTest</a></li>
+        
           <li><a href="./BrowsingTest.html">BrowsingTest</a></li>
         
           <li><a href="./Comment.html">Comment</a></li>
@@ -242,6 +260,8 @@
           <li><a href="./CreateAssets.html">CreateAssets</a></li>
         
           <li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="./CreateBlogEntries.html">CreateBlogEntries</a></li>
         
           <li><a href="./CreateComments.html">CreateComments</a></li>
         
@@ -298,6 +318,8 @@
           <li><a href="./Rating.html">Rating</a></li>
         
           <li><a href="./RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="./RatingsController.html">RatingsController</a></li>
         
           <li><a href="./RegistrationsController.html">RegistrationsController</a></li>
         
@@ -595,41 +617,6 @@ def show
     format.html <span class="ruby-comment"># show.html.erb</span>
     format.xml  { render :xml =&gt; <span class="ruby-ivar">@episode</span> }
   end
-end</pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="tag-method" class="method-detail ">
-        <a name="method-i-tag"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">tag</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>GET /episodes/tag/:tag renders action index</p>
-          
-
-          
-          <div class="method-source-code"
-            id="tag-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/episodes_controller.rb, line 96</span>
-def tag
-  <span class="ruby-ivar">@episodes</span> = <span class="ruby-constant">Episode</span>.tagged_with(params[:tag], :on =&gt; :tags)       .readable(current_user ? current_user.roles_mask : 1)       .order(<span class="ruby-string">'updated_at desc'</span>).uniq       .paginate(:page =&gt; params[:page], :per_page =&gt; <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-string">'paginate_postings_per_page'</span>])
-  render :index
 end</pre>
           </div>
           

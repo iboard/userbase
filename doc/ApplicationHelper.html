@@ -151,6 +151,14 @@
         
           <li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
         
+          <li><a href="./Blogables.html">Blogables</a></li>
+        
+          <li><a href="./Blogables/Blogable.html">Blogables::Blogable</a></li>
+        
+          <li><a href="./Blogables/Blogable/ClassMethods.html">Blogables::Blogable::ClassMethods</a></li>
+        
+          <li><a href="./Blogables/Blogable/InstanceMethods.html">Blogables::Blogable::InstanceMethods</a></li>
+        
           <li><a href="./Commentables.html">Commentables</a></li>
         
           <li><a href="./Commentables/Commentable.html">Commentables::Commentable</a></li>
@@ -239,6 +247,18 @@
         
           <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
         
+          <li><a href="./BlogController.html">BlogController</a></li>
+        
+          <li><a href="./BlogControllerTest.html">BlogControllerTest</a></li>
+        
+          <li><a href="./BlogEntry.html">BlogEntry</a></li>
+        
+          <li><a href="./BlogEntryTest.html">BlogEntryTest</a></li>
+        
+          <li><a href="./BlogHelper.html">BlogHelper</a></li>
+        
+          <li><a href="./BlogHelperTest.html">BlogHelperTest</a></li>
+        
           <li><a href="./BrowsingTest.html">BrowsingTest</a></li>
         
           <li><a href="./Comment.html">Comment</a></li>
@@ -256,6 +276,8 @@
           <li><a href="./CreateAssets.html">CreateAssets</a></li>
         
           <li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="./CreateBlogEntries.html">CreateBlogEntries</a></li>
         
           <li><a href="./CreateComments.html">CreateComments</a></li>
         
@@ -312,6 +334,8 @@
           <li><a href="./Rating.html">Rating</a></li>
         
           <li><a href="./RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="./RatingsController.html">RatingsController</a></li>
         
           <li><a href="./RegistrationsController.html">RegistrationsController</a></li>
         
@@ -400,10 +424,10 @@
           <div class="method-source-code"
             id="admin_menu_items-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 16</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 17</span>
 def admin_menu_items
     menu_items = []
-    menu_items  &lt;&lt; { :label =&gt; t(:user_listing), :url =&gt; users_path } if current_user &amp;&amp; can?( :read, <span class="ruby-constant">User</span> )
+    menu_items  &lt;&lt; { :label =&gt; t(:user_listing), :url =&gt; users_path } if current_user &amp;&amp; can?( :read, <span class="ruby-constant">User</span>.new )
     menu_items  &lt;&lt; { :label =&gt; t(:user), :url =&gt; user_settings_path(current_user) } if current_user &amp;&amp; can?(:avatar, current_user)
     menu_items
 end</pre>
@@ -437,7 +461,7 @@ end</pre>
           <div class="method-source-code"
             id="button-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 23</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 24</span>
 def button(content)
   content_tag :div, :class =&gt; <span class="ruby-string">'link_button'</span> do
     content
@@ -473,7 +497,7 @@ end</pre>
           <div class="method-source-code"
             id="inline_button-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 41</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 42</span>
 def inline_button(content)
   content_tag :span, :class =&gt; <span class="ruby-string">'inline_button'</span> do
     content
@@ -509,7 +533,7 @@ end</pre>
           <div class="method-source-code"
             id="language_filter-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 63</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 64</span>
 def language_filter
   
   <span class="ruby-comment"># If no filter is defined - set all languages selected</span>
@@ -564,7 +588,7 @@ end</pre>
           <div class="method-source-code"
             id="link_to_add_fields-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 51</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 52</span>
 def link_to_add_fields(name,f,association)
   new_object = f.object.class.reflect_on_association(association).klass.new
   fields  = f.fields_for(association,new_object, :child_index=&gt;&quot;new_#{association}&quot;) do |builder|
@@ -602,7 +626,7 @@ end</pre>
           <div class="method-source-code"
             id="link_to_remove_fields-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 47</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 48</span>
 def link_to_remove_fields(name, f)
   f.hidden_field(:_destroy) + <span class="ruby-string">&quot;&amp;nbsp;&quot;</span>.html_safe + link_to_function(name,<span class="ruby-string">&quot;remove_fields(this)&quot;</span>)
 end</pre>
@@ -636,7 +660,7 @@ end</pre>
           <div class="method-source-code"
             id="link_to_toggle-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 59</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 60</span>
 def link_to_toggle(name,target)
   link_to_function(name,&quot;$(\&quot;##{target}\&quot;).slideToggle()&quot;)
 end</pre>
@@ -671,16 +695,17 @@ end</pre>
             id="main_menu_items-source">
 <pre>
 <span class="ruby-comment"># File app/helpers/application_helper.rb, line 5</span>
-def main_menu_items
-  menu_items =  [ {:label =&gt; t(:home), :url =&gt; root_path } ]
-  menu_items &lt;&lt; { :label =&gt; t(:postings), :url =&gt; postings_path }  if can?( :read, <span class="ruby-constant">Posting</span> ) 
-  menu_items &lt;&lt; { :label =&gt; <span class="ruby-string">'Videos'</span>, :url =&gt; episodes_path }  if can?( :read, <span class="ruby-constant">Episode</span> )
-  menu_items += [
-    {:label =&gt; t(:legal_notice), :url =&gt; legal_notice_path},
-    {:label =&gt; t(:about), :url =&gt; about_path }
-  ]
-  menu_items
-end</pre>
+  def main_menu_items
+    menu_items =  [ {:label =&gt; t(:blog), :url =&gt; root_path } ]
+<span class="ruby-comment">#    menu_items &lt;&lt; { :label =&gt; t(:blog), :url =&gt; blog_path('updated_at', 'desc') }</span>
+    menu_items &lt;&lt; { :label =&gt; t(:postings), :url =&gt; postings_path }  if can?( :read, <span class="ruby-constant">Posting</span> ) 
+    menu_items &lt;&lt; { :label =&gt; <span class="ruby-string">'Videos'</span>, :url =&gt; episodes_path }  if can?( :read, <span class="ruby-constant">Episode</span> )
+    menu_items += [
+      {:label =&gt; t(:legal_notice), :url =&gt; legal_notice_path},
+      {:label =&gt; t(:about), :url =&gt; about_path }
+    ]
+    menu_items
+  end</pre>
           </div>
           
         </div>
@@ -711,7 +736,7 @@ end</pre>
           <div class="method-source-code"
             id="rating_links-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 89</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 90</span>
 def rating_links( item, user)
   item_ratings_avg = item.ratings_average || 0
   item_ratings_count=item.ratings_count || 0
@@ -733,7 +758,7 @@ def rating_links( item, user)
                          :title =&gt; label_text )
       end
     end
-    rc += sc(:nbsp)*2+t(:count_ratings, :count =&gt; item_ratings_count, :rating =&gt; item_ratings_avg)
+    rc += sc(:br)+t(:count_ratings, :count =&gt; item_ratings_count, :rating =&gt; item_ratings_avg)
     rc += sc(:nbsp)*2+t(:ratings_average, :count =&gt; item_ratings_avg, :rating =&gt; item_ratings_avg)
     rc += sc(:nbsp)*2+t(:you) + sc(:nbsp,:pr,:nbsp) + my_rating.rating.to_s if user &amp;&amp; my_rating
     rc.html_safe
@@ -769,7 +794,7 @@ end</pre>
           <div class="method-source-code"
             id="right_button-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 29</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 30</span>
 def right_button(content)
   content_tag :div, :class =&gt; <span class="ruby-string">'right_button'</span> do
     content
@@ -805,7 +830,7 @@ end</pre>
           <div class="method-source-code"
             id="title_buttons-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 35</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 36</span>
 def title_buttons(content)
   content_tag :div, :class =&gt; <span class="ruby-string">'title_buttons'</span> do
     content

@@ -144,6 +144,14 @@
         
           <li><a href="./Assetables/Assetable/InstanceMethods.html">Assetables::Assetable::InstanceMethods</a></li>
         
+          <li><a href="./Blogables.html">Blogables</a></li>
+        
+          <li><a href="./Blogables/Blogable.html">Blogables::Blogable</a></li>
+        
+          <li><a href="./Blogables/Blogable/ClassMethods.html">Blogables::Blogable::ClassMethods</a></li>
+        
+          <li><a href="./Blogables/Blogable/InstanceMethods.html">Blogables::Blogable::InstanceMethods</a></li>
+        
           <li><a href="./Commentables.html">Commentables</a></li>
         
           <li><a href="./Commentables/Commentable.html">Commentables::Commentable</a></li>
@@ -232,6 +240,18 @@
         
           <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a></li>
         
+          <li><a href="./BlogController.html">BlogController</a></li>
+        
+          <li><a href="./BlogControllerTest.html">BlogControllerTest</a></li>
+        
+          <li><a href="./BlogEntry.html">BlogEntry</a></li>
+        
+          <li><a href="./BlogEntryTest.html">BlogEntryTest</a></li>
+        
+          <li><a href="./BlogHelper.html">BlogHelper</a></li>
+        
+          <li><a href="./BlogHelperTest.html">BlogHelperTest</a></li>
+        
           <li><a href="./BrowsingTest.html">BrowsingTest</a></li>
         
           <li><a href="./Comment.html">Comment</a></li>
@@ -249,6 +269,8 @@
           <li><a href="./CreateAssets.html">CreateAssets</a></li>
         
           <li><a href="./CreateAuthentications.html">CreateAuthentications</a></li>
+        
+          <li><a href="./CreateBlogEntries.html">CreateBlogEntries</a></li>
         
           <li><a href="./CreateComments.html">CreateComments</a></li>
         
@@ -305,6 +327,8 @@
           <li><a href="./Rating.html">Rating</a></li>
         
           <li><a href="./RatingTest.html">RatingTest</a></li>
+        
+          <li><a href="./RatingsController.html">RatingsController</a></li>
         
           <li><a href="./RegistrationsController.html">RegistrationsController</a></li>
         
@@ -394,14 +418,14 @@ module</p>
 
         <div class="method-description">
           
-          
+          <p>Load Library when included (see initializers/iboard_modules.rb)</p>
           
 
           
           <div class="method-source-code"
             id="included-source">
 <pre>
-<span class="ruby-comment"># File lib/commentables.rb, line 10</span>
+<span class="ruby-comment"># File lib/commentables.rb, line 11</span>
 def self.included(base)
   <span class="ruby-constant">ActiveRecord</span>::<span class="ruby-constant">Base</span>.class_eval { include <span class="ruby-constant">Commentables</span>::<span class="ruby-constant">Commentable</span> }
 end</pre>
@@ -427,7 +451,7 @@ end</pre>
         <div class="method-heading">
         
           <span class="method-name">all_commentables</span><span
-            class="method-args">()</span>
+            class="method-args">(user=nil,&block)</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
@@ -444,27 +468,30 @@ be returned.</p>
           <div class="method-source-code"
             id="all_commentables-source">
 <pre>
-<span class="ruby-comment"># File lib/commentables.rb, line 17</span>
-def all_commentables 
+<span class="ruby-comment"># File lib/commentables.rb, line 18</span>
+def all_commentables(user=nil,&amp;block) 
   return <span class="ruby-ivar">@commentables</span> if defined?(<span class="ruby-ivar">@commentables</span>) &amp;&amp; ((<span class="ruby-constant">Time</span>.now-<span class="ruby-ivar">@last_fetched</span>).to_i &lt; <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-string">'rss_feed_cache_time'</span>].to_i)
   <span class="ruby-constant">Rails</span>.logger.info(&quot;**** Rebuilding rss-items for #{$registered_commentables.inspect} and comments&quot;)
-  <span class="ruby-ivar">@last_fetched</span> = <span class="ruby-constant">Time</span>.now
-  resources = []
-  $registered_commentables.each do |commentable_name|
-    eval( cmd=&quot;resources &lt;&lt; #{commentable_name.humanize}.readable(1).all&quot;  )
-  end
-  rc = resources.flatten
-  resources.flatten.each do |resource|
+  resources = $registered_commentables.map { |commentable_model|
+    unless block_given?
+      commentable_model.readable( user ? user.roles_mask : 1).all
+    else
+      yield(commentable_model).readable( user ? user.roles_mask : 1).all
+    end
+  }.flatten
+  comments = []
+  resources.each do |resource|
     if resource.respond_to?(<span class="ruby-string">'comments'</span>)
       resource.comments.each do |comment|
-        rc &lt;&lt; comment
+        comments &lt;&lt; comment
       end
     end
   end
-  <span class="ruby-ivar">@commentables</span> = rc.flatten.reject {|r| r.nil? || (r.is_a?(<span class="ruby-constant">Array</span>) &amp;&amp; r.empty?)  }.sort { |a,b|
+  
+  <span class="ruby-ivar">@commentables</span> = (resources+comments).reject {|r| r.nil? || (r.is_a?(<span class="ruby-constant">Array</span>) &amp;&amp; r.empty?)  }.sort { |a,b|
     a.updated_at &lt;=&gt; b.updated_at 
   }
-  <span class="ruby-constant">Rails</span>.logger.info( <span class="ruby-string">&quot;**** Returning %d commentables&quot;</span> % <span class="ruby-ivar">@commentables</span>.count)
+  <span class="ruby-ivar">@last_fetched</span> = <span class="ruby-constant">Time</span>.now
   <span class="ruby-ivar">@commentables</span>
 end</pre>
           </div>
@@ -499,11 +526,12 @@ href="Commentables.html#method-i-freeze_registered_commentables">freeze_register
           <div class="method-source-code"
             id="freeze_registered_commentables-source">
 <pre>
-<span class="ruby-comment"># File lib/commentables.rb, line 71</span>
+<span class="ruby-comment"># File lib/commentables.rb, line 76</span>
 def freeze_registered_commentables
   $registered_commentables ||= $stage_commentables
   puts(
-     &quot;[%s] INFO  Registered commentables are frozen at #{$registered_commentables.inspect}&quot; % <span class="ruby-constant">Time</span>.now.strftime(<span class="ruby-string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)
+     (<span class="ruby-string">&quot;[%s] INFO  Registered commentables are frozen at &quot;</span>+
+     &quot;#{$registered_commentables.map {|m| m.to_s}.join(', ')}&quot;) % <span class="ruby-constant">Time</span>.now.strftime(<span class="ruby-string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)
   ) if <span class="ruby-constant">Rails</span>.env != <span class="ruby-string">'production'</span>
 end</pre>
           </div>
@@ -536,17 +564,18 @@ end</pre>
           <div class="method-source-code"
             id="group_by_month-source">
 <pre>
-<span class="ruby-comment"># File lib/commentables.rb, line 40</span>
+<span class="ruby-comment"># File lib/commentables.rb, line 44</span>
 def group_by_month
   return <span class="ruby-ivar">@archive_links</span> if defined?(<span class="ruby-ivar">@archive_links</span>) &amp;&amp; ((<span class="ruby-constant">Time</span>.now-<span class="ruby-ivar">@last_fetched_archive</span>).to_i &lt; <span class="ruby-constant">CONSTANTS</span>[<span class="ruby-string">'rss_feed_cache_time'</span>].to_i)
-  <span class="ruby-ivar">@last_fetched_archive</span> = <span class="ruby-constant">Time</span>.now
   resources = []
-  $registered_commentables.each do |commentable_name|
-    eval( cmd=&quot;resources &lt;&lt; \
-    #{commentable_name.humanize}.all(\
-       :select =&gt; 'id,created_at').group_by {|c| [c.created_at.year,c.created_at.month].join('_') }\
-     &quot;)
+  $registered_commentables.each do |resource|
+    resources &lt;&lt; resource.all(
+       :select =&gt; <span class="ruby-string">'id,created_at'</span>
+    ).group_by { |c| 
+         [c.created_at.year,c.created_at.month].join(<span class="ruby-string">'_'</span>) 
+    }
   end
+  <span class="ruby-ivar">@last_fetched_archive</span> = <span class="ruby-constant">Time</span>.now
   <span class="ruby-ivar">@archive_links</span> = resources.flatten
 end</pre>
           </div>
@@ -579,7 +608,7 @@ end</pre>
           <div class="method-source-code"
             id="register-source">
 <pre>
-<span class="ruby-comment"># File lib/commentables.rb, line 54</span>
+<span class="ruby-comment"># File lib/commentables.rb, line 59</span>
 def register(arg)
   return if defined? $registered_commentables
   unless defined? $stage_commentables
