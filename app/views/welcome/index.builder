@@ -5,7 +5,7 @@ atom_feed(:url => feed_path) do |feed|
    for item in @commentables
      feed.entry(item) do |entry|
        entry.title(item.object_title)
-       content = RedCloth.new(item.body).to_html
+       content = sanitize(RedCloth.new(item.body).to_html)
        if defined? item.assets
          content += render( :partial => "/assets/asset.html.erb", :collection => item.assets, :type => :html).to_s
        end

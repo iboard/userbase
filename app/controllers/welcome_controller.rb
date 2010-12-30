@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
     @postings     = Posting.readable( current_user ? current_user.roles_mask : 1).latest(CONSTANTS['num_postings_on_welcome_page']).order('updated_at asc')
     respond_to do |format| 
       format.atom  { 
-        @commentables = Commentable.all_commentables
+        @commentables = Commentable.all_commentables.sort {|a,b| a.updated_at <=> b.updated_at}
         render :builder => @commentables 
       }
       format.html    
