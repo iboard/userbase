@@ -62,5 +62,5 @@ Dec 14, 2010 - Andreas Altendorfer &lt;andreas@altendorfer.at&gt;
 
 ## More Information
 
-- [Blog and online installation of _userbase_](http://iboard.cc/postings/tag/userbase)
+- [Blog and online installation of _userbase_](http://iboard.cc/tag/userbase)
 - [PivotalTracker](http://www.pivotaltracker.com/projects/168147)
