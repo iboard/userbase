@@ -72,6 +72,17 @@ module Blogables
           end
           after_create :create_blog_entry
           
+          validates :title,   :presence => true
+          validates :user_id, :presence => true, :user_exists => true
+          validates :access_read_mask, :numericality   => { :greater_than => 0 }
+          validates :access_manage_mask, :numericality => { :greater_than => 0 }
+          
+          scope :latest, lambda { |num_postings| {:limit => num_postings, :order => 'updated_at desc'} }
+          
+          def pictures
+            assets.where("asset_content_type like ?", "%image%")
+          end
+          
           def image_asset_url(mode=:preview)
             if self.assets.any?
               first_image = self.assets.where( "asset_content_type like ?", "%image%" ).first
@@ -86,7 +97,32 @@ module Blogables
           scope :with_locale, lambda { |loc| where(:locale => loc.locale) }
           scope :with_locales, lambda { |loc| where( "locale in (?)", loc) }
           
-          
+          # Virtual Attributes
+          def access_read_mask_flags=(flags)
+            self.access_read_mask=(flags & User::ROLES).map { |r| 2**User::ROLES.index(r) }.sum
+          end
+
+          def access_manage_mask_flags=(flags)
+            self.access_manage_mask=(flags & User::ROLES).map { |r| 2**User::ROLES.index(r) }.sum
+          end
+
+          def allow_role_to_read?(role)
+            ! (2**User::ROLES.index(role) & access_read_mask).zero?
+          end 
+
+          def allow_role_to_manage?(role)
+            ! (2**User::ROLES.index(role) & access_manage_mask).zero?
+          end 
+
+          def allow_user_to_read?(user)
+            ! (user.roles_mask & access_read_mask).zero?
+          end 
+
+          def allow_user_to_manage?(user)
+            ! (user.roles_mask & access_manage_mask).zero?
+          end 
+
+
           private
           def create_blog_entry
             BlogEntry.create(:blog_entry_id => self.id, :blog_entry_type => self.class.to_s)

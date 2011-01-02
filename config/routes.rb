@@ -1,5 +1,7 @@
 Userbase::Application.routes.draw do
 
+  resources :galleries
+
   resources :authentications
   match '/auth/:provider/callback' => 'authentications#create'
   match '/switch_language/:lang'   => 'application#switch_language', :as => 'switch_language'
@@ -34,6 +36,9 @@ Userbase::Application.routes.draw do
         post :edit_preview
       end
     end
+    resources :galleries do
+      resources :comments
+    end
     #resources :episodes
     member do
       get :avatar
@@ -55,6 +60,8 @@ Userbase::Application.routes.draw do
   resources :episodes do
     resources :comments
   end
+  
+  resources :galleries
     
   resources :comments
 

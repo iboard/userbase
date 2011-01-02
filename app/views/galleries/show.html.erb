@@ -1,0 +1,12 @@
+<%= content_tag :div, :class => 'gallery' do %>
+  <%= render :partial => 'gallery', 
+       :locals => {:gallery => @gallery, 
+       :show_all => true } %> 
+<% end %>
+<span style='clear: both;'><br/></span>
+
+<%= link_to( t(:edit), edit_user_gallery_path(
+  @gallery.user,@gallery)
+  ) if can? :manage, @gallery %>
+  
+<%= link_to t(:back), galleries_path %>

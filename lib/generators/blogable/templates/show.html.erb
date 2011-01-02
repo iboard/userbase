@@ -1,0 +1,12 @@
+<%%= content_tag :div, :class => '<%= @resource_single.underscore -%>' do %>
+  <%%= render :partial => '<%= @resource_single.underscore -%>', 
+       :locals => {:<%= @resource_single.underscore -%> => @<%= @resource_single.underscore -%>, 
+       :show_all => true } %> 
+<%% end %>
+<span style='clear: both;'><br/></span>
+
+<%%= link_to( t(:edit), edit_user_<%= @resource_single.underscore -%>_path(
+  @<%= @resource_single.underscore -%>.user,@<%= @resource_single.underscore -%>)
+  ) if can? :manage, @<%= @resource_single.underscore -%> %>
+  
+<%%= link_to t(:back), <%= @resource_plural.underscore -%>_path %>

@@ -15,3 +15,11 @@
                      :class => 'top_right_buttons') %>
   <% end %>
 <% end %>
+<% if current_user && can?( :create, Gallery.new ) %>
+  <% content_for :new_button do %>
+    <%= seperator %>
+    <%= link_to( sc(:add,:nbsp)+t(:new_gallery), 
+                     new_user_gallery_path(current_user),
+                     :class => 'top_right_buttons') %>
+  <% end %>
+<% end %>

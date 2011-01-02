@@ -24,23 +24,35 @@ class Ability
       if user.role? :moderator
         can :manage, Posting
         can :manage, Episode
+        can :manage, Gallery
       end 
       
       if user.role? :author
         can :create, Posting
         can :create, Episode
+        can :create, Gallery
       end
 
       # Owner of a posting can manage this posting
       can :manage, Posting do |mode,posting| 
          posting && (posting.user == user || posting.allow_user_to_manage?(user))
       end
+
+      # Owner of a episode can manage this episode
+      can :manage, Episode do |mode,episode| 
+         episode && (episode.user == user || episode.allow_user_to_manage?(user))
+      end
+
+      # Owner of a gallery can manage this gallery
+      can :manage, Gallery do |mode,gallery| 
+         gallery && (gallery.user == user || gallery.allow_user_to_manage?(user))
+      end
       
       
       #
-      # Comments
+      # For signed in users
       #
-      unless user.new_record? # Logged in users aren't new records
+      unless user.new_record?
         can :create, Comment
         can :manage, Comment do |mode,comment|
           comment && (comment.user == user && comment.created_at && (Time.now()-comment.created_at < (MAX_TIME_TO_EDIT_NEW_COMMENTS*60))) # give 15mins to edit new comments
@@ -61,11 +73,6 @@ class Ability
           )
         )
       end
-
-      unless user.new_record? # Logged in users aren't new records
-        can :create, Comment
-        can :manage, Comment, :user => user
-      end      
       
       # Everybody 
       can [:read,:tag], Posting do |posting|
@@ -82,21 +89,13 @@ class Ability
         )
       end
 
-      can :read, Episode do |episode|
-        if episode.nil?
-          Episode.readable(user.roles_mask).any?
-        else
-          episode.allow_user_to_read?(user)
-        end
+      can [:read,:tag], Gallery do |gallery|
+        (gallery.nil? && gallery.readable(user.roles_mask & 1).count > 0) ||
+        (
+          gallery && (gallery.new_record?  || gallery.user == user || gallery.allow_user_to_read?(user))
+        )
       end
-      
-      can [:read,:tag], Episode do |episode|
-         (episode.nil? && Episode.readable(user.roles_mask & 1).count > 0) ||
-         (
-           episode && (episode.new_record?  || episode.user == user || episode.allow_user_to_read?(user))
-         )
-      end
-      
+         
       can :manage, Posting do |mode,posting|
         posting && posting.allow_user_to_manage?(user)
       end
@@ -105,11 +104,9 @@ class Ability
         episode && episode.allow_user_to_manage?(user)
       end
             
-      # Guest
-      can :read, Episode do |mode,episode|
-        episode && episode.allow_user_to_manage?(user)
+      can :manage, Gallery do |mode,gallery|
+        gallery && gallery.allow_user_to_manage?(user)
       end
-
       
     end  
 

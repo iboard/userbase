@@ -1,0 +1,11 @@
+<h1>Listing Galleries</h1>
+
+<%= will_paginate @galleries%>
+
+<div id='blog_index'>
+
+  <% @galleries.each do |gallery| %>
+      <%= render :partial => '/blog/blog_entry_header', :locals => { :blog_entry => gallery } %>
+  <% end %>
+
+</div>

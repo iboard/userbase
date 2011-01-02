@@ -247,3 +247,12 @@ en:
   load_more: 'Load more ...'
   end_of_list: 'End of list'
   loading: 'Loading...'
+  gallery: 'Gallery'
+  new_gallery: 'New Gallery'
+  galleries_index: 'Galleries'
+  galleries_of_user: "%{user}'s Galleries"
+  play_gallery: 'Play gallery...'
+  num_items_of_type:
+    zero: 'No %{type}'
+    one: 'One %{type}'
+    other: '%{count} %{plural}'

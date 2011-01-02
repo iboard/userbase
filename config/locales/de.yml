@@ -290,3 +290,12 @@ de:
   load_more: 'Mehr laden ...'
   end_of_list: 'Ende der Liste'
   loading: 'Laden...'
+  gallery: 'Galerie'
+  new_gallery: 'Neue Galerie'
+  galleries_index: 'Galerien'
+  galleries_of_user: "Galerien von %{user}"
+  play_gallery: "Gallery abspielen..."
+  num_items_of_type:
+    zero: 'Kein %{type}'
+    one: 'Ein %{type}'
+    other: '%{count} %{plural}'

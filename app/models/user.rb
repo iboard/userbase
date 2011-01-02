@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :episodes, :dependent => :destroy
   has_many :authentications, :dependent => :destroy
   has_many :ratings,  :dependent => :destroy
+  has_many :galleries, :dependent => :destroy
   
   #validations
   validates :nickname, :presence => true, :uniqueness => true

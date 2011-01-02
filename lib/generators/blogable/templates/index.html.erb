@@ -1,0 +1,11 @@
+<h1>Listing <%= @resource_plural.camelize %></h1>
+
+<%%= will_paginate @<%= @resource_plural.underscore -%>%>
+
+<div id='blog_index'>
+
+  <%% @<%= @resource_plural.underscore -%>.each do |<%= @resource_single.underscore -%>| %>
+      <%%= render :partial => '/blog/blog_entry_header', :locals => { :blog_entry => <%= @resource_single.underscore-%> } %>
+  <%% end %>
+
+</div>

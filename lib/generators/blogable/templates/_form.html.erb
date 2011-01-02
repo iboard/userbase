@@ -1,0 +1,82 @@
+<%%= form_for [@user, @<%= @resource_single -%>] , :html => {:multipart => true} do |f| %>
+  <%% if @<%= @resource_single -%>.errors.any? %>
+    <div id="error_explanation">
+      <h2><%%= pluralize(@<%= @resource_single -%>.errors.count, "error") %> prohibited this <%= @resource_single -%> from being saved:</h2>
+
+      <ul>
+      <%% @<%= @resource_single -%>.errors.full_messages.each do |msg| %>
+        <li><%%= msg %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+
+  <!-- inserted by blogable generator -->
+  <div class="field">
+     <%%= f.label :user_id %> 
+     <%%= f.hidden_field :user_id -%><%%= @<%= @resource_single -%>.user.email %>
+   </div>
+
+   <div class="field">
+       <%%= f.label :title %>
+       <%%= f.text_field :title, :size => 80 %>
+   </div>
+
+   <div class="field">
+     <%%= f.label :locale, t(:language) %>
+     <%%= f.language_select :locale %>
+   </div>
+
+
+   <div class="field">
+     <%%= f.label :tag_list %>
+     <%%= f.text_field :tag_list, :size => 80 %>
+   </div>
+
+   <div class="field">
+     <%%= f.label :body %>
+     <%%= f.text_area :body, :rows => 10, :cols => 58, 
+        :onkeyup => "rerender( '#<%= @resource_single -%>_body', '#preview_body' )" %>
+   </div>
+
+   <%%= render :partial => '<%= @resource_single -%>_fields', :locals => {:f => f} %>
+
+   <div class='field'>
+     <%%= f.label :preview %>
+     <div class='<%= @resource_single -%>_preview'>
+       <%%= link_to_toggle(t(:toggle_preview),'preview_body') %>
+       <div id='preview_body' style='display:none;'>
+         <%% if @<%= @resource_single -%>.body %>
+           <%%= sanitize(RedCloth.new( @<%= @resource_single -%>.body).to_html.html_safe ) %>
+         <%% end %>
+       </div>
+     </div>
+   </div>
+
+   <%%= render :partial => '/comments/commentable_access_fields', :locals => { :f => f, :commentable => @<%= @resource_single -%> }%>
+
+   <%%= f.label :assets, t(:assets)   %>
+   <fieldset id='assets' style='float: none; margin-top: 10px; margin-bottom: 10px; width: 405px'>
+      <%%= f.fields_for :assets do |builder| %>
+        <%%= render '/assets/asset_fields', :f => builder %>
+      <%% end %>
+      <div id='new_asset'></div>
+      <p>
+        <%%= link_to_add_fields(t(:add_asset), f, :assets)%>
+      </p>
+   </fieldset>
+<!-- //inserted by blogable generator -->
+
+
+  <div class="field">
+    <%%= f.label :<%= @resource_single -%>_path %><br />
+    <%%= f.text_field :<%= @resource_single -%>_path %>
+  </div>
+  <div class="field">
+    <%%= f.label :is_public %><br />
+    <%%= f.check_box :is_public %>
+  </div>
+  <div class="actions">
+    <%%= f.submit %>
+  </div>
+<%% end %>

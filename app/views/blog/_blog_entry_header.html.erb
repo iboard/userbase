@@ -8,18 +8,29 @@
   </div>
   
   <%= content_tag :div, :class => 'blog_entry_preview' do%>
-    <% if img_url = blog_entry.image_asset_url(:thumb) %>
-      <%= link_to_function(image_tag( img_url, :class => 'blog_image_preview' ), 
-             "image_popup('#{blog_entry.image_asset_url(:popup)}');return false;") %>
-    <% else %>
-      <%= content_tag :div, :class => 'blog_image_missing' do %>
-        <% if blog_entry.user %>
-          <%= link_to(image_tag(blog_entry.user.avatar_url(:thumb), :title => t(:icon_missing) ), blog_entry)  %>
-        <% else %>
-          <%= link_to(t(:no_image_preview),blog_entry)  %>
+      <% if pict=blog_entry.pictures.first %>
+        <%= link_to(image_tag(pict.asset.url(:thumb),:class=>'blog_image_preview'),blog_entry) %>
+      <% else %>
+        <%= content_tag :div, :class => 'blog_image_missing' do %>
+          <% if blog_entry.user %>
+            <%= link_to(image_tag(blog_entry.user.avatar_url(:thumb), :title => t(:icon_missing) ), blog_entry)  %>
+          <% else %>
+            <%= link_to(t(:no_image_preview),blog_entry)  %>
+          <% end %>
         <% end %>
-       <% end %>
-    <% end %>
+      <% end %>
+    
+    <% if blog_entry.respond_to?('play_button') %>
+      <br/>
+      <%= link_to_function( image_tag("/images/play.png", :style=>'width:16px;heigth:16px;vertical-align:baseline;'),
+        blog_entry.play_button) %>
+    
+        <%= t(:num_items_of_type, :count => blog_entry.num_items, 
+               :type => blog_entry.content.to_s.humanize,
+               :plural=>blog_entry.content.to_s.pluralize.humanize,
+        ) %>
+    <% end %>  
+    
     <% if blog_entry.respond_to?('video_web_url') %>
       <br/><small>
       <% if blog_entry.video_web_url =~ /youtube/ %>
@@ -28,9 +39,9 @@
       <% else %>
         <%= link_to_function(t(:play_video), 
           "video_popup('#{blog_entry.video_web_url}','#{blog_entry.video_mobile_url}')") %>
-     <% end %>
-     </small>
-    <% end %>  
+      <% end %>
+      </small>
+    <% end %> 
   <% end %>
   <em><small><%= t(:blog_entry_by, 
           :type => t(blog_entry.class.to_s.downcase.to_sym), 

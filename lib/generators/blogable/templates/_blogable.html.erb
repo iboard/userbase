@@ -1,0 +1,80 @@
+<%% if can?(:read, <%= @resource_single -%>) || <%= @resource_single -%>.access_read_mask & 1 > 0 %>
+
+  <%% content_for :meta_description do %>
+    <%%= "<%= @resource_single -%>: #{<%= @resource_single -%>.title}, Author: #{<%= @resource_single -%>.user.nickname}, Tags: #{<%= @resource_single -%>.tag_list}" -%>
+  <%% end %>
+
+  <%% if controller.class == BlogController %>
+    <%%= render :partial => '/blog/blog_entry_header', :locals => {:blog_entry => <%= @resource_single -%>}%>
+  <%% else %>
+    <%%= content_tag :div, :class => '<%= @resource_single -%>' do %>
+    
+    
+      <!-- TITLE And Author, Rating-->
+      <%%= render :partial => '/blog/blog_entry_header', :locals => { :blog_entry => <%= @resource_single -%> } %>
+    
+      <!--                  -->
+      <!-- <%= @resource_single -%>'s assets -->
+      <!--                  -->
+      <%% if (defined?(show_all) && show_all) && <%= @resource_single -%> && <%= @resource_single -%>.assets.any? %>
+        <%%= content_tag :div, :class => 'float-right-asset-box' do %>
+          <%%= render :partial => "/assets/asset.html.erb", :collection => <%= @resource_single -%>.assets, :type => :html %>
+        <%% end %>
+      <%% end  %>
+      
+      <!--                                                                        -->
+      <!-- The <%= @resource_single -%> Title as header and as html-title if it's a single <%= @resource_single -%> -->
+      <!--                                                                        -->
+      
+      <%% if current_user && can?(:manage, <%= @resource_single -%>) %>
+        <%%= content_tag :div, :class => 'episode_manage_buttons' do %>
+          <%%= title_buttons(inline_button(link_to(sc(:edit,:sp)+t(:edit), edit_user_<%= @resource_single -%>_path(<%= @resource_single -%>.user,<%= @resource_single -%>),
+              :title => t(:edit_entry),
+              :style => 'font-size: 0.8em; margin-right: 10px;')))  %>
+        <%% end %>
+      <%% end %>
+      
+      
+      
+      <!--                   -->
+      <!-- The <%= @resource_single -%> body  -->
+      <!--                   -->
+      <%%= content_tag :div, :class => '<%= @resource_single -%>_body' do %>
+        <%% if defined?(show_all) && show_all %>
+          <%%= render :partial => '<%= @resource_single -%>_body', :locals => {:<%= @resource_single -%> => <%= @resource_single -%>} %>
+          <div class='blog_body'>
+            <%%= button(link_to( t(:back), "#", :onclick => "history.back(-1);return false;")) %>
+            <%%= button(link_to( t(:<%= @resource_plural -%>_index), <%= @resource_plural -%>_path)) %>
+            <%%= button(link_to( t(:<%= @resource_plural -%>_of_user, :user => <%= @resource_single -%>.user.nickname ), user_<%= @resource_plural -%>_path(<%= @resource_single -%>.user))) %>
+          </div>
+        <%% end %>    
+      <%% end %>
+            
+      <!--                    -->
+      <!-- <%= @resource_single -%>'s comments -->
+      <!--                    -->  
+      <%%= content_tag :div, :class => 'comments' do %>
+        <%%= content_tag :div, :class => 'comments_count_and_links' do %>
+          {
+            <%%=  t(:n_comments, :count => <%= @resource_single -%>.comments.count) unless <%= @resource_single -%>.comments.any? %>
+            <%%=  link_to(t(:n_comments, :count => <%= @resource_single -%>.comments.count),user_<%= @resource_single -%>_comments_path(<%= @resource_single -%>.user,<%= @resource_single -%>)) if <%= @resource_single -%>.comments.any? %>
+            <%% unless current_page?(new_user_<%= @resource_single -%>_comment_path(<%= @resource_single -%>.user,<%= @resource_single -%>)) || cannot?(:create, Comment.new) %>
+               | <%%= link_to( t(:add_a_comment), new_user_<%= @resource_single -%>_comment_path(<%= @resource_single -%>.user,<%= @resource_single -%>)+"#new_comment" ) %>
+            <%% end %>
+          }
+        <%% end %>
+        <%%= render <%= @resource_single -%>.comments if <%= @resource_single -%>.comments.any? && !defined?(@<%= @resource_plural -%>)%>
+      <%% end %>
+    
+    
+      <!-- SHOW RATINGS -->
+      <%% if defined?(show_all) && show_all %>
+        <%%= render :partial => '/ratings/item_ratings', :locals => { :rateable => <%= @resource_single -%> }%>
+      <%% end %>
+    <%% end %>
+    <p style='clear: left;'><br/></p>  
+  <%% end %>
+<%% else %>
+  <p><%%= t(:<%= @resource_single -%>_not_accessible) %></p>
+<%% end %>
+<p style='clear: both; margin-bottom: 10px;'></p>

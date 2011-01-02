@@ -1,0 +1,12 @@
+<div class='blog_body'>
+
+  <%- @arguments.each do |argument| %>
+    <div class='<%= argument -%>'>
+        <p><strong><%= argument[:name].camelize -%></strong>:
+           <%%= "<%= @resource_single+"."+argument[:name] -%>" %>
+        </p>
+    </div>
+  <%- end -%>
+  
+  <%%= sanitize(RedCloth.new( <%= @resource_single.underscore -%>.body).to_html.html_safe) %>
+</div>

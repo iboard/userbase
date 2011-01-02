@@ -1232,6 +1232,7 @@
   .blog_entry {
     margin-top: 10px;
     padding-bottom: 10px;
+    clear: both;
     /* border-bottom: 1px solid #ddd;*/
   }
 
@@ -1376,6 +1377,25 @@
     border-top: 1px solid #ddd;
     font-size: 0.8em;
     text-align: center;
+  }
+  
+  .blog_body {
+    margin-left: 130px;
+  }
+  
+  #gallery_controller {
+    opacity: 0.8;
+    background: #444;
+    padding: 10px;
+    border: 1px solid #444;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    text-align: center;
+    width: 200px;  
+    position: relative;
+    top: -80px;
+    left: 80px;
+    z-index: 4;
   }
   
   #print_title {

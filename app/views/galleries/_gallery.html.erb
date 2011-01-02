@@ -1,0 +1,80 @@
+<% if can?(:read, gallery) || gallery.access_read_mask & 1 > 0 %>
+
+  <% content_for :meta_description do %>
+    <%= "gallery: #{gallery.title}, Author: #{gallery.user.nickname}, Tags: #{gallery.tag_list}" -%>
+  <% end %>
+
+  <% if controller.class == BlogController %>
+    <%= render :partial => '/blog/blog_entry_header', :locals => {:blog_entry => gallery}%>
+  <% else %>
+    <%= content_tag :div, :class => 'gallery' do %>
+    
+    
+      <!-- TITLE And Author, Rating-->
+      <%= render :partial => '/blog/blog_entry_header', :locals => { :blog_entry => gallery } %>
+    
+      <!--                  -->
+      <!-- gallery's assets -->
+      <!--                  -->
+      <% if (defined?(show_all) && show_all) && gallery && gallery.assets.any? %>
+        <%= content_tag :div, :class => 'float-right-asset-box' do %>
+          <%= render :partial => "/assets/asset.html.erb", :collection => gallery.assets.where("asset_content_type not like ?",'%image%'), :type => :html %>
+        <% end %>
+      <% end  %>
+      
+      <!--                                                                        -->
+      <!-- The gallery Title as header and as html-title if it's a single gallery -->
+      <!--                                                                        -->
+      
+      <% if current_user && can?(:manage, gallery) %>
+        <%= content_tag :div, :class => 'episode_manage_buttons' do %>
+          <%= title_buttons(inline_button(link_to(sc(:edit,:sp)+t(:edit), edit_user_gallery_path(gallery.user,gallery),
+              :title => t(:edit_entry),
+              :style => 'font-size: 0.8em; margin-right: 10px;')))  %>
+        <% end %>
+      <% end %>
+      
+      
+      
+      <!--                   -->
+      <!-- The gallery body  -->
+      <!--                   -->
+      <%= content_tag :div, :class => 'gallery_body' do %>
+        <% if defined?(show_all) && show_all %>
+          <%= render :partial => 'gallery_body', :locals => {:gallery => gallery} %>
+          <div class='blog_body'>
+            <%= button(link_to( t(:back), "#", :onclick => "history.back(-1);return false;")) %>
+            <%= button(link_to( t(:galleries_index), galleries_path)) %>
+            <%= button(link_to( t(:galleries_of_user, :user => gallery.user.nickname ), user_galleries_path(gallery.user))) %>
+          </div>
+        <% end %>    
+      <% end %>
+            
+      <!--                    -->
+      <!-- gallery's comments -->
+      <!--                    -->  
+      <%= content_tag :div, :class => 'comments' do %>
+        <%= content_tag :div, :class => 'comments_count_and_links' do %>
+          {
+            <%=  t(:n_comments, :count => gallery.comments.count) unless gallery.comments.any? %>
+            <%=  link_to(t(:n_comments, :count => gallery.comments.count),user_gallery_comments_path(gallery.user,gallery)) if gallery.comments.any? %>
+            <% unless current_page?(new_user_gallery_comment_path(gallery.user,gallery)) || cannot?(:create, Comment.new) %>
+               | <%= link_to( t(:add_a_comment), new_user_gallery_comment_path(gallery.user,gallery)+"#new_comment" ) %>
+            <% end %>
+          }
+        <% end %>
+        <%= render gallery.comments if gallery.comments.any? && !defined?(@galleries)%>
+      <% end %>
+    
+    
+      <!-- SHOW RATINGS -->
+      <% if defined?(show_all) && show_all %>
+        <%= render :partial => '/ratings/item_ratings', :locals => { :rateable => gallery }%>
+      <% end %>
+    <% end %>
+    <p style='clear: left;'><br/></p>  
+  <% end %>
+<% else %>
+  <p><%= t(:gallery_not_accessible) %></p>
+<% end %>
+<p style='clear: both; margin-bottom: 10px;'></p>

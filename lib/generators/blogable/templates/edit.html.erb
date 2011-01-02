@@ -1,0 +1,6 @@
+<h1>Editing <%= @resource_single.camelize %></h1>
+
+<%%= render 'form' %>
+
+<%%= link_to t(:show), @gallery %> |
+<%%= link_to t(:back), <%= @resource_plural.underscore -%>_path %>
