@@ -1398,6 +1398,12 @@
     z-index: 4;
   }
   
+  .blog_image_body_preview {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin: 10px;
+  }
+  
   #print_title {
     display: none;
   }

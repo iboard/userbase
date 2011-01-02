@@ -9,7 +9,21 @@
       <% end %>
     </div>
     
-    <div style='clear: both;'>
-      <%= sanitize(RedCloth.new(gallery.body).to_html.html_safe) %>
-    </div>
+    <div style='text-align: center;'>
+      <%= link_to_function( image_tag("/images/play.png", 
+            :style=>'width:32px;heigth:32px;vertical-align:baseline;')+
+            sc(:nbsp)+t(:gallery),
+        gallery.play_button) %>
+    
+        <%= t(:num_items_of_type, :count => gallery.num_items, 
+               :type => gallery.content.to_s.humanize,
+               :plural=>gallery.content.to_s.pluralize.humanize,
+        ) %>
+     </div>
+
+     <div style='clear: both;'>
+       <%= sanitize(RedCloth.new(gallery.body).to_html.html_safe) %>
+     </div>
+
+
 </div>
