@@ -1,4 +1,5 @@
 <%= form_for [@user, @gallery] , :html => {:multipart => true} do |f| %>
+
   <% if @gallery.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
