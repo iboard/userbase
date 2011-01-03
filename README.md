@@ -6,6 +6,7 @@ It defines MVCs for
     - User (with devise, cancan, omniauth)
     - Postings with multiple attachments
     - Episodes to embed HTML5- and YouTube videos
+    - Galleries
 
 # Getting Started
 
