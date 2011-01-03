@@ -76,9 +76,9 @@ module Commentables
   def freeze_registered_commentables
     $registered_commentables ||= $stage_commentables
     puts(
-       ("[%s] INFO  Registered commentables are frozen at "+
+       ("[%s] INFO  Registered commentables/blogables/assetables frozen: "+
        "#{$registered_commentables.map {|m| m.to_s}.join(', ')}") % Time.now.strftime("%Y-%m-%d %H:%M:%S")
-    ) if Rails.env != 'production'
+    ) if Rails.env == 'development'
   end
   
   

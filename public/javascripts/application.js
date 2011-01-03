@@ -168,8 +168,7 @@ function gallery_popup(duration,args) {
                  "return false;\"><img src='/images/play.png' /></a></div>"+
                  "<div id='pause'><a id='pause' href='#' onclick=\"cycling(0);"+
                  "$('#pause').hide();cycle_pictures("+0+","+photos.length+","+(i)+");$('#play').show();"+
-                 "return false;\"><img src='/images/pause.png' /></a></div>"+
-                 "";
+                 "return false;\"><img src='/images/pause.png' /></a></div>";
 
     rc += "<div id='photo_"+ i + "' style='display:none;'>"+
              prev+prev_close +
@@ -187,8 +186,9 @@ function gallery_popup(duration,args) {
        "<div id='overlay_content' class='overlay_content'>"+
           rc+
        "</div>"+
-       "<div id='gallery_bottom'><div id='gallery_controller'>"+ controller + "</div></div>"+
-       "</div>"
+       "<div id='overlay_controller'>"+
+         "<div id='gallery_controller'>"+ controller + "</div>"+
+      "</div>"
       );
   $('#overlay').fadeTo(500,1.0);
   
