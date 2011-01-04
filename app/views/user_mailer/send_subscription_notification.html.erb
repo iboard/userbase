@@ -4,7 +4,7 @@
 
 <p><%= I18n.translate(:updated_entries, :count => @blog_entries.count ) -%></p>
 <p><b>Filter:</b>
-  <%= @subscription.blogable_type.blank? ? I18n.translate(:any_kind ) : subscription.blogable_type.camelize.pluralize -%><br/>
+  <%= @subscription.blogable_type.blank? ? I18n.translate(:any_kind ) : @subscription.blogable_type.camelize.pluralize -%><br/>
   TAGs: <%= @subscription.tag_list.blank? ? I18n.translate(:all_tags) : @subscription.tag_list %>
 </p>
 <%- for blog_entry in @blog_entries -%>

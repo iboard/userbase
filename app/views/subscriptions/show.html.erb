@@ -30,6 +30,10 @@
 <h2><%= t(:matching_items) %></h2>
 
 <% for item in @subscription.matching_blog_entries(current_user) %>
-    <%= render :partial => '/blog/blog_entry_header', :locals => {:blog_entry => item} %>
+    <%= content_tag :div, 
+         :class=> item.updated_at < (@subscription.last_notified_at||Time.new(1970)) ?\
+                                      "notified" : "tobenotified" do %>
+      <%= render :partial => '/blog/blog_entry_header', :locals => {:blog_entry => item} %>
+    <% end %>
 <% end %>
 
