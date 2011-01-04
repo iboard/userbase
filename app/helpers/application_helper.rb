@@ -16,6 +16,7 @@ module ApplicationHelper
   
   def admin_menu_items
       menu_items = []
+      menu_items  << { :label => t(:subscriptions), :url => user_subscriptions_path(current_user)} if current_user
       menu_items  << { :label => t(:user_listing), :url => users_path } if current_user && can?( :read, User.new )
       menu_items  << { :label => t(:user), :url => user_settings_path(current_user) } if current_user && can?(:avatar, current_user)
       menu_items

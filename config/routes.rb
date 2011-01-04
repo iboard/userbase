@@ -1,5 +1,7 @@
 Userbase::Application.routes.draw do
 
+  resources :subscriptions
+
   resources :galleries
 
   resources :authentications
@@ -39,7 +41,11 @@ Userbase::Application.routes.draw do
     resources :galleries do
       resources :comments
     end
-    #resources :episodes
+    resources :subscriptions do
+      member do
+        get :notify
+      end
+    end
     member do
       get :avatar
     end

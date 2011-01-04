@@ -6,10 +6,11 @@
 <ol>
     <% if user_signed_in? %>
       <li><%= link_to t(:edit_registration),  edit_user_registration_path %></li>
-      <li><%= link_to t(:set_or_change_your_avatar), avatar_user_path(current_user) %>
+      <li><%= link_to t(:set_or_change_your_avatar), avatar_user_path(current_user) %></li>
+      <li><%= link_to t(:manage_your_subscriptions), user_subscriptions_path(current_user) %></li>    
       <li><%= link_to t(:cancel_account), registration_path('user'), 
                 :confirm => t(:are_you_sure, :what => t(:delete_account_for, :name => current_user.email) ), 
-                :method => :delete %>.</p>
+                :method => :delete %>.</li>
     <% else %>
       <li><%= link_to t(:new_user_password), new_user_password_path %></li>      
     <% end %>

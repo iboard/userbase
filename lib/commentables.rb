@@ -130,7 +130,11 @@ module Commentables
       end
 
       def author
-        user.nickname || t(:anonymous)
+        if user && user.nickname
+          user.nickname
+        else
+          t(:anonymous)
+        end
       end
     end
   end

@@ -1,0 +1,42 @@
+<%= form_for([@user,@subscription]) do |f| %>
+  <% if @subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+      <ul>
+      <% @subscription.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <%= f.label :user %>
+      <%= @subscription.user.nickname %> &lt;<%= @subscription.user.email %>&gt;
+  </div>
+
+  <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, :size => 80, :placeholder => t(:give_your_subscription_a_name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :blogable_type %>
+    <%= f.select :blogable_type, Blogable::blog_models.map(&:to_s), :include_blank => "-- #{t(:any_kind)}--" %>
+  </div>
+  <div class="field">
+    <%= f.label :tag_list %>
+    <%= f.text_area :tag_list, :rows => 3, :cols => 80, 
+           :placeholder => t(:enter_tags_comma_separated) %>
+  </div>
+  
+  <div class="field">
+      <%= f.label :notify %>
+      <%= f.check_box :notify %> <%= t(:notiy_by_email_on)%>
+    </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

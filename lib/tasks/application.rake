@@ -59,5 +59,10 @@ namespace :application do
     puts "NOTES IN rb-FILES"
     system "find #{Rails.root} -type f -name *.rb -exec grep -hn NOTE: {} \\;"
   end
-
+  
+  desc "Show Todos"
+  task :notes => :environment do
+    puts "TODOS IN rb-FILES"
+    system "find #{Rails.root} -type f -name *.rb -exec grep -hni TODO: {} \\;"
+  end
 end

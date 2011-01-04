@@ -1,0 +1,22 @@
+SUBSCRIPTION <%= @subscription.name || I18n.translate(:unnamed) %> UPDATE
+=========================================================================
+<%= I18n.translate(:to_edit_your_subscriptions_visit, 
+:url => user_subscriptions_url(@subscription.user)) %>
+
+<%= I18n.translate(:updated_entries, :count => @blog_entries.count ) %>
+Filter:
+  <%= @subscription.blogable_type.blank? ? I18n.translate(:any_kind ) : subscription.blogable_type.camelize.pluralize %>
+  TAGs: <%= @subscription.tag_list.blank? ? I18n.translate(:all_tags) : @subscription.tag_list %>
+
+<%- for blog_entry in @blog_entries -%>
+
+  <%= blog_entry.title.upcase %>
+  <%= "="*blog_entry.title.length %>
+  <%= "http://#{DEFAULT_URL}/users/#{blog_entry.user_id}/#{blog_entry.class.to_s.pluralize.underscore}/#{blog_entry.id}" %>
+
+  <%= strip_links(strip_tags(
+        RedCloth.new(blog_entry.body).to_html
+        ))
+  %>
+  
+<%- end -%>

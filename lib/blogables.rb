@@ -19,6 +19,12 @@ module Blogables
     $registered_commentables
   end
   
+  def collect(&block)
+    blog_models.map { |resource|
+      yield(resource)
+    }
+  end
+  
   def blog_entries(user,blog_order,blog_dir,language_filter=nil)
     entries_by_model = $registered_commentables.map { |resource|
       if language_filter

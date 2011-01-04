@@ -60,6 +60,10 @@ class Ability
         can :manage, User do |usr|
           usr == user
         end
+        can :create, Subscription
+        can :manage, Subscription do |subscription|
+          user == subscription.user if subscription
+        end
       end
       
       can :read, Comment do |mode, comment|

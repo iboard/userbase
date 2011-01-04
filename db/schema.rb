@@ -75,11 +75,11 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "access_read_mask",   :default => 4
-    t.integer  "access_manage_mask", :default => 4
     t.string   "locale",             :default => "en"
     t.integer  "ratings_count",      :default => 0
     t.float    "ratings_average",    :default => 0.0
+    t.integer  "access_read_mask",   :default => 4
+    t.integer  "access_manage_mask", :default => 4
   end
 
   add_index "episodes", ["title"], :name => "index_episodes_on_title"
@@ -120,6 +120,17 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.string   "rateable_type"
     t.integer  "user_id"
     t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "blogable_type"
+    t.string   "tag_list"
+    t.boolean  "notify",           :default => true
+    t.datetime "last_notified_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

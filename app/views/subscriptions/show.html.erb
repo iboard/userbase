@@ -1,0 +1,35 @@
+<h1><%= title t(:subscription_filter) -%></h1>
+
+<h2><%= @subscription.name %></h2>
+<p>
+  
+</p>
+
+<p>
+  <b>Blogable type:</b>
+  <%= @subscription.blogable_type.blank? ?  t(:any_kind) : @subscription.blogable_type %>
+  <br/>
+  <b>Tag list:</b>
+  <%= @subscription.tag_list %>
+  <br/>
+  <b>Notify: </b><%= @subscription.notify.to_s %><br/>
+  <%= @subscription.user.nickname %> &lt;<%= @subscription.user.email -%>&gt;<br/>
+  <em>Last Notified:</em> <%= if @subscription.last_notified_at 
+        distance_of_time_in_words_to_now(@subscription.last_notified_at)
+      else
+        t(:never) 
+      end
+    %>
+  <%= sc(:pr) -%>
+  <%= link_to t(:notify_now), notify_user_subscription_path(@subscription.user,@subscription)%>
+</p>
+
+<%= link_to t(:edit), edit_user_subscription_path(@subscription.user,@subscription) %> |
+<%= link_to t(:back), user_subscriptions_path(@user) %>
+
+<h2><%= t(:matching_items) %></h2>
+
+<% for item in @subscription.matching_blog_entries(current_user) %>
+    <%= render :partial => '/blog/blog_entry_header', :locals => {:blog_entry => item} %>
+<% end %>
+

@@ -1,0 +1,33 @@
+<h1><%= title t(:manage_your_subscriptions)%></h1>
+
+<table style='width: 100%;'>
+  <tr>
+    <th>Name</th>
+    <th>Mail</th>
+    <th>User</th>
+    <th>Blogable type</th>
+    <th>Tag list</th>
+    <th colspan="2"></th>
+  </tr>
+
+<% @subscriptions.each do |subscription| %>
+  <tr>
+    <td><%= link_to( (subscription.name || t(:unnamed)),
+              user_subscription_path(subscription.user,subscription) )%></td>
+    <td>
+      <%= subscription.notify ? sc(:ok) : sc(:not) %>
+    </td>
+    <td>
+      <%= subscription.user.nickname %> &lt;<%= subscription.user.email -%>&gt;
+    </td>
+    <td><%= subscription.blogable_type.blank? ?  t(:any_kind) : subscription.blogable_type %></td>
+    <td><%= subscription.tag_list %></td>
+    <td><%= link_to 'Edit', edit_user_subscription_path(subscription.user,subscription) %></td>
+    <td><%= link_to 'Destroy', user_subscription_path(subscription.user,subscription), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t(:new_subscription), new_user_subscription_path(current_user) %>

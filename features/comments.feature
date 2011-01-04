@@ -11,8 +11,8 @@ Feature: Comments
         | id | user_id | title       | body               | access_read_mask |
         |  1 |    1    | My Posting  | My beautyfull body |        31        |
     And the following episode records
-        | id | user_id | title       | description         |
-        |  1 |    1    | My Episode  | Episode description |
+        | id | user_id | title       | description         | access_read_mask |
+        |  1 |    1    | My Episode  | Episode description |        31        |
     And no comment records  
 
   Scenario: unauthorized users should not see the add comment link on the posting page

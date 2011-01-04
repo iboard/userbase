@@ -23,5 +23,17 @@ class UserMailer < ActionMailer::Base
           :subject => t(:your_entry_was_commented, :appname => APPLICATION_CONFIG['name'])
         )
   end
+  
+  def send_subscription_notification(subscription,blog_entries)
+    @subscription = subscription
+    @blog_entries = blog_entries
+    mail(
+      :to => @subscription.user.email,
+      :subject => (@subscription.name || t(:subscrition) )+
+                  " - " + t(:updated_entries, :count => @blog_entries.count)
+    )
+    @subscription.last_notified_at = Time.now()
+    @subscription.save!
+  end
 
 end

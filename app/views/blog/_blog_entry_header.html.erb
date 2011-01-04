@@ -55,7 +55,7 @@
   <% end %>
   
   <%= content_tag :div, :class => 'blog_body_preview' do %>
-    <%= sanitize(RedCloth.new(blog_entry.object_body.paragraphs[0]).to_html) %>
+    <%= sanitize(RedCloth.new(blog_entry.object_body.paragraphs[0]).to_html) if blog_entry.object_body %>
   <% end %>
   
   <p style='clear: right;'></p>
