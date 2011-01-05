@@ -1,3 +1,4 @@
+<% title @posting.title, false %>
 <%= content_tag :div, :class => 'posting' do %>
   <%= render :partial => 'posting', :locals => {:posting => @posting, :show_all => true } %>
 <% end %>
