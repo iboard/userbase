@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   private
   # Authorize if current_user is an admin
   # If there is only and exact ONE user in the database and the ID of this user is 1
-  # this will set admin-flags for the first user to due being an admin if being the first ;-)
+  # this will set admin-flags for the first user to do: being first is being admin ;-)
   def authorize_admin!
     user ||= current_user
     if User.count == 1

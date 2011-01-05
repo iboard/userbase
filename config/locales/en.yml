@@ -260,7 +260,7 @@ en:
   enter_tags_comma_separated: "Enter tags comma separated. You will receive emails only if the posting's tags match one of your strings. Leave blank to apply all tags."
   any_kind: 'Any kind'
   give_your_subscription_a_name: 'Give your subscription a name'
-  matching_entries: 'Matching entries'
+  matching_items: 'Matching entries'
   subscription_filter: 'Subscriptions / Filter'
   notiy_by_email_on: 'Notify by e-mail on changes'
   new_subscription: 'New subscription'

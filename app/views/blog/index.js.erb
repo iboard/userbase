@@ -27,3 +27,5 @@ $('.load_more').before( '<p class="page_seperator"><%= @blog_entries.current_pag
 <% else %>
   $('#load_more').html('<%= escape_javascript(t(:end_of_list)) -%>');
 <% end %>
+
+$(".pagination").html('<%= escape_javascript(will_paginate(@blog_entries)) %>');

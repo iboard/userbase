@@ -64,28 +64,39 @@ class ApplicationController < ActionController::Base
   # TODO: Cache this in any way!
   def load_tags
     return if request.fullpath.match(/^\/(\S+)preview/)
-    @tags ||= blog_models.map { |resource|
-      resource.tag_counts_on(:tags).all
-    }.flatten.uniq.sort { |a,b| 
-      a.name.upcase <=> b.name.upcase
-    }
+    
+    load = Rails.cache.read('tags')
+    if load.nil?
+      load = blog_models.map { |resource|
+                resource.tag_counts_on(:tags).all
+              }.flatten.uniq.sort { |a,b| 
+                a.name.upcase <=> b.name.upcase
+              }
+       Rails.cache.write('tags', load)
+    end
+    @tags = load
   end
   
   # load all commentables, grouped by year/month
   def load_archive_links
     return if request.fullpath.match(/^\/(\S+)preview/)
-    rc = {}
-    Commentables::group_by_month.each do |c|
-       c.each do |cc|
-         if rc[cc[0]]
-           rc[cc[0]] += cc[1].count
-         else
-           rc[cc[0]] = cc[1].count
+    
+    load = Rails.cache.read('archive_links')
+    if load.nil?
+      rc = {}
+      Commentables::group_by_month.each do |c|
+         c.each do |cc|
+           if rc[cc[0]]
+             rc[cc[0]] += cc[1].count
+           else
+             rc[cc[0]] = cc[1].count
+           end
          end
-       end
+      end
+      load = rc
+      Rails.cache.write('archive_links',load)
     end
-    logger.info( rc.inspect )
-    @archive_links ||= rc
+    @archive_links = load
   end
   
   # display a warning if someone is using MSIE

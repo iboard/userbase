@@ -76,7 +76,9 @@ module Blogables
           def is_blog_model?
             true
           end
+          
           after_create :create_blog_entry
+          after_save   :clear_cache
           
           validates :title,   :presence => true
           validates :user_id, :presence => true, :user_exists => true
@@ -132,6 +134,11 @@ module Blogables
           private
           def create_blog_entry
             BlogEntry.create(:blog_entry_id => self.id, :blog_entry_type => self.class.to_s)
+          end
+          
+          def clear_cache
+            Rails.cache.delete('tags')
+            Rails.cache.delete('archive_links')
           end
         EOV
       end
