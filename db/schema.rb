@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "updated_at"
   end
 
+  add_index "assets", ["asset_content_type"], :name => "index_assets_on_asset_content_type"
+  add_index "assets", ["assetable_id"], :name => "index_assets_on_assetable_id"
+  add_index "assets", ["assetable_type"], :name => "index_assets_on_assetable_type"
+
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -33,12 +37,19 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "updated_at"
   end
 
+  add_index "authentications", ["provider"], :name => "index_authentications_on_provider"
+  add_index "authentications", ["uid"], :name => "index_authentications_on_uid"
+  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+
   create_table "blog_entries", :force => true do |t|
     t.integer  "blog_entry_id"
     t.string   "blog_entry_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "blog_entries", ["blog_entry_id"], :name => "index_blog_entries_on_blog_entry_id"
+  add_index "blog_entries", ["blog_entry_type"], :name => "index_blog_entries_on_blog_entry_type"
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
@@ -82,7 +93,11 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.integer  "access_manage_mask", :default => 4
   end
 
+  add_index "episodes", ["access_manage_mask"], :name => "index_episodes_on_access_manage_mask"
+  add_index "episodes", ["access_read_mask"], :name => "index_episodes_on_access_read_mask"
+  add_index "episodes", ["locale"], :name => "index_episodes_on_locale"
   add_index "episodes", ["title"], :name => "index_episodes_on_title"
+  add_index "episodes", ["user_id"], :name => "index_episodes_on_user_id"
 
   create_table "galleries", :force => true do |t|
     t.integer  "user_id"
@@ -99,6 +114,12 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "updated_at"
   end
 
+  add_index "galleries", ["access_manage_mask"], :name => "index_galleries_on_access_manage_mask"
+  add_index "galleries", ["access_read_mask"], :name => "index_galleries_on_access_read_mask"
+  add_index "galleries", ["ratings_average"], :name => "index_galleries_on_access_ratings_average"
+  add_index "galleries", ["ratings_count"], :name => "index_galleries_on_access_ratings_count"
+  add_index "galleries", ["user_id"], :name => "index_galleries_on_user_id"
+
   create_table "postings", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
@@ -112,6 +133,10 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.float    "ratings_average",    :default => 0.0
   end
 
+  add_index "postings", ["access_manage_mask"], :name => "index_postings_on_access_manage_mask"
+  add_index "postings", ["access_read_mask"], :name => "index_postings_on_access_read_mask"
+  add_index "postings", ["ratings_average"], :name => "index_postings_on_access_ratings_average"
+  add_index "postings", ["ratings_count"], :name => "index_postings_on_access_ratings_count"
   add_index "postings", ["title"], :name => "index_postings_on_title"
   add_index "postings", ["user_id"], :name => "index_postings_on_user_id"
 
@@ -124,6 +149,10 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "updated_at"
   end
 
+  add_index "ratings", ["rateable_id"], :name => "index_ratings_on_rateable_id"
+  add_index "ratings", ["rateable_type"], :name => "index_ratings_on_rateable_type"
+  add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
+
   create_table "subscriptions", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -134,6 +163,8 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "subscriptions", ["user_id"], :name => "index_subscriptions_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -160,6 +191,11 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "translations", ["locale"], :name => "index_translations_on_locale"
+  add_index "translations", ["translateable_id"], :name => "index_translations_on_translateable_id"
+  add_index "translations", ["translateable_type"], :name => "index_translations_on_translateable_type"
+  add_index "translations", ["translated_id"], :name => "index_translations_on_translated_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
