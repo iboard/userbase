@@ -569,6 +569,13 @@
   	margin-left: 125px;
   }
   
+  .posting_body h1,
+  .posting_body h2,
+  .posting_body h3 {
+  	margin-left: -5px;
+    padding-left: 0px;
+  }
+  
   #preview_body {
     -moz-border-radius: 5px; 
     -webkit-border-radius: 5px; 
