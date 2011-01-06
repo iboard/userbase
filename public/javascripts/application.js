@@ -201,7 +201,6 @@ function gallery_popup(duration,args) {
   
 }
 
-
 function video_popup(img_url,mobile_url) {
   var new_id = new Date().getTime(); 
   var regexp = new RegExp("popup", "g");  
@@ -256,9 +255,9 @@ function youtube_popup(img_url) {
   $('#overlay').fadeTo(500,1.0);  
 }
 
-
 function insert_load_button(where,txt,path) {
   var target = $("#"+where);
-  target.html("<img src='/images/spinner.gif' title='Loading...' /> "+txt);
+  var id='load_more_link';
+  target.html("<div id='"+id+"'><img src='/images/spinner.gif' title='Loading...' /> "+txt+"</div>");
   $.ajax({ url: path, context: where});
 }
