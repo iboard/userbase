@@ -54,8 +54,11 @@ class Ability
       #
       unless user.new_record?
         can :create, Comment
-        can :manage, Comment do |mode,comment|
-          comment && (comment.user == user && comment.created_at && (Time.now()-comment.created_at < (CONSTANTS['max_time_to_edit_new_comments'].to_i*60))) # give 15mins to edit new comments
+        can :manage, Comment do |comment|
+          unless comment.new_record?
+            expire = comment.created_at+CONSTANTS['max_time_to_edit_new_comments'].to_i.minutes
+            comment && comment.user_id == user.id && (Time.now < expire) # give 15mins to edit new comments
+          end
         end
         can :manage, User do |usr|
           usr == user
