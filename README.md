@@ -58,6 +58,11 @@ There is no need to restart the server when you make changes in this files.
 ## Start your engine
 
     rails server
+    
+## The first user becomes admin automaticly
+
+Sign up your first user and then visit <code>/users</code>. Admin-role will
+be added to this user automatically.
 
 Dec 14, 2010 - Andreas Altendorfer &lt;andreas@altendorfer.at&gt;
 
