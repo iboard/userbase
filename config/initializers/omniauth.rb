@@ -8,6 +8,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :github, OMNIAUTH_GITHUB_ID, OMNIAUTH_GITHUB_SECRET
   #provider :LDAP, "LDAP-Login #{LDAP_HOST}", { :host => LDAP_HOST, :port => LDAP_PORT, :method => :plain, 
   #         :base => LDAP_TREEBASE, :uid => 'uid', :bind_dn => "uid=%s,cn=users,dc=xs1,dc=intern,dc=wwedu,dc=com" }
-
 end
 
