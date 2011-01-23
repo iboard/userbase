@@ -59,7 +59,7 @@ There is no need to restart the server when you make changes in this files.
 
     rails server
     
-## The first user becomes admin automaticly
+## The first user becomes admin automatically
 
 Sign up your first user and then visit <code>/users</code>. Admin-role will
 be added to this user automatically.
