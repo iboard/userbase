@@ -1,10 +1,12 @@
-<% if !I18n.available_locales.blank? %>
+<!--<% if !I18n.available_locales.blank? %>
   <% for item in I18n.available_locales %>
     <%= link_to t(:locale_icon, :lang => item.to_s).html_safe, 
         switch_language_path(item.to_s), :remote => true,
         :class => 'language_icon' %>
   <% end %>
 <% end %>
+-->
+
 <%= content_tag :div, :id => 'session_box' do %>
   <% if user_signed_in? %>
     <div style='float:right; margin-left: 10px; margin-right:-10px; padding-right: 0px; margin-top: 5px;'>

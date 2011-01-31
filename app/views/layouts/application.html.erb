@@ -31,99 +31,103 @@
               Address: <%= [request.protocol, request.host, request.fullpath].join('') %>
           </address>
       </div>
-      <!-- PREPARE CONTENT_FOR PARTIALS -->
-      <% render :partial => '/layouts/admin_buttons' %>
-      <% content_for :sidebar_right do %>
-        <%= content_tag :div,  :id => 'sidebar_right' do %>
-          <%= html_include('public/static_pages/welcome_right.html').html_safe %>
+      <div id='wrapper'>
+        <!-- PREPARE CONTENT_FOR PARTIALS -->
+        <% render :partial => '/layouts/admin_buttons' %>
+        <% content_for :sidebar_right do %>
+          <%= content_tag :div,  :id => 'sidebar_right' do %>
+            <%= html_include('public/static_pages/welcome_right.html').html_safe %>
+          <% end %>
         <% end %>
-      <% end %>
-      
-      
-      <div id='right_sidebar'>
-        <% if content_for?(:new_button) %>
-          <div id='new_button'>
-              <%= yield :new_button %>
+        
+        
+        <div id='right_sidebar'>
+          <% if content_for?(:new_button) %>
+            <div id='new_button'>
+                <%= yield :new_button %>
+            </div>
+          <% end %>        
+  
+  <!--
+          <div id='language_filter'>
+            <p><%= language_filter.html_safe %></p>
+            <p style='margin-top: 10px;'><b><%= t(:list_by) -%></b></p>
+            <ul>
+                <li><%= link_to t(:list_by_author), blog_path('author', 'asc') %></li>
+                <li><%= link_to t(:list_by_date), blog_path('updated_at', 'desc') %></li>
+                <li><%= link_to t(:list_by_ratings), blog_path('ratings_average', 'desc') %></li>
+            </ul>
           </div>
-        <% end %>        
-
-        <div id='language_filter'>
-          <p><%= language_filter.html_safe %></p>
-          <p style='margin-top: 10px;'><b><%= t(:list_by) -%></b></p>
-          <ul>
-              <li><%= link_to t(:list_by_author), blog_path('author', 'asc') %></li>
-              <li><%= link_to t(:list_by_date), blog_path('updated_at', 'desc') %></li>
-              <li><%= link_to t(:list_by_ratings), blog_path('ratings_average', 'desc') %></li>
-          </ul>
+  -->
+          
+          <%= content_tag :div, :id => 'tagclouds' do %>
+            <%= render( :partial => '/blog/tag_cloud' ) if @tags.any? %>  
+          <% end %>
+          
+          <% render :partial => "/welcome/archive_links" %>        
+          <% if content_for?(:archive_links) %>
+             <%= yield :archive_links %>
+          <% end %>
+          
+          <% if content_for?(:sidebar_right) %>
+              <%= yield :sidebar_right %>
+          <% end %>
         </div>
         
-        <%= content_tag :div, :id => 'tagclouds' do %>
-          <%= render( :partial => '/blog/tag_cloud' ) if @tags.any? %>  
-        <% end %>
-        
-        <% render :partial => "/welcome/archive_links" %>        
-        <% if content_for?(:archive_links) %>
-           <%= yield :archive_links %>
-        <% end %>
-        
-        <% if content_for?(:sidebar_right) %>
-            <%= yield :sidebar_right %>
-        <% end %>
-      </div>
-      
-      <header>  
-        <div id='menubar'>
-          <%= content_tag :div, :style=>'width: 400px; float: right; text-align: right;' do %> 
-            <%= render :partial =>  '/layouts/session_box' %>
-          <% end %>
-          <% if params[:tag] %>
-            <h1 class='site_title'><%= params[:tag] -%></h1>
-          <% else %>
-            <h1 class='site_title'><%= yield(:title) -%></h1>
-          <% end %>
-          <div style='clear: right;'></div>
-          <% if admin_menu_items.any? %>
-              <%= page_menu admin_menu_items, {:id => 'admin_menu', :clear => 'right'} %>
-          <% end %>
-          <%= page_menu main_menu_items %> 
-        </div>
-              
-        <%= content_tag :div, :id => 'page_header' do %>
-          <%= content_tag :div, :style=>'width: 400px; float: left;'  do %>
-            <h1 style='width: 400px;'><%= ::APPLICATION_CONFIG[:application_name] %></h1>
-            <%= html_include('public/static_pages/header.html').html_safe -%>
-          <% end %>
-        <% end %>
-      </header>
-      
-      
-      <section id='page_section'>      
-        <div id='page'>
-          <% if flash.any? %>
-            <section id='flashes'>
-              <% flash.each do |f| %>
-                  <%= content_tag :div, :id => f[0].to_s+"_flash" do %>
-                    <%= f[1] %>
-                  <% end %>
-              <% end %>
-            </section>
-          <% end %>    
-          <!-- MAIN CONTENT -->
-          <%= yield %>
-          <div style='clear: both;'></div>
-          <!-- //////////// -->
-         </div>
-      </section>
-      
-      <footer id='footer_section'>
-          <div id='footer'>
-            <%= html_include('public/static_pages/footer.html').html_safe -%>
-            <%= inline_button(link_to( sc(:pr,:nbsp)+t(:subscribe_rss_feed), "/feed.atom", :style => 'color: black;')) %>
-            <p>&nbsp;</p>
-            <%= content_tag :div, :id => 'copyright', :style => 'width: 400px;' do %>
-              © copyright <%= Date.today().year %> by <%= link_to APPLICATION_CONFIG['copyright'], APPLICATION_CONFIG['copyright_url'] %>
+        <header>  
+          <div id='menubar'>
+            <%= content_tag :div, :style=>'width: 400px; float: right; text-align: right;' do %> 
+              <%= render :partial =>  '/layouts/session_box' %>
             <% end %>
+            <% if params[:tag] %>
+              <h1 class='site_title'><%= params[:tag] -%></h1>
+            <% else %>
+              <h1 class='site_title'><%= yield(:title) -%></h1>
+            <% end %>
+            <div style='clear: right;'></div>
+            <% if admin_menu_items.any? %>
+                <%= page_menu admin_menu_items, {:id => 'admin_menu', :clear => 'right'} %>
+            <% end %>
+            <%= page_menu main_menu_items %> 
           </div>
-      </footer>
+                
+          <%= content_tag :div, :id => 'page_header' do %>
+            <%= content_tag :div, :style=>'width: 400px; float: left;'  do %>
+              <h1 style='width: 400px;'><%= ::APPLICATION_CONFIG[:application_name] %></h1>
+              <%= html_include('public/static_pages/header.html').html_safe -%>
+            <% end %>
+          <% end %>
+        </header>
+        
+        
+        <section id='page_section'>      
+          <div id='page'>
+            <% if flash.any? %>
+              <section id='flashes'>
+                <% flash.each do |f| %>
+                    <%= content_tag :div, :id => f[0].to_s+"_flash" do %>
+                      <%= f[1] %>
+                    <% end %>
+                <% end %>
+              </section>
+            <% end %>    
+            <!-- MAIN CONTENT -->
+            <%= yield %>
+            <div style='clear: both;'></div>
+            <!-- //////////// -->
+           </div>
+        </section>
+        
+        <footer id='footer_section'>
+            <div id='footer'>
+              <%= html_include('public/static_pages/footer.html').html_safe -%>
+              <%= inline_button(link_to( sc(:pr,:nbsp)+t(:subscribe_rss_feed), "/feed.atom", :style => 'color: black;')) %>
+              <p>&nbsp;</p>
+              <%= content_tag :div, :id => 'copyright', :style => 'width: 400px;' do %>
+                © copyright <%= Date.today().year %> by <%= link_to APPLICATION_CONFIG['copyright'], APPLICATION_CONFIG['copyright_url'] %>
+              <% end %>
+            </div>
+        </footer>
+     </div>
    </body>
 </html>
