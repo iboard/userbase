@@ -85,7 +85,7 @@ de:
   account_deleted_successfully: 'Account %{username} wurde gelöscht'
   please_login_as_admin_or_staff_to: "Um '%{what}' auszuführen, bitte als Administrator oder Mitarbeiter anmelden"
   user_maintainance: 'Benutzerverwaltung.'
-  legal_notice: 'Rechtliche Hinweise'
+  downloads: 'Downloads'
   about: 'Über uns'
   successfully_updated: 'Eintrag erfolgreich geändert'
   postings: 'Beiträge'
