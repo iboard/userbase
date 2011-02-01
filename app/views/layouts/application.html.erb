@@ -39,6 +39,39 @@
             <%= html_include('public/static_pages/welcome_right.html').html_safe %>
           <% end %>
         <% end %>
+
+        <div id='right_sidebar'>
+          <% if content_for?(:new_button) %>
+            <div id='new_button'>
+                <%= yield :new_button %>
+            </div>
+          <% end %>        
+  
+  <!--
+          <div id='language_filter'>
+            <p><%= language_filter.html_safe %></p>
+            <p style='margin-top: 10px;'><b><%= t(:list_by) -%></b></p>
+            <ul>
+                <li><%= link_to t(:list_by_author), blog_path('author', 'asc') %></li>
+                <li><%= link_to t(:list_by_date), blog_path('updated_at', 'desc') %></li>
+                <li><%= link_to t(:list_by_ratings), blog_path('ratings_average', 'desc') %></li>
+            </ul>
+          </div>
+  -->
+  
+          <%= content_tag :div, :id => 'tagclouds' do %>
+            <%= render( :partial => '/blog/tag_cloud' ) if @tags.any? %>  
+          <% end %>
+  
+          <% render :partial => "/welcome/archive_links" %>        
+          <% if content_for?(:archive_links) %>
+             <%= yield :archive_links %>
+          <% end %>
+  
+          <% if content_for?(:sidebar_right) %>
+              <%= yield :sidebar_right %>
+          <% end %>
+        </div>
         
         <header>  
           <div id='menubar'>
@@ -84,38 +117,6 @@
            </div>
         </section>
  
-	        <div id='right_sidebar'>
-	          <% if content_for?(:new_button) %>
-	            <div id='new_button'>
-	                <%= yield :new_button %>
-	            </div>
-	          <% end %>        
-
-	  <!--
-	          <div id='language_filter'>
-	            <p><%= language_filter.html_safe %></p>
-	            <p style='margin-top: 10px;'><b><%= t(:list_by) -%></b></p>
-	            <ul>
-	                <li><%= link_to t(:list_by_author), blog_path('author', 'asc') %></li>
-	                <li><%= link_to t(:list_by_date), blog_path('updated_at', 'desc') %></li>
-	                <li><%= link_to t(:list_by_ratings), blog_path('ratings_average', 'desc') %></li>
-	            </ul>
-	          </div>
-	  -->
-
-	          <%= content_tag :div, :id => 'tagclouds' do %>
-	            <%= render( :partial => '/blog/tag_cloud' ) if @tags.any? %>  
-	          <% end %>
-
-	          <% render :partial => "/welcome/archive_links" %>        
-	          <% if content_for?(:archive_links) %>
-	             <%= yield :archive_links %>
-	          <% end %>
-
-	          <% if content_for?(:sidebar_right) %>
-	              <%= yield :sidebar_right %>
-	          <% end %>
-	        </div>
         
         <footer id='footer_section'>
             <div id='footer'>

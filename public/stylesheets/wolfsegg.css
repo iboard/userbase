@@ -47,7 +47,7 @@
   
   #wrapper {
 	margin: 0px auto;
-  width: 1130px;
+	width: 1130px;
   }
 
   img { border: none; }
@@ -1448,14 +1448,6 @@
   #print_title {
     display: none;
   }
-  
-  #Schullogo {
-	  float: left;
-	  width: auto;
-	  height: auto;
-	  background: url(/public/images/wolfsegg_logo) no-repeat;
-  }
-  
   
 } /* end media screen */  
 
