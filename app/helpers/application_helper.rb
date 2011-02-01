@@ -6,9 +6,9 @@ module ApplicationHelper
     menu_items =  [ {:label => t(:blog), :url => root_path } ]
 #    menu_items << { :label => t(:blog), :url => blog_path('updated_at', 'desc') }
     menu_items << { :label => t(:postings), :url => postings_path }  if can?( :read, Posting ) 
-    menu_items << { :label => 'Klassen', :url => episodes_path }  if can?( :read, Episode )
+    menu_items << { :label => 'Episoden', :url => episodes_path }  if can?( :read, Episode )
     menu_items += [
-      {:label => t(:downloads), :url => legal_notice_path},
+      {:label => t(:forms), :url => legal_notice_path},
       {:label => t(:about), :url => about_path }
     ]
     menu_items
@@ -16,7 +16,7 @@ module ApplicationHelper
   
   def admin_menu_items
       menu_items = []
-      menu_items  << { :label => t(:subscriptions), :url => user_subscriptions_path(current_user)} if current_user
+#      menu_items  << { :label => t(:subscriptions), :url => user_subscriptions_path(current_user)} if current_user
       menu_items  << { :label => t(:user_listing), :url => users_path } if current_user && can?( :read, User.new )
       menu_items  << { :label => t(:user), :url => user_settings_path(current_user) } if current_user && can?(:avatar, current_user)
       menu_items

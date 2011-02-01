@@ -151,7 +151,7 @@
     background: url(/images/header_bg.jpg) no-repeat;
     color: #eee;
     width: 800px;
-    height: 60px;
+    height: 67px;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 30px;
@@ -1197,13 +1197,13 @@
   
   #right_sidebar {
 	  float: right;
-    top: 0px;
+ /*   top: 0px;
     bottom: 0px;
     right: 20px;
     left: 880px;
-	margin: 0px;
-    padding-top: 10px;
-    width: 220px;
+	  margin: 0px;
+    padding-top: 10px; */
+    width: 220px; 
     background: none;
   }
   
@@ -1449,6 +1449,13 @@
     display: none;
   }
   
+  #Schullogo {
+	  float: left;
+	  width: auto;
+	  height: auto;
+	  background: url(/public/images/wolfsegg_logo) no-repeat;
+  }
+  
   
 } /* end media screen */  
 
@@ -1507,6 +1514,7 @@
   }
   #right_sidebar {
 	display: none;
+	float: right;
   }
   #tag_cloud {
 	display: none;

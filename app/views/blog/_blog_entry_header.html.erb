@@ -4,7 +4,7 @@
     <br/>
     <%= t(:n_comments, :count => blog_entry.comments.count)%><br/>
     <%= link_to t(:read), blog_entry %>
-    <%= language_links(blog_entry) -%>
+    <%# language_links(blog_entry) -%>
   </div>
   
   <%= content_tag :div, :class => 'blog_entry_preview' do%>
