@@ -28,9 +28,7 @@
 
   body {
     font-family: Delicious, Verdana, Arial, Helvetica, sans-serif;
-    margin: 0px;
-    padding: 0px;
-    width: 1130px;
+		padding: 0px;
     background: #7D8BA4;
     background: -webkit-gradient(
         linear,
@@ -47,6 +45,35 @@
     color: #4A4A4A;
   }
   
+  #wrapper {
+	  margin: 0px auto;
+	  width: 1130px;
+  }
+
+  #wrapper_main {
+	  display: inline;
+	  width: 900px;
+	  margin: 0px;
+  }
+
+
+  #right_sidebar {
+    float: right;
+ /*   top: 0px;
+    bottom: 0px;
+    right: 20px;
+    left: 880px;
+	  margin: 0px;
+    padding-top: 10px; */
+    width: 220px; 
+    background: none;
+  }
+
+  #sidebar_right {
+    padding: 10px;
+  }
+
+
   img { border: none; }
   H1 {
   	font-size: 2.5em;;
@@ -112,7 +139,7 @@
   #page_header a { color: white;}
   
   
-  header {
+  #div_header {
   	margin-top: 0px;
   	line-height: 100%;
   }
@@ -193,7 +220,7 @@
     margin-right: 5px;
     margin-left: 5px;
     padding: 0px;
-    padding-top: 3px;
+    padding-top: 5px;
     color: #ddd;
     float: left;
     -moz-border-radius: 5px; 
@@ -202,16 +229,16 @@
   }
   
   .current_page_link {
-/*    background: #A1AAC2;
-    background: url(/images/header_logo_iboard_bg.jpg) no-repeat; */
+    background: #A1AAC2;
+    background: url(/images/header_logo_iboard_bg.jpg) no-repeat;
   
     color: #262A38;
     padding: 5px;
-/*    margin: 0px;
+    margin: 0px;
     -moz-border-radius: 3px 3px 0px 0px; 
     -webkit-border-radius: 3px 3px 0px 0px;
     border: 1px solid  #5E6A87;
-    border-bottom: none; */
+    border-bottom: none;
   }
   
   #page_menu a {
@@ -1192,22 +1219,6 @@
     margin-bottom: 5px;
   }
   
-  #right_sidebar {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 20px;
-    left: 880px;
-	margin: 0px;
-    padding-top: 10px;
-    width: 220px;
-    background: none;
-  }
-  
-  #sidebar_right {
-    background: none;
-    padding: 10px;
-  }
   
   .language_filter_help {
   	line-height: 100%;
@@ -1445,8 +1456,7 @@
   #print_title {
     display: none;
   }
-  
-  
+   
 } /* end media screen */  
 
 
@@ -1504,6 +1514,7 @@
   }
   #right_sidebar {
 	display: none;
+	float: right;
   }
   #tag_cloud {
 	display: none;
