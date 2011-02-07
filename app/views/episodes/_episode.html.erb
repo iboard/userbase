@@ -42,7 +42,6 @@
         </div>
       <% end %>
     <% else %>
-      <span style='clear: both;'></span>
       <small>
         <% if episode.video_web_url =~ /youtube/ %>
            <%= inline_button(link_to_function(t(:play_youtube_video), 

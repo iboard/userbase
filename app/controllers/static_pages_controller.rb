@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   
   respond_to :html
-  
+  before_filter :authorize_admin
   
   STATIC_PAGE_PATH = File::join(Rails.root,"public","static_pages")
   
@@ -21,5 +21,9 @@ class StaticPagesController < ApplicationController
     file.close
     redirect_to :action => :index, :notice => t(:file_saved_successfully)
   end
-
+  
+  private
+  def authorize_admin
+    redirect_to new_user_session_path unless current_user && current_user.role?(:admin)
+  end
 end
