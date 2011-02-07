@@ -318,3 +318,6 @@ de:
   all_tags: 'Alle TAGs'
   subscriptions: 'Abos/Newsletter'
   forms: 'Klassen'
+  edit_static_pages: 'Statische Seiten bearbeiten'
+  edit_file: 'Datei %{file_name} bearbeiten'
+  list_all_static_pages: 'Zurück zur Dateiliste'

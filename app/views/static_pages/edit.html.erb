@@ -1,0 +1,9 @@
+<%= title( t(:edit_file, :file_name => @file_name ))%>
+<%= form_for static_page_path(encode_filename(File::basename(@file_name)) ) do |f| %>
+  
+  <%= text_area_tag 'static_file[:content]', @content, :rows => 40, :cols => 80 %>
+  <p><%= f.submit :submit -%></p>
+<% end %>
+
+
+<%= link_to t(:list_all_static_pages), static_pages_path %>
