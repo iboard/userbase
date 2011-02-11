@@ -4,7 +4,6 @@ module ApplicationHelper
   
   def main_menu_items
     menu_items =  [ {:label => t(:blog), :url => root_path } ]
-#    menu_items << { :label => t(:blog), :url => blog_path('updated_at', 'desc') }
     menu_items << { :label => t(:postings), :url => postings_path }  if can?( :read, Posting ) 
     menu_items << { :label => 'Videos', :url => episodes_path }  if can?( :read, Episode )
     menu_items += [
