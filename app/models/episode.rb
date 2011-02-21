@@ -22,7 +22,7 @@ class Episode < ActiveRecord::Base
   
   
   def play_button
-     is_youtube_video? ? "youtube_popup('"+youtube_embed_url+"')" : "video_popup('#{video_web_url}','#{video_mobile_url}')"
+    is_youtube_video? ? "youtube_popup('"+youtube_embed_url+"')" : "video_popup('#{video_web_url}','#{video_mobile_url}')"
   end
   
   def num_items

@@ -18,7 +18,7 @@ gem 'mail'
 gem "dynamic_form"  # bring back errors_for-helper
 gem "paperclip" #, :branch => 'rails3'
 gem "will_paginate"
-gem "RedCloth"
+gem "RedCloth", "4.2.5"
 gem 'acts-as-taggable-on'
 gem 'delayed_job'
 

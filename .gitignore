@@ -8,6 +8,8 @@ tmp/**/*
 tmp/restart.txt
 tmp/
 config/mailserver_setting.rb
+config/main_menu_items.rb
+config/admin_menu_items.rb
 config/database.yml
 config/user_db.yml
 config/omniauth_settings.rb
