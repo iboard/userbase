@@ -1,9 +1,14 @@
 <%= content_tag :div, :id => "blog_id_#{blog_entry.id}", :class => 'blog_entry' do %>
   <div class='blog_ratings' >
-    <%= rating_links( blog_entry, current_user ) %>
-    <br/>
-    <%= t(:n_comments, :count => blog_entry.comments.count)%><br/>
-    <%= link_to t(:read), blog_entry %>
+	<% unless ratings_hidden? %>
+      <%= rating_links( blog_entry, current_user ) %>
+      <br/>
+    <% end %>
+
+    <% unless comments_hidden? %>
+      <%= t(:n_comments, :count => blog_entry.comments.count)%><br/>
+      <%= link_to t(:read), blog_entry %>
+    <% end %>
     <%# language_links(blog_entry) -%>
   </div>
   
