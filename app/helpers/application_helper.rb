@@ -25,7 +25,7 @@ module ApplicationHelper
     else
       menu_items = []
       menu_items  << { :label => t(:edit_static_pages), :url => static_pages_path } if current_user && current_user.role?(:admin)
-      menu_items  << { :label => t(:subscriptions), :url => user_subscriptions_path(current_user)} if current_user
+#      menu_items  << { :label => t(:subscriptions), :url => user_subscriptions_path(current_user)} if current_user
       menu_items  << { :label => t(:user_listing), :url => users_path } if current_user && can?( :read, User.new )
       menu_items  << { :label => t(:user), :url => user_settings_path(current_user) } if current_user && can?(:avatar, current_user)
       menu_items

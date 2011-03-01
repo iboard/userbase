@@ -5,7 +5,9 @@ module BlogHelper
     params[:blog_order] ||= 'updated_at'
     params[:blog_dir]   ||= 'desc'
     
-    ['created_at', 'updated_at', 'author', 'ratings_count','ratings_average', 'title' ].map { |column|
+    columns = ['created_at', 'updated_at', 'author', 'title' ]
+    columns += ['ratings_count', 'ratings_average'] unless ratings_hidden?
+    columns.map { |column|
       if column == params[:blog_order]
         (  "<b>"+
              link_to( t(column.to_sym), reverse_path ).html_safe+

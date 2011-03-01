@@ -1,33 +1,9 @@
 @media screen {
 
-	@font-face {
-		font-family: Delicious;
-		font-weight: 300;
-		src: url('/fonts/Delicious-Roman.otf');
-	}
 
-	@font-face {
-		font-weight: 500;
-		font-family: Delicious;
-		src: url('/fonts/Delicious-Bold.otf');
-	}
-
-	@font-face {
-		font-weight: 500;
-		font-style: italic;
-		font-family: Delicious;
-		src: url('/fonts/Delicious-BoldItalic.otf');
-	}
-
-	@font-face {
-		font-family: Delicious;
-		font-weight: 300;
-		font-style: italic;
-		src: url('/fonts/Delicious-Italic.otf');
-	}
 
   body {
-    font-family: Delicious, Verdana, Arial, Helvetica, sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     margin: 0px;
     padding: 0px;
     width: 1130px;
@@ -1457,35 +1433,9 @@
 */
 @media print {  
 	
-	@font-face {
-		font-family: Delicious;
-		font-weight: 300;
-		src: url('/fonts/Delicious-Roman.otf');
-	}
-
-	@font-face {
-		font-weight: 500;
-		font-family: Delicious;
-		src: url('/fonts/Delicious-Bold.otf');
-	}
-
-	@font-face {
-		font-weight: 500;
-		font-style: italic;
-		font-family: Delicious;
-		src: url('/fonts/Delicious-BoldItalic.otf');
-	}
-
-	@font-face {
-		font-family: Delicious;
-		font-weight: 300;
-		font-style: italic;
-		src: url('/fonts/Delicious-Italic.otf');
-	}	
-	
   body { 
 	  background-color: #fff; 
-	  font-family: Delicious, Verdana, Arial, Helvetica, sans-serif;
+	  font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: small;
   }  
   #page {  
