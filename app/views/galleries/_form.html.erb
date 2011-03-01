@@ -70,5 +70,6 @@
 
   <div class="actions">
     <%= f.submit %>
+    <%= button(link_to 'Destroy', @gallery, :confirm => 'Are you sure?', :method => :delete) unless @gallery.new_record? %>
   </div>
 <% end %>
