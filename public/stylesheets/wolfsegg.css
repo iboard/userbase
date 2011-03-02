@@ -1273,8 +1273,8 @@
     -webkit-border-radius: 5px;
   }
   .blog_body_preview {
-    margin-left: 130px;
-    width: 450px;
+/*    margin-left: 130px;
+    width: 450px; */
   }
   
   #overlay {
@@ -1332,9 +1332,9 @@
     
   .blog_entry_preview {
     float: left;
-    width: 100px;
+    width: 100px; 
     padding: 5px;
-    margin-right: 20px;
+/*    margin-right: 20px; */
   }
   .locale_img_translated {
     opacity: 1.0;
@@ -1673,7 +1673,7 @@
   
   .blog_body_preview {
     margin-left: 150px;
-    width: 450px;
+    width: 450px; 
   }
   
 }

@@ -12,7 +12,23 @@
     <%# language_links(blog_entry) -%>
   </div>
   
-  <%= content_tag :div, :class => 'blog_entry_preview' do%>
+  <div style="float:right; width: 680px;">
+    <em><small><%= t(:blog_entry_by, 
+            :type => t(blog_entry.class.to_s.downcase.to_sym), 
+            :user => blog_entry.user ? blog_entry.user.nickname : t(:anonymous), 
+            :date => distance_of_time_in_words_to_now(blog_entry.updated_at)
+          )
+    -%></em></small><br/><h3><%= link_to blog_entry.object_title, blog_entry %></h3> 
+    
+    <% if blog_entry.tag_list.any? %>
+     [ <%= tag_list(blog_entry.tag_list)%> ]
+    <% end %>
+    
+    <%= content_tag :div, :class => 'blog_body_preview' do %>
+      <%= sanitize(RedCloth.new(blog_entry.object_body.paragraphs[0]).to_html) if blog_entry.object_body %>
+    <% end %>
+  </div>
+  <%= content_tag :div, :class => 'blog_entry_preview' do %>
       <% if pict=blog_entry.pictures.first %>
         <%= link_to(image_tag(pict.asset.url(:thumb),:class=>'blog_image_preview'),blog_entry) %>
       <% else %>
@@ -48,20 +64,5 @@
       </small>
     <% end %> 
   <% end %>
-  <em><small><%= t(:blog_entry_by, 
-          :type => t(blog_entry.class.to_s.downcase.to_sym), 
-          :user => blog_entry.user ? blog_entry.user.nickname : t(:anonymous), 
-          :date => distance_of_time_in_words_to_now(blog_entry.updated_at)
-        )
-  -%></em></small><br/><h3><%= link_to blog_entry.object_title, blog_entry %></h3> 
-  
-  <% if blog_entry.tag_list.any? %>
-   [ <%= tag_list(blog_entry.tag_list)%> ]
-  <% end %>
-  
-  <%= content_tag :div, :class => 'blog_body_preview' do %>
-    <%= sanitize(RedCloth.new(blog_entry.object_body.paragraphs[0]).to_html) if blog_entry.object_body %>
-  <% end %>
-  
   <p style='clear: right;'></p>
 <% end %>
