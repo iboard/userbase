@@ -55,24 +55,28 @@
       <!--                    -->
       <!-- Posting's comments -->
       <!--                    -->  
-      <%= content_tag :div, :class => 'comments' do %>
-        <%= content_tag :div, :class => 'comments_count_and_links' do %>
-          {
-            <%=  t(:n_comments, :count => posting.comments.count) unless posting.comments.any? %>
-            <%=  link_to(t(:n_comments, :count => posting.comments.count),user_posting_comments_path(posting.user,posting)) if posting.comments.any? %>
-            <% unless current_page?(new_user_posting_comment_path(posting.user,posting)) || cannot?(:create, Comment.new) %>
-               | <%= link_to( t(:add_a_comment), new_user_posting_comment_path(posting.user,posting)+"#new_comment" ) %>
-            <% end %>
-          }
+      <% unless comments_hidden? %>
+        <%= content_tag :div, :class => 'comments' do %>
+          <%= content_tag :div, :class => 'comments_count_and_links' do %>
+            {
+              <%=  t(:n_comments, :count => posting.comments.count) unless posting.comments.any? %>
+              <%=  link_to(t(:n_comments, :count => posting.comments.count),user_posting_comments_path(posting.user,posting)) if posting.comments.any? %>
+              <% unless current_page?(new_user_posting_comment_path(posting.user,posting)) || cannot?(:create, Comment.new) %>
+                 | <%= link_to( t(:add_a_comment), new_user_posting_comment_path(posting.user,posting)+"#new_comment" ) %>
+              <% end %>
+            }
+          <% end %>
+          <%= render posting.comments if posting.comments.any? && !defined?(@postings)%>
         <% end %>
-        <%= render posting.comments if posting.comments.any? && !defined?(@postings)%>
       <% end %>
     
     
       <!-- SHOW RATINGS -->
-      <% if defined?(show_all) && show_all %>
-        <%= render :partial => '/ratings/item_ratings', :locals => { :rateable => posting }%>
-      <% end %>
+      <% unless ratings_hidden? %>
+        <% if defined?(show_all) && show_all %>
+          <%= render :partial => '/ratings/item_ratings', :locals => { :rateable => posting }%>
+        <% end %>
+	  <% end %>
     <% end %>
     <p style='clear: left;'><br/></p>  
   <% end %>

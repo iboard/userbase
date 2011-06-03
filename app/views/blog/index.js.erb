@@ -29,8 +29,9 @@ $('.load_more').before( '<div id="page<%= @blog_entries.current_page -%>" style=
                                 :blog_dir => params[:blog_dir]
                                )}')", :id => "load_more_link" )) -%>');
   <% end %>
-  $('#page<%= @blog_entries.current_page -%>').slideDown();
 <% else %>
   $('#load_more').html('<div id="load_more_link"><%= escape_javascript(t(:end_of_list)) -%></div>');
 <% end %>
+
+$('#page<%= @blog_entries.current_page -%>').slideDown();
 

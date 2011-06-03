@@ -42,7 +42,6 @@
         </div>
       <% end %>
     <% else %>
-      <span style='clear: both;'></span>
       <small>
         <% if episode.video_web_url =~ /youtube/ %>
            <%= inline_button(link_to_function(t(:play_youtube_video), 
@@ -58,27 +57,31 @@
 
 
   <!-- SHOW COMMENTS -->
-  <% if can? :read, episode %>
-    <!-- Comemnt -->
-    <%= content_tag :div, :class => 'comments' do %>
-      <%= content_tag :div, :class => 'comments_count_and_links' do %>
-        {
-          <%=  t(:n_comments, :count => episode.comments.count) unless episode.comments.any? %>
-          <%=  link_to(t(:n_comments, :count => episode.comments.count),user_episode_comments_path(episode.user,episode)) if episode.comments.any? %>
-          <% unless current_page?(new_user_episode_comment_path(episode.user,episode)) || cannot?(:create, Comment.new) %>
-             | <%= link_to( t(:add_a_comment), new_user_episode_comment_path(episode.user,episode)+"#new_comment" ) %>
-          <% end %>
-        }
+  <% unless comments_hidden? %>
+    <% if can? :read, episode %>
+      <!-- Comemnt -->
+      <%= content_tag :div, :class => 'comments' do %>
+        <%= content_tag :div, :class => 'comments_count_and_links' do %>
+          {
+            <%=  t(:n_comments, :count => episode.comments.count) unless episode.comments.any? %>
+            <%=  link_to(t(:n_comments, :count => episode.comments.count),user_episode_comments_path(episode.user,episode)) if episode.comments.any? %>
+            <% unless current_page?(new_user_episode_comment_path(episode.user,episode)) || cannot?(:create, Comment.new) %>
+               | <%= link_to( t(:add_a_comment), new_user_episode_comment_path(episode.user,episode)+"#new_comment" ) %>
+            <% end %>
+          }
+        <% end %>
+        <%= render episode.comments if episode.comments.any? && !defined?(@episodes) -%>
       <% end %>
-      <%= render episode.comments if episode.comments.any? && !defined?(@episodes) -%>
+    <% else %>
+      <%= t(:episode_not_accessible) %>
     <% end %>
-  <% else %>
-    <%= t(:episode_not_accessible) %>
   <% end %>
   
   <!-- SHOW RATINGS -->
-  <% if show_all && @episode %>
-    <%= render :partial => '/ratings/item_ratings', :locals =>  {:rateable => episode} %>
+  <% unless ratings_hidden? %>
+    <% if show_all && @episode %>
+      <%= render :partial => '/ratings/item_ratings', :locals =>  {:rateable => episode} %>
+    <% end %>
   <% end %>
 <% end %>
 <!-- /VIEWS/EPISODES/_episode.html.erb -->

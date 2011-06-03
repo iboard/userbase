@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_language
   before_filter :load_tags
   before_filter :load_archive_links
-  before_filter :browser_warning
+#  before_filter :browser_warning
   
   # Display a flash if CanCan doesn't allow access    
   rescue_from CanCan::AccessDenied do |exception|
@@ -99,16 +99,16 @@ class ApplicationController < ActionController::Base
     @archive_links = load
   end
   
-  # display a warning if someone is using MSIE
-  def browser_warning
-    return if request.fullpath.match(/^\/(\S+)preview/)
-    
-    if request.env['HTTP_USER_AGENT'] =~ /MSIE/
-      unless session[:browser_warning_displayed]
-        flash.now[:error] = t(:wrong_browser)
-        session[:browser_warning_displayed] = Time.now()
-      end
-    end
-  end
+ # # display a warning if someone is using MSIE
+ # def browser_warning
+ #   return if request.fullpath.match(/^\/(\S+)preview/)
+ #   
+ #   if request.env['HTTP_USER_AGENT'] =~ /MSIE/
+ #     unless session[:browser_warning_displayed]
+ #       flash.now[:error] = t(:wrong_browser)
+ #       session[:browser_warning_displayed] = Time.now()
+ #     end
+ #   end
+ # end
 
 end

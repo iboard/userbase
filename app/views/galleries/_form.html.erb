@@ -23,11 +23,12 @@
        <%= f.text_field :title, :size => 80 %>
    </div>
 
+<!--
    <div class="field">
      <%= f.label :locale, t(:language) %>
      <%= f.language_select :locale %>
    </div>
-
+-->
 
    <div class="field">
      <%= f.label :tag_list %>
@@ -69,5 +70,6 @@
 
   <div class="actions">
     <%= f.submit %>
+    <%= button(link_to 'Destroy', @gallery, :confirm => 'Are you sure?', :method => :delete) unless @gallery.new_record? %>
   </div>
 <% end %>

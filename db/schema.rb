@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 2010091219220000) do
+ActiveRecord::Schema.define(:version => 20110105202200) do
 
   create_table "assets", :force => true do |t|
     t.integer  "assetable_id"
@@ -86,11 +86,11 @@ ActiveRecord::Schema.define(:version => 2010091219220000) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "access_read_mask",   :default => 4
+    t.integer  "access_manage_mask", :default => 4
     t.string   "locale",             :default => "en"
     t.integer  "ratings_count",      :default => 0
     t.float    "ratings_average",    :default => 0.0
-    t.integer  "access_read_mask",   :default => 4
-    t.integer  "access_manage_mask", :default => 4
   end
 
   add_index "episodes", ["access_manage_mask"], :name => "index_episodes_on_access_manage_mask"

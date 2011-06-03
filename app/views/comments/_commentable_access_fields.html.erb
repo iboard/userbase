@@ -1,18 +1,20 @@
 <%= f.label :access_mask, t(:access_mask)   %>
 <% if can?( :mange, commentable ) || commentable.new_record?%>
-  <fieldset id="access_mask">  
+  <fieldset id="access_mask">
     <div class="field">
         <strong><%= t(:read) %></strong><br />
         <% User::ROLES.each do |role| %>
           <%= check_box_tag "#{commentable.class.to_s.downcase}[access_read_mask_flags][]", role, commentable.allow_role_to_read?(role) %>&nbsp;<%= role.to_s %>
         <% end %>
     </div>
+<!--
     <div class="field">
         <strong><%= t(:manage) %></strong><br />
         <% User::ROLES.each do |role| %>
         <%= check_box_tag "#{commentable.class.to_s.downcase}[access_manage_mask_flags][]", role, commentable.allow_role_to_manage?(role) %>&nbsp;<%= role.to_s %>
         <% end %>
     </div>
+-->
   </fieldset>
 <% else %>
   <fieldset id="access_mask">  
@@ -20,9 +22,11 @@
         <strong><%= t(:read) %></strong><br />
         <%= User::ROLES.reject {|r| !commentable.allow_role_to_read?(r) }.join(", ") %>
     </div>
+<!--
     <div class="field">
         <strong><%= t(:manage) %></strong><br />
         <%= User::ROLES.reject {|r| !commentable.allow_role_to_manage?(r) }.join(", ")  %>
     </div>
+-->
   </fieldset>
 <% end %>

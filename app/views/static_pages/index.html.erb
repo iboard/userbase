@@ -1,0 +1,7 @@
+<h1><%= title t(:edit_static_pages) %></h1>
+
+<ul>
+  	<% @files.each do |f| %>
+	  <li><%= link_to( f, edit_static_page_path( encode_filename(f)) ) %></li>
+	<% end %>
+</ul>

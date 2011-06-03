@@ -53,23 +53,26 @@
       <!--                    -->
       <!-- gallery's comments -->
       <!--                    -->  
-      <%= content_tag :div, :class => 'comments' do %>
-        <%= content_tag :div, :class => 'comments_count_and_links' do %>
-          {
-            <%=  t(:n_comments, :count => gallery.comments.count) unless gallery.comments.any? %>
-            <%=  link_to(t(:n_comments, :count => gallery.comments.count),user_gallery_comments_path(gallery.user,gallery)) if gallery.comments.any? %>
-            <% unless current_page?(new_user_gallery_comment_path(gallery.user,gallery)) || cannot?(:create, Comment.new) %>
-               | <%= link_to( t(:add_a_comment), new_user_gallery_comment_path(gallery.user,gallery)+"#new_comment" ) %>
-            <% end %>
-          }
+	  <% unless comments_hidden? %>
+        <%= content_tag :div, :class => 'comments' do %>
+          <%= content_tag :div, :class => 'comments_count_and_links' do %>
+            {
+              <%=  t(:n_comments, :count => gallery.comments.count) unless gallery.comments.any? %>
+              <%=  link_to(t(:n_comments, :count => gallery.comments.count),user_gallery_comments_path(gallery.user,gallery)) if gallery.comments.any? %>
+              <% unless current_page?(new_user_gallery_comment_path(gallery.user,gallery)) || cannot?(:create, Comment.new) %>
+                 | <%= link_to( t(:add_a_comment), new_user_gallery_comment_path(gallery.user,gallery)+"#new_comment" ) %>
+              <% end %>
+            }
+          <% end %>
+          <%= render gallery.comments if gallery.comments.any? && !defined?(@galleries)%>
         <% end %>
-        <%= render gallery.comments if gallery.comments.any? && !defined?(@galleries)%>
-      <% end %>
-    
+      <% end %>    
     
       <!-- SHOW RATINGS -->
-      <% if defined?(show_all) && show_all %>
-        <%= render :partial => '/ratings/item_ratings', :locals => { :rateable => gallery }%>
+	  <% unless ratings_hidden? %>
+        <% if defined?(show_all) && show_all %>
+          <%= render :partial => '/ratings/item_ratings', :locals => { :rateable => gallery }%>
+        <% end %>
       <% end %>
     <% end %>
     <p style='clear: left;'><br/></p>  

@@ -6,6 +6,7 @@ class PostingsController < ApplicationController
   load_and_authorize_resource :posting, :except => :preview
   
   after_filter :apply_user_tags, :only => [:create, :update]
+  before_filter :set_write_access_mask, :only => [:create, :update]
   
   # GET /postings
   # GET /postings.xml
@@ -121,6 +122,10 @@ class PostingsController < ApplicationController
     if @user && @posting
       @user.tag(@posting, :with => @posting.tag_list, :on => :tags)
     end
+  end
+  
+  def set_write_access_mask
+    params[:posting][:access_manage_mask_flags] = ["admin", "moderator"]
   end
 
 end

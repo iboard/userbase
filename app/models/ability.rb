@@ -34,17 +34,17 @@ class Ability
       end
 
       # Owner of a posting can manage this posting
-      can :manage, Posting do |mode,posting| 
+      can :manage, Posting do |posting| 
          posting && (posting.user == user || posting.allow_user_to_manage?(user))
       end
 
       # Owner of a episode can manage this episode
-      can :manage, Episode do |mode,episode| 
+      can :manage, Episode do |episode| 
          episode && (episode.user == user || episode.allow_user_to_manage?(user))
       end
 
       # Owner of a gallery can manage this gallery
-      can :manage, Gallery do |mode,gallery| 
+      can :manage, Gallery do |gallery| 
          gallery && (gallery.user == user || gallery.allow_user_to_manage?(user))
       end
       
@@ -69,7 +69,7 @@ class Ability
         end
       end
       
-      can :read, Comment do |mode, comment|
+      can :read, Comment do |comment|
         comment.nil? ||                               # new comments allowed
         (                                             # or
           comment && comment.commentable &&           # owner of comment or commentable
@@ -103,15 +103,15 @@ class Ability
         )
       end
          
-      can :manage, Posting do |mode,posting|
+      can :manage, Posting do |posting|
         posting && posting.allow_user_to_manage?(user)
       end
 
-      can :manage, Episode do |mode,episode|
+      can :manage, Episode do |episode|
         episode && episode.allow_user_to_manage?(user)
       end
             
-      can :manage, Gallery do |mode,gallery|
+      can :manage, Gallery do |gallery|
         gallery && gallery.allow_user_to_manage?(user)
       end
       

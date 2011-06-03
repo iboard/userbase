@@ -1,3 +1,16 @@
+<h3>Deutsch</h3>
+
+<p>Hallo <%= @resource.email %>!</p>
+
+<p>Dein Account wurde aufgrund von zu häufigen ungültigen Anmeldeversuchen gesperrt.</p>
+
+<p>Klicke auf den folgenden Link um deinen Account zu entsperren:</p>
+
+<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
+
+
+<h3>English</h3>
+
 <p>Hello <%= @resource.email %>!</p>
 
 <p>Your account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>

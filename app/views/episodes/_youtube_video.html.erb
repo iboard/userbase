@@ -1,7 +1,7 @@
 <%= RedCloth.new((@episode.description)).to_html.html_safe  %>
 
-<div style='margin-top: 50px; clear: right;'>
-  <object width="640" height="480"><param name="movie" value="<%= @episode.youtube_embed_url -%>?fs=1&amp;hl=en_US&amp;rel=0&amp;color1=0x2b405b&amp;color2=0x6b8ab6"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<%= @episode.youtube_embed_url -%>?fs=1&amp;hl=en_US&amp;rel=0&amp;color1=0x2b405b&amp;color2=0x6b8ab6" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="480"></embed></object>
+<div style='margin-top: 20px; width: 400px;'>
+  <object width="400" height="320"><param name="movie" value="<%= @episode.youtube_embed_url -%>?fs=1&amp;hl=en_US&amp;rel=0&amp;color1=0x2b405b&amp;color2=0x6b8ab6"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<%= @episode.youtube_embed_url -%>?fs=1&amp;hl=en_US&amp;rel=0&amp;color1=0x2b405b&amp;color2=0x6b8ab6" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="400" height="320"></embed></object>
 </div>
 <p>
   <%= button(link_to(t(:open_video_on_youtube),@episode.video_web_url )) %>
